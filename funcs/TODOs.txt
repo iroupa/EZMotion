@@ -1,0 +1,31 @@
+Em falta:
+1: create kinematic analysis func
+1: Document inverse dynamic analysis func
+1: Rever codigo inverse dynamics FCC dimensoes da Jacobiana
+2: Normalizar potencias
+3: Colocar opcao visualizar GRFs
+4: Colocar opcao visualizar musculos 
+5: Limpar func run_inverse_analysis
+5: tirar factor de escala do musculos para fora da análise ou inserir altura do sujeito para calcular automaticamente
+6: tirar rb_info de dentro do run_analysis
+7: limpar código comentado (compute moments_of_force, solve_eom)
+8: Colocar codigo no github
+
+Next steps:
+1: reduzir ficheiro de musculos
+2:Export lmm_rep and intersegmental_forces msk and ida analysis
+
+Future Steps:
+1: Colocar circulo para potencias e momentos
+2: run_analysis: dividir em vários ficheiros (kinematic_analysis, inverse_dynamics, msk analysis)
+
+Rever:
+Parameters:
+muscle_info         : dictionary
+                          muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model 
+			
+https://stackoverflow.com/questions/29832055/animated-subplots-using-matplotlib
+			
+https://stackoverflow.com/questions/16732379/stop-start-pause-in-python-matplotlib-animation
+						  
+https://stackoverflow.com/questions/16732379/stop-start-pause-in-python-matplotlib-animation

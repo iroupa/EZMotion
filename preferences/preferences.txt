@@ -1,0 +1,18 @@
+#Set panels backgroundcolour
+panel_backgroundcolour:(68,174,188)
+#Set sbSizers formatting preferences
+sbSizers_labels_font_size:12
+sbSizers_labels_font_family:70
+sbSizers_labels_font_style:90
+sbSizers_labels_font_type:92
+sbSizers_labels_color:(255,255,255)
+#Set static labels formatting preferences
+static_labels_font_size:11
+static_labels_font_family:70
+static_labels_font_style:90
+static_labels_font_type:90
+static_labels_color:(255,255,255)
+#Set inputs panel button formatting preferences
+button_background_color:(96,96,96)
+button_foreground_color:(255,255,255)
+button_font_size:11

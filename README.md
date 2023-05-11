@@ -4,12 +4,16 @@ EZMotion_2D is a pure-Python tool to perform kinematic and dynamic analysis of m
 
 ## How to use
 
-EZMotion_2D graphical user interface has two panels, Analysis and Visualization, that allow the user to selecte the input files required to perform a kinematic or dynamic analyis or to visualize the outputs of such analysis. 
+EZMotion_2D graphical user interface has two panels, Analysis and Visualization, that allow the user to select the input files required to perform a kinematic or dynamic analysis or to visualize the outputs of such analysis. 
 
 
-or information. 
-The Analysis panel allows to perform 
-Inverse Kinematic Analysis and Inverse or Forward Dynamic Analyis 
+The Analysis panel allows to perform the following analysis: <br> 
+i) Inverse Kinematic Analysis <br> 
+ii) Inverse Kinematic Analysis <br> 
+iii) Inverse Dynamic Analysis <br> 
+iv) Forward Dynamic Analysis <br> 
+
+and Inverse or Forward Dynamic Analyis 
 Forward
 Dynamic Analysis, iii) Inverse Dynamic Analysis, iv) Musculoskeletal Analysis and v) Visualization)
 that allow to perform a specific analysis or to visualize the outputs. Each panel is composed of distinct

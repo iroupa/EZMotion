@@ -6,7 +6,7 @@ EZMotion_2D is a pure-Python tool to perform kinematic and dynamic analysis of m
 
 EZMotion requires the following libraries:
 
-numpy (https://numpy.org/)  return 
+numpy (https://numpy.org/) <br>
 scipy (https://scipy.org/)
 wxpython (https://www.wxpython.org/)
 

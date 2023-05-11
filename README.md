@@ -7,6 +7,6 @@ EZMotion_2D is a pure-Python tool to perform kinematic and dynamic analysis of m
 
 
 # Input Files
-# Definition of the model (.mod)
-# Definition of the model (.mod)
-# Definition of the model (.mod)
+## Definition of the modeling file (.mod)
+## Definition of the initial state file (.q)
+## Definition of the input data file (.data)

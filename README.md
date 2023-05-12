@@ -18,13 +18,23 @@ EZMotion_2D has a graphical user interface with two panels, ***Analysis*** and *
 The ***Analysis*** panel allows to perform the following analysis: <br> 
 * #### Kinematic Analysis: Input Files:   <br>
   #### Modeling file (.mod): Topology of the model
-  #### Initial state file (.q) Initial generalized coordinates of the system
-  #### Input data file (.data) Labels associated to each driver of the system
-  #### Drives_Labels (.lbl) Data used to drive the model during the analysis
-    
-  
-* Inverse Dynamic Analysis <br> 
+  #### Initial state file (.q): Initial generalized coordinates of the multibody system
+  #### Input data file (.data): Labels associated to each driver of the multibody system
+  #### Drivers_Labels (.lbl): Data used to drive the model during the analysis
+      
 * Forward Dynamic Analysis <br> 
+#### Modeling_File (.mod): Topology of the model
+#### Initial state file (.q): Initial generalized coordinates of the multibody system
+#### Initial state file (.qp): Initial generalized velocities of the multibody system
+#### Force Files Folder: Path of the folder containing the force files to apply during the analysis
 
-To perform a *** Kinematic Analysis *** the following input files are required <br> 
+* Inverse Dynamic Analysis <br> 
+#### Modeling_File (.mod): Topology of the model
+#### Initial state file (.q): Initial generalized coordinates of the multibody system
+#### Initial state file (.qp): Initial generalized velocities of the multibody system
+#### Force Files Folder: Path of the folder containing the force files to apply during the analysis
+#### Input data file (.data): Labels associated to each driver of the multibody system
+#### Drivers_Labels (.lbl): Data used to drive the model during the analysis
+#### Muscles database (.msk): File containing the muscle parameters 
+
 

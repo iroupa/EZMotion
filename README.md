@@ -20,9 +20,7 @@ The ***Analysis*** panel allows to perform the following analysis: <br>
 * Inverse Dynamic Analysis <br> 
 * Forward Dynamic Analysis <br> 
 
-
-
-## Input Files
+To perform a *** Kinematic Analysis *** the following input files are required <br> 
 #### Definition of the modeling file (.mod)
 #### Definition of the initial state file (.q)
 #### Definition of the input data file (.data)

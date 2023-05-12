@@ -25,7 +25,7 @@ The ***Analysis*** panel has distinct sections that allows to: <br>
  * Select the input files: ***Input Files***
  * Define the parameters of the analysis: ***Analysis Parameters***, 
  * Select the output files folder: ***Export Files*** 
- * Obtain analysis feedback: ***Messages*** 
+ * Obtain analysis feedback: ***Messages***  <br> 
 
 
 

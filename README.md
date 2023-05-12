@@ -15,6 +15,7 @@ pandas (https://pandas.pydata.org/)
 
 EZMotion_2D has a graphical user interface with two panels, ***Analysis*** and ***Visualization***.  
 
+### ***Analysis*** panel
 The ***Analysis*** panel has distinct sections that allows to: <br>
  * Select the type of analysis: ***Analysis Type***
  * Select the input files folder: ***Input Files Folder***

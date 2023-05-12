@@ -17,6 +17,7 @@ EZMotion_2D has a graphical user interface with two panels, ***Analysis*** and *
 
 The ***Analysis*** panel has 'three' sections 
 
+![This is an image](/images/electrocat.png)
 
 allows to perform the following analysis: <br> <br> 
 

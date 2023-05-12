@@ -13,17 +13,11 @@ pandas (https://pandas.pydata.org/)
 <br>
 ## How to use
 
-EZMotion_2D has a graphical user interface with two panels, ***Analysis*** and ***Visualization***, that allow the user to select the input files required to perform a kinematic or dynamic analysis or to visualize the outputs of such analysis. 
+EZMotion_2D has a graphical user interface with two panels, ***Analysis*** and ***Visualization***.  
 
-The ***Analysis*** panel has 'three' sections 
+The ***Analysis*** panel has six sections and allows the user to select the input files required to perform the selected analysis. 
 
-![This is an image](/images/EZ_Motion_Analysis_Panel.png)
-
-allows to perform the following analysis: <br> <br> 
-
-
-
-
+![This is an image](/images/EZ_Motion_Analysis_Panel.png) <br> <br> 
 
    * ***Kinematic Analysis - Input Files:***  <br> 
      * Modeling file (.mod): Topology of the model<br> 

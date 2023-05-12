@@ -17,9 +17,7 @@ EZMotion_2D has a graphical user interface with two panels, ***Analysis*** and *
 
 The ***Analysis*** panel has 'three' sections 
 
-![plot](./directory_1/directory_2/.../directory_n/plot.png)
-![plot](C:\Documentos\Ivo\GitHub\EZMotion\images\EZ_Motion_Analysis_Panel.png)
-![This is an image](/images/EZ_Motion_Analysis_Panel.png
+![This is an image](/images/EZ_Motion_Analysis_Panel.png)
 
 allows to perform the following analysis: <br> <br> 
 

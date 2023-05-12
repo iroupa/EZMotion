@@ -17,7 +17,7 @@ EZMotion_2D has a graphical user interface with two panels, ***Analysis*** and *
 
 The ***Analysis*** panel has 'three' sections 
 
-![This is an image](/assets/EZ_Motion_Analysis_Panel.png
+![This is an image](/images/EZ_Motion_Analysis_Panel.png
 
 allows to perform the following analysis: <br> <br> 
 

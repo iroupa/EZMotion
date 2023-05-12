@@ -17,6 +17,7 @@ EZMotion_2D has a graphical user interface with two panels, ***Analysis*** and *
 
 The ***Analysis*** panel allows to perform the following analysis: <br> 
 * Kinematic Analysis  <br> 
+*      Input Files
 * Inverse Dynamic Analysis <br> 
 * Forward Dynamic Analysis <br> 
 

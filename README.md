@@ -17,10 +17,11 @@ EZMotion_2D has a graphical user interface with two panels, ***Analysis*** and *
 
 The ***Analysis*** panel allows to perform the following analysis: <br> 
 * #### Kinematic Analysis: Input Files:   <br>
-  #### Modeling file (.mod):
-  #### Initial state file (.q)
-  #### Input data file (.data)
-  #### Drives_Labels (.lbl)
+  #### Modeling file (.mod): Topology of the model
+  #### Initial state file (.q) Initial generalized coordinates of the system
+  #### Input data file (.data) Labels associated to each driver of the system
+  #### Drives_Labels (.lbl) Data used to drive the model during the analysis
+    
   
 * Inverse Dynamic Analysis <br> 
 * Forward Dynamic Analysis <br> 

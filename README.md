@@ -10,7 +10,7 @@ numpy (https://numpy.org/) <br>
 scipy (https://scipy.org/) <br>
 wxpython (https://www.wxpython.org/) <br>
 pandas (https://pandas.pydata.org/)
-
+<br>
 ## How to use
 
 EZMotion_2D has a graphical user interface with two panels, ***Analysis*** and ***Visualization***, that allow the user to select the input files required to perform a kinematic or dynamic analysis or to visualize the outputs of such analysis. 

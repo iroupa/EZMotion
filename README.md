@@ -16,19 +16,19 @@ pandas (https://pandas.pydata.org/)
 EZMotion_2D has a graphical user interface with two panels, ***Analysis*** and ***Visualization***, that allow the user to select the input files required to perform a kinematic or dynamic analysis or to visualize the outputs of such analysis. 
 
 The ***Analysis*** panel allows to perform the following analysis: <br> 
-***  Kinematic Analysis: Input Files: ***  <br> 
+***Kinematic Analysis - Input Files:***  <br> 
    Modeling file (.mod): Topology of the model
    Initial state file (.q): Initial generalized coordinates of the multibody system
    Input data file (.data): Labels associated to each driver of the multibody system
    Drivers_Labels (.lbl): Data used to drive the model during the analysis
       
-* Forward Dynamic Analysis <br> 
+***Forward Dynamic Analysis - Input Files:*** <br> 
  Modeling_File (.mod): Topology of the model
  Initial state file (.q): Initial generalized coordinates of the multibody system
  Initial state file (.qp): Initial generalized velocities of the multibody system
  Force Files Folder: Path of the folder containing the force files to apply during the analysis
 
-* Inverse Dynamic Analysis <br> 
+***Inverse Dynamic Analysis - Input Files:*** <br> 
  Modeling_File (.mod): Topology of the model
  Initial state file (.q): Initial generalized coordinates of the multibody system
  Initial state file (.qp): Initial generalized velocities of the multibody system

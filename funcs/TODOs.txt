@@ -1,18 +1,23 @@
-Em falta:
-2: Normalizar potencias
-3: Colocar opcao visualizar GRFs
-4: Colocar opcao visualizar musculos 
-5: tirar factor de escala do musculos para fora da análise ou inserir altura do sujeito para calcular automaticamente
-6: tirar rb_info de dentro do run_analysis
-7: limpar código comentado (compute moments_of_force, solve_eom)
+TODO:
+1: Remove muscle scaling factor from inside 'run_inverse_analysis' function 
+2: Insert option to visualize GRFs
+3: Insert option to visualize muscles
+4: clean-up commented scripts (compute moments_of_force, solve_eom)
+5: Normalizar powers outputs
+6: Update index of each field in each kinematic constraint equation 
+
+
+7: Comment compute_eom_constraints function
+8: Replace np.matrix (compute_ge_fm, compute_ge_bodies)
+9_: Document compute_joints_angles_fd function 
+10: check compute_joints_angles_fd problems
+11: check compute_lmt_and_vm function
 
 Next steps:
-1: reduzir ficheiro de musculos
-2:Export lmm_rep and intersegmental_forces msk and ida analysis
+1: Reduce reduzir ficheiro de musculos
+2: Export lmm_rep and intersegmental_forces msk and ida analysis
+3: Colocar circulo para potencias e momentos
 
-Future Steps:
-1: Colocar circulo para potencias e momentos
-2: run_analysis: dividir em vários ficheiros (kinematic_analysis, inverse_dynamics, msk analysis)
 
 Rever:
 Parameters:

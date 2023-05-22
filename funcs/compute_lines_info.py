@@ -15,13 +15,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 from assemble_C_matrix import assemble_C_matrix
 from read_model_loc_coords import read_model_loc_coords
+
 
 def compute_lines_info(fpath, q):
     """
@@ -61,6 +62,7 @@ def compute_lines_info(fpath, q):
             lines_info[body_number] = joint_coords
 
     return lines_info
+
 
 if __name__ == "__main__":
     import doctest

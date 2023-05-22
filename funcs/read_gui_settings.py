@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import csv
+
 
 def read_gui_settings(fpath):
     """
@@ -45,19 +46,16 @@ def read_gui_settings(fpath):
             if not row[0].startswith('#'):
                 label, value = row[0].split(':')
                 if len(value) > 3:
-                    value = value.replace('(','').replace(')','')
+                    value = value.replace('(', '').replace(')', '')
                     value = tuple(map(int, value.split(',')))
                     gui_setting_parameters[label] = value
                 else:
                     gui_setting_parameters[label] = int(value)
 
     return gui_setting_parameters
-     
+
+
 if __name__ == "__main__":
     import doctest
         
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE)
-    #
-    # read_gui_settings(r'C:\Do
-    # read_gui_settings(r'C:\Documentos\Ivo\PhD\Thesis\All_Chapters\Chapter_8_EZ_Motion_2D\preferences\preferences.txt')
-

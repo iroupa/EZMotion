@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
+
 
 def compute_axis_limits(xy_data, nRigidBodies, ax):
     """
@@ -45,10 +46,10 @@ def compute_axis_limits(xy_data, nRigidBodies, ax):
     negative_scaling_factor = 1.25
 
     if xy_data.ndim > 1:
-        axis_xlim  = [np.amin(xy_data[:, 0::4]),
-                      np.amax(xy_data[:, 0::4])]
-        axis_ylim  = [np.amin(xy_data[:, 1:nRigidBodies*4:4]),
-                      np.amax(xy_data[:, 1:nRigidBodies*4:4])]
+        axis_xlim = [np.amin(xy_data[:, 0::4]),
+                     np.amax(xy_data[:, 0::4])]
+        axis_ylim = [np.amin(xy_data[:, 1:nRigidBodies*4:4]),
+                     np.amax(xy_data[:, 1:nRigidBodies*4:4])]
     elif xy_data.ndim < 2:
         axis_xlim = [0, xy_data.shape[0]]
         axis_ylim = [np.amin(xy_data),
@@ -91,6 +92,7 @@ def compute_axis_limits(xy_data, nRigidBodies, ax):
             axis_ylim[1] = axis_ylim[1] * positive_scaling_factor
 
     return axis_xlim, axis_ylim
+
 
 if __name__ == "__main__":
     import doctest

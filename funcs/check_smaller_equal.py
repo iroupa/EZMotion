@@ -15,13 +15,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import wx
 import wx.xrc
+
 
 def check_smaller_equal(widget_1, widget_2):
     """
@@ -55,6 +56,7 @@ def check_smaller_equal(widget_1, widget_2):
         widget_2.SetBackgroundColour((255, 255, 255))
         widget_2.Refresh()
         return True
+
 
 if __name__ == "__main__":
     import doctest

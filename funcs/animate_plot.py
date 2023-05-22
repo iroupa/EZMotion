@@ -15,13 +15,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import os
-
 import matplotlib.pyplot as plt
 import numpy as np
 from getCMatrix import getCMatrix
@@ -381,6 +380,7 @@ def animate_test(i, model_title, data, markers, legend, right_segments, left_seg
         else:
             os.makedirs(plots_path)
             plt.savefig(plots_path + "\\" + "img_" + "{0:03d}".format(i) + ".TIFF", dpi=600)
+
 
 if __name__ == "__main__":
     pass

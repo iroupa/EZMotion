@@ -15,21 +15,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np 
 
+
 def compute_fmP(muscle_info, force):
     """
-	
+
     Function computes the muscle force components (CE or PE) for all the
-	force application points of the muscles
-	
-	
-	Parameters:
+    force application points of the muscles
+
+
+    Parameters:
     muscle_info        : dictionary
                          information about every muscle of the model
     force              : list 
@@ -62,14 +63,14 @@ def compute_fmP(muscle_info, force):
                 [x1, y1] = muscle_info[muscle_idx]['origin']['coords']
                 [x2, y2] = muscle_info[muscle_idx]['insertion']['coords']
             elif nb_vectors == 2:
-               if int(i) == 0:
-                   # Get the coordinates of the points
-                   [x1, y1] = muscle_info[muscle_idx]['origin']['coords']
-                   [x2, y2] = muscle_info[muscle_idx]['vp' + str(i + 1)]['coords']
-               elif int(i) == muscle_n_points - 1:
-                   # Get the coordinates of the points
-                   [x1, y1] = muscle_info[muscle_idx]['vp' + str(i)]['coords']
-                   [x2, y2] = muscle_info[muscle_idx]['insertion']['coords']
+                if int(i) == 0:
+                    # Get the coordinates of the points
+                    [x1, y1] = muscle_info[muscle_idx]['origin']['coords']
+                    [x2, y2] = muscle_info[muscle_idx]['vp' + str(i + 1)]['coords']
+                elif int(i) == muscle_n_points - 1:
+                    # Get the coordinates of the points
+                    [x1, y1] = muscle_info[muscle_idx]['vp' + str(i)]['coords']
+                    [x2, y2] = muscle_info[muscle_idx]['insertion']['coords']
             elif nb_vectors > 2:
                 if int(i) == 0:
                     # Get the coordinates of the points
@@ -99,7 +100,8 @@ def compute_fmP(muscle_info, force):
         fmP[muscle_idx] = fmP_inner_dic
 
     return fmP
-	
+
+
 if __name__ == "__main__":
     import doctest
         

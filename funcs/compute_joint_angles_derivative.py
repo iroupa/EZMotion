@@ -15,13 +15,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
 from scipy.interpolate import CubicSpline
+
 
 def compute_joint_angles_derivative(joint_angles, t0, tf, dt, der):
     """
@@ -55,12 +56,13 @@ def compute_joint_angles_derivative(joint_angles, t0, tf, dt, der):
         xs = np.arange(t0, tf + dt, dt)
 
     for _ in range(0, joint_angles.shape[1]):
-        y                   = joint_angles[:, _]
-        angle_spline_func   = CubicSpline(xs, y)
-        angular_velocity    = angle_spline_func(xs, der)
+        y = joint_angles[:, _]
+        angle_spline_func = CubicSpline(xs, y)
+        angular_velocity = angle_spline_func(xs, der)
         joint_angles_der_rep[:, _] = angular_velocity
 
     return joint_angles_der_rep
+
 
 if __name__ == "__main__":
     import doctest

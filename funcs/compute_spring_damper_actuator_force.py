@@ -22,7 +22,7 @@ __license__ 	= "Apache 2.0"
 
 import numpy as np
 
-from applyForce import applyForce
+from apply_force import applyForce
 from assemble_C_matrix import assemble_C_matrix
 
 

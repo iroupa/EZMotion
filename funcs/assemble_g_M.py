@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np 
+
 
 def assemble_g_M(nCoordinates, ge_bodies):
     """
@@ -46,7 +47,7 @@ def assemble_g_M(nCoordinates, ge_bodies):
     g_M = np.zeros((n_muscles, nCoordinates)) 
     
     # Go through every muscle 
-    for muscle_idx in range(0,len(ge_bodies.keys())):
+    for muscle_idx in range(0, len(ge_bodies.keys())):
         # Muscle name 
         # muscle_name = list(ge_bodies.keys())[m]
         muscle_name = muscle_idx

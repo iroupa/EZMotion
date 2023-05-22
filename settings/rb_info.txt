@@ -1,0 +1,8 @@
+# segment, body_number
+pelvis,3
+femur,8
+patella,8
+tibia,10,
+phalanx,12,
+midfoot,12,
+hindfoot,12

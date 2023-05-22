@@ -15,14 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import csv
 import os
-
 import numpy as np
 import pandas as pd
 
@@ -61,10 +60,11 @@ def compute_export_model_loc_coords(fpath, export_fpath):
                 model_segments_loc_coords[moving_body_1] = moving_body_1_loc_coords
             elif moving_body_1 in model_segments_loc_coords.keys():
                 loc_coords = str(model_segments_loc_coords[moving_body_1])
-                if str(moving_body_1_loc_coords).replace('[','').replace(']','') in loc_coords:
+                if str(moving_body_1_loc_coords).replace('[', '').replace(']', '') in loc_coords:
                     pass
                 else:
-                    model_segments_loc_coords[moving_body_1] = model_segments_loc_coords[moving_body_1] + moving_body_1_loc_coords
+                    model_segments_loc_coords[moving_body_1] = model_segments_loc_coords[moving_body_1] + \
+                                                               moving_body_1_loc_coords
 
             if moving_body_2 not in model_segments_loc_coords.keys():
                 model_segments_loc_coords[moving_body_2] = moving_body_2_loc_coords
@@ -87,14 +87,14 @@ def compute_export_model_loc_coords(fpath, export_fpath):
     for _ in range(0, len(model_segments_loc_coords.keys())):
         length = len(model_segments_loc_coords[_ + 1])
         if length < maxlength:
-            model_segments_loc_coords[_ + 1] = model_segments_loc_coords[_ + 1] + [0,0]
+            model_segments_loc_coords[_ + 1] = model_segments_loc_coords[_ + 1] + [0, 0]
 
     # Convert dictionary with the local variables of each segment of the model
     # to pandas dataframe
     data = pd.DataFrame.from_dict(model_segments_loc_coords).to_numpy()
 
     # Write the local variables of each segment into the output file
-    with open(os.path.join(export_fpath.replace('\Outputs',''), 'model_loc_coords.jt'), 'w', newline='') as f:
+    with open(os.path.join(export_fpath.replace('\Outputs', ''), 'model_loc_coords.jt'), 'w', newline='') as f:
         write = csv.writer(f)
         for _ in range(0, len(model_segments_loc_coords.keys())):
             data_to_export = []
@@ -104,6 +104,7 @@ def compute_export_model_loc_coords(fpath, export_fpath):
             write.writerow(data_to_export)
 
     return pd.DataFrame.from_dict(model_segments_loc_coords)
+
 
 if __name__ == "__main__":
     import doctest

@@ -15,36 +15,35 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 from assemble_C_matrix import assemble_C_matrix
-import numpy as np
-from typing import List
 
-def applyForce(force: np.ndarray, locCoords: List[float]) -> np.ndarray:
+
+def apply_force(force, locCoords):
     """
     Apply external force vector to generic body.
 
     Parameters:
+        force       :   numpy.array
+                        force vector components wrt to body center of mass
+        locCoords	:   list
+                        local coordinates of the application point of the applied force with respect to body 'i'
 
-    force    	:   numpy.array
-    				force vector components wrt to body center of mass 
-    locCoords	:   list
-    				local coordinates of the application point of the applied force with respect to body 'i'
-    
-	Returns: 
-    bodyforce   :   numpy.array
-					force applied to point 'p' of body 'i' with local coordinates
+    Returns:
+        bodyforce   :   numpy.array
+                        force applied to point 'p' of body 'i' with local coordinates
     """
 
     cMatrix = assemble_C_matrix(locCoords)
 
-    bodyforce = (cMatrix.T).dot(force)
+    bodyforce = cMatrix.T.dot(force)
 
     return bodyforce
+
 
 if __name__ == '__main__':
     import doctest	

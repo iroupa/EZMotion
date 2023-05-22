@@ -15,28 +15,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import wx
 import wx.xrc
 
+
 def check_non_negative(widget_input, msg):
     """
-	Function checks if widget input is negative.
+    Function checks if widget input is negative.
 
-	Parameters:
-	widget_input    :   int / float
-				        widget input
-	msg             :   str
-		                message to return in case the widget \string
-	
-	Returns:
+    Parameters:
+    widget_input    :   int / float
+                        widget input
+    msg             :   str
+                        message to return
+
+    Returns:
                     :   boolean
-	                    True if widget_input is empty or False is widget_input is not empty
-	"""
+                        True if widget_input is empty or False is widget_input is not empty
+    """
     res = True
 
     if float(widget_input) < 0:
@@ -45,7 +46,8 @@ def check_non_negative(widget_input, msg):
         raise
     else:
         return res
-		
+
+
 if __name__ == "__main__":
     import doctest
         

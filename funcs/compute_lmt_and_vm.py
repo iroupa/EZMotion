@@ -15,13 +15,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
-
 from assemble_C_matrix import assemble_C_matrix
 from change_of_basis import glob_2_loc
 from check_muscle_wrapping import check_muscle_wrapping
@@ -31,8 +30,8 @@ from compute_wrapping_points import compute_wrapping_points
 
 def compute_lmt_and_vm(muscle_info, q, qp, rb_info):
     """
-	Function computes the muscle length and velocity and updates the dictionary 
-	that contains the parameters of each muscle used in the biomechanical model.
+    Function computes the muscle length and velocity and updates the dictionary
+    that contains the parameters of each muscle used in the biomechanical model.
 
     Parameters:
     muscle_info          : dictionary 
@@ -48,9 +47,9 @@ def compute_lmt_and_vm(muscle_info, q, qp, rb_info):
 
     v_m					 : list
                            musculotendon length of every muscle of the model
-	
-	muscle_info:		 : dictionary
-						   Contains the muscle database
+
+    muscle_info:		 : dictionary
+                           Contains the muscle database
 
     """
     
@@ -168,10 +167,12 @@ def compute_lmt_and_vm(muscle_info, q, qp, rb_info):
             wrap_obstacle_n_body = rb_info[wrap_obstacle_body.lower()]
 
             # Get wrapping obstacle origin global coords # TODO corrigir coords locais para tornar generico
-            obstacle_origin_global_coords = assemble_C_matrix([0, -0.2121]).dot(q[4 * (wrap_obstacle_n_body - 1) : 4 * (wrap_obstacle_n_body - 1) + 4])
+            obstacle_origin_global_coords = assemble_C_matrix([0, -0.2121]).dot(q[4 * (wrap_obstacle_n_body - 1):
+                                                                                  4 * (wrap_obstacle_n_body - 1) + 4])
 
             # Get wrapping obstacle orientation vector
-            obstacle_orientation_vector      = q[4 * (wrap_obstacle_n_body - 1) + 2 : 4 * (wrap_obstacle_n_body - 1) + 4]
+            obstacle_orientation_vector = q[4 * (wrap_obstacle_n_body - 1) + 2:
+                                            4 * (wrap_obstacle_n_body - 1) + 4]
 
             # Get muscle wrapping point 0 label
             wrap_point_P_label = muscle_info[muscle_idx]['wrap_point_P']
@@ -183,7 +184,8 @@ def compute_lmt_and_vm(muscle_info, q, qp, rb_info):
             wrap_point_P_loc_coords = np.array(muscle_info[muscle_idx][wrap_point_P_label]['coords'])
 
             # Get muscle wrapping point 0 global coords
-            wrap_point_P_glob_coords = assemble_C_matrix(wrap_point_P_loc_coords).dot(q[4 * (wrap_point_P_n_body - 1):4 * (wrap_point_P_n_body - 1) + 4])
+            wrap_point_P_glob_coords = assemble_C_matrix(wrap_point_P_loc_coords).dot(q[4 * (wrap_point_P_n_body - 1):
+                                                                                        4 * (wrap_point_P_n_body - 1) + 4])
 
             # Get muscle wrapping point 1 label
             wrap_point_S_label = muscle_info[muscle_idx]['wrap_point_S']
@@ -195,7 +197,9 @@ def compute_lmt_and_vm(muscle_info, q, qp, rb_info):
             wrap_point_S_loc_coords = np.array(muscle_info[muscle_idx][wrap_point_S_label]['coords'])
 
             # Get muscle wrapping point 0 global coords
-            wrap_point_S_glob_coords = assemble_C_matrix(wrap_point_S_loc_coords).dot(q[4 * (wrap_point_S_n_body - 1):4 * (wrap_point_S_n_body - 1) + 4])
+            wrap_point_S_glob_coords = assemble_C_matrix(wrap_point_S_loc_coords).dot(q[
+                                                                                      4 * (wrap_point_S_n_body - 1):
+                                                                                      4 * (wrap_point_S_n_body - 1) + 4])
 
             # Get muscle wrapping point 0 local coords wrt to obstacle body
             wrap_point_P_obs_local_coords = glob_2_loc(wrap_point_P_glob_coords,
@@ -366,7 +370,8 @@ def compute_lmt_and_vm(muscle_info, q, qp, rb_info):
         l_mt.append(lmt)
             
     return l_mt, v_m, muscle_info
-	
+
+
 if __name__ == "__main__":
     import doctest
         

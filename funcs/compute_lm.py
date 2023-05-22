@@ -15,18 +15,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import math 
 
+
 def compute_lm(muscle_info, pennation_angle, l_mt):
     """
-	Function computes the length of each muscle fiber used in the biomechanical model.
-	
-	Parameters:
+    Function computes the length of each muscle fiber used in the biomechanical model.
+
+    Parameters:
     muscle_info       : dictionary
                         information about every muscle of the model
     pennation_angle   : list
@@ -51,7 +52,8 @@ def compute_lm(muscle_info, pennation_angle, l_mt):
         l_m.append((l_mt[muscle_idx] - lt)/(math.cos(pennation_angle[muscle_idx])))
 
     return l_m
-			
+
+
 if __name__ == "__main__":
     import doctest
         

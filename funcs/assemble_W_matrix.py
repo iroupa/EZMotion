@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
+
 
 def assemble_W_matrix(dataConst, dPhidq, trajectory_drivers_weight):
     """
@@ -31,7 +32,7 @@ def assemble_W_matrix(dataConst, dPhidq, trajectory_drivers_weight):
     dataConst                   :   list of floats
                                     local coordinates of arbitrary point 'P'
     dPhidq                      :   numpy.array
-                                    jacobian matrix  of the systrem
+                                    jacobian matrix  of the system
     trajectory_drivers_weight   :   float
                                 :   weight of each trajectory driver of the model
 
@@ -40,7 +41,7 @@ def assemble_W_matrix(dataConst, dPhidq, trajectory_drivers_weight):
                                     during the kinematic analysis
     """
 
-    # Get the type of all kinematic contraints of the model
+    # Get the type of all kinematic constraints of the model
     constraint_types = dataConst[:, 0]
 
     # Create weights matrix ('W')
@@ -62,6 +63,7 @@ def assemble_W_matrix(dataConst, dPhidq, trajectory_drivers_weight):
         W = np.diag(W)
 
     return W
+
 
 if __name__ == "__main__":
     import doctest

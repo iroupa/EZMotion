@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
+
 
 def compute_eom_constraints(x, generalized_forces_vector, dPhidq, massMatrix, qpp, nCoordinates, g_M_pe, g_M_ce):
     """
@@ -41,9 +42,11 @@ def compute_eom_constraints(x, generalized_forces_vector, dPhidq, massMatrix, qp
       nCoordinates              :   int
                                     number of generalized coordinates of the multibody system
       g_M_pe                    :   numpy.array
-                                    vector of generalized coordinates of the passive force of whole system for every muscle
+                                    vector of generalized coordinates of the passive force of whole system
+                                    for every muscle
       g_M_ce                    :   numpy.array
-                                    vector of generalized coordinates of the contractile force of whole system for every muscle
+                                    vector of generalized coordinates of the contractile force of whole
+                                    system for every muscle
 
       Returns:
       f_eq                      :   numpy.array
@@ -58,8 +61,8 @@ def compute_eom_constraints(x, generalized_forces_vector, dPhidq, massMatrix, qp
     dPhidq_chi = np.append(dPhidq.T, - g_M_ce.T, axis=1)
 
     f_eq = massMatrix.dot(qpp) + dPhidq_chi.dot(x) - generalized_forces_vector - g_PE
-    # print('f_eq', np.max(f_eq))
     return f_eq
+
 
 if __name__ == "__main__":
     import doctest

@@ -36,9 +36,7 @@ from compute_normalized_muscle_length import compute_norm_muscle_lengths
 from compute_q_coords_labels import compute_q_coords_labels
 from compute_spline_coords import compute_spline_coords
 from compute_splined_forces import compute_splined_forces
-from compute_splined_forces_coords import compute_splined_forces_coords
 from count_model_DoF import count_model_DoF
-from eval_kinematic_constraints import evaluate_kinematic_constraints
 from export_analysis_outputs import export_analysis_outputs
 from file2dataConst import file2dataConst
 from initialize_analysis_variables import initialize_analysis_variables
@@ -57,6 +55,8 @@ from update_G_vector import update_G_vector
 from assemble_W_matrix import assemble_W_matrix
 from inverse_dynamic_analysis import inverse_dynamic_analysis
 from inverse_kinematic_analysis import inverse_kinematic_analysis
+from read_model_rb_info import read_model_rb_info
+
 
 def run_inverse_analysis(analysis_type,
                          subject_bodymass,
@@ -78,15 +78,17 @@ def run_inverse_analysis(analysis_type,
 
     Parameters:
     analysis_type               :   str
-                                    type of analysos to perform (Kinematic, Inverse Dynamic, Musculoskeletal)
+                                    type of analysis to perform (Kinematic, Inverse Dynamic, Musculoskeletal)
     modeling_file_fpath         :   str
                                     absolute path of the modeling file of the multibody system
     model_data_fpath            :   str
                                     absolute path of the file containing the multibody system drives data
     model_state_fpath           :   str
-                                    absolute path of the file containing the generalized coodinates of the multibody system for the initial instant
+                                    absolute path of the file containing the generalized coodinates of the multibody
+                                    system for the initial instant
     model_force_files_fpath     :   str
-                                    absolute path of the folder containing the external forces files to apply during the analysis
+                                    absolute path of the folder containing the external forces files to apply during
+                                    the analysis
     muscle_db_fpath             :   str
                                     absolute path of the file containing the parameters of the muscles dataset
     model_outputs_folder        :   str
@@ -100,21 +102,16 @@ def run_inverse_analysis(analysis_type,
     widget                      :   wx.TextCtrl
                                     widget used to export analysis messages and errors
     mode                        :   string
-                                    flag to select how to use the current script, (gui - in EZMotion, script - standalone function)
+                                    flag to select how to use the current script, (gui - in EZMotion,
+                                    script - standalone function)
 
     Returns:
 
     """
 
-    # Dictionary with the number of the bodies to which the muscles are attached
-    rb_info = {'pelvis': 3,
-               'femur': 8,
-               'patella': 8,
-               'tibia': 10,
-               'phalanx': 12,
-               'midfoot': 12,
-               'hindfoot': 12
-               }
+    # Dictionary that matches the number of each model rigid body and the segment in the Horsman dataset
+    # to which each muscle is attached
+    rb_info = read_model_rb_info(r'.\settings\rb_info.txt')
 
     # Initialize modeling_file from '.txt' file
     modeling_file = file2dataConst(modeling_file_fpath)
@@ -154,9 +151,9 @@ def run_inverse_analysis(analysis_type,
             totalNumberConstraints += value * 2
 
     # Read experimental acquisition data
-    labData = read_model_input_data(model_data_fpath, filter_data='butter', fs = fs, fc = 8, order = 4)
+    labData = read_model_input_data(model_data_fpath, filter_data='butter', fs=fs, fc=8, order=4)
 
-    # COmpute experimental acquisition time data
+    # Compute experimental acquisition time data
     acq_time = labData.iloc[:, 0]
 
     # Set maximum admissible error for kinematic analysis
@@ -277,7 +274,7 @@ def run_inverse_analysis(analysis_type,
                                                                  gamma,
                                                                  W,
                                                                  widget,
-                                                                 mode='script')
+                                                                 mode)
 
         # Compute model joints angles and obtain respective labels
         joint_angles_header, joint_angles = compute_joints_angles_inverse(modeling_file, q[0:nRigidBodies * 4])
@@ -356,34 +353,34 @@ def run_inverse_analysis(analysis_type,
                                   sol['message'] + ' (Exit mode ' + str(sol['status']) + ' ) ' + '\n' +
                                   'Musculoskeletal Analysis: Frame ' + str(
                     frame) + ' : ' + ' Current function value: ' + str(sol['fun']) + '\n' +
-                                  'Musculoskeletal Analysis: Frame ' + str(frame) + ' : ' + ' Number of iterations: ' + str(
-                    sol['nit']) + '\n' +
+                                  'Musculoskeletal Analysis: Frame ' + str(frame) + ' : ' + ' Number of iterations: ' +
+                                  str(sol['nit']) + '\n' +
                                   'Musculoskeletal Analysis: Frame ' + str(
                     frame) + ' : ' + ' Number of function evaluations: ' + str(sol['nfev']) + '\n' +
                                   'Musculoskeletal Analysis: Frame ' + str(
                     frame) + ' : ' + ' Number of gradient evaluations: ' + str(sol['njev']) + '\n')
-            else:
+            elif mode == 'script':
                 print('Musculoskeletal Analysis: Frame ' + str(frame) + ' : ' +
-                                  sol['message'] + ' (Exit mode ' + str(sol['status']) + ' ) ' + '\n' +
-                                  'Musculoskeletal Analysis: Frame ' + str(
-                    frame) + ' : ' + ' Current function value: ' + str(sol['fun']) + '\n' +
-                                  'Musculoskeletal Analysis: Frame ' + str(frame) + ' : ' + ' Number of iterations: ' + str(
-                    sol['nit']) + '\n' +
-                                  'Musculoskeletal Analysis: Frame ' + str(
-                    frame) + ' : ' + ' Number of function evaluations: ' + str(sol['nfev']) + '\n' +
-                                  'Musculoskeletal Analysis: Frame ' + str(
-                    frame) + ' : ' + ' Number of gradient evaluations: ' + str(sol['njev']) + '\n')
+                      sol['message'] + ' (Exit mode ' + str(sol['status']) + ' ) ' + '\n' +
+                      'Musculoskeletal Analysis: Frame ' + str(frame) + ' : ' + ' Current function value: ' +
+                      str(sol['fun']) + '\n' +
+                      'Musculoskeletal Analysis: Frame ' + str(frame) + ' : ' + ' Number of iterations: ' +
+                      str(sol['nit']) + '\n' +
+                      'Musculoskeletal Analysis: Frame ' + str(frame) + ' : ' + ' Number of function evaluations: ' +
+                      str(sol['nfev']) + '\n' +
+                      'Musculoskeletal Analysis: Frame ' + str(frame) + ' : ' + ' Number of gradient evaluations: ' +
+                      str(sol['njev']) + '\n')
 
             # Reset the vector of generalized external forces
             generalized_forces_vector = np.zeros(nCoordinates)
 
-            # Update vector of external generalized forces with the vector of gravtational forces
+            # Update vector of external generalized forces with the vector of gravitational forces
             generalized_forces_vector = update_G_vector(generalized_forces_vector, gravitational_forces)
 
             # Update vector of muscle activations
             muscle_act = sol.x[totalNumberConstraints:]
 
-            # Update vector of initial estiamtes for the optimization problem
+            # Update vector of initial values for the optimization problem
             xo[totalNumberConstraints:] = muscle_act
 
             # Assign muscle activations of optimization problem to report variable
@@ -416,7 +413,7 @@ def run_inverse_analysis(analysis_type,
             if mode == 'gui':
                 # Write inverse dynamic analysis feedback to 'Messages' wxTextCtrl widget
                 widget.AppendText('Inverse Dynamic Analysis: Frame ' + str(frame) + ' terminated successfully. \n')
-            else:
+            elif mode == 'script':
                 print('Inverse Dynamic Analysis: Frame ' + str(frame) + ' terminated successfully. \n')
 
         # Update time
@@ -426,22 +423,27 @@ def run_inverse_analysis(analysis_type,
         # Write analysis feedback to 'Messages' wxTextCtrl widget
         if analysis_type.lower() == 'kinematic':
             widget.AppendText(
-                'Kinematic Analysis finished at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+                'Kinematic Analysis finished at ' +
+                str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
         elif analysis_type.lower() == 'inverse dynamic':
             widget.AppendText(
-                'Inverse Dynamic Analysis finished at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+                'Inverse Dynamic Analysis finished at ' +
+                str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
         elif analysis_type.lower() == 'musculoskeletal':
             widget.AppendText(
-                'Musculoskeletal Inverse Dynamic Analysis finished at ' + str(
-                    time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
-    else:
+                'Musculoskeletal Inverse Dynamic Analysis finished at ' +
+                str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+    elif mode == 'script':
         # Write analysis feedback to 'Messages' wxTextCtrl widget
         if analysis_type.lower() == 'kinematic':
-            print('Kinematic Analysis finished at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+            print('Kinematic Analysis finished at ' +
+                  str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
         elif analysis_type.lower() == 'inverse dynamic':
-            print('Inverse Dynamic Analysis finished at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+            print('Inverse Dynamic Analysis finished at ' +
+                  str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
         elif analysis_type.lower() == 'musculoskeletal':
-            print('Musculoskeletal Inverse Dynamic Analysis finished at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+            print('Musculoskeletal Inverse Dynamic Analysis finished at ' +
+                  str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
 
     # Create outputs folder
     if not os.path.isdir(model_outputs_folder):
@@ -501,10 +503,10 @@ def run_inverse_analysis(analysis_type,
             model_joints_angles=np.concatenate((frames_rep, time_rep, joint_angles_rep), axis=1),
             model_joints_ang_vel=np.concatenate((frames_rep, time_rep, joint_angles_vel_rep), axis=1),
             model_joints_ang_acc=np.concatenate((frames_rep, time_rep, joint_angles_acc_rep), axis=1),
-            model_joints_moments_of_force_header = ['# Frame', 'Time'] + joints_moments_of_force_header,
+            model_joints_moments_of_force_header=['# Frame', 'Time'] + joints_moments_of_force_header,
             model_joints_moments_of_force=np.concatenate((frames_rep, time_rep, moments_of_force_rep), axis=1),
             model_joints_powers_header=['# Frame', 'Time'] + joints_powers_header,
-            model_joints_powers = np.concatenate((frames_rep, time_rep, joint_powers_rep), axis=1),
+            model_joints_powers=np.concatenate((frames_rep, time_rep, joint_powers_rep), axis=1),
         )
 
     elif analysis_type.lower().strip() == 'musculoskeletal':
@@ -523,27 +525,28 @@ def run_inverse_analysis(analysis_type,
 
         # Export musculoskeletal analysis outputs
         export_analysis_outputs(
-            model_outputs_fpath                 =   os.path.join(model_outputs_folder, analysis_type.lower() + '_analysis_outputs.out'),
-            nRigidBodies                        =   nRigidBodies,
-            fs                                  =   fs,
-            model_q_header                      =   ['# Frame', 'Time'] + model_q_coords_header,
-            q_rep                               =   np.concatenate((frames_rep, time_rep, q_rep), axis=1),
-            qp_rep                              =   np.concatenate((frames_rep, time_rep, qp_rep), axis=1),
-            qpp_rep                             =   np.concatenate((frames_rep, time_rep, qpp_rep), axis=1),
-            model_joints_angles_header          =   ['# Frame', 'Time'] + joint_angles_header,
-            model_joints_angles                 =   np.concatenate((frames_rep, time_rep, joint_angles_rep), axis=1),
-            model_joints_ang_vel                =   np.concatenate((frames_rep, time_rep, joint_angles_vel_rep), axis=1),
-            model_joints_ang_acc                =   np.concatenate((frames_rep, time_rep, joint_angles_acc_rep), axis=1),
-            model_joints_moments_of_force_header=   ['# Frame', 'Time'] + joints_moments_of_force_header,
-            model_joints_moments_of_force       =   np.concatenate((frames_rep, time_rep, moments_of_force_rep), axis=1),
-            model_joints_powers_header          =   ['# Frame', 'Time'] + joints_powers_header,
-            model_joints_powers                 =   np.concatenate((frames_rep, time_rep, joint_powers_rep), axis=1),
-            model_muscles_header                =   ['# Frame', 'Time'] + model_muscles_header,
-            model_muscles_normalized_length     =   np.concatenate((frames_rep, time_rep, muscles_norm_length), axis=1),
-            model_muscle_activations            =   np.concatenate((frames_rep, time_rep, muscle_activations_rep), axis=1),
+            model_outputs_fpath=os.path.join(model_outputs_folder, analysis_type.lower() + '_analysis_outputs.out'),
+            nRigidBodies=nRigidBodies,
+            fs=fs,
+            model_q_header=['# Frame', 'Time'] + model_q_coords_header,
+            q_rep=np.concatenate((frames_rep, time_rep, q_rep), axis=1),
+            qp_rep=np.concatenate((frames_rep, time_rep, qp_rep), axis=1),
+            qpp_rep=np.concatenate((frames_rep, time_rep, qpp_rep), axis=1),
+            model_joints_angles_header=['# Frame', 'Time'] + joint_angles_header,
+            model_joints_angles=np.concatenate((frames_rep, time_rep, joint_angles_rep), axis=1),
+            model_joints_ang_vel=np.concatenate((frames_rep, time_rep, joint_angles_vel_rep), axis=1),
+            model_joints_ang_acc=np.concatenate((frames_rep, time_rep, joint_angles_acc_rep), axis=1),
+            model_joints_moments_of_force_header=['# Frame', 'Time'] + joints_moments_of_force_header,
+            model_joints_moments_of_force=np.concatenate((frames_rep, time_rep, moments_of_force_rep), axis=1),
+            model_joints_powers_header=['# Frame', 'Time'] + joints_powers_header,
+            model_joints_powers=np.concatenate((frames_rep, time_rep, joint_powers_rep), axis=1),
+            model_muscles_header=['# Frame', 'Time'] + model_muscles_header,
+            model_muscles_normalized_length=np.concatenate((frames_rep, time_rep, muscles_norm_length), axis=1),
+            model_muscle_activations=np.concatenate((frames_rep, time_rep, muscle_activations_rep), axis=1),
         )
 
     return os.path.join(model_outputs_folder, analysis_type.lower() + '_analysis_outputs.out')
+
 
 if __name__ == "__main__":
     import doctest

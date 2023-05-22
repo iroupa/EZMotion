@@ -99,7 +99,7 @@ def inverse_kinematic_analysis(frame,
         if mode == 'gui':
             widget.AppendText('Kinematic Analysis: ' + 'Frame: ' + str(frame) +
                               ', Iteration: ' + str(it) + ', Error: ' + str(np.format_float_scientific(erro, 3)) + '\n')
-        else:
+        elif mode == 'script':
             print('Kinematic Analysis: ' + 'Frame: ' + str(frame) +
                               ', Iteration: ' + str(it) + ', Error: ' + str(np.format_float_scientific(erro, 3)))
 

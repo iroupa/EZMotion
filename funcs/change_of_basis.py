@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
+
 
 def glob_2_loc(pointP, origin, vector):
     """
@@ -51,9 +52,10 @@ def glob_2_loc(pointP, origin, vector):
     basis = np.array([[norm_vector[0], perp_vector[0]],
                       [norm_vector[1], perp_vector[1]]])
 
-    local_coordinates = np.dot(basis.T,(pointP - origin))
+    local_coordinates = np.dot(basis.T, (pointP - origin))
 
     return local_coordinates
+
 
 if __name__ == "__main__":
     import doctest

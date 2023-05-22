@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
+
 
 def assemble_gravitational_forces(dataConst, inertial_parameters):
     """
@@ -39,7 +40,7 @@ def assemble_gravitational_forces(dataConst, inertial_parameters):
     """
 
     # Row Idx to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'
-    bodies_numbers_list = [int(x[2]) for x in dataConst if x[0]==1]
+    bodies_numbers_list = [int(x[2]) for x in dataConst if x[0] == 1]
 
     gravitational_forces = {}
 
@@ -47,6 +48,7 @@ def assemble_gravitational_forces(dataConst, inertial_parameters):
         gravitational_forces[body] = np.array([0, inertial_parameters[body]['Mass']*-9.81, 0, 0])
 
     return gravitational_forces
+
 
 if __name__ == "__main__":
     import doctest

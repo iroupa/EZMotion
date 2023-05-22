@@ -22,7 +22,7 @@ __license__ 	= "Apache 2.0"
 
 import numpy as np
 from scipy.interpolate import splev
-from applyForce import applyForce
+from apply_force import apply_force
 from change_of_basis import glob_2_loc
 from update_G_vector import update_G_vector
 

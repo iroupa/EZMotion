@@ -15,15 +15,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
 import pandas as pd
-
 from read_angular_driver_info import read_angular_driver_info
+
 
 def compute_joints_angles_inverse(dataConst, q):
     """
@@ -46,10 +46,10 @@ def compute_joints_angles_inverse(dataConst, q):
     ang_drivers_info = {}
     model_joint_angles_labels = []
 
-    constraints_type_idx = [2,3,4,5,12,13,14,15]
+    constraints_type_idx = [2, 3, 4, 5, 12, 13, 14, 15]
     for row in dataConst:
         for constraint_type in constraints_type_idx:
-             read_angular_driver_info(row, constraint_type, ang_drivers_info)
+            read_angular_driver_info(row, constraint_type, ang_drivers_info)
 
     joint_angles = {}
 
@@ -82,17 +82,8 @@ def compute_joints_angles_inverse(dataConst, q):
 
     return model_joint_angles_labels, joint_angles
 
+
 if __name__ == "__main__":
+    import doctest
 
-    # doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE)
-
-    from file2dataConst import file2dataConst
-
-    dataConst_fpath = r'C:\Documentos\Ivo\PhD\Thesis\All_Chapters\Chapter_8_EZ_Motion_2D\test_data_files\trial_0003_1passagem.tsv_FCC\Modeling_File.mod'
-    q_fpath = r'C:\Documentos\Ivo\PhD\Thesis\All_Chapters\Chapter_8_EZ_Motion_2D\test_data_files\trial_0003_1passagem.tsv_FCC\kinematic_analysis_outputs_teste.out'
-
-    dataConst = file2dataConst(dataConst_fpath)
-    q_rep = np.loadtxt(q_fpath, dtype='float', delimiter=',')
-
-    for _ in range(0, q_rep.shape[0]):
-        angles_labels, angles = compute_joint_angles_inverse(dataConst, q_rep[_])
+    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE)

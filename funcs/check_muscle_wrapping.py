@@ -15,15 +15,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
+
 
 def check_muscle_wrapping(P, S, r, direction):
     """
-	Function checks if muscle wrapping between two points occurs.
-	
+    Function checks if muscle wrapping between two points occurs.
+
     Parameters:
         P:          list
                     cartesian coordinates of the last muscle point before the obstacle
@@ -39,8 +40,8 @@ def check_muscle_wrapping(P, S, r, direction):
                     cartesian coordinates of the proximal contact point of the muscle before the obstacle
         T:          list
                     cartesian coordinates of the distal contact point of the muscle before the obstacle
-		wrapping:   boolean
-					True if wrapping occurs or False if wrapping does not occur
+        wrapping:   boolean
+                    True if wrapping occurs or False if wrapping does not occur
     """
 
     Px, Py = P[0], P[1]
@@ -51,12 +52,12 @@ def check_muscle_wrapping(P, S, r, direction):
     elif direction.lower() == 'ccw':
         r = -r
 
-    Qx =  (Px*r**2 + r*Py*(Px**2 + Py**2 - r**2)**0.5)/(Px**2 + Py**2)
-    Qy =  (Py*r**2 - r*Px*(Px**2 + Py**2 - r**2)**0.5)/(Px**2 + Py**2)
+    Qx = (Px*r**2 + r*Py*(Px**2 + Py**2 - r**2)**0.5)/(Px**2 + Py**2)
+    Qy = (Py*r**2 - r*Px*(Px**2 + Py**2 - r**2)**0.5)/(Px**2 + Py**2)
     Q = [Qx, Qy]
 
-    Tx =  (Sx*r**2 - r*Sy*(Sx**2 + Sy**2 - r**2)**0.5)/(Sx**2 + Sy**2)
-    Ty =  (Sy*r**2 + r*Sx*(Sx**2 + Sy**2 - r**2)**0.5)/(Sx**2 + Sy**2)
+    Tx = (Sx*r**2 - r*Sy*(Sx**2 + Sy**2 - r**2)**0.5)/(Sx**2 + Sy**2)
+    Ty = (Sy*r**2 + r*Sx*(Sx**2 + Sy**2 - r**2)**0.5)/(Sx**2 + Sy**2)
     T = [Tx, Ty]
 
     if r*(Qx*Ty - Qy*Tx) > 0:
@@ -66,7 +67,8 @@ def check_muscle_wrapping(P, S, r, direction):
 
     return Q, T, wrapping
 
+
 if __name__ == "__main__":
     import doctest
-	
+
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE)

@@ -15,16 +15,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np 
 
+
 def compute_ge_bodies(ge_fm):
     """
-	Function computes the vector of forces for every body of every muscle
+    Function computes the vector of forces for every body of every muscle
 
     Parameters:
     ge_fm           : dictionary 
@@ -53,7 +54,7 @@ def compute_ge_bodies(ge_fm):
             g_vectors = muscle[body]
             
             # Initialize g_body
-            g_body = np.matrix([[0],[0],[0],[0]])
+            g_body = np.matrix([[0], [0], [0], [0]])
              
             for i in range(0, len(g_vectors)):
                 g_aux = g_body + g_vectors[i]
@@ -64,8 +65,8 @@ def compute_ge_bodies(ge_fm):
         ge_bodies[muscle_name] = g_muscle
         
     return ge_bodies
-	
-		
+
+
 if __name__ == "__main__":
     import doctest
         

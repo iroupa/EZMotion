@@ -101,6 +101,8 @@ def run_inverse_analysis(analysis_type,
                                     analysis final time
     widget                      :   wx.TextCtrl
                                     widget used to export analysis messages and errors
+    mode                        :   string
+                                    flag to select how to use the current script, (gui - in EZMotion, script - standalone function)
 
     Returns:
 
@@ -362,6 +364,17 @@ def run_inverse_analysis(analysis_type,
                     frame) + ' : ' + ' Number of function evaluations: ' + str(sol['nfev']) + '\n' +
                                   'Musculoskeletal Analysis: Frame ' + str(
                     frame) + ' : ' + ' Number of gradient evaluations: ' + str(sol['njev']) + '\n')
+            else:
+                print('Musculoskeletal Analysis: Frame ' + str(frame) + ' : ' +
+                                  sol['message'] + ' (Exit mode ' + str(sol['status']) + ' ) ' + '\n' +
+                                  'Musculoskeletal Analysis: Frame ' + str(
+                    frame) + ' : ' + ' Current function value: ' + str(sol['fun']) + '\n' +
+                                  'Musculoskeletal Analysis: Frame ' + str(frame) + ' : ' + ' Number of iterations: ' + str(
+                    sol['nit']) + '\n' +
+                                  'Musculoskeletal Analysis: Frame ' + str(
+                    frame) + ' : ' + ' Number of function evaluations: ' + str(sol['nfev']) + '\n' +
+                                  'Musculoskeletal Analysis: Frame ' + str(
+                    frame) + ' : ' + ' Number of gradient evaluations: ' + str(sol['njev']) + '\n')
 
             # Reset the vector of generalized external forces
             generalized_forces_vector = np.zeros(nCoordinates)
@@ -405,6 +418,8 @@ def run_inverse_analysis(analysis_type,
             if mode == 'gui':
                 # Write inverse dynamic analysis feedback to 'Messages' wxTextCtrl widget
                 widget.AppendText('Inverse Dynamic Analysis: Frame ' + str(frame) + ' terminated successfully. \n')
+            else:
+                print('Inverse Dynamic Analysis: Frame ' + str(frame) + ' terminated successfully. \n')
 
         # Update time
         t = t + dt
@@ -421,6 +436,14 @@ def run_inverse_analysis(analysis_type,
             widget.AppendText(
                 'Musculoskeletal Inverse Dynamic Analysis finished at ' + str(
                     time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+    else:
+        # Write analysis feedback to 'Messages' wxTextCtrl widget
+        if analysis_type.lower() == 'kinematic':
+            print('Kinematic Analysis finished at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+        elif analysis_type.lower() == 'inverse dynamic':
+            print('Inverse Dynamic Analysis finished at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+        elif analysis_type.lower() == 'musculoskeletal':
+            print('Musculoskeletal Inverse Dynamic Analysis finished at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
 
     # Create outputs folder
     if not os.path.isdir(model_outputs_folder):

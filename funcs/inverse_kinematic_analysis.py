@@ -40,7 +40,7 @@ def inverse_kinematic_analysis(frame,
                                gamma,
                                W,
                                widget,
-                               mode='gui'):
+                               mode):
     """
 
     Function performs the inverse kinematic analysis of a multibody system.
@@ -78,6 +78,8 @@ def inverse_kinematic_analysis(frame,
                             weights matrix to be used during the kienamtci analysis
     widget              :   wx.TextBox
                             widget to print the kinematic analysis itertion and respective output
+    mode:               :   string
+                            flag to select how to use the current script, (gui - in EZMotion, script - standalone function)
 
     Returns:
     modelKinematics     :   dictionary
@@ -98,6 +100,9 @@ def inverse_kinematic_analysis(frame,
         if mode == 'gui':
             widget.AppendText('Kinematic Analysis: ' + 'Frame: ' + str(frame) +
                               ', Iteration: ' + str(it) + ', Error: ' + str(np.format_float_scientific(erro, 3)) + '\n')
+        else:
+            print('Kinematic Analysis: ' + 'Frame: ' + str(frame) +
+                              ', Iteration: ' + str(it) + ', Error: ' + str(np.format_float_scientific(erro, 3)))
 
         # Evaluate functions: const, Jacobian matrix and vectors niu and gamma
         modelKinematics = evaluate_kinematic_constraints(t,

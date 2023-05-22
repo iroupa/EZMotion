@@ -28,7 +28,7 @@ subject_bodymass    = 54 # kg
 
 # Path information
 input_folder        = r'C:\Documentos\Ivo\GitHub\EZMotion\data_files'
-model               = r'trial_0003_1passagem_MC'
+model               = r'trial_0003_1passagem_FCC'
 
 # Files absolute path
 modeling_file_fpath             = [os.path.join(input_folder, model, x) for x in os.listdir(os.path.join(input_folder, model)) if x.endswith('.mod')][0]
@@ -40,21 +40,21 @@ muscle_db_fpath                 = os.path.join(input_folder, model, r'muscle_att
 
 # Analysis options
 # kinematic / inverse dynamic / musculoskeletal
-analysis_type = 'musculoskeletal'
+analysis_type = 'kinematic'
 
-# Frequency during kinematic analysis
+# Frequency during analysis
 fs = 100
 
-# Time interval between consecutive frames during kinematic analysis
+# Time interval between consecutive frames during analysis
 dt = 1/fs
 
-# Kinematic Analysis initial time
+# Analysis initial time
 t0 = 0.74
 
-# Kinematic Analysis final time
+# Analysis final time
 tf = 0.94
 
-# Create widget
+# Create dummy widget
 widget = ''
 
 run_inverse_analysis(analysis_type,
@@ -72,3 +72,8 @@ run_inverse_analysis(analysis_type,
                      widget,
                      'script'
                      )
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE)

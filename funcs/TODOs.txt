@@ -1,14 +1,10 @@
 Em falta:
-1: Document inverse dynamic analysis func
-1: Rever codigo inverse dynamics FCC dimensoes da Jacobiana
 2: Normalizar potencias
 3: Colocar opcao visualizar GRFs
 4: Colocar opcao visualizar musculos 
-5: Limpar func run_inverse_analysis
 5: tirar factor de escala do musculos para fora da análise ou inserir altura do sujeito para calcular automaticamente
 6: tirar rb_info de dentro do run_analysis
 7: limpar código comentado (compute moments_of_force, solve_eom)
-8: Colocar codigo no github
 
 Next steps:
 1: reduzir ficheiro de musculos

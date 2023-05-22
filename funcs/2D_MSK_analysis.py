@@ -154,7 +154,7 @@ n_muscle_coordinates = 0
 
 for muscle in muscles_info.keys():
     nb_muscles = len(muscles_info.keys())
-    n_muscle_coordinates += 2*nb_muscles # TODO
+    n_muscle_coordinates += 2*nb_muscles
 
 # Drivers : Column Name Correspondence
 # Dictionary with dof number and respective column label in data file

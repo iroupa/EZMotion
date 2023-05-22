@@ -57,8 +57,6 @@ from update_G_vector import update_G_vector
 from assemble_W_matrix import assemble_W_matrix
 from inverse_dynamic_analysis import inverse_dynamic_analysis
 from inverse_kinematic_analysis import inverse_kinematic_analysis
-# from compute_moments_of_force_MC import compute_moments_of_force_MC
-# from get_trajectory_drivers_info import get_trajectory_drivers_info
 
 def run_inverse_analysis(analysis_type,
                          subject_bodymass,
@@ -525,27 +523,28 @@ def run_inverse_analysis(analysis_type,
 
         # Export musculoskeletal analysis outputs
         export_analysis_outputs(
-            model_outputs_fpath=os.path.join(model_outputs_folder, analysis_type.lower() + '_analysis_outputs.out'),
-            nRigidBodies=nRigidBodies,
-            fs=fs,
-            model_q_header=['# Frame', 'Time'] + model_q_coords_header,
-            q_rep=np.concatenate((frames_rep, time_rep, q_rep), axis=1),
-            qp_rep=np.concatenate((frames_rep, time_rep, qp_rep), axis=1),
-            qpp_rep=np.concatenate((frames_rep, time_rep, qpp_rep), axis=1),
-            model_joints_angles_header=['# Frame', 'Time'] + joint_angles_header,
-            model_joints_angles=np.concatenate((frames_rep, time_rep, joint_angles_rep), axis=1),
-            model_joints_ang_vel=np.concatenate((frames_rep, time_rep, joint_angles_vel_rep), axis=1),
-            model_joints_ang_acc=np.concatenate((frames_rep, time_rep, joint_angles_acc_rep), axis=1),
-            model_joints_moments_of_force_header=['# Frame', 'Time'] + joints_moments_of_force_header,
-            model_joints_moments_of_force=np.concatenate((frames_rep, time_rep, moments_of_force_rep), axis=1),
-            model_joints_powers_header = ['# Frame', 'Time'] + joints_powers_header,
-            model_joints_powers = np.concatenate((frames_rep, time_rep, joint_powers_rep), axis=1),
-            model_muscles_header=['# Frame', 'Time'] + model_muscles_header,
-            model_muscles_normalized_length = np.concatenate((frames_rep, time_rep, muscles_norm_length), axis=1),
-            model_muscle_activations=np.concatenate((frames_rep, time_rep, muscle_activations_rep), axis=1),
+            model_outputs_fpath                 =   os.path.join(model_outputs_folder, analysis_type.lower() + '_analysis_outputs.out'),
+            nRigidBodies                        =   nRigidBodies,
+            fs                                  =   fs,
+            model_q_header                      =   ['# Frame', 'Time'] + model_q_coords_header,
+            q_rep                               =   np.concatenate((frames_rep, time_rep, q_rep), axis=1),
+            qp_rep                              =   np.concatenate((frames_rep, time_rep, qp_rep), axis=1),
+            qpp_rep                             =   np.concatenate((frames_rep, time_rep, qpp_rep), axis=1),
+            model_joints_angles_header          =   ['# Frame', 'Time'] + joint_angles_header,
+            model_joints_angles                 =   np.concatenate((frames_rep, time_rep, joint_angles_rep), axis=1),
+            model_joints_ang_vel                =   np.concatenate((frames_rep, time_rep, joint_angles_vel_rep), axis=1),
+            model_joints_ang_acc                =   np.concatenate((frames_rep, time_rep, joint_angles_acc_rep), axis=1),
+            model_joints_moments_of_force_header=   ['# Frame', 'Time'] + joints_moments_of_force_header,
+            model_joints_moments_of_force       =   np.concatenate((frames_rep, time_rep, moments_of_force_rep), axis=1),
+            model_joints_powers_header          =   ['# Frame', 'Time'] + joints_powers_header,
+            model_joints_powers                 =   np.concatenate((frames_rep, time_rep, joint_powers_rep), axis=1),
+            model_muscles_header                =   ['# Frame', 'Time'] + model_muscles_header,
+            model_muscles_normalized_length     =   np.concatenate((frames_rep, time_rep, muscles_norm_length), axis=1),
+            model_muscle_activations            =   np.concatenate((frames_rep, time_rep, muscle_activations_rep), axis=1),
         )
 
     return os.path.join(model_outputs_folder, analysis_type.lower() + '_analysis_outputs.out')
+
 if __name__ == "__main__":
     import doctest
 

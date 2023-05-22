@@ -14,6 +14,7 @@ TODO:
 11: check compute_lmt_and_vm function
 12: change count_model_DoF name to count_model_DRiver
 13: Simplify mixed_dofs == [] expression in count_model_DoF 
+14: Remove nCoordinates from evaluate_cross_product_angular_driver function
 
 Next steps:
 1: Reduce reduzir ficheiro de musculos

@@ -72,6 +72,7 @@ def run_inverse_analysis(analysis_type,
                          fs,
                          t0,
                          tf,
+                         mode,
                          widget):
     """
 
@@ -275,7 +276,8 @@ def run_inverse_analysis(analysis_type,
                                                                  niu,
                                                                  gamma,
                                                                  W,
-                                                                 widget)
+                                                                 widget,
+                                                                 mode='script')
 
         # Compute model joints angles and obtain respective labels
         joint_angles_header, joint_angles = compute_joints_angles_inverse(modeling_file, q[0:nRigidBodies * 4])
@@ -349,17 +351,17 @@ def run_inverse_analysis(analysis_type,
                            constraints=con,
                            options={'maxiter': 500,
                                     'disp': False})
-
-            widget.AppendText('Musculoskeletal Analysis: Frame ' + str(frame) + ' : ' +
-                              sol['message'] + ' (Exit mode ' + str(sol['status']) + ' ) ' + '\n' +
-                              'Musculoskeletal Analysis: Frame ' + str(
-                frame) + ' : ' + ' Current function value: ' + str(sol['fun']) + '\n' +
-                              'Musculoskeletal Analysis: Frame ' + str(frame) + ' : ' + ' Number of iterations: ' + str(
-                sol['nit']) + '\n' +
-                              'Musculoskeletal Analysis: Frame ' + str(
-                frame) + ' : ' + ' Number of function evaluations: ' + str(sol['nfev']) + '\n' +
-                              'Musculoskeletal Analysis: Frame ' + str(
-                frame) + ' : ' + ' Number of gradient evaluations: ' + str(sol['njev']) + '\n')
+            if mode == 'gui':
+                widget.AppendText('Musculoskeletal Analysis: Frame ' + str(frame) + ' : ' +
+                                  sol['message'] + ' (Exit mode ' + str(sol['status']) + ' ) ' + '\n' +
+                                  'Musculoskeletal Analysis: Frame ' + str(
+                    frame) + ' : ' + ' Current function value: ' + str(sol['fun']) + '\n' +
+                                  'Musculoskeletal Analysis: Frame ' + str(frame) + ' : ' + ' Number of iterations: ' + str(
+                    sol['nit']) + '\n' +
+                                  'Musculoskeletal Analysis: Frame ' + str(
+                    frame) + ' : ' + ' Number of function evaluations: ' + str(sol['nfev']) + '\n' +
+                                  'Musculoskeletal Analysis: Frame ' + str(
+                    frame) + ' : ' + ' Number of gradient evaluations: ' + str(sol['njev']) + '\n')
 
             # Reset the vector of generalized external forces
             generalized_forces_vector = np.zeros(nCoordinates)
@@ -400,23 +402,25 @@ def run_inverse_analysis(analysis_type,
             # Update vector of external generalized forces with the vector of gravitational forces
             generalized_forces_vector = update_G_vector(generalized_forces_vector, gravitational_forces)
 
-            # Write inverse dynamic analysis feedback to 'Messages' wxTextCtrl widget
-            widget.AppendText('Inverse Dynamic Analysis: Frame ' + str(frame) + ' terminated successfully. \n')
+            if mode == 'gui':
+                # Write inverse dynamic analysis feedback to 'Messages' wxTextCtrl widget
+                widget.AppendText('Inverse Dynamic Analysis: Frame ' + str(frame) + ' terminated successfully. \n')
 
         # Update time
         t = t + dt
 
-    # Write analysis feedback to 'Messages' wxTextCtrl widget
-    if analysis_type.lower() == 'kinematic':
-        widget.AppendText(
-            'Kinematic Analysis finished at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
-    elif analysis_type.lower() == 'inverse dynamic':
-        widget.AppendText(
-            'Inverse Dynamic Analysis finished at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
-    elif analysis_type.lower() == 'musculoskeletal':
-        widget.AppendText(
-            'Musculoskeletal Inverse Dynamic Analysis finished at ' + str(
-                time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+    if mode == 'gui':
+        # Write analysis feedback to 'Messages' wxTextCtrl widget
+        if analysis_type.lower() == 'kinematic':
+            widget.AppendText(
+                'Kinematic Analysis finished at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+        elif analysis_type.lower() == 'inverse dynamic':
+            widget.AppendText(
+                'Inverse Dynamic Analysis finished at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+        elif analysis_type.lower() == 'musculoskeletal':
+            widget.AppendText(
+                'Musculoskeletal Inverse Dynamic Analysis finished at ' + str(
+                    time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
 
     # Create outputs folder
     if not os.path.isdir(model_outputs_folder):
@@ -436,6 +440,7 @@ def run_inverse_analysis(analysis_type,
 
     # Export analysis outputs
     if analysis_type.lower().strip() == 'kinematic':
+        print(os.path.join(model_outputs_folder, analysis_type.lower() + '_analysis_outputs.out'))
         # Export kinematic analysis outputs
         export_analysis_outputs(
             model_outputs_fpath=os.path.join(model_outputs_folder, analysis_type.lower() + '_analysis_outputs.out'),

@@ -39,7 +39,8 @@ def inverse_kinematic_analysis(frame,
                                niu,
                                gamma,
                                W,
-                               widget):
+                               widget,
+                               mode='gui'):
     """
 
     Function performs the inverse kinematic analysis of a multibody system.
@@ -94,8 +95,9 @@ def inverse_kinematic_analysis(frame,
 
     # Kinematic Analysis
     while erro >= erroMax:
-        widget.AppendText('Kinematic Analysis: ' + 'Frame: ' + str(frame) +
-                          ', Iteration: ' + str(it) + ', Error: ' + str(np.format_float_scientific(erro, 3)) + '\n')
+        if mode == 'gui':
+            widget.AppendText('Kinematic Analysis: ' + 'Frame: ' + str(frame) +
+                              ', Iteration: ' + str(it) + ', Error: ' + str(np.format_float_scientific(erro, 3)) + '\n')
 
         # Evaluate functions: const, Jacobian matrix and vectors niu and gamma
         modelKinematics = evaluate_kinematic_constraints(t,

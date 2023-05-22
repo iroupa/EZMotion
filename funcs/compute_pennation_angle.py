@@ -15,16 +15,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import math
 
+
 def compute_pennation_angle(muscle_info, l_mt):
     """
-	Function computes the pennation angle for each muscle of the biomechanical model.
+    Function computes the pennation angle for each muscle of the biomechanical model.
 
     Parameters:
     muscle_info       : dictionary
@@ -40,7 +41,7 @@ def compute_pennation_angle(muscle_info, l_mt):
     pennation_angle = []
 
     # Iterate through each muscle
-    for muscle_idx in range(0,len(muscle_info.keys())):
+    for muscle_idx in range(0, len(muscle_info.keys())):
 
         # Optimal fiber length
         lo = muscle_info[muscle_idx]['lm']
@@ -57,7 +58,8 @@ def compute_pennation_angle(muscle_info, l_mt):
         pennation_angle.append(math.atan(muscle_width/(l_mt[muscle_idx] - lt)))
 
     return pennation_angle
-		
+
+
 if __name__ == "__main__":
     import doctest
         

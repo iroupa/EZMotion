@@ -15,10 +15,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
+
 
 def compute_spline_knots_coeffs_degree(time, y, splineDegree=3):
     """
@@ -42,6 +43,7 @@ def compute_spline_knots_coeffs_degree(time, y, splineDegree=3):
 
     # Create cubic spline function for 'x' and 'y' values
     return splrep(time, y, s=0, k=splineDegree)
+
 
 if __name__ == "__main__":
     import doctest

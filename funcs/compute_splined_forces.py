@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 from compute_spline_knots_coeffs import compute_spline_knots_coeffs_degree
+
 
 def compute_splined_forces(time, y, splineDegree=3):
     """
@@ -28,18 +29,18 @@ def compute_splined_forces(time, y, splineDegree=3):
     Function computes the spline knots and coefficients of each force applied in the multibody system.
 
     Parameters:
-    time			:   numpy array
-                        original data time vector
-    y       	    :   dictionary
-                        nested dictionary with each segment number and respective force and local coords
-    splineDegree    :   int
-                        spline degree
+        time			:   numpy array
+                            original data time vector
+        y       	    :   dictionary
+                            nested dictionary with each segment number and respective force and local coords
+        splineDegree    :   int
+                            spline degree
 
     Returns:
-    force_dict    	:   dictionary
-                      body_number, force magnitude (Fx, Fy, Fz),
-                      mag: (t,c,k) - force B-spline coefficients
-                      coords: (t,c,k) - local coords B-spline coefficients
+        force_dict    	:   dictionary
+                            body_number, force magnitude (Fx, Fy, Fz),
+                            mag: (t,c,k) - force B-spline coefficients
+                            coords: (t,c,k) - local coords B-spline coefficients
     """
 
     force_dict = {}
@@ -48,6 +49,7 @@ def compute_splined_forces(time, y, splineDegree=3):
     for force, body in y.items():
         # Create key for each segment number  (bodyUpdate keys i
         force_dict[force] = {}
+
         # Create temporary dictionary to receive tck coefficients for each force component and local coords of each body
         tck_dict = {}
         for body, components in body.items():
@@ -64,7 +66,7 @@ def compute_splined_forces(time, y, splineDegree=3):
             tck_force_z = compute_spline_knots_coeffs_degree(time, force_z, splineDegree=splineDegree)
             tck_coords_x = compute_spline_knots_coeffs_degree(time, coord_x, splineDegree=splineDegree)
             tck_coords_z = compute_spline_knots_coeffs_degree(time, coord_z, splineDegree=splineDegree)
-            tck_coords_on_off = compute_spline_knots_coeffs_degree(time, on_off , splineDegree=splineDegree)
+            tck_coords_on_off = compute_spline_knots_coeffs_degree(time, on_off, splineDegree=splineDegree)
             component_info = {'coords_type': coords_type.lower(),
                               'on_off': on_off,
                               'time': time,
@@ -80,6 +82,7 @@ def compute_splined_forces(time, y, splineDegree=3):
         force_dict[force].update(tck_dict)
 
     return force_dict
+
 
 if __name__ == "__main__":
     import doctest

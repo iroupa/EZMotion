@@ -15,10 +15,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
+
 
 def det_crossed_joints(muscle_info):
     """
@@ -26,19 +27,19 @@ def det_crossed_joints(muscle_info):
     Function identifies the joints of the biomechanical model crossed by muscles.
 
     Parameters
-    muscle_info         :   dictionary
-                            muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model
+        muscle_info         :   dictionary
+                                muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model
 
     Return
-                        :   list os lists
-                            number of the bodies that define the joints crossed by muscles
+                            :   list os lists
+                                number of the bodies that define the joints crossed by muscles
     """
     crossed_joint = []
 
     # Update through all joints of the model (joints_info)
     for muscle_idx in range(0, len(muscle_info.keys())):
         muscle_bodies = []
-        muscle_via_points = [x for x in muscle_info[muscle_idx].keys() if x.startswith('vp') ]
+        muscle_via_points = [x for x in muscle_info[muscle_idx].keys() if x.startswith('vp')]
         origin_body = muscle_info[muscle_idx]['origin']['body']
         insertion_body = muscle_info[muscle_idx]['insertion']['body']
         muscle_bodies.append(origin_body)
@@ -53,6 +54,7 @@ def det_crossed_joints(muscle_info):
                 crossed_joint.append([muscle_bodies[_], muscle_bodies[_ + 1]])
 
     return [*map(list, {*map(tuple, crossed_joint)})]
+
 
 if __name__ == "__main__":
     import doctest

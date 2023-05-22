@@ -15,37 +15,38 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
 from scipy.interpolate import splev
-from apply_force import apply_force
 from change_of_basis import glob_2_loc
 from update_G_vector import update_G_vector
+from apply_force import apply_force
+
 
 def compute_splined_forces_coords(t, q, forceSplineFuncs, generalized_forces_vector):
     """
     Function compute new coordinates and forces and update the vector of generalized forces.
 
     Parameters:
-    t							:   float
-                                    new time instant
-    q							:   numpy.array
-                                    vector of generalized coordinates of the multibody system
-    forceSplineFuncs			:   dictionary
-                                    body_number, force magnitude (Fx, Fy, Fz),
-                                    mag: (t,c,k) - force B-spline coefficients
-                                    coords: (t,c,k) - local coords B-spline coefficients
-    generalized_forces_vector	:   numpy.array
-                                    vector of generalized forces of the multibody system
+        t							:   float
+                                        new time instant
+        q							:   numpy.array
+                                        vector of generalized coordinates of the multibody system
+        forceSplineFuncs			:   dictionary
+                                        body_number, force magnitude (Fx, Fy, Fz),
+                                        mag: (t,c,k) - force B-spline coefficients
+                                        coords: (t,c,k) - local coords B-spline coefficients
+        generalized_forces_vector	:   numpy.array
+                                        vector of generalized forces of the multibody system
 
     Returns:
-    generalized_forces_vector	:   numpy.array
-                                    updated vector of generalized forces of the multibody system
-    
+        generalized_forces_vector	:   numpy.array
+                                        updated vector of generalized forces of the multibody system
+
     """
 
     for force, body in forceSplineFuncs.items():
@@ -80,7 +81,7 @@ def compute_splined_forces_coords(t, q, forceSplineFuncs, generalized_forces_vec
         new_coords = np.hstack((new_coord_x, new_coord_z))
 
         if coordinates_type == 'locals':
-            generalized_force = {body: applyForce(new_force, new_coords)}
+            generalized_force = {body: apply_force(new_force, new_coords)}
             generalized_forces_vector = update_G_vector(generalized_forces_vector, generalized_force)
         # Change from global to local coordinates with respect to body local reference frame
         elif coordinates_type == 'globals':
@@ -88,10 +89,11 @@ def compute_splined_forces_coords(t, q, forceSplineFuncs, generalized_forces_vec
             origin = q[4 * (body - 1):4 * (body - 1) + 2]
             vector = q[4 * (body - 1) + 2:4 * (body - 1) + 4]
             new_coords = glob_2_loc(pointP, origin, vector)
-            generalized_force = {body: applyForce(new_force, new_coords)}
+            generalized_force = {body: apply_force(new_force, new_coords)}
             generalized_forces_vector = update_G_vector(generalized_forces_vector, generalized_force)
 
     return generalized_forces_vector
+
 
 if __name__ == "__main__":
     import doctest

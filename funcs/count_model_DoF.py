@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
+
 
 def count_model_DoF(x):
     """
@@ -29,26 +30,26 @@ def count_model_DoF(x):
     and the total number of degrees of freedom of the multibody system.
 
     Parameters:
-    x       : numpy array
-
+        x       :   numpy array
+                    column of modeling file containing the type of each
     Returns:
-            :dictionary
-            number of grounded, angular, trajectory, mixed and the total
-            number of degrees of freedom of the multibody system
+                :   dictionary
+                    number of grounded, angular, trajectory, mixed and the total
+                    number of degrees of freedom of the multibody system
 
     """
-    grounded_dofs   = 0
-    angular_dofs    = []
+    grounded_dofs = 0
+    angular_dofs = []
     trajectory_dofs = 0
-    mixed_dofs      = []
-    total_DoF       = 0
+    mixed_dofs = []
+    total_DoF = 0
 
     for row in x:
-        if row[0] in [3,5]:
+        if row[0] in [3, 5]:
             angular_dofs.append(row[13])
             grounded_dofs += 1
             total_DoF += 1
-        if row[0] in [2,4]:
+        if row[0] in [2, 4]:
             angular_dofs.append(row[13])
             total_DoF += 1
         elif row[0] in [6]:
@@ -63,11 +64,12 @@ def count_model_DoF(x):
     else:
         mixed_dofs = int(np.max(mixed_dofs))
 
-    return {'total_dofs'        : total_DoF,
-            'trajectory_dofs'   : trajectory_dofs,
-            'mixed_dofs'        : mixed_dofs,
-            'angular_dofs'      : list(set(angular_dofs))}
-		
+    return {'total_dofs': total_DoF,
+            'trajectory_dofs': trajectory_dofs,
+            'mixed_dofs': mixed_dofs,
+            'angular_dofs': list(set(angular_dofs))}
+
+
 if __name__ == "__main__":
     import doctest
         

@@ -221,7 +221,7 @@ def compute_lmt_and_vm(muscle_info, q, qp, rb_info):
                                                    0.03,
                                                    muscle_wrapping_direction)
 
-            if wrapping == False:
+            if not wrapping:
                 # Compute muscle length and velocity between muscle origin and first via point
                 # Get point 'm' (muscle origin)  loc coords from muscle info db
                 point_m = muscle_info[muscle_idx]['origin']['coords']
@@ -262,7 +262,7 @@ def compute_lmt_and_vm(muscle_info, q, qp, rb_info):
                 element_length.append(r_mn)
                 element_vel.append(rp_mn)
 
-            elif wrapping == True:
+            elif wrapping:
                 # Compute muscle length and velocity between muscle origin and first via point
                 # Get point 'm' (muscle origin)  loc coords from muscle info db
                 point_m = muscle_info[muscle_idx]['origin']['coords']
@@ -291,22 +291,26 @@ def compute_lmt_and_vm(muscle_info, q, qp, rb_info):
 
                 if QT_angle_RoM < 30:
                     nPoints = 15
-                elif QT_angle_RoM >= 30 and QT_angle_RoM < 60:
+                # elif 30 >= QT_angle_RoM >= 30 and QT_angle_RoM < 60:
+                elif 30 >= QT_angle_RoM < 60:
                     nPoints = 30
-                elif QT_angle_RoM >= 60 and QT_angle_RoM < 90:
+                # elif QT_angle_RoM >= 60 and QT_angle_RoM < 90:
+                elif 60 >= QT_angle_RoM < 90:
                     nPoints = 45
-                elif QT_angle_RoM >= 90 and QT_angle_RoM < 120:
+                # elif QT_angle_RoM >= 90 and QT_angle_RoM < 120:
+                elif 90 >= QT_angle_RoM < 120:
                     nPoints = 60
-                elif QT_angle_RoM >= 120 and QT_angle_RoM < 150:
+                # elif QT_angle_RoM >= 120 and QT_angle_RoM < 150:
+                elif 120 >= QT_angle_RoM < 150:
                     nPoints = 75
-                elif QT_angle_RoM >= 150 and QT_angle_RoM < 180:
+                # elif QT_angle_RoM >= 150 and QT_angle_RoM < 180:
+                elif 150 >= QT_angle_RoM < 180:
                     nPoints = 90
 
                 # Update muscle info dictionary with wrapping points info
                 wrapping_points_loc_coords = compute_wrapping_points(Q_angle, T_angle, muscle_wrapping_direction, nPoints)
 
-                wrapping_via_points_info = {'vp2':{'body': wrap_obstacle_n_body, 'coords': Q}
-                }
+                wrapping_via_points_info = {'vp2': {'body': wrap_obstacle_n_body, 'coords': Q}}
 
                 for _ in range(0, nPoints):
                     wrapping_via_points_info['vp' + str(_ + 3)] = {'body': wrap_obstacle_n_body, 'coords': wrapping_points_loc_coords[_]}
@@ -362,7 +366,7 @@ def compute_lmt_and_vm(muscle_info, q, qp, rb_info):
 
         lmt = 0
         vm = 0
-        for i in range(0,len(element_length)):
+        for i in range(0, len(element_length)):
             lmt += element_length[i]
             vm += element_vel[i]
         

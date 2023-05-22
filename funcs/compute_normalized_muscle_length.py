@@ -15,14 +15,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
-import pandas as pd
-
 from assemble_C_matrix import assemble_C_matrix
 
 
@@ -60,10 +58,10 @@ def compute_norm_muscle_lengths(model_q_data, muscles_info):
                 muscle_insertion_glob_coords = assemble_C_matrix(muscle_insertion_loc_coords).dot(
                     q[4 * (muscle_insertion_nbody - 1): 4 * (muscle_insertion_nbody - 1) + 4])
 
-                lm_opt      = muscles_info[muscle]['lm']
-                lt          = muscles_info[muscle]['lt']
-                lm_total    = np.linalg.norm(muscle_origin_glob_coords - muscle_insertion_glob_coords)
-                lm_norm     = (lm_total - lt)/lm_opt
+                lm_opt = muscles_info[muscle]['lm']
+                lt = muscles_info[muscle]['lt']
+                lm_total = np.linalg.norm(muscle_origin_glob_coords - muscle_insertion_glob_coords)
+                lm_norm = (lm_total - lt)/lm_opt
 
                 if muscle not in muscles_norm_length.keys():
                     muscles_norm_length[muscle] = {muscle_label: [lm_norm]}
@@ -106,13 +104,13 @@ def compute_norm_muscle_lengths(model_q_data, muscles_info):
                 elif muscle in muscles_norm_length.keys():
                     muscles_norm_length[muscle][muscle_label] = muscles_norm_length[muscle][muscle_label] + [lm_norm]
 
-    muscle_norm_length_data     = np.zeros((model_q_data.shape[0], len(muscles_norm_length.keys())))
-    muscle_norm_length_labels   = []
+    muscle_norm_length_data = np.zeros((model_q_data.shape[0], len(muscles_norm_length.keys())))
+    muscle_norm_length_labels = []
 
     for idx in sorted(muscles_norm_length.keys()):
         muscle_name = list(muscles_norm_length[idx].keys())[0]
         muscle_norm_length = muscles_norm_length[idx][muscle_name]
-        muscle_norm_length_data[:,idx] = muscle_norm_length
+        muscle_norm_length_data[:, idx] = muscle_norm_length
         muscle_norm_length_labels.append(muscle_name)
 
     return muscle_norm_length_labels, muscle_norm_length_data

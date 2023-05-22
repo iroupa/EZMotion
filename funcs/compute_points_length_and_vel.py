@@ -15,13 +15,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
-
 from assemble_C_matrix import assemble_C_matrix
 
 
@@ -31,21 +30,25 @@ def compute_points_length_and_velocity(point_m_coords, point_m_body, point_n_coo
     Function computes the length and velocity of each segment of each muscle of the biomechanical model.
 
     Parameters:
-    point_m_coords	: list
-                    local coordinates of point 'm' with respect to body 'm'
-    point_m_body	: int
-                    number of body 'm'
-    point_n_coords	: list
-                    local coordinates of point 'n' with respect to body 'm'
-    point_n_body	: int
-                    number of body 'n'
-    q				: numpy.array
-                    vector of generalized coordinates of multibody system
+        point_m_coords	:   list
+                            local coordinates of point 'm' with respect to body 'm'
+        point_m_body	:   int
+                            number of body 'm'
+        point_n_coords	:   list
+                            local coordinates of point 'n' with respect to body 'm'
+        point_n_body	:   int
+                            number of body 'n'
+        q				:   numpy.array
+                            vector of generalized coordinates of the multibody system
+        qp				:   numpy.array
+                            vector of generalized velocities of the multibody system
+
+
     Returns:
-    r_mn			: float
-                    length of each segment of each muscle of the biomechanical model.
-    rp_mn			: float
-                    contraction velocity of each segment of each muscle of the biomechanical model.
+        r_mn			: float
+                        length of each segment of each muscle of the biomechanical model.
+        rp_mn			: float
+                        contraction velocity of each segment of each muscle of the biomechanical model.
 
     """
 
@@ -72,10 +75,11 @@ def compute_points_length_and_velocity(point_m_coords, point_m_body, point_n_coo
     # Compute element length and append it to segment length and velocity
     r_mn = np.linalg.norm(r_m - r_n)
 
-    # Compute element velocity and appent it to segment length and velocity
-    rp_mn =  ((r_m - r_n).dot(rp_m - rp_n))/ np.linalg.norm(r_m - r_n)
+    # Compute element velocity and append it to segment length and velocity
+    rp_mn = ((r_m - r_n).dot(rp_m - rp_n)) / np.linalg.norm(r_m - r_n)
 
     return r_mn, rp_mn
+
 
 if __name__ == "__main__":
     import doctest

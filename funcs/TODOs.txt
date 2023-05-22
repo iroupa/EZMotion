@@ -12,6 +12,8 @@ TODO:
 9_: Document compute_joints_angles_fd function 
 10: check compute_joints_angles_fd problems
 11: check compute_lmt_and_vm function
+12: change count_model_DoF name to count_model_DRiver
+13: Simplify mixed_dofs == [] expression in count_model_DoF 
 
 Next steps:
 1: Reduce reduzir ficheiro de musculos

@@ -15,33 +15,35 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= 'Copyright (C) 2023 Ivo Roupa'
-__email__ 		= 'iroupa@gmail.com'
-__license__ 	= 'Apache 2.0'
+__author__ = 'Ivo_Roupa'
+__copyright__ = 'Copyright (C) 2023 Ivo Roupa'
+__email__ = 'iroupa@gmail.com'
+__license__ = 'Apache 2.0'
 
 import numpy as np
 import pandas as pd
 from read_angular_driver_info import read_angular_driver_info
+
 
 def compute_moments_of_force(dataConst, q, lmm, weight):
     """
     Function computes the net moment of force for each revolute joint of the model.
 
     Parameters:
-	dataConst				: numpy.array 
-							multidimensional numpy array containing the information regading the modeling of the multibody system  
-	q						: numpy.array
-							vector of generalized coordinates of the multibody system
-	lmm						: numpy.array
-							vector of lagrange multipliers of the multibody system
-	weight					: float
-							subject weight
+        dataConst				:   numpy.array
+                                    multidimensional numpy array containing the information regarding the modeling
+                                    of the multibody system
+        q						:   numpy.array
+                                    vector of generalized coordinates of the multibody system
+        lmm						:   numpy.array
+                                    vector of lagrange multipliers of the multibody system
+        weight					:   float
+                                    subject weight
     Returns:
-	net_moments_of_force	: numpy.array
-							vector of normalized net moments of force for each revolute joint of the model.
+        net_moments_of_force	:   numpy.array
+                                    vector of normalized net moments of force for each revolute joint of the model.
     
-	"""
+    """
 
     ang_drivers_info = {}
 
@@ -96,7 +98,7 @@ def compute_moments_of_force(dataConst, q, lmm, weight):
 
     return net_moments_of_force
 
-		
+
 if __name__ == "__main__":
     import doctest
         

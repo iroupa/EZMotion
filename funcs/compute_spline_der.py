@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 from scipy.interpolate import splder
+
 
 def compute_cubic_spline_derivative(func, derOrder=1):
     """
@@ -28,17 +29,18 @@ def compute_cubic_spline_derivative(func, derOrder=1):
     Function computes the derivative of the input spline.
 
     Parameters:
-    func        :   tuple
-                    spline function to derive
-    derOrder    :   tuple
-                    function derivative order
+        func        :   tuple
+                        spline function to derive
+        derOrder    :   tuple
+                        function derivative order
 
     Returns:
-    result   :  tuple
-                Spline of order k2=k-n representing the derivative of the input spline.
+        result   :  tuple
+                    Spline of order k2=k-n representing the derivative of the input spline.
     """
 
     return splder(func, n=derOrder)
+
 
 if __name__ == "__main__":
     import doctest

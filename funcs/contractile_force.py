@@ -15,10 +15,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
+
 
 def compute_contractile_element(muscle_info, fl_component, fv_component, mode):
     """
@@ -41,7 +42,7 @@ def compute_contractile_element(muscle_info, fl_component, fv_component, mode):
     f_ce = []
     
     # Go through every muscle
-    for muscle_idx in range(0,len(muscle_info.keys())):
+    for muscle_idx in range(0, len(muscle_info.keys())):
         # maximum isometric force
         fo = muscle_info[muscle_idx]['fo']
 
@@ -59,7 +60,8 @@ def compute_contractile_element(muscle_info, fl_component, fv_component, mode):
         f_ce.append(f_ce_muscle)
     
     return f_ce
-			
+
+
 if __name__ == "__main__":
     import doctest
         

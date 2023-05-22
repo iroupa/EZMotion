@@ -28,17 +28,19 @@ subject_bodymass    = 54 # kg
 
 # Path information
 input_folder        = r'C:\Documentos\Ivo\GitHub\EZMotion\data_files'
-model               = r'trial_0003_1passagem_FCC'
+model               = r'trial_0003_1passagem_MC'
 
 # Files absolute path
-modeling_file_fpath         = [os.path.join(input_folder, model, x) for x in os.listdir(os.path.join(input_folder, model)) if x.endswith('.mod')][0]
-model_data_fpath            = [os.path.join(input_folder, model, x) for x in os.listdir(os.path.join(input_folder, model)) if x.endswith('.data')][0]
-model_drivers_labels_fpath  = [os.path.join(input_folder, model, x) for x in os.listdir(os.path.join(input_folder, model)) if x.endswith('.lbl')][0]
-model_state_fpath           = [os.path.join(input_folder, model, x) for x in os.listdir(os.path.join(input_folder, model)) if x.endswith('.q')][0]
-model_force_files_fpath     = [os.path.join(input_folder, model, x) for x in os.listdir(os.path.join(input_folder, model)) if x.endswith('.f')]#[0]
-muscle_db_fpath             = os.path.join(input_folder, model, r'muscle_attachments_original_local_coords_pelvis_corrected_simple.msk')
+modeling_file_fpath             = [os.path.join(input_folder, model, x) for x in os.listdir(os.path.join(input_folder, model)) if x.endswith('.mod')][0]
+model_data_fpath                = [os.path.join(input_folder, model, x) for x in os.listdir(os.path.join(input_folder, model)) if x.endswith('.data')][0]
+model_drivers_labels_fpath      = [os.path.join(input_folder, model, x) for x in os.listdir(os.path.join(input_folder, model)) if x.endswith('.lbl')][0]
+model_state_fpath               = [os.path.join(input_folder, model, x) for x in os.listdir(os.path.join(input_folder, model)) if x.endswith('.q')][0]
+model_force_files_folder_path   = os.path.join(input_folder, model)
+muscle_db_fpath                 = os.path.join(input_folder, model, r'muscle_attachments_original_local_coords_pelvis_corrected_simple.msk')
 
-analysis_type = 'dynamic'
+# Analysis options
+# kinematic / inverse dynamic / musculoskeletal
+analysis_type = 'musculoskeletal'
 
 # Frequency during kinematic analysis
 fs = 100
@@ -50,7 +52,7 @@ dt = 1/fs
 t0 = 0.74
 
 # Kinematic Analysis final time
-tf = 1.82
+tf = 0.94
 
 # Create widget
 widget = ''
@@ -61,9 +63,9 @@ run_inverse_analysis(analysis_type,
                      model_data_fpath,
                      model_state_fpath,
                      model_drivers_labels_fpath,
-                     model_force_files_fpath,
+                     model_force_files_folder_path,
                      muscle_db_fpath,
-                     input_folder,
+                     os.path.join(input_folder, model),
                      fs,
                      t0,
                      tf,

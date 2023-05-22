@@ -21,8 +21,8 @@ __email__ 		= "iroupa@gmail.com"
 __license__ 	= "Apache 2.0"
 
 import numpy as np
-from compute_joints_angles_inverse import compute_joints_angles_inverse
 from eval_kinematic_constraints import evaluate_kinematic_constraints
+from compute_joints_angles_inverse import compute_joints_angles_inverse
 
 def inverse_kinematic_analysis(frame,
                                t,
@@ -45,51 +45,50 @@ def inverse_kinematic_analysis(frame,
 
     Function performs the inverse kinematic analysis of a multibody system.
 
-    Parameters :
-    frame               :   int
-                            current frame of the kinematic analysis
-    t                   :   float
-                            time instant of the analysis
-    q                   :   numpy.array
-                            vector of generalized coordinates of the multibody system
-    qp                  :   numpy.array
-                            vector of generalized velocities of the multibody system
-    erroMax             :   float
-                            maximum admissible error for the Newton-Raphson method during the kinematic analysis
-    nRigidBodies        :   int
-                            number of rigid bodies of the multibody system
-    nCoordinates        :   int
-                            number of generalized coordinates of the multibody system
-    nConstraintsByType  :   int
-                            total number of kinematic constraints of the modeling file
-    modeling_file       :   numpy.array
-                            modeling file of the multibody system
-    Phi                 :   numpy.array
-                            vector of kinematic constraints of the multibdy system
-    dPhidq              :   numpy.array
-                            jacobian matrix of the kinematic constraints of the multibody system
-    niu                 :   numpy.array
-                            right hand side vector of the velocities constraint equations of the multibody system
-    gamma               :   numpy.array
-                            right hand side vector of the accelerations constraint equations of the multibody system
-    dataSplineFuncs     :   dictionary
-                            knots, coefficients and spline order of input spline and respective first and second spline derivative
-    W                   :   numpy.array
-                            weights matrix to be used during the kienamtci analysis
-    widget              :   wx.TextBox
-                            widget to print the kinematic analysis itertion and respective output
-    mode:               :   string
-                            flag to select how to use the current script, (gui - in EZMotion, script - standalone function)
-
+    Parameters:
+        frame               :   int
+                                current frame of the kinematic analysis
+        t                   :   float
+                                time instant of the analysis
+        erroMax             :   float
+                                maximum admissible error for the Newton-Raphson method during the kinematic analysis
+        nRigidBodies        :   int
+                                number of rigid bodies of the multibody system
+        nCoordinates        :   int
+                                number of generalized coordinates of the multibody system
+        nConstraintsByType  :   int
+                                total number of kinematic constraints of the modeling file
+        modeling_file       :   numpy.array
+                                modeling file of the multibody system
+        q                   :   numpy.array
+                                vector of generalized coordinates of the multibody system
+        qp                  :   numpy.array
+                                vector of generalized velocities of the multibody system
+        dataSplineFuncs     :   dictionary
+                                knots, coefficients and spline order of input spline and respective first and second spline derivative
+        Phi                 :   numpy.array
+                                vector of kinematic constraints of the multibdy system
+        dPhidq              :   numpy.array
+                                jacobian matrix of the kinematic constraints of the multibody system
+        niu                 :   numpy.array
+                                right hand side vector of the velocities constraint equations of the multibody system
+        gamma               :   numpy.array
+                                right hand side vector of the accelerations constraint equations of the multibody system
+        W                   :   numpy.array
+                                weights matrix to be used during the kienamtci analysis
+        widget              :   wx.TextBox
+                                widget to print the kinematic analysis itertion and respective output
+        mode:               :   string
+                                flag to select how to use the current script, (gui - in EZMotion, script - standalone function)
     Returns:
-    modelKinematics     :   dictionary
-                            Phi, dPhidq, niu and gamma vectors
-    q                   :   numpy.array
-                            vector of consistent generalized coordinates of the multibody system
-    qp                  :   numpy.array
-                            vector of consistent generalized velocities of the multibody system
-    qpp                 :   numpy.array
-                            vector of consistent generalized accelerations of the multibody system
+        modelKinematics     :   dictionary
+                                Phi, dPhidq, niu and gamma vectors
+        q                   :   numpy.array
+                                vector of consistent generalized coordinates of the multibody system
+        qp                  :   numpy.array
+                                vector of consistent generalized velocities of the multibody system
+        qpp                 :   numpy.array
+                                vector of consistent generalized accelerations of the multibody system
     """
 
     erro = erroMax

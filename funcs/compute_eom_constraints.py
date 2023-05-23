@@ -45,22 +45,29 @@ def compute_eom_constraints(x, generalized_forces_vector, dPhidq, massMatrix, qp
                                         vector of generalized coordinates of the passive force of whole system
                                         for every muscle
           g_M_ce                    :   numpy.array
-                                        vector of generalized coordinates of the contractile force of whole
-                                        system for every muscle
+                                        vector of generalized coordinates of the contractile force of every muscle
+                                        of the multibody system
 
       Returns:
           f_eq                      :   numpy.array
                                         equation of motion in the homogeneous form.
 
-      """
+    """
 
+    # Create numpy array to store all passive forces
     g_PE = np.zeros(nCoordinates)
+
+    # Iterate through the vector of generalized coordinates of the passive force of each muscle of the multibody system
     for g_pe in g_M_pe:
         g_PE += g_pe
 
+    # Construct the augmented Jacobian matrix
     dPhidq_chi = np.append(dPhidq.T, - g_M_ce.T, axis=1)
 
+    # Compute the equation of motion in the homogeneous form
     f_eq = massMatrix.dot(qpp) + dPhidq_chi.dot(x) - generalized_forces_vector - g_PE
+
+    # Return the equation of motion in the homogeneous form
     return f_eq
 
 

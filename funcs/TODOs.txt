@@ -9,32 +9,34 @@ TODO:
 
 To correct
 
-1: check compute_lmt_and_vm function
-2: check_non_negative docstring
-3: document pad_data_2_filter
-4: Comment compute_eom_constraints function
-5: Replace np.matrix (compute_ge_fm, compute_ge_bodies)
-6: check compute_joints_angles_fd problems
-7: change count_model_DoF name to count_model_Driver
-8: Remove nCoordinates from evaluate_cross_product_angular_driver function
-9: document evaluate_kinematic_constraints docstring func 
+6: check compute_joints_angles_fd problems phi key 
+21: review kinematic constraints equation eval revolute_translation_joint
 10: review docstring of all kinematic constraints equations
+
+1: check compute_lmt_and_vm function
+5: Replace np.matrix (compute_ge_fm, compute_ge_bodies)
 11: document compute_force_velocity_component muscle type in docstring
-12: document initializeDataConst function in docstring
 13: document optimizer script in  docstring
-14: document compute_joints_angles_fd in docstring
 15: clean optimizer script comments
 16: document compute_passive_element in  docstring
 17: check read_DoFs labels change to drivers
-18: read_model_q except too broad
-19: clean and document solve_equations_of_motion script
-20: clean and document update_data_const 
-21: review kinematic constraints equation eval revolute_translation_joint
 
+18: read_model_q except too broad
+7: change count_model_DoF name to count_model_Driver
+8: Remove nCoordinates from evaluate_cross_product_angular_driver function
+22: check erro for msk analysis
 
 Corrected
+2: check_non_negative docstring
+3: document pad_data_2_filter
+4: Comment compute_eom_constraints function
+9: document evaluate_kinematic_constraints docstring func 
 9_: Insert comments on compute_joints_angles_fd function 
+12: document initializeDataConst function in docstring
 13: Simplify mixed_dofs == [] expression in count_model_DoF 
+14: document compute_joints_angles_fd in docstring
+19: clean and document solve_equations_of_motion script
+20: clean and document update_data_const 
 26: check_smaller_equal docstring
 
 

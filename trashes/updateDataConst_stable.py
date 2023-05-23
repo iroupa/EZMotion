@@ -20,8 +20,6 @@ __copyright__ = "Copyright (C) 2023 Ivo Roupa"
 __email__ = "iroupa@gmail.com"
 __license__ = "Apache 2.0"
 
-from scipy.interpolate import splev
-
 
 def updateDataConst(time, dataConst, func, nConstrainByType, dofType):
     """
@@ -47,7 +45,8 @@ def updateDataConst(time, dataConst, func, nConstrainByType, dofType):
 
     """
 
-    # Check for angular driver (dofType == 0)
+    from scipy.interpolate import splev
+
     if int(dofType) == 0:
         dof = int(dataConst[nConstrainByType, 13])
 
@@ -65,7 +64,6 @@ def updateDataConst(time, dataConst, func, nConstrainByType, dofType):
             dataConst[nConstrainByType, 12] = splev(time, func[dof]['splAcc'], der=0)
         return dataConst
 
-    # Check for linear driver (dofType == 1)
     elif int(dofType) == 1:
 
         # 'X' component
@@ -95,6 +93,76 @@ def updateDataConst(time, dataConst, func, nConstrainByType, dofType):
         return dataConst
     else:
         raise
+
+#
+# def updateDataConst2(time, dataConst, func, nConstrainByType, dofType, nRigidBodies, q):
+#     """
+#     Update dataConst every iteration
+#
+#     Parameters:
+#     time                :   float64
+#                             Time instant at which each driver and respective derivatives will be evaluated
+#     dataConst           :   numpy.ndarray
+#                             Numpy array to be updated
+#     func                :   dictionary
+#                             Dictionary with each driver name and respective knots, coefficients and spline order
+#                             for spline data and first and second spline derivatives
+#     nConstrainByType    :   int
+#                             number of constraint by type
+#     dofType			    :   int
+#                             type of degree of freedom (0 - angular | 1 - trajectory)
+#
+#     Returns:
+#     dataConst           :   numpy.ndarray
+#                             Updated dataConst after each iteration
+#     """
+#
+#     from scipy.interpolate import splev
+#
+#     if int(dofType) == 0:
+#         dof = int(dataConst[nConstrainByType,13])
+#
+#         if dof!=0:
+#             # Calculate new position value, based on spline interpolation, and update respective dataConst row and col
+#             dataConst[nConstrainByType,10] = splev(time, func[dof]['splPos'], der=0)
+#             # Calculate new velocity value, based on spline interpolation, and update respective dataConst row and col
+#             dataConst[nConstrainByType,11] = splev(time, func[dof]['splVel'], der=0)
+#             # Calculate new acceleration value, based on spline interpolation, and update respective dataConst row and col
+#             dataConst[nConstrainByType,12] = splev(time, func[dof]['splAcc'], der=0)
+#         return dataConst
+#
+#     elif int(dofType) == 1:
+#
+#         # 'X' component
+#         dof = int(dataConst[nConstrainByType, 3])
+#
+#         # Calculate new position value, based on spline interpolation, and update respective dataConst row and col
+#         dataConst[nConstrainByType, 7] = splev(time, func[dof]['splPos'],der=0)
+#         # Calculate new velocity value, based on spline interpolation, and update respective dataConst row and col
+#         dataConst[nConstrainByType, 9] = splev(time, func[dof]['splVel'],der=0)
+#         # Calculate new acceleration value, based on spline interpolation, and update respective dataConst row and col
+#         dataConst[nConstrainByType, 11] = splev(time, func[dof]['splAcc'],der=0)
+#
+#         # 'Y' component
+#         dof = int(dataConst[nConstrainByType, 4])
+#
+#         # Calculate new position value, based on spline interpolation, and update respective dataConst row and col
+#         dataConst[nConstrainByType, 8] = splev(time, func[dof]['splPos'], der=0)
+#         # Calculate new velocity value, based on spline interpolation, and update respective dataConst row and col
+#         dataConst[nConstrainByType, 10] = splev(time, func[dof]['splVel'], der=0)
+#         # Calculate new acceleration value, based on spline interpolation, and update respective dataConst row and col
+#         dataConst[nConstrainByType, 12] = splev(time, func[dof]['splAcc'], der=0)
+#
+#         return dataConst
+#     elif int(dofType) == 2:
+#         dof = int(dataConst[nConstrainByType, 13])
+#
+#         idx = nRigidBodies * 4 + dof - 1
+#
+#         dataConst[nConstrainByType, 10] = q[idx]
+#         return dataConst
+#     else:
+#         raise
 
 
 if __name__ == "__main__":

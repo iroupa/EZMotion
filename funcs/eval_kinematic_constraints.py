@@ -67,7 +67,9 @@ def evaluate_kinematic_constraints(t, nRigidBodies, nCoordinates, nConstraintByT
                                 right hand side velocity equations vector
         gamma               :   numpy.ndarray
                                 right hand side acceleration equations vector
-        func                :
+        func                :   dictionary
+                                knots, coefficients and spline order of input spline and respective
+                                first and second spline derivative
 
     Returns:
                             :   dictionary

@@ -41,13 +41,21 @@ def check_non_negative(widget_input, msg):
 
     """
 
+    # Initialize the result variable as True
     res = True
 
+    # Check if the widget input is less than 0
     if float(widget_input) < 0:
+        # Display an error message box
         wx.MessageBox(msg, 'Error',
                       wx.OK | wx.ICON_ERROR)
+
+        # Raise an exception to indicate the error
         raise
+
     else:
+
+        # Return the result variable (True) if the input is non-negative
         return res
 
 

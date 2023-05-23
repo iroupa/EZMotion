@@ -37,11 +37,14 @@ def initializeDataConst(nConstraintsByType):
                             :   numpy.ndarray
                             
     """
+
+    # Create an empty row with placeholder values for each constraint line
     dataConstEmptyRow = np.array([[0], [0], [0], [0], [0], [0], [0], [0], [0], [0], [0], [0], [0], [0]])
 
-    # Structure example for each constraint line in dataConst
+    # Create the dataConst array by repeating the empty row for each constraint
     dataConst = np.array([dataConstEmptyRow for _ in range(nConstraintsByType)])
 
+    # Return dataConst
     return dataConst
 
 

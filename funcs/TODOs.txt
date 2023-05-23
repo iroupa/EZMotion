@@ -10,21 +10,21 @@ TODO:
 To correct
 
 1: check compute_joints_angles_fd problems phi key 
-2: review kinematic constraints equation eval revolute_translation_joint
-3: review docstring of all kinematic constraints equations
+2: review docstring of all kinematic constraints equations
 
-4: check compute_lmt_and_vm function
-5: Replace np.matrix (compute_ge_fm, compute_ge_bodies)
-6: document compute_force_velocity_component muscle type in docstring
-7: document optimizer script in  docstring
-9: document compute_passive_element in  docstring
-11: check erro for msk analysis
-8: clean optimizer script comments
+3: check compute_lmt_and_vm function
+4: Replace np.matrix (compute_ge_fm, compute_ge_bodies)
+5: document compute_force_velocity_component muscle type in docstring
+6: document optimizer script in  docstring
+7: document compute_passive_element in  docstring
+8: check erro for msk analysis
+9: clean optimizer script comments
 
 12: read_model_q except too broad
 13: change count_model_DoF name to count_model_Driver
 10: check read_DoFs labels change to drivers
 14: Remove nCoordinates from evaluate_cross_product_angular_driver function
+2: review kinematic constraints equation eval revolute_translation_joint
 
 Corrected
 2: check_non_negative docstring

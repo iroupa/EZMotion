@@ -94,18 +94,8 @@ def solve_equations_of_motion(y0, t, nRigidBodies, massMatrix, nCoordinates, nCo
     qp = y0[int(nCoordinates):]
 
     # Evaluate kinematic constraints
-    modelKinematics = evaluate_kinematic_constraints_FD(q,
-                                                        t,
-                                                        nRigidBodies,
-                                                        nCoordinates,
-                                                        nConstraintsByType,
-                                                        dataConst,
-                                                        qp,
-                                                        phi,
-                                                        dPhidq,
-                                                        niu,
-                                                        gamma,
-                                                        )
+    modelKinematics = evaluate_kinematic_constraints_FD(q, t, nRigidBodies, nCoordinates, nConstraintsByType,
+                                                        dataConst, qp, phi, dPhidq, niu, gamma)
 
     # Check if external forces exist:
     if len(forceSplineFuncs.items()) > 0:

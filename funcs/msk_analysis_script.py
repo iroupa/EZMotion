@@ -45,7 +45,7 @@ muscle_db_fpath = os.path.join(input_folder, model,
 
 # Analysis options
 # kinematic / inverse dynamic / musculoskeletal
-analysis_type = 'kinematic'
+analysis_type = 'musculoskeletal'
 
 # Frequency during analysis
 fs = 100
@@ -54,10 +54,10 @@ fs = 100
 dt = 1/fs
 
 # Analysis initial time
-t0 = 0.74
+t0 = 0.0
 
 # Analysis final time
-tf = 0.94
+tf = 0.1
 
 # Create dummy widget
 widget = ''

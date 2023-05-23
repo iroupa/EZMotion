@@ -30,26 +30,30 @@ from compute_wrapping_points import compute_wrapping_points
 
 def compute_lmt_and_vm(muscle_info, q, qp, rb_info):
     """
+
     Function computes the muscle length and velocity and updates the dictionary
     that contains the parameters of each muscle used in the biomechanical model.
 
     Parameters:
-        muscle_info          : dictionary
-                               information about every muscle of the model
-        q                    : list
-                               q vector from the kinematic analysis
-        qp                   : list
-                               qp vector from the kinematic analysis
+        muscle_info         :   dictionary
+                                dataset with all information for every muscle of the multibody system
+        q                   :   list
+                                vector of generalized coordinates of the multibody system
+        qp                  :   list
+                                vector of generalized velocities of the multibody system
+        rb_info             :   dictionary
+                                information regarding the segments present in Horsman dataset and its number in
+                                the current multinody system
                            
     Returns:
-        l_mt                 : list
-                               musculotendon length of every muscle of the model
+        l_mt                : list
+                              musculotendon length of every muscle of the model
 
-        v_m					 : list
-                               musculotendon length of every muscle of the model
+        v_m					: list
+                              musculotendon length of every muscle of the model
 
-        muscle_info:		 : dictionary
-                               Contains the muscle database
+        muscle_info:		: dictionary
+                                dataset with all information for every muscle of the multibody system
 
     """
     
@@ -61,12 +65,6 @@ def compute_lmt_and_vm(muscle_info, q, qp, rb_info):
     
     # Go through every muscle 
     for muscle_idx in range(0, len(muscle_info.keys())):
-
-        # Muscle name
-        # muscle_name = list(muscle_info.keys())[muscle_idx]
-
-        # Number of muscle elements
-        # nb_muscle_element = muscle_info[muscle_idx]['element']
 
         # Initialize segments length list
         element_length = []

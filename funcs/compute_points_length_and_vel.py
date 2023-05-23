@@ -57,12 +57,12 @@ def compute_points_length_and_velocity(point_m_coords, point_m_body, point_n_coo
     Cmatrix_n = assemble_C_matrix(point_n_coords)
 
     # Obtain generalized coordinates of bodies 'm' and point 'n'
-    qvector_m = q[4 * (point_m_body - 1):4 * (point_m_body - 1) + 4]
-    qvector_n = q[4 * (point_n_body - 1):4 * (point_n_body - 1) + 4]
+    qvector_m = q[4 * (int(point_m_body) - 1): 4 * (int(point_m_body) - 1) + 4]
+    qvector_n = q[4 * (int(point_n_body) - 1): 4 * (int(point_n_body) - 1) + 4]
 
     # Obtain generalized velocities of bodies 'm' and 'n'
-    qpvector_m = qp[4 * (point_m_body - 1):4 * (point_m_body - 1) + 4]
-    qpvector_n = qp[4 * (point_n_body - 1):4 * (point_n_body - 1) + 4]
+    qpvector_m = qp[4 * (int(point_m_body) - 1): 4 * (int(point_m_body) - 1) + 4]
+    qpvector_n = qp[4 * (int(point_n_body) - 1): 4 * (int(point_n_body) - 1) + 4]
 
     # Compute global coords of points 'm' and 'n'
     r_m = Cmatrix_m.dot(qvector_m)

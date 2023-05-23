@@ -49,22 +49,29 @@ def moment2forceCouple(q, bodyNumber, moment_of_force):
     # Force 2 local coordinates
     f2_locCoords = np.array([1, 0])
 
+    # Assemble C matrix for force 1 and force 2
     f1_cMatrix = assemble_C_matrix(f1_locCoords)
     f2_cMatrix = assemble_C_matrix(f2_locCoords)
 
+    # Create 90º rotation matrix
     R90 = np.array([[0, -1],
                     [1, 0]])
 
+    # Obtain the generalized coordiantes of the body 'i'
     body_orientation = q[4 * (bodyNumber - 1) + 2: bodyNumber + 4]
 
+    # Calculate orientations for force 1 and force 2
     f1_orientation = np.dot(R90, body_orientation)
     f2_orientation = np.dot(-R90, body_orientation)
 
+    # Calculate force magnitudes
     force_magnitude = moment_of_force / 2.0
 
+    # Calculate force vectors for force 1 and force 2
     f1_vector = np.dot(force_magnitude, f1_orientation)
     f2_vector = np.dot(-force_magnitude, f2_orientation)
 
+    # Calculate total force by multiplying C matrix with force vectors
     force = np.dot(f1_cMatrix.T, f1_vector) + np.dot(f2_cMatrix.T, f2_vector)
 
     return {bodyNumber: force.reshape(4,)}

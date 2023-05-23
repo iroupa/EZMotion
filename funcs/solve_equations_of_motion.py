@@ -21,9 +21,12 @@ __email__ = "iroupa@gmail.com"
 __license__ = "Apache 2.0"
 
 import numpy as np
+from scipy.interpolate import splev
 from eval_kinematic_constraints_FD import evaluate_kinematic_constraints_FD
 from update_G_vector import update_G_vector
 from compute_splined_forces_coords import compute_splined_forces_coords
+from compute_spring_damper_actuator_force import compute_spring_damper_actuator_force
+from moment2forceCouple import moment2forceCouple
 
 # scipy.integrate.odeint
 # y0, t
@@ -103,27 +106,26 @@ def solve_equations_of_motion(y0, t, nRigidBodies, massMatrix, nCoordinates, nCo
         gVector = compute_splined_forces_coords(t, q, forceSplineFuncs, gVector)
 
     # Compute spring and damper forces, convert to generalized forces and applied it to respective body
-    # if len(sda_Parameters.items()) > 0:
-    #
-    #     forcesVector = {}
-    #
-    #     for sda, parameters in sda_Parameters.items():
-    #         sdaForce = SpringDamperActuatorForce(q, qp, parameters)
-    #         for body in sdaForce.keys():
-    #             if body not in forcesVector:
-    #                 forcesVector[body] = sdaForce[body]
-    #             else:
-    #                 forcesVector[body] = forcesVector[body] + sdaForce[body]
-    #
-    #     gVector = updateGVector(gVector, forcesVector)
-    #
+    if len(sda_Parameters.items()) > 0:
+
+        forcesVector = {}
+
+        for sda, parameters in sda_Parameters.items():
+            sdaForce = compute_spring_damper_actuator_force(q, qp, parameters)
+            for body in sdaForce.keys():
+                if body not in forcesVector:
+                    forcesVector[body] = sdaForce[body]
+                else:
+                    forcesVector[body] = forcesVector[body] + sdaForce[body]
+
+        gVector = update_G_vector(gVector, forcesVector)
+
     # Compute interpolated moment of force, convert it to generalized forces and applied it to respective body
-    # if len(MomentsofForce.items()) > 0:
-    #     for body, moment in MomentsofForce.items():
-    #         moment = splev(t, MomentsofForce[body]['splPos'], der=0)
-    #         generalizedForce = moment2forceCouple(q, body, -moment*100)
-    #         gVector = updateGVector(gVector, generalizedForce)
-    #         print 'time',t,'moments',moment,'generalizedForce ',generalizedForce
+    if len(MomentsofForce.items()) > 0:
+        for body, moment in MomentsofForce.items():
+            moment = splev(t, MomentsofForce[body]['splPos'], der=0)
+            generalizedForce = moment2forceCouple(q, body, -moment*100)
+            gVector = update_G_vector(gVector, generalizedForce)
 
     # Obtain number of rows and columns of mass matrix of the multibody system
     massMatrix_rows, massMatrix_cols = massMatrix.shape

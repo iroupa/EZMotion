@@ -47,24 +47,33 @@ def assemble_g_M(nCoordinates, ge_bodies):
     # Initialize g_M
     g_M = np.zeros((n_muscles, nCoordinates)) 
     
-    # Go through every muscle 
+    # Iterate over every muscle
     for muscle_idx in range(0, len(ge_bodies.keys())):
         # Muscle name 
-        # muscle_name = list(ge_bodies.keys())[m]
         muscle_name = muscle_idx
 
+        # Segments cossed by the muscle
         muscle = ge_bodies[muscle_name]
         
-        # Initialize g_M_mn
-        g_M_mn = np.zeros(nCoordinates) 
-        
+        # Initialize the vector of generalised coordinates of each muscle of the multibody system
+        g_M_mn = np.zeros(nCoordinates)
+
+        # Iterate over every body crossed by each muscle
         for body in muscle.keys():
+            # Get the generalised coordinates of the muscle with respect to each body to which the muscle is attached
             g_body_mtx = muscle[body].tolist()
+
+            # Initialize the vector of generalised coordinates of the muscle with respect to each body to which
+            # the muscle is attached
             g_body = [g_body_mtx[0][0], g_body_mtx[1][0], g_body_mtx[2][0], g_body_mtx[3][0]]
-            g_M_mn[4*(body-1):4*(body-1)+4] = g_body
-            
+
+            # Assign the generalised coordinates of each segment to which the muscle is attached to the vector
+            # of generalised coordinates of the muscle
+            g_M_mn[4 * (int(body) - 1): 4 * (int(body) - 1) + 4] = g_body
+
+        # Assign generalised coordinates of each muscle to vector of generalised coordinates of the multibody system
         g_M[muscle_idx] = g_M_mn
-    
+
     return g_M
 
 

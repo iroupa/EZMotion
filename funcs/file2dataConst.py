@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
+
 
 def file2dataConst(fpath):
     """
@@ -28,17 +29,18 @@ def file2dataConst(fpath):
     Function reads the information describing the topology of the multibody system.     
   
     Parameters
-    fpath       :   str
-                    modeling file containing all t einformation describing the topology of the multibody system
+        fpath       :   str
+                        modeling file containing all the information describing the topology of the multibody system
 
     Return
-    dataConst   :   numpy.ndarray
-                    all the information describing the topology of the multibody system
+        dataConst   :   numpy.ndarray
+                        all the information describing the topology of the multibody system
     """
 
-    dataConst = np.loadtxt(fpath,dtype='float', delimiter=',', comments="#")
+    dataConst = np.loadtxt(fpath, dtype='float', delimiter=',', comments="#")
 
     return dataConst
+
 
 if __name__ == "__main__":
     import doctest

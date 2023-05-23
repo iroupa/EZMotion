@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
+
 
 def read_inertial_parameters(fpath):
     """
@@ -28,13 +29,13 @@ def read_inertial_parameters(fpath):
     Function reads the inertial parameters of each segment of the model from the input file.
 
     Parameters:
-    fpath				: 	str
-                            absolute path to inertial parameters file 
+        fpath				: 	str
+                                absolute path to inertial parameters file
 
     Returns:
-    inertial_parameters :   dict
-                            inertial parameters (mass, moment of inertia, and local coordinates of 
-                            the origin of the local reference frame) of each segment of the multibody sytem.
+        inertial_parameters :   dict
+                                inertial parameters (mass, moment of inertia, and local coordinates of
+                                the origin of the local reference frame) of each segment of the multibody system.
     """
 
     model_inertial_parameters_info = {}
@@ -51,7 +52,8 @@ def read_inertial_parameters(fpath):
                                                            'CoM_LocCoordY': float(row[8])}
 
     return model_inertial_parameters_info
-     
+
+
 if __name__ == "__main__":
     import doctest
         

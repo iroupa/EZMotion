@@ -15,18 +15,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import csv
-
 import numpy as np
 
-__author__ = 'Ivo_Roupa'
-__version__ = '.001'
-__date__ = '2022'
 
 def read_model_outputs(fpath):
     """
@@ -35,31 +31,32 @@ def read_model_outputs(fpath):
     the residual analysis method proposed by Winter.
 
     Parameters:
-    fpath       :   (str)
-                    Absolute path of the model outputs file
+        fpath       :   (str)
+                        Absolute path of the model outputs file
 
     Returns:
-    nRigidBodies                :   int
-                                    number of rigid bodies od the multibody system
-    nFrames                     :   int
-                                    number of frames of the analysis
-    sampling_frequency          :   float
-                                    sampling frequency of the analysis
-    model_coordinates_data      :   numpy.ndarray
-                                    generalized coordinates of the multibody system during all analysis
-    model_plot_variables        :   dictionary
-                                    output data of analysis (coordinates, velocities, accelerations, angles, ...)
-    model_plot_variables_label  :   list
-                                    labels of analysis variables
+        nRigidBodies                :   int
+                                        number of rigid bodies od the multibody system
+        nFrames                     :   int
+                                        number of frames of the analysis
+        sampling_frequency          :   float
+                                        sampling frequency of the analysis
+        model_coordinates_data      :   numpy.ndarray
+                                        generalized coordinates of the multibody system during all analysis
+        model_plot_variables        :   dictionary
+                                        output data of analysis (coordinates, velocities, accelerations, angles, ...)
+        model_plot_variables_label  :   list
+                                        labels of analysis variables
+
     """
     
     file_sections_info = {}
 
-    nRigidBodies                = 0
-    nFrames                     = 0
-    sampling_frequency          = 0
-    model_coordinates_data      = None
-    model_plot_variables        = {}
+    nRigidBodies = 0
+    nFrames = 0
+    sampling_frequency = 0
+    model_coordinates_data = None
+    model_plot_variables = {}
     model_plot_variables_labels = []
 
     with open(fpath, 'r', newline="") as csv_file:
@@ -136,8 +133,8 @@ def read_model_outputs(fpath):
                            [' [m.s^-1]', ' [ deg.s^-1]'],
                            [' [m.s^-2]', ' [ deg.s^-2]'],
                            [' [deg]', ' [ deg]'],
-                           [' [deg.s^-1]',' [ deg.s^-1]'],
-                           [' [deg.s^-2]',' [ deg.s^-2]'],
+                           [' [deg.s^-1]', ' [ deg.s^-1]'],
+                           [' [deg.s^-2]', ' [ deg.s^-2]'],
                            [' [N.m]', ' [N.m]'],
                            [' [W]', ' [W]'],
                            [' [%]', ' [%]'],
@@ -150,36 +147,33 @@ def read_model_outputs(fpath):
             header = model_outputs_data[file_sections_info[file_sections_labels[idx]] + 1]
 
             # Get model output data for each type of variable
-            model_data = np.asarray(model_outputs_data[file_sections_info[file_sections_labels[idx]] + 2: file_sections_info[file_sections_labels[idx]] + int(nFrames)],
-                                                dtype='float')
+            model_data = np.asarray(model_outputs_data[file_sections_info[file_sections_labels[idx]] + 2:
+                                                       file_sections_info[file_sections_labels[idx]] + int(nFrames)],
+                                    dtype='float')
 
             # Get generalized coordinates of the model
             if "Coordinates" in file_sections_labels[idx]:
                 model_coordinates_data = model_data[:, 2:]
 
-            # Get label of each variable of each type of model data (Coordinates, velocities, acclerations, angles, ...)
+            # Get label of each variable of each type of model data (Coordinates, velocities, accelerations, angles, ...)
             for _ in range(2, len(header)):
                 if '#' in header[_]:
-                    header_element = str(header[_].replace('#','')).strip() + file_sections_units[idx][0]
+                    header_element = str(header[_].replace('#', '')).strip() + file_sections_units[idx][0]
                 elif 'Mixed' in header[_]:
-                    header_element = str(header[_].replace('#','')).strip() + file_sections_units[idx][1]
+                    header_element = str(header[_].replace('#', '')).strip() + file_sections_units[idx][1]
                 else:
                     header_element = str(header[_]).strip() + file_sections_units[idx][0]
 
-                # Assign label and data of each variable of each type of model data (Coordinates, velocities, acclerations, angles, ...)
+                # Assign label and data of each variable of each type of model data
+                # (Coordinates, velocities, accelerations, angles, ...)
                 model_plot_variables[header_element] = model_data[:, _]
                 model_plot_variables_labels.append(header_element)
 
-    return nRigidBodies, nFrames, sampling_frequency, model_coordinates_data, model_plot_variables, model_plot_variables_labels
+    return nRigidBodies, nFrames, sampling_frequency, model_coordinates_data, model_plot_variables,\
+           model_plot_variables_labels
+
 
 if __name__ == "__main__":
     import doctest
 
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE)
-
-    # doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE)
-
-    fpath = r'C:\Documentos\Ivo\PhD\Thesis\All_Chapters\Chapter_8_EZ_Motion_2D\test_data_files\trial_0003_1passagem.tsv_FCC\kinematic_analysis_outputs.out'
-
-    data = read_model_outputs(fpath)
-    a = 1

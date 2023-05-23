@@ -15,10 +15,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
+
 
 def update_G_vector(gVector, forceVector):
     """
@@ -26,13 +27,15 @@ def update_G_vector(gVector, forceVector):
     Function updates the vector of generalized external forces of the system.
 
     Parameters:
-    gVector          :   numpy.array
-                         vector of generalized forces of the multibody system
-    forceVector      :   dictionary
-                         body number and respective force
+        gVector          :   numpy.array
+                             vector of generalized forces of the multibody system
+        forceVector      :   dictionary
+                             body number and respective force
+
     Returns:
-    gVector          :   numpy.ndarray
-                         updated vector of generalized forces of the multibody system
+        gVector          :   numpy.ndarray
+                             updated vector of generalized forces of the multibody system
+
     """
 
     # Assign input forces to generalized force vector
@@ -41,6 +44,7 @@ def update_G_vector(gVector, forceVector):
         gVector[idxs[0]: idxs[-1]] = gVector[idxs[0]: idxs[-1]] + force
 
     return gVector
+
 
 if __name__ == "__main__":
     import doctest

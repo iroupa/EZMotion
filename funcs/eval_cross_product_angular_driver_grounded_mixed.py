@@ -23,17 +23,8 @@ __license__ = "Apache 2.0"
 import numpy as np
 
 
-def evaluate_cross_product_angular_driver_grounded_mixed(nRigidBodies,
-                                                         nCoordinates,
-                                                         constraintByType,
-                                                         dataConst,
-                                                         q,
-                                                         qpto,
-                                                         phi,
-                                                         dPhidq,
-                                                         niu,
-                                                         gamma,
-                                                         rowIn):
+def evaluate_cross_product_angular_driver_grounded_mixed(nRigidBodies, nCoordinates, constraintByType, dataConst, q,
+                                                         qpto, phi, dPhidq, niu, gamma, rowIn):
     """
     Function computes and assigns contributions of cross product mixed angular grounded constraint between two 
     vectors (support and moving) to Phi vector, dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic 

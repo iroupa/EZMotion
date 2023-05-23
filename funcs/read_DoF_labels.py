@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import csv
+
 
 def read_DoF_labels(fpath):
     """
@@ -28,13 +29,13 @@ def read_DoF_labels(fpath):
     Function reads the file containing the number and label of each degree of freedom (DoF) of the system.
 
     Parameters:
-    fpath       :   string
-                    absolute path of the file containing the number and label of each Dof of the multibody system
+        fpath       :   string
+                        absolute path of the file containing the number and label of each Dof of the multibody system
     
     Returns:
-    dofs_labels :   dictionary 
-                    number and label of each Dof of the multibody system
-    
+        dofs_labels :   dictionary
+                        number and label of each Dof of the multibody system
+
     """
 
     dofs = {}
@@ -45,7 +46,8 @@ def read_DoF_labels(fpath):
             dofs[int(line[0])] = line[1]
 
     return dofs
-    
+
+
 if __name__ == "__main__":
     import doctest
         

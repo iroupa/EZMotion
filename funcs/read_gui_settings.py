@@ -29,13 +29,13 @@ def read_gui_settings(fpath):
     Function reads the EZ_Motion settings file.
 
     Parameters:
-    fpath				    : 	str
-                                absolute path to EZ_Motion settings file.
+        fpath				    : 	str
+                                    absolute path to EZ_Motion settings file.
 
     Returns:
-    gui_setting_parameters  :   dict
-                                font_family, font_style, font_type and color of the gui panesl,
-                                 sbSizers and static text widgets.
+        gui_setting_parameters  :   dict
+                                    font_family, font_style, font_type and color of the gui panesl,
+                                     sbSizers and static text widgets.
     """
 
     gui_setting_parameters = {}

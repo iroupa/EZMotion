@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
+
 
 def pad_signal_(signal, slope_frames, start_idx, end_idx, nPads_begin, nPads_end):
     """
@@ -41,13 +42,9 @@ def pad_signal_(signal, slope_frames, start_idx, end_idx, nPads_begin, nPads_end
 
         nPads_end       :   int
 
-        # step            :   float
-        #                     time interval to calculate total number of frames to add at the beginning and end of original signal array
-        # plot_signal     :   boolean
-        #                     options to plor different signal
-
-    Returns             :   numpy 1D array
-                            padded numpy 1D array
+    Returns:
+                        :   numpy array
+                            padded numpy array
     """
 
     signal_length = signal.shape[0]
@@ -70,6 +67,7 @@ def pad_signal_(signal, slope_frames, start_idx, end_idx, nPads_begin, nPads_end
     signal[end_idx:end_idx + nPads_end] = y_end_estimated
 
     return signal
+
 
 if __name__ == "__main__":
     import doctest

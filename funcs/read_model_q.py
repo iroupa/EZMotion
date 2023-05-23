@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
+
 
 def read_model_q(fpath):
     """
@@ -28,13 +29,13 @@ def read_model_q(fpath):
     Function reads the generalized coordinates vector (q) of the multibody system from the input file.
 
     Parameters
-    fpath   :   str
-                absolute path of the file containing the generalized
-                coordinates of the the multibody system
+        fpath   :   str
+                    absolute path of the file containing the generalized
+                    coordinates of the the multibody system
 
-    Return
-    q       :   numpy.array
-                generalized coordinates of the multibody system
+    Returns:
+        q       :   numpy.array
+                    generalized coordinates of the multibody system
 
     """
 
@@ -51,6 +52,7 @@ def read_model_q(fpath):
                     pass
 
     return np.array(q, dtype='f')
+
 
 if __name__ == "__main__":
     import doctest

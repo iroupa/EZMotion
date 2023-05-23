@@ -23,17 +23,8 @@ __license__ = "Apache 2.0"
 import numpy as np
 
 
-def evaluate_cross_product_angular_driver_mixed(nRigidBodies,
-                                                nCoordinates,
-                                                constraintByType,
-                                                dataConst,
-                                                q,
-                                                qpto,
-                                                phi,
-                                                dPhidq,
-                                                niu,
-                                                gamma,
-                                                rowIn):
+def evaluate_cross_product_angular_driver_mixed(nRigidBodies, nCoordinates, constraintByType, dataConst, q, qpto, phi,
+                                                dPhidq, niu, gamma, rowIn):
     """
     Function computes and assign contributions of dot product angular  constraint between two vectors
     (support and moving) to Phi vector, dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic 
@@ -114,12 +105,12 @@ def evaluate_cross_product_angular_driver_mixed(nRigidBodies,
     phi[constraintRowIndex] = np.dot(uVectorPerp, vVector) - uLength * vLength * np.sin(theta)
 
     # Parent Rigid Body Constraint contribution to jacobian matrix
-    parentCols  = [4 * (parentBodyNumber-1) + 2, 4 * (parentBodyNumber -1) + 3]
-    childCols   = [4 * (childBodyNumber-1) + 2, 4 * (childBodyNumber -1) + 3]
-    dofColIdx   = 4 * nRigidBodies - 1 + dof
+    parentCols = [4 * (parentBodyNumber-1) + 2, 4 * (parentBodyNumber - 1) + 3]
+    childCols = [4 * (childBodyNumber-1) + 2, 4 * (childBodyNumber - 1) + 3]
+    dofColIdx = 4 * nRigidBodies - 1 + dof
 
-    dPhidq[constraintRowIndex,parentCols] = -vVectorPerp
-    dPhidq[constraintRowIndex,childCols] = uVectorPerp
+    dPhidq[constraintRowIndex, parentCols] = -vVectorPerp
+    dPhidq[constraintRowIndex, childCols] = uVectorPerp
     dPhidq[constraintRowIndex, dofColIdx] = -np.cos(theta)
 
     # Rigid Body Constraint contribution to 'niu' vector

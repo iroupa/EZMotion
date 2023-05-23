@@ -15,29 +15,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 from scipy import signal
+
 
 def butter_filter(y, fs, fc, filter_order):
     """
     
     Function filters a time seris sing the butteworth filter.
     
-    Parameters
-    y               :   numpy.array 
-                        input signal  
-    fs              :   int
-                        signal sampling frequency 
-    fc              :   float
-                        cuttof frequency in Hertz
-    filter_order    :   int
-                        order of the filter
-    Return          :   numpy.array 
-                        input signal  filtered
+    Parameters:
+        y               :   numpy.array
+                            input signal
+        fs              :   int
+                            signal sampling frequency
+        fc              :   float
+                            cuttof frequency in Hertz
+        filter_order    :   int
+                            order of the filter
+    Return:
+                        :   numpy.array
+                            input signal filtered
     
     """
     # Normalized frequency
@@ -48,6 +50,7 @@ def butter_filter(y, fs, fc, filter_order):
 
     # Filtered signal
     return signal.filtfilt(b, a, y)
+
 
 if __name__ == "__main__":
     import doctest

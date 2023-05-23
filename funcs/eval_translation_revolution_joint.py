@@ -15,13 +15,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
-
 from assemble_C_matrix import assemble_C_matrix
 
 
@@ -31,25 +30,27 @@ def evaluate_translation_revolution_joint(nCoordinates, constraintByType, dataCo
     two vectors to Phi vector, dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic and dynamic analysis.
 
     Parameters:
-    nCoordinates        :   int
-                            Model total number of coordinates
-    nConstraintByType   :   int
-                            Number of constraints by type
-    dataConst           :   numpy.ndarray
-                            Constants matrix
-    q                   :   numpy.ndarray
-                            model coordinates vector
-    qpto                :   numpy.ndarray
-                            Velocity coordinates vector
-    Phi                 :   numpy.ndarray
-                            Model constraints vector
-    dPhidq              :   numpy.ndarray
-                            Model Jacobian matrix
-    niu                 :   numpy.ndarray
-                            right hand side velocity equations vector
-    gamma               :   numpy.ndarray
-                            right hand side acceleration equations vector
-
+        nCoordinates        :   int
+                                Model total number of coordinates
+        constraintByType    :   int
+                                Number of constraints by type
+        dataConst           :   numpy.ndarray
+                                Constants matrix
+        q                   :   numpy.ndarray
+                                model coordinates vector
+        qpto                :   numpy.ndarray
+                                Velocity coordinates vector
+        phi                 :   numpy.ndarray
+                                Model constraints vector
+        dPhidq              :   numpy.ndarray
+                                Model Jacobian matrix
+        niu                 :   numpy.ndarray
+                                right hand side velocity equations vector
+        gamma               :   numpy.ndarray
+                                right hand side acceleration equations vector
+        rowIn               :   int
+                                        number of line to insert kinematic constraint equation contribution in phi,
+                                        dPhidq, niu and gamma
     Returns:
         {'Phi':phi,'dPhidq':dPhidq, 'niu':niu, 'gamma':gamma} : dictionary
                                                                 Dictionary of numpy.ndarrays with the following
@@ -75,22 +76,22 @@ def evaluate_translation_revolution_joint(nCoordinates, constraintByType, dataCo
     
     # Create bodies 'C' Matrix
     # Parent Body
-    point1_CMatrix  = assemble_C_matrix(point1LocCoords)
+    point1_CMatrix = assemble_C_matrix(point1LocCoords)
 
     # Child Body
-    point2_CMatrix  = assemble_C_matrix(point2LocCoords)
-    point3_CMatrix  = assemble_C_matrix(point3LocCoords)
+    point2_CMatrix = assemble_C_matrix(point2LocCoords)
+    point3_CMatrix = assemble_C_matrix(point3LocCoords)
 
     # Create Parent and Child Rigid Body 'q' Coordinates
-    parentQVec = q[4*(parentBodyNumber-1):4*(parentBodyNumber-1)+4]
-    childQVec  = q[4*(childBodyNumber-1) :4*(childBodyNumber-1)+4]
+    parentQVec = q[4 * (parentBodyNumber - 1): 4 * (parentBodyNumber - 1) + 4]
+    childQVec = q[4 * (childBodyNumber - 1) : 4 * (childBodyNumber - 1) + 4]
 
     # Create 'u' and 'v' normalized vectors
     uVector = np.dot(point1_CMatrix, parentQVec) - np.dot(point2_CMatrix, childQVec)
     vVector = np.dot(point3_CMatrix, childQVec) - np.dot(point2_CMatrix, childQVec)
 
-    uVector = uVector/np.linalg.norm(uVector)
-    vVector = vVector/np.linalg.norm(vVector)
+    uVector = uVector / np.linalg.norm(uVector)
+    vVector = vVector / np.linalg.norm(vVector)
 
     # Create 'u' and 'v' vectors Length
     uLength = dataConst[constraintByType, 4]

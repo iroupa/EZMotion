@@ -23,15 +23,7 @@ __license__ = "Apache 2.0"
 import numpy as np
 
 
-def evaluate_cross_product_angular_driver(nCoordinates,
-                                          constraintByType,
-                                          dataConst,
-                                          q,
-                                          qpto,
-                                          phi,
-                                          dPhidq,
-                                          niu,
-                                          gamma,
+def evaluate_cross_product_angular_driver(nCoordinates, constraintByType, dataConst, q, qpto, phi, dPhidq, niu, gamma,
                                           rowIn):
     """
     Function computes and assign the contributions of the dot product angular constraint between two vectors

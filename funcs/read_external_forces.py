@@ -31,14 +31,13 @@ def read_external_forces_files(fpath):
     force to be applied in the multibody system during the analysis.
 
     Parameters:
-    fpath       :   string
-                    file containing the forces to be applied in the model during the analysis
+        fpath       :   string
+                        file containing the forces to be applied in the model during the analysis
 
     Returns:
-    force_dict  :   dictionary
-                    time, force, coords, on_off and coords_type of the forces to be applied
-                    in the multibody system during the analysis.
-
+        force_dict  :   dictionary
+                        time, force, coords, on_off and coords_type of the forces to be applied
+                        in the multibody system during the analysis.
     """
 
     force_data = np.loadtxt(fpath, dtype='float', delimiter=",", comments='#', skiprows=1)

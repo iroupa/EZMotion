@@ -15,17 +15,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import csv
+
 
 def read_model_rb_info(fpath):
     """
     
-    Function reads the file containing the label of each segment of theHorsman muscle dataset and the number of that segment in the current model.
+    Function reads the file containing the label of each segment of theHorsman muscle dataset and the number
+     of that segment in the current model.
 
     Parameters:
         fpath       :   string
@@ -48,7 +50,8 @@ def read_model_rb_info(fpath):
                 rb_info[segment_label] = rb_number
 
     return rb_info
-    
+
+
 if __name__ == "__main__":
     import doctest
         

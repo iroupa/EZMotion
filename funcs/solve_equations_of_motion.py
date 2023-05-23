@@ -24,8 +24,6 @@ import numpy as np
 from eval_kinematic_constraints_FD import evaluate_kinematic_constraints_FD
 from update_G_vector import update_G_vector
 from compute_splined_forces_coords import compute_splined_forces_coords
-# from assemble_gravitational_forces import assemble_gravitational_forces
-# from assemble_mass_matrix import assemble_mass_matrix
 
 # scipy.integrate.odeint
 # y0, t
@@ -33,8 +31,10 @@ from compute_splined_forces_coords import compute_splined_forces_coords
 # scipy.integrate.ode
 # t, y0
 
-def solve_equations_of_motion(y0, t, nRigidBodies, massMatrix, nCoordinates, nConstraintsByType, dataConst, Phi, dPhidq, niu, gamma,
-                              alpha, beta, gravitationalForces, forceSplineFuncs='', sda_Parameters='', MomentsofForce=''):
+
+def solve_equations_of_motion(y0, t, nRigidBodies, massMatrix, nCoordinates, nConstraintsByType, dataConst, Phi,
+                              dPhidq, niu, gamma, alpha, beta, gravitationalForces, forceSplineFuncs='',
+                              sda_Parameters='', MomentsofForce=''):
 
     gVector = np.zeros(nRigidBodies * 4)
 
@@ -110,6 +110,7 @@ def solve_equations_of_motion(y0, t, nRigidBodies, massMatrix, nCoordinates, nCo
     dydt = np.concatenate((qp, qpp))
 
     return dydt
+
 
 if __name__ == "__main__":
     import doctest

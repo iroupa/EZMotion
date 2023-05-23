@@ -15,36 +15,34 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 from math import inf
-
 import numpy as np
-
 from det_crossed_joints import det_crossed_joints
 
 
 def set_optimization_bounds(nh, nm, muscle_info, dataConst):
     """
 
-    Function sets the bounds for the static optimization problem used to solve th eredundancy muscle problem.
+    Function sets the bounds for the static optimization problem used to solve the redundancy muscle problem.
     
     Parameters:
-    nh                  :   float
-                            number of kinematic constraint equations of the biomechanical system
-    nm                  :   float
-                            number of muscles of the biomechanical system
-    muscle_info         :   dictionary
-                            muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model
-    dataConst           :   numpy.ndarray
-                            info regarding the modeling of each component of the multibody system
+        nh                  :   float
+                                number of kinematic constraint equations of the biomechanical system
+        nm                  :   float
+                                number of muscles of the biomechanical system
+        muscle_info         :   dictionary
+                                muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model
+        dataConst           :   numpy.ndarray
+                                info regarding the modeling of each component of the multibody system
 
     Returns:
-    bnds                : tuple
-                          bounds for every variable
+        bnds                : tuple
+                              bounds for every variable
 
     """
     
@@ -86,12 +84,13 @@ def set_optimization_bounds(nh, nm, muscle_info, dataConst):
                     bnds[int(lagrange_line)] = b_lagrange_joint
 
     # Transform bound list into tuple
-    for b in range(0,len(bnds)):
+    for b in range(0, len(bnds)):
         bnds[b] = tuple(bnds[b])
     
     bnds = tuple(bnds)
     
     return bnds
+
 
 if __name__ == "__main__":
     import doctest

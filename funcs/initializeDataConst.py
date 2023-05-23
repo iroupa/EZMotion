@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
+
 
 def initializeDataConst(nConstraintsByType):
     """
@@ -41,7 +42,8 @@ def initializeDataConst(nConstraintsByType):
     dataConst = np.array([dataConstEmptyRow for _ in range(nConstraintsByType)])
 
     return dataConst
-    
+
+
 if __name__ == "__main__":
     import doctest
         

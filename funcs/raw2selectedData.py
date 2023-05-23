@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import pandas as pd
+
 
 def raw2selectedData(y, drivers_info):
     """
@@ -28,17 +29,17 @@ def raw2selectedData(y, drivers_info):
     Function computes the knots, coefficients and spline order for raw data 
     and first and second spline derivatives.
 
-    Parameters
-    y   			:   Pandas.dataframe
-                    model drivers data
-    drivers_info  	:   dictionary
-                    dictionary with all model drivers number and respective 
-                    data to be splined
+    Parameters:
+        y   			:   Pandas.dataframe
+                        model drivers data
+        drivers_info  	:   dictionary
+                        dictionary with all model drivers number and respective
+                        data to be splined
     
-    Return
-    output_data     : dictionary
-                    knots, coefficients and spline order for raw data and 
-                    first and second spline derivatives
+    Returns:
+        output_data     : dictionary
+                        knots, coefficients and spline order for raw data and
+                        first and second spline derivatives
     """
 
     # Empty dictionary to store raw data and spline and derivatives parameters (knots, coefficients and spline order )
@@ -48,12 +49,13 @@ def raw2selectedData(y, drivers_info):
     for dofNumber, dofLabel in drivers_info.items():
         variableLength = len(y[dofLabel])
         output_data[dofNumber] = {'RawData': y[dofLabel],
-                                   'splPos' : pd.Series([0 for x in range(variableLength)]),
-                                   'splVel' : pd.Series([0 for x in range(variableLength)]),
-                                   'splAcc' : pd.Series([0 for x in range(variableLength)])}
+                                  'splPos': pd.Series([0 for x in range(variableLength)]),
+                                  'splVel': pd.Series([0 for x in range(variableLength)]),
+                                  'splAcc': pd.Series([0 for x in range(variableLength)])}
 
     return output_data
-             
+
+
 if __name__ == "__main__":
     import doctest
         

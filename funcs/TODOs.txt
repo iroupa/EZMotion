@@ -15,6 +15,19 @@ TODO:
 12: change count_model_DoF name to count_model_DRiver
 13: Simplify mixed_dofs == [] expression in count_model_DoF 
 14: Remove nCoordinates from evaluate_cross_product_angular_driver function
+15: document evaluate_kinematic_constraints docstring func 
+16: review docstring of all kinematic constraints equations
+17: review kinematic constraints equation eval revolute_translation_joint
+18: document compute_force_velocity_component muscle type in docstring
+19: document initializeDataConst function in docstring
+20: document optimizer script in  docstring
+21: clean optimizer script comments
+22: document pad_data_2_filter
+23: document compute_passive_element in  docstring
+23: check read_DoFs labels change to drivers
+24: read_model_q except too broad
+25: clean and document solve_equations_of_motion script
+25: clean and document update_data_const 
 
 Next steps:
 1: Reduce reduzir ficheiro de musculos

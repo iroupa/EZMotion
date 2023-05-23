@@ -15,52 +15,51 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
-
 from assemble_C_matrix import assemble_C_matrix
 
 
 def evaluate_revolute_joint(nCoordinates, constraintByType, dataConst, q, qpto, phi, dPhidq, niu, gamma, rowIn):
     """
     
-    Function computes and assigns the contributions of the revolute joint contraint equations to Phi vector, 
-    dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic and dynamic analysis.
+    Function computes and assigns the contributions of the revolute joint constraint equations to phi vector,
+    dphidq (Jacobian matrix), niu vector and gamma vector for kinematic and dynamic analysis.
 
     Parameters
-    nCoordinates        :   int
-                            Model total number of coordinates
-    nConstraintByType   :   int
-                            number of constraints by type
-    dataConst           :   numpy.ndarray
-                            Constants matrix
-    q                   :   numpy.ndarray
-                            model coordinates vector
-    qpto                :   numpy.ndarray
-                            model velocity coordinates vector
-    Phi                 :   numpy.ndarray
-                            Model constraints vector
-    dPhidq              :   numpy.ndarray
-                            model Jacobian matrix
-    niu                 :   numpy.ndarray
-                            right hand side velocity equations vector
-    gamma               :   numpy.ndarray
-                            right hand side acceleration equations vector
+        nCoordinates        :   int
+                                Model total number of coordinates
+        nConstraintByType   :   int
+                                number of constraints by type
+        dataConst           :   numpy.ndarray
+                                Constants matrix
+        q                   :   numpy.ndarray
+                                vector of model coordinates vector
+        qpto                :   numpy.ndarray
+                                model velocity coordinates vector
+        Phi                 :   numpy.ndarray
+                                vector of kinematic constraints of the multibody system
+        dPhidq              :   numpy.ndarray
+                                model Jacobian matrix
+        niu                 :   numpy.ndarray
+                                right hand side velocity equations vector
+        gamma               :   numpy.ndarray
+                                right hand side acceleration equations vector
 
     Return
-                        :   Dictionary
-                            Dictionary of numpy.ndarrays with the following
-                            keys 'Phi', 'dPhidq', 'niu', 'gamma' and respective
-                            values for revolute joint constraint.
+                            :   Dictionary
+                                Dictionary of numpy.ndarrays with the following
+                                keys 'Phi', 'dPhidq', 'niu', 'gamma' and respective
+                                values for revolute joint constraint.
     """
 
     # Row Idx to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'
     # constraintRowIdxs = [int(dataConst[constraintByType,1]), int(dataConst[constraintByType,1]+1)]
-    constraintRowIdxs = [rowIn, rowIn+1]
+    constraintRowIdxs = [rowIn, rowIn + 1]
 
     # Rigid bodies model number
     parentBodyNumber = int(dataConst[constraintByType, 2])
@@ -68,33 +67,34 @@ def evaluate_revolute_joint(nCoordinates, constraintByType, dataConst, q, qpto, 
 
     # parentBody and childBody Local Coordinates
     parentLocCoords = dataConst[constraintByType, 6:8]
-    childLocCoords  = dataConst[constraintByType, 8:10]
+    childLocCoords = dataConst[constraintByType, 8:10]
 
     # Create bodies 'C' Matrix
     parentCMatrix = assemble_C_matrix(parentLocCoords)
-    childCMatrix  = assemble_C_matrix(childLocCoords)
+    childCMatrix = assemble_C_matrix(childLocCoords)
 
     # Create Parent and Child Rigid Body 'q' Coordinates
-    parentQVec = q[4*(parentBodyNumber-1):4*(parentBodyNumber-1)+4]
-    childQVec  = q[4*(childBodyNumber-1) :4*(childBodyNumber-1)+4]
+    parentQVec = q[4 * (parentBodyNumber - 1): 4 * (parentBodyNumber - 1) + 4]
+    childQVec = q[4 * (childBodyNumber - 1): 4 * (childBodyNumber - 1) + 4]
 
     # Revolute joint constraint contribution to 'phi' vector
-    phi[constraintRowIdxs] = np.dot(parentCMatrix, parentQVec) - np.dot(childCMatrix , childQVec)
+    phi[constraintRowIdxs] = np.dot(parentCMatrix, parentQVec) - np.dot(childCMatrix, childQVec)
 
     # Revolute joint constraint contribution to jacobian matrix
     # Define parent body columns and childBody columns in jacobian matrix
-    parentColsIdxes = [4*(parentBodyNumber-1), 4*(parentBodyNumber-1)+4]
-    childColsIdxes  = [4*(childBodyNumber-1) , 4*(childBodyNumber-1) +4]
-    dPhidq[constraintRowIdxs, parentColsIdxes[0]:parentColsIdxes[-1]] = parentCMatrix
-    dPhidq[constraintRowIdxs, childColsIdxes[0]:childColsIdxes[-1]] = -childCMatrix
+    parentColsIdxs = [4 * (parentBodyNumber - 1), 4 * (parentBodyNumber - 1) + 4]
+    childColsIdxs = [4 * (childBodyNumber - 1), 4 * (childBodyNumber - 1) + 4]
+    dPhidq[constraintRowIdxs, parentColsIdxs[0]: parentColsIdxs[-1]] = parentCMatrix
+    dPhidq[constraintRowIdxs, childColsIdxs[0]:childColsIdxs[-1]] = -childCMatrix
 
     # Revolute joint constraint contribution to 'niu' vector
-    niu[constraintRowIdxs]     = 0.0
+    niu[constraintRowIdxs] = 0.0
 
     # Revolute joint constraint contribution to 'gamma' vector
-    gamma[constraintRowIdxs]     = 0.0
+    gamma[constraintRowIdxs] = 0.0
 
-    return {'Phi':phi,'dPhidq':dPhidq, 'niu':niu, 'gamma':gamma, 'rowOut': rowIn + 2}
+    return {'Phi': phi, 'dPhidq': dPhidq, 'niu': niu, 'gamma': gamma, 'rowOut': rowIn + 2}
+
 
 if __name__ == "__main__":
     import doctest

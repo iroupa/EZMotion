@@ -15,27 +15,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import csv
-
 import numpy as np
 
 
-def export_analysis_outputs_fd(model_outputs_fpath,
-                               model,
-                               nRigidBodies,
-                               fs,
-                               model_angular_drivers,
-                               model_mixed_angular_drivers,
-                               q_rep,
-                               qp_rep,
-                               model_joint_angles,
-                               model_joint_ang_vel,
-                               model_joint_ang_acc):
+def export_analysis_outputs_fd(model_outputs_fpath, model, nRigidBodies, fs, model_angular_drivers,
+                               model_mixed_angular_drivers, q_rep, qp_rep, model_joint_angles,
+                               model_joint_ang_vel, model_joint_ang_acc):
     """
     Function exports kinematic, dynamic and musculoskeletal analysis outputs to csv file.
 
@@ -74,22 +65,18 @@ def export_analysis_outputs_fd(model_outputs_fpath,
     """
 
     coordinates_list = [q_rep,
-                        qp_rep,
-                        ]
+                        qp_rep]
 
-    coordinates_list_labels =['# ***** Coordinates [m] *****',
-                              '# ***** Velocities [m.s-1] *****',
-                              ]
+    coordinates_list_labels = ['# ***** Coordinates [m] *****',
+                               '# ***** Velocities [m.s-1] *****']
 
     angles_list = [model_joint_angles,
                    model_joint_ang_vel,
-                   model_joint_ang_acc
-                  ]
+                   model_joint_ang_acc]
 
-    angles_list_labels =['# ***** Angles [deg] *****',
-                         '# ***** Angles Velocities [deg.s-1] *****',
-                         '# ***** Angles Accelerations [deg.s-2] *****'
-                         ]
+    angles_list_labels = ['# ***** Angles [deg] *****',
+                          '# ***** Angles Velocities [deg.s-1] *****',
+                          '# ***** Angles Accelerations [deg.s-2] *****']
 
     with open(model_outputs_fpath, 'w', newline="") as csv_file:
         writer = csv.writer(csv_file)
@@ -135,6 +122,7 @@ def export_analysis_outputs_fd(model_outputs_fpath,
                     else:
                         writer.writerow(np.around(angles_list[idx][frame], decimals=4))
                 writer.writerow([])
+
 
 if __name__ == "__main__":
     import doctest

@@ -15,58 +15,52 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
 from get_trajectory_drivers_info import get_trajectory_drivers_info
 from compute_splined_forces_coords import compute_splined_forces_coords
 
-def inverse_dynamic_analysis(t,
-                             q,
-                             qpp,
-                             model_n_mixed_angular_drivers,
-                             modeling_file_fpath,
-                             nRigidBodies,
-                             modeling_file,
-                             modelKinematics,
-                             massMatrix,
-                             generalized_forces_vector,
-                             forceSplineFuncs
-                             ):
+
+def inverse_dynamic_analysis(t, q, qpp, model_n_mixed_angular_drivers, modeling_file_fpath, nRigidBodies,
+                             modeling_file, modelKinematics, massMatrix, generalized_forces_vector, forceSplineFuncs):
     """
 
+    Function performs the inverse dynamic analysis of a given multibody system.
+
     Parameters:
-    t                               :   float
-                                        time instant of the analysis
-    q                               :   numpy.array
-                                        vector of generalized coordinates of the multibody system
-    qpp                             :   numpy.array
-                                        vector of generalized accelerations of the multibody system
-    model_n_mixed_angular_drivers   :   int
-                                        total number of mixed angular drivers of the multibody system
-    modeling_file_fpath             :   string
-                                        absolute path of the modeling file of the multibody system
-    nRigidBodies                    :   int
-                                        total number of rigid bodies of the multibody system
-    modeling_file                   :   numpy.array
-                                        modeling file of the multibody system
-    modelKinematics                 :   numpy.array
-                                        jacobian of the the multibody system
-    massMatrix                      :   numpy.array
-                                        mass matrix of the multibody system
-    generalized_forces_vector       :   numpy.array
-                                        vector of generalized external forces the multibody system
-    forceSplineFuncs                :   dictionary
-                                        body_number, force magnitude (Fx, Fy, Fz),
-                                        mag: (t,c,k) - force B-spline coefficients
-                                        coords: (t,c,k) - local coords B-spline coefficients
+        t                               :   float
+                                            time instant of the analysis
+        q                               :   numpy.array
+                                            vector of generalized coordinates of the multibody system
+        qpp                             :   numpy.array
+                                            vector of generalized accelerations of the multibody system
+        model_n_mixed_angular_drivers   :   int
+                                            total number of mixed angular drivers of the multibody system
+        modeling_file_fpath             :   string
+                                            absolute path of the modeling file of the multibody system
+        nRigidBodies                    :   int
+                                            total number of rigid bodies of the multibody system
+        modeling_file                   :   numpy.array
+                                            modeling file of the multibody system
+        modelKinematics                 :   numpy.array
+                                            jacobian of the the multibody system
+        massMatrix                      :   numpy.array
+                                            mass matrix of the multibody system
+        generalized_forces_vector       :   numpy.array
+                                            vector of generalized external forces the multibody system
+        forceSplineFuncs                :   dictionary
+                                            body_number, force magnitude (Fx, Fy, Fz),
+                                            mag: (t,c,k) - force B-spline coefficients
+                                            coords: (t,c,k) - local coords B-spline coefficients
 
     Returns:
-    lmm                             :   numpy.array
-                                        lagrange multipliers obtained by solving the equations of motion of the multibody system
+        lmm                             :   numpy.array
+                                            lagrange multipliers obtained by solving the equations of motion
+                                            of the multibody system
     """
 
     if model_n_mixed_angular_drivers > 1:
@@ -76,7 +70,7 @@ def inverse_dynamic_analysis(t,
         # Get index of columns of angular generalized coordinates used in Mixed Coordinates
         cols_to_remove = [x for x in range(nRigidBodies * 4, nRigidBodies * 4 + model_n_mixed_angular_drivers)]
 
-        # Check if moel contains a double support joint
+        # Check if model contains a double support joint
         support_joints = [x for x in modeling_file[:, 0] if x == 8]
 
         # Set starting index of trajectory drivers constraints
@@ -105,6 +99,7 @@ def inverse_dynamic_analysis(t,
     lmm = np.linalg.lstsq(A, b, rcond=None)[0]
 
     return lmm
+
 
 if __name__ == "__main__":
     import doctest

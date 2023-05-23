@@ -15,10 +15,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 from assemble_g_M import assemble_g_M
 from compute_fmP import compute_fmP
@@ -42,33 +42,31 @@ def muscle_analysis(muscle_info, q, qp, nCoordinates, rb_info):
     biomechanical model.
     
     Parameters:
-    muscle_info     :   dictionary
-                        muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model 
-    q               :   numpy.array
-                        vector of generalized coordinates of the multibody system
-    qp              :   numpy.array
-                        vector of generalized velocities of the multibody system
-    nCoordinates    :   int
-                        number of generalized coordinates of the multibody system
-    rb_info         :   dictionary
-                        label and number of each segmento of the multibody system
+        muscle_info     :   dictionary
+                            muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model
+        q               :   numpy.array
+                            vector of generalized coordinates of the multibody system
+        qp              :   numpy.array
+                            vector of generalized velocities of the multibody system
+        nCoordinates    :   int
+                            number of generalized coordinates of the multibody system
+        rb_info         :   dictionary
+                            label and number of each segment of the multibody system
                         
     Returns:
-    g_M_pe          :   numpy.ndarray
-                        vector of passive muscle generalized forces
-    g_M_ce          :   numpy.ndarray
-                        vector of contractile muscle generalized forces
-    fl_component    :   list
-                        force length component of each muscle of the biomechanical model
-    fv_component    :   list
-                        force velocity component of each muscle of the biomechanical model
-    f_pe            :   list
-                        passive force of each muscle of the biomechanical model
-    f_ce            :   list
-                        contractile force of each muscle of the biomechanical model
+        g_M_pe          :   numpy.ndarray
+                            vector of passive muscle generalized forces
+        g_M_ce          :   numpy.ndarray
+                            vector of contractile muscle generalized forces
+        fl_component    :   list
+                            force length component of each muscle of the biomechanical model
+        fv_component    :   list
+                            force velocity component of each muscle of the biomechanical model
+        f_pe            :   list
+                            passive force of each muscle of the biomechanical model
+        f_ce            :   list
+                            contractile force of each muscle of the biomechanical model
     """
-
-
 
     # Compute musculotendon length and muscle contraction velocity
     l_mt, v_m, muscle_info = compute_lmt_and_vm(muscle_info, q, qp, rb_info)
@@ -99,11 +97,13 @@ def muscle_analysis(muscle_info, q, qp, nCoordinates, rb_info):
     ge_bodies_pe = compute_ge_bodies(ge_fm_pe)
     ge_bodies_ce = compute_ge_bodies(ge_fm_ce)
 
-    # Compute vector of the generalized coordinates of the whole system for every muscle (each line is a different muscle)
+    # Compute vector of the generalized coordinates of the whole system for every muscle
+    # (each line is a different muscle)
     g_M_pe = assemble_g_M(nCoordinates, ge_bodies_pe)
     g_M_ce = assemble_g_M(nCoordinates, ge_bodies_ce)
 
     return g_M_pe, g_M_ce, fl_component, fv_component, f_pe, f_ce
+
 
 if __name__ == "__main__":
     import doctest

@@ -15,10 +15,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import os
 import time
@@ -40,11 +40,12 @@ from read_force_file_info import read_force_file_info
 from compute_splined_forces import compute_splined_forces
 from compute_export_model_loc_coords import compute_export_model_loc_coords
 
+
 def run_forward_analysis(analysis_type,
                          modeling_file_fpath,
                          model_state_pos_fpath,
                          model_state_vel_fpath,
-                         model_force_files_fpath,
+                         model_force_files_folder_path,
                          model_outputs_folder,
                          fs,
                          t0,
@@ -55,36 +56,37 @@ def run_forward_analysis(analysis_type,
     Function performs the forward dynamic analysis of a multibody system.
 
     Parameters:
-    analysis_type               :   str
-                                    type of analysos to perform (Kinematic, Inverse Dynamic, Musculoskeletal)
-    modeling_file_fpath         :   str
-                                    absolute path of the modeling file of the multibody system
-    model_data_fpath            :   str
-                                    absolute path of the file containing the multibody system drives data
-    model_state_pos_fpath       :   str
-                                    absolute path of the file containing the generalized coordinates of the multibody system for the initial instant
-    model_state_vel_fpath       :   str
-                                    absolute path of the file containing the generalized velocities of the multibody system for the initial instant
-    inertial_parameters_fpath   :   str
-                                    absolute path of the file containing the inertial parameters of the multibody system drives
-    model_outputs_folder        :   str
-                                    absolute path of the folder to export the analysis outcomes
-    fs                          :   float
-                                    analysis sampling frequency
-    t0                          :   float
-                                    analysis initial time
-    tf                          :   float
-                                    analysis final time
-    widget                      :   wx.TextCtrl
-                                    widget used to export analysis messages and errors
+        analysis_type                   :   str
+                                            type of analysis to perform (Kinematic, Inverse Dynamic, Musculoskeletal)
+        modeling_file_fpath             :   str
+                                            absolute path of the modeling file of the multibody system
+        model_state_pos_fpath           :   str
+                                            absolute path of the file containing the generalized coordinates of the
+                                            multibody system for the initial instant
+        model_state_vel_fpath           :   str
+                                            absolute path of the file containing the generalized velocities of the
+                                            multibody system for the initial instant
+        model_force_files_folder_path   :   str
+                                            absolute path of the folder containing the external force files to apply
+                                            to the multibody system
+        model_outputs_folder            :   str
+                                            absolute path of the folder to export the analysis outcomes
+        fs                              :   float
+                                            analysis sampling frequency
+        t0                              :   float
+                                            analysis initial time
+        tf                              :   float
+                                            analysis final time
+        widget                          :   wx.TextCtrl
+                                            widget used to export analysis messages and errors
 
     Returns:
 
 
     """
 
-    force_files = [os.path.join(model_force_files_fpath, x) for x in
-                   os.listdir(os.path.join(model_force_files_fpath)) if x.endswith('.f')]  # [0]
+    force_files = [os.path.join(model_force_files_folder_path, x) for x in
+                   os.listdir(os.path.join(model_force_files_folder_path)) if x.endswith('.f')]  # [0]
 
     # Initialize dataConst from '.csv' file
     dataConst = file2dataConst(modeling_file_fpath)
@@ -145,7 +147,7 @@ def run_forward_analysis(analysis_type,
     forceSplineFuncs = compute_splined_forces(time, force_total_data, splineDegree=3)
 
     # tAdjusted final time
-    tf_adj = t0 + (nFrames) * dt
+    tf_adj = t0 + nFrames * dt
 
     momentsSplineFuncs = {}
 
@@ -227,19 +229,21 @@ def run_forward_analysis(analysis_type,
     joint_angles_acc_rep = compute_joint_angles_derivative(joint_angles_rep, t0, tf, dt, 2)
 
     # Export analysis outputs
-    export_analysis_outputs(model_outputs_fpath             = os.path.join(model_outputs_folder, analysis_type.lower() + '_analysis_outputs.out'),
-                            nRigidBodies                    = nRigidBodies,
-                            fs                              = fs,
-                            model_q_header                  = ['#Frame', 'Time'] + model_q_coords_header,
-                            q_rep                           = np.concatenate((frames_rep, time_span, q_rep), axis=1),
-                            qp_rep                          = np.concatenate((frames_rep, time_span, qp_rep), axis=1),
-                            model_joints_angles_header      = ['#Frame', 'Time'] + joint_angles_header,
-                            model_joints_angles             = np.concatenate((frames_rep, time_span, joint_angles_rep), axis=1),
-                            model_joints_ang_vel            = np.concatenate((frames_rep, time_span, joint_angles_vel_rep), axis=1),
-                            model_joints_ang_acc            = np.concatenate((frames_rep, time_span, joint_angles_acc_rep), axis=1),
+    export_analysis_outputs(model_outputs_fpath=os.path.join(model_outputs_folder, analysis_type.lower()
+                                                             + '_analysis_outputs.out'),
+                            nRigidBodies=nRigidBodies,
+                            fs=fs,
+                            model_q_header=['#Frame', 'Time'] + model_q_coords_header,
+                            q_rep=np.concatenate((frames_rep, time_span, q_rep), axis=1),
+                            qp_rep=np.concatenate((frames_rep, time_span, qp_rep), axis=1),
+                            model_joints_angles_header=['#Frame', 'Time'] + joint_angles_header,
+                            model_joints_angles=np.concatenate((frames_rep, time_span, joint_angles_rep), axis=1),
+                            model_joints_ang_vel=np.concatenate((frames_rep, time_span, joint_angles_vel_rep), axis=1),
+                            model_joints_ang_acc=np.concatenate((frames_rep, time_span, joint_angles_acc_rep), axis=1),
                             )
 
     return os.path.join(model_outputs_folder, analysis_type.lower() + '_analysis_outputs.out')
+
 
 if __name__ == "__main__":
     import doctest

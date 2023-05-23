@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
+
 
 def initialize_analysis_variables(nCoordinates, totalNumberConstraints):
     """
@@ -29,26 +30,26 @@ def initialize_analysis_variables(nCoordinates, totalNumberConstraints):
    
 
     Parameters:
-    nCoordinates            :   int
-                                system total number of coordinates
-    totalNumberConstraints  :   int
-                                system total number of constraints
+        nCoordinates            :   int
+                                    system total number of coordinates
+        totalNumberConstraints  :   int
+                                    system total number of constraints
 
     Return:
-    q       :   numpy.ndarray
-                vector of generalized coordinates of the multibody system
-    qp      :   numpy.ndarray
-                vector of generalized velocities of the multibody system
-    qpp     :   numpy.ndarray
-                vector of generalized acceleration of the multibody system
-    Phi     :   numpy.ndarray
-                vector of kinematic constraint equations of the multibody system
-    niu     :   numpy.ndarray
-                vector of right hand side of velocity contraint equations of the multibody system
-    gamma   :   numpy.ndarray
-                vector of right hand side of acceleration contraint equations of the multibody system
-    dPhidq  :   numpy.ndarray
-                jacobian matrix of the multibody system
+        q       :   numpy.ndarray
+                    vector of generalized coordinates of the multibody system
+        qp      :   numpy.ndarray
+                    vector of generalized velocities of the multibody system
+        qpp     :   numpy.ndarray
+                    vector of generalized acceleration of the multibody system
+        phi     :   numpy.ndarray
+                    vector of kinematic constraint equations of the multibody system
+        niu     :   numpy.ndarray
+                    vector of right hand side of velocity constraint equations of the multibody system
+        gamma   :   numpy.ndarray
+                    vector of right hand side of acceleration constraint equations of the multibody system
+        dPhidq  :   numpy.ndarray
+                    jacobian matrix of the multibody system
 
     """
     # Kinematic Analysis
@@ -65,7 +66,7 @@ def initialize_analysis_variables(nCoordinates, totalNumberConstraints):
     qpp = np.array([value] * nCoordinates)
 
     # Constraints vector
-    Phi = np.array([value] * totalNumberConstraints)
+    phi = np.array([value] * totalNumberConstraints)
 
     # 'niu' vector
     niu = np.array([value] * totalNumberConstraints)
@@ -76,7 +77,8 @@ def initialize_analysis_variables(nCoordinates, totalNumberConstraints):
     # Jacobian matrix
     dPhidq = np.zeros((totalNumberConstraints, nCoordinates))
 
-    return q, qp, qpp, Phi, niu, gamma, dPhidq
+    return q, qp, qpp, phi, niu, gamma, dPhidq
+
 
 if __name__ == "__main__":
     import doctest

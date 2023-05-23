@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import math
+
 
 def compute_force_length_component(muscle_info, l_m, muscle_type):
     """
@@ -28,16 +29,16 @@ def compute_force_length_component(muscle_info, l_m, muscle_type):
     Function computes the force-length component of each muscle of the biomechanical model, 
     for a given time instance.
     
-    Parameters
-    muscle_info        : dictionary
-                         muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model 
-    l_m                : list 
-                         muscle fibers length of every muscle of the model  
+    Parameters:
+        muscle_info        : dictionary
+                             muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model
+        l_m                : list
+                             muscle fibers length of every muscle of the model
                          
-    Return
-    fl_component       : list
-                         force-length component of each muscle of the biomechanical model, 
-                         for a certain time instance
+    Returns:
+        fl_component       : list
+                             force-length component of each muscle of the biomechanical model,
+                             for a certain time instance
     """
     
     # Initialize fl_component list 
@@ -63,7 +64,8 @@ def compute_force_length_component(muscle_info, l_m, muscle_type):
         fl_component.append(fl_muscle)
 
     return fl_component
-        
+
+
 if __name__ == "__main__":
     import doctest
         

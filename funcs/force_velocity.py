@@ -15,13 +15,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 from math import atan
 from math import pi 
+
 
 def compute_force_velocity_component(muscle_info, v_m, muscle_type):
     """
@@ -29,22 +30,24 @@ def compute_force_velocity_component(muscle_info, v_m, muscle_type):
     Function computes the force-length component of each muscle of the biomechanical model, 
     for a given time instance.
     
-    Parameters
-    muscle_info          :  dictionary
-                            information about every muscle of the model
-    v_m                  :  list
-                            velocity of every muscle, for a certain time instance
-                         
-    Return
-    fv_component         :  list
-                            force-velocity component of each muscle of the biomechanical model, for a certain time instance
+    Parameters:
+        muscle_info         :   dictionary
+                                information about every muscle of the model
+        v_m                 :   list
+                                velocity of every muscle, for a certain time instance
+        muscle_type         :   str
+
+    Returns:
+        fv_component        :   list
+                                force-velocity component of each muscle of the biomechanical model,
+                                for a certain time instance
     """
     
     # Initialize fl_component list 
     fv_component = []
     
     # Go through every muscle
-    for muscle_idx in range(0,len(muscle_info.keys())):
+    for muscle_idx in range(0, len(muscle_info.keys())):
         # maximum isometric force
         fo = muscle_info[muscle_idx]['fo']
 
@@ -70,7 +73,8 @@ def compute_force_velocity_component(muscle_info, v_m, muscle_type):
             fv_component.append(fo)
 
     return fv_component
-    
+
+
 if __name__ == "__main__":
     import doctest
         

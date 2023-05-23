@@ -15,12 +15,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__author__ 		= 'Ivo_Roupa'
-__copyright__ 	= "Copyright (C) 2023 Ivo Roupa"
-__email__ 		= "iroupa@gmail.com"
-__license__ 	= "Apache 2.0"
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import numpy as np
+
 
 def read_model_loc_coords(fpath):
     """
@@ -29,14 +30,13 @@ def read_model_loc_coords(fpath):
     of each segment of the model.
     
     Parameters:
-    fpath                   :   string
-                                absolute path of the input file 
-    
-    
+        fpath                   :   string
+                                    absolute path of the input file
+
     Returns:
-    model_segments_coords   :   dictionary
-                                local coordinates of the points of interest 
-                                of each segments of the model.
+        model_segments_coords   :   dictionary
+                                    local coordinates of the points of interest
+                                    of each segments of the model.
     """
 
     model_segments_coords = {}
@@ -55,7 +55,8 @@ def read_model_loc_coords(fpath):
         model_segments_coords[1] = [prox_coords, distal_coords]
     
     return model_segments_coords
-   
+
+
 if __name__ == "__main__":
     import doctest
         

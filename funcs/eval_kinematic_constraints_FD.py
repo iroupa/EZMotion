@@ -172,7 +172,7 @@ def evaluate_kinematic_constraints_FD(q, t, nRigidBodies, nCoordinates, nConstra
         else:
             print('Unknow constraint type !!!')
 
-    return {'Phi': data['phi'], 'dPhidq': data['dPhidq'], 'niu': data['niu'], 'gamma': data['gamma']}
+    return {'Phi': data['Phi'], 'dPhidq': data['dPhidq'], 'niu': data['niu'], 'gamma': data['gamma']}
 
 
 if __name__ == "__main__":

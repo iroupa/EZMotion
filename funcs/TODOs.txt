@@ -7,30 +7,38 @@ TODO:
 6: Update index of each field in each kinematic constraint equation 
 
 
-7: Comment compute_eom_constraints function
-8: Replace np.matrix (compute_ge_fm, compute_ge_bodies)
-9_: Document compute_joints_angles_fd function 
-10: check compute_joints_angles_fd problems
-11: check compute_lmt_and_vm function
-12: change count_model_DoF name to count_model_DRiver
+To correct
+
+1: check compute_lmt_and_vm function
+2: check_non_negative docstring
+3: document pad_data_2_filter
+4: Comment compute_eom_constraints function
+5: Replace np.matrix (compute_ge_fm, compute_ge_bodies)
+6: check compute_joints_angles_fd problems
+7: change count_model_DoF name to count_model_Driver
+8: Remove nCoordinates from evaluate_cross_product_angular_driver function
+9: document evaluate_kinematic_constraints docstring func 
+10: review docstring of all kinematic constraints equations
+11: document compute_force_velocity_component muscle type in docstring
+12: document initializeDataConst function in docstring
+13: document optimizer script in  docstring
+14: document compute_joints_angles_fd in docstring
+15: clean optimizer script comments
+16: document compute_passive_element in  docstring
+17: check read_DoFs labels change to drivers
+18: read_model_q except too broad
+19: clean and document solve_equations_of_motion script
+20: clean and document update_data_const 
+21: review kinematic constraints equation eval revolute_translation_joint
+
+
+Corrected
+9_: Insert comments on compute_joints_angles_fd function 
 13: Simplify mixed_dofs == [] expression in count_model_DoF 
-14: Remove nCoordinates from evaluate_cross_product_angular_driver function
-15: document evaluate_kinematic_constraints docstring func 
-16: review docstring of all kinematic constraints equations
-17: review kinematic constraints equation eval revolute_translation_joint
-18: document compute_force_velocity_component muscle type in docstring
-19: document initializeDataConst function in docstring
-20: document optimizer script in  docstring
-21: clean optimizer script comments
-22: document pad_data_2_filter
-23: document compute_passive_element in  docstring
-23: check read_DoFs labels change to drivers
-24: read_model_q except too broad
-25: clean and document solve_equations_of_motion script
-25: clean and document update_data_const 
 26: check_smaller_equal docstring
-27: check_non_negative docstring
-28: document compute_joints_angles_fd in docstring
+
+
+
 
 Next steps:
 1: Reduce reduzir ficheiro de musculos

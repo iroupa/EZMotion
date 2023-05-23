@@ -60,7 +60,7 @@ def count_model_DoF(x):
             total_DoF += 1
             mixed_dofs.append(row[13])
 
-    if mixed_dofs == []:
+    if not mixed_dofs:
         mixed_dofs = 0
     else:
         mixed_dofs = int(np.max(mixed_dofs))

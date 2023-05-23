@@ -30,7 +30,7 @@ def check_non_negative(widget_input, msg):
     Function checks if widget input is negative.
 
     Parameters:
-        widget_input    :   int / float
+        widget_input    :   float
                             widget input
         msg             :   str
                             message to return

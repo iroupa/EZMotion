@@ -30,22 +30,27 @@ def check_smaller_equal(widget_1, widget_2):
     Function checks if the value of widget 1 is smaller or equal than the value of widget 2.
 
     Parameters:
-        widget_1    :  wx.class
-
-        widget_2    :   wx.class
+        widget_1    :  self.m_textCtrl
+                       analysis initial time
+        widget_2    :  self.m_textCtrl
+                       analysis final time
 
         msg         :   str
                         message to return in case the value of widget 1 is smaler than the value of widget 2.
 
     Returns:
-                :   Boolean
-                    True if widget_input_1 is smaller that widget_input_2
+                    :   Boolean
+                        True if widget_input_1 is smaller that widget_input_2
 
     """
 
+    # Analysis initial time
     value_1 = widget_1.GetValue()
+
+    # Analysis final time
     value_2 = widget_2.GetValue()
 
+    # Check if analysis final time is greater than initial time
     if value_1 >= value_2:
         wx.MessageBox('Please select an initial frame smaller than the final frame', "Error")
         widget_1.SetBackgroundColour("pink")

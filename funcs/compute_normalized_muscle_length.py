@@ -29,14 +29,14 @@ def compute_norm_muscle_lengths(model_q_data, muscles_info):
 
     Function computes the normalized length of each muscle of the biomechanical model.
 
-    Parameters
-    model_q_data		:   numpy.array
-                            generalized coordinates of the multibody system
-    muscles_info		:   dictionary
-                            muscle parameters database
-    Returns
-    muscles_norm_length	:   numpy.array
-                            normalized length of each muscle of the biomechanical model.
+    Parameters:
+        model_q_data		:   numpy.array
+                                generalized coordinates of the multibody system
+        muscles_info		:   dictionary
+                                muscle parameters database
+    Returns:
+        muscles_norm_length	:   numpy.array
+                                normalized length of each muscle of the biomechanical model.
 
     """
 

@@ -60,6 +60,7 @@ def evaluate_dot_product_angular_driver_mixed(nRigidBodies, nCoordinates, constr
                                 Dictionary of numpy.ndarrays with the following
                                 keys 'Phi', 'dPhidq', 'niu', 'gamma' and respective
                                 values for Dot Product Angular  Constraint.
+    
     """
 
     # Row index to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'

@@ -26,6 +26,7 @@ import numpy as np
 
 def compute_wrapping_points(Q_angle, T_angle, wrapping_direction, nPoints, radius):
     """
+    
     Function computes the local coordinates of point 'Q' and 'T'
 
     Parameters:
@@ -43,7 +44,9 @@ def compute_wrapping_points(Q_angle, T_angle, wrapping_direction, nPoints, radiu
     Returns
                             :   list of lists
                                 local coordinates of the wrapping points between point 'Q' and point 'T'
+    
     """
+    
     if wrapping_direction == 'cw':
         if T_angle > Q_angle:
             T_angle = T_angle - 2 * math.pi

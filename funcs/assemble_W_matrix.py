@@ -28,17 +28,19 @@ def assemble_W_matrix(dataConst, dPhidq, trajectory_drivers_weight):
     
     Function creates weight matrix W to perform weighted least square kinematic analysis
 
-    Parameters
-    dataConst                   :   list of floats
-                                    local coordinates of arbitrary point 'P'
-    dPhidq                      :   numpy.array
-                                    jacobian matrix  of the system
-    trajectory_drivers_weight   :   float
-                                :   weight of each trajectory driver of the model
+    Parameters:
+        dataConst                   :   list of floats
+                                        local coordinates of arbitrary point 'P'
+        dPhidq                      :   numpy.array
+                                        jacobian matrix  of the system
+        trajectory_drivers_weight   :   float
+                                    :   weight of each trajectory driver of the model
 
-    Returns                     :  numpy.array
-                                    matrix of weights to use in the weighted least square approach
-                                    during the kinematic analysis
+    Returns:
+                                    :  numpy.array
+                                        matrix of weights to use in the weighted least square approach
+                                        during the kinematic analysis
+
     """
 
     # Get the type of all kinematic constraints of the model

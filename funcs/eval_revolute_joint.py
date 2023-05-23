@@ -55,6 +55,7 @@ def evaluate_revolute_joint(nCoordinates, constraintByType, dataConst, q, qpto, 
                                 Dictionary of numpy.ndarrays with the following
                                 keys 'Phi', 'dPhidq', 'niu', 'gamma' and respective
                                 values for revolute joint constraint.
+    
     """
 
     # Row Idx to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'

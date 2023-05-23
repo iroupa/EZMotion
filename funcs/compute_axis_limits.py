@@ -29,15 +29,15 @@ def compute_axis_limits(xy_data, nRigidBodies, ax):
     Function computes the 'x' and 'y' limits of the plot of the model.
 
     Parameters:
-    xy_data         :   numpy.array
-                        global cartesian coordinates of the extremities of the segments of the model
+        xy_data         :   numpy.array
+                            global cartesian coordinates of the extremities of the segments of the model
 
-    nRigidBodies    :   int
-                        number of rigid bodies of the model
+        nRigidBodies    :   int
+                            number of rigid bodies of the model
 
     Returns:
-    ax_xy_lims      :   list
-                        'x' and 'y' limits of the plot
+        ax_xy_lims      :   list
+                            'x' and 'y' limits of the plot
 
     """
 

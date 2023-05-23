@@ -30,16 +30,18 @@ def glob_2_loc(pointP, origin, vector):
     local reference frame of a specific segment of the multibody system.
 
     Parameters:
-    pointP            :   numpy.array
-                          global coordinates of point 'P'
-    origin            :   numpy.array
-                          global coordinates of the origin of the local reference frame of body 'i'
-    vector             :  numpy.ndarray
-                          body 'i' orientation unitary vector
+        pointP            :   numpy.array
+                              global coordinates of point 'P'
+        origin            :   numpy.array
+                              global coordinates of the origin of the local reference frame of body 'i'
+        vector             :  numpy.ndarray
+                              body 'i' orientation unitary vector
+
     Returns:
-    local_coordinates :   numpy.array
-                          local coordinates of point 'P' with respect to the local reference frame of
-                          body 'i'
+        local_coordinates :   numpy.array
+                              local coordinates of point 'P' with respect to the local reference frame of
+                              body 'i'
+
     """
 
     norm_vector = vector

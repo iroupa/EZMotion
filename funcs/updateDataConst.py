@@ -23,6 +23,7 @@ __license__ = "Apache 2.0"
 
 def updateDataConst(time, dataConst, func, nConstrainByType, dofType):
     """
+    
     Update dataConst every iteration
 
     Parameters:

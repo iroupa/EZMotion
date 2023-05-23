@@ -57,6 +57,7 @@ def evaluate_trajectory_driver(nCoordinates, constraintByType, dataConst, q, qpt
                             Dictionary of numpy.ndarrays with the following
                             keys 'Phi', 'dPhidq', 'niu', 'gamma' and respective
                             values for Trajectory Constraint.
+    
     """
 
     # Row index to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'

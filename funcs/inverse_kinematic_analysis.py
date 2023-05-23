@@ -68,6 +68,7 @@ def inverse_kinematic_analysis(frame, t, erroMax, nRigidBodies, nCoordinates, nC
         mode:               :   string
                                 flag to select how to use the current script, (gui - in EZMotion,
                                 script - standalone function)
+    
     Returns:
         modelKinematics     :   dictionary
                                 Phi, dPhidq, niu and gamma vectors
@@ -77,6 +78,7 @@ def inverse_kinematic_analysis(frame, t, erroMax, nRigidBodies, nCoordinates, nC
                                 vector of consistent generalized velocities of the multibody system
         qpp                 :   numpy.array
                                 vector of consistent generalized accelerations of the multibody system
+    
     """
 
     erro = erroMax

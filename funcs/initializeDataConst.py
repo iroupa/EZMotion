@@ -30,10 +30,11 @@ def initializeDataConst(nConstraintsByType):
     
     
     Parameters:
-    nConstraintsByType  :   int
-                            number of constraints of the multibody system
+        nConstraintsByType  :   int
+                                number of constraints of the multibody system
+
     Returns:
-                        :   numpy.ndarray
+                            :   numpy.ndarray
                             
     """
     dataConstEmptyRow = np.array([[0], [0], [0], [0], [0], [0], [0], [0], [0], [0], [0], [0], [0], [0]])

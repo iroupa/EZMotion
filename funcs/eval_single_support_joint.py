@@ -30,31 +30,32 @@ def evaluate_single_support_joint(nCoordinates, constraintByType, dataConst, q, 
     Function computes and assigns the contributions of the single support joint constraint equations to phi vector,
     dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic and dynamic analysis.
 
-    Parameters
-    nCoordinates        :   int
-                            Model total number of coordinates
-    constraintByType    :   int
-                            number of constraints by type
-    dataConst           :   numpy.ndarray
-                            Constants matrix
-    q                   :   numpy.ndarray
-                            model coordinates vector
-    qpto                :   numpy.ndarray
-                            model velocity coordinates vector
-    phi                 :   numpy.ndarray
-                            Model constraints vector
-    dPhidq              :   numpy.ndarray
-                            model Jacobian matrix
-    niu                 :   numpy.ndarray
-                            right hand side velocity equations vector
-    gamma               :   numpy.ndarray
-                            right hand side acceleration equations vector
+    Parameters:
+        nCoordinates        :   int
+                                Model total number of coordinates
+        constraintByType    :   int
+                                number of constraints by type
+        dataConst           :   numpy.ndarray
+                                Constants matrix
+        q                   :   numpy.ndarray
+                                model coordinates vector
+        qpto                :   numpy.ndarray
+                                model velocity coordinates vector
+        phi                 :   numpy.ndarray
+                                Model constraints vector
+        dPhidq              :   numpy.ndarray
+                                model Jacobian matrix
+        niu                 :   numpy.ndarray
+                                right hand side velocity equations vector
+        gamma               :   numpy.ndarray
+                                right hand side acceleration equations vector
 
-    Return
-                        :   Dictionary
-                            Dictionary of numpy.ndarrays with the following
-                            keys 'Phi', 'dPhidq', 'niu', 'gamma' and respective
-                            values for Single Support constraint.
+    Returns:
+                            :   Dictionary
+                                Dictionary of numpy.ndarrays with the following
+                                keys 'Phi', 'dPhidq', 'niu', 'gamma' and respective
+                                values for Single Support constraint.
+
     """
 
     # Row Idx to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'

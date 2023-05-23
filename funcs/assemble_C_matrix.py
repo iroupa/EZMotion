@@ -29,14 +29,15 @@ def assemble_C_matrix(localCoordinates):
     Function creates change of basis matrix for an arbitrary point 'P' belonging to an arbitrary 
     rigid body 'i'
 
-    Parameters
+    Parameters:
         localCoordinates    :   list of floats
                                 local coordinates of arbitrary point 'P'
 
-    Return
+    Return:
                         :   numpy.ndarray
                             Numpy array with change of basis 'C' matrix for point 'P' based on local
                             coordinates reference frame w.r.t rigid Body 'i'
+    
     """
 
     return np.array([[1, 0, localCoordinates[0], -localCoordinates[1]],

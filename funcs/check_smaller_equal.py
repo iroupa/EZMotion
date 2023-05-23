@@ -26,18 +26,23 @@ import wx.xrc
 
 def check_smaller_equal(widget_1, widget_2):
     """
+
     Function checks if the value of widget 1 is smaller or equal than the value of widget 2.
 
-    widget_1: wx.classe
+    Parameters:
+        widget_1    :  wx.class
 
-    widget_2: wx.classe
+        widget_2    :   wx.class
 
-    msg: str
-         message to return in case the value of widget 1 is smaler than the value of widget 2.
+        msg         :   str
+                        message to return in case the value of widget 1 is smaler than the value of widget 2.
 
-    Return: Boolean
-            True if widget_input_1 is smaller that widget_input_2
+    Returns:
+                :   Boolean
+                    True if widget_input_1 is smaller that widget_input_2
+
     """
+
     value_1 = widget_1.GetValue()
     value_2 = widget_2.GetValue()
 

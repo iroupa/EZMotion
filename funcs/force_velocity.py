@@ -41,6 +41,7 @@ def compute_force_velocity_component(muscle_info, v_m, muscle_type):
         fv_component        :   list
                                 force-velocity component of each muscle of the biomechanical model,
                                 for a certain time instance
+    
     """
     
     # Initialize fl_component list 

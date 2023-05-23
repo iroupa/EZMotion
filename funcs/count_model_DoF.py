@@ -38,6 +38,7 @@ def count_model_DoF(x):
                     number of degrees of freedom of the multibody system
 
     """
+    
     grounded_dofs = 0
     angular_dofs = []
     trajectory_dofs = 0

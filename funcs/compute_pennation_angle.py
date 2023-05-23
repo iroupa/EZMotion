@@ -28,13 +28,15 @@ def compute_pennation_angle(muscle_info, l_mt):
     Function computes the pennation angle for each muscle of the biomechanical model.
 
     Parameters:
-    muscle_info       : dictionary
-                        information about every muscle of the model
-    l_mt              : list
-                        musculotendon length of every muscle of the model
+        muscle_info       : dictionary
+                            information about every muscle of the model
+        l_mt              : list
+                            musculotendon length of every muscle of the model
+
     Returns:
-    pennation_angle   : list 
-                        pennation angle for every muscle, for a given musculotendon length
+        pennation_angle   : list
+                            pennation angle for every muscle, for a given musculotendon length
+
     """
     
     # Initialize pennation_angle list

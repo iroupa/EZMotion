@@ -35,7 +35,7 @@ def initialize_analysis_variables(nCoordinates, totalNumberConstraints):
         totalNumberConstraints  :   int
                                     system total number of constraints
 
-    Return:
+    Returns:
         q       :   numpy.ndarray
                     vector of generalized coordinates of the multibody system
         qp      :   numpy.ndarray

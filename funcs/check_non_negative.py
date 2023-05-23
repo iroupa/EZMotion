@@ -26,18 +26,21 @@ import wx.xrc
 
 def check_non_negative(widget_input, msg):
     """
+
     Function checks if widget input is negative.
 
     Parameters:
-    widget_input    :   int / float
-                        widget input
-    msg             :   str
-                        message to return
+        widget_input    :   int / float
+                            widget input
+        msg             :   str
+                            message to return
 
     Returns:
-                    :   boolean
-                        True if widget_input is empty or False is widget_input is not empty
+                        :   boolean
+                            True if widget_input is empty or False is widget_input is not empty
+
     """
+
     res = True
 
     if float(widget_input) < 0:

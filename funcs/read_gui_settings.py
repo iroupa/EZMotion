@@ -36,6 +36,7 @@ def read_gui_settings(fpath):
         gui_setting_parameters  :   dict
                                     font_family, font_style, font_type and color of the gui panesl,
                                      sbSizers and static text widgets.
+    
     """
 
     gui_setting_parameters = {}

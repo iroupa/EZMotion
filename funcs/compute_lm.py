@@ -28,16 +28,17 @@ def compute_lm(muscle_info, pennation_angle, l_mt):
     Function computes the length of each muscle fiber used in the biomechanical model.
 
     Parameters:
-    muscle_info       : dictionary
-                        information about every muscle of the model
-    pennation_angle   : list
-                        pennation angle for every muscle, for a given musculotendon length
-    l_mt              : list
-                        musculotendon length of every muscle of the model
-        
+        muscle_info       : dictionary
+                            information about every muscle of the model
+        pennation_angle   : list
+                            pennation angle for every muscle, for a given musculotendon length
+        l_mt              : list
+                            musculotendon length of every muscle of the model
+
     Returns:
-    l_m               : list
-                        muscle fibers length of every muscle of the model 
+        l_m               : list
+                            muscle fibers length of every muscle of the model
+
     """
     
     # Initialize muscle fibers length list

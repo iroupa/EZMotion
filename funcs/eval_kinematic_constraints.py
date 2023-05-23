@@ -37,18 +37,8 @@ from eval_unit_vector import evaluate_unit_vector
 from updateDataConst import updateDataConst
 
 
-def evaluate_kinematic_constraints(t,
-                                   nRigidBodies,
-                                   nCoordinates,
-                                   nConstraintByType,
-                                   dataConst,
-                                   q,
-                                   qpto,
-                                   phi,
-                                   dPhidq,
-                                   niu,
-                                   gamma,
-                                   func):
+def evaluate_kinematic_constraints(t, nRigidBodies, nCoordinates, nConstraintByType, dataConst, q, qpto, phi, dPhidq,
+                                   niu, gamma, func):
     """
     
     Function computes the contribution of each constraint equation of the system and assigns its contribution 
@@ -84,6 +74,7 @@ def evaluate_kinematic_constraints(t,
                                 Dictionary of arrays with the following keys
                                 'Phi', 'dPhidq', 'niu', 'gamma' and respective
                                 values for all model constraints.
+
     """
 
     # Index of the contribution of the kinematic constraints

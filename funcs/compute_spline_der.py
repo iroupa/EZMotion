@@ -37,6 +37,7 @@ def compute_cubic_spline_derivative(func, derOrder=1):
     Returns:
         result   :  tuple
                     Spline of order k2=k-n representing the derivative of the input spline.
+    
     """
 
     return splder(func, n=derOrder)

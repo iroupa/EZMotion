@@ -28,21 +28,20 @@ def assemble_mass_matrix(nBodies, dataConst, inertial_parameters):
     Create mass matrix for multibody system.
 
     Parameters:
-    nBodies					: 	int
-                                multibody system total number of bodies
-    dataConst               :   numpy.ndarray
-                                Constants matrix
-    inertial_parameters     :   dictionary
-                                inertial parameters of each segment of the multibody model
+        nBodies					: 	int
+                                    multibody system total number of bodies
+        dataConst               :   numpy.ndarray
+                                    Constants matrix
+        inertial_parameters     :   dictionary
+                                    inertial parameters of each segment of the multibody model
 
     Returns:
-    mass_matrix :  numpy.ndarray
-                   multibody system mass matrix
+        mass_matrix :  numpy.ndarray
+                       multibody system mass matrix
+
     """
 
     # Row Idx to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'
-    # model_bodies_numbers = [int(x[2]) for x in dataConst if x[0] == 1]
-
     n_mixed_angular_drivers = []
 
     for _ in dataConst:

@@ -28,9 +28,10 @@ def export_analysis_outputs_fd(model_outputs_fpath, model, nRigidBodies, fs, mod
                                model_mixed_angular_drivers, q_rep, qp_rep, model_joint_angles,
                                model_joint_ang_vel, model_joint_ang_acc):
     """
+    
     Function exports kinematic, dynamic and musculoskeletal analysis outputs to csv file.
 
-    Parameters
+    Parameters:
         model_outputs_fpath: string :   string
                                         absolute path of the model outputs file
         model                       :   string
@@ -60,7 +61,7 @@ def export_analysis_outputs_fd(model_outputs_fpath, model, nRigidBodies, fs, mod
         muscle_activations          :   numpy.ndarray
                                         muscle activations of each muscle of the multibody system
 
-    Return
+    Returns:
 
     """
 

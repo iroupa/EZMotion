@@ -49,6 +49,7 @@ def initialize_report_variables(nFrames, nCoordinates, angDriversConstraints):
                                     vector of Newton Raphson iteration error matrix during kinematic analysis
         theta_rep               :   numpy.ndarray
                                     angle of each revolute joint of the the multibody system
+    
     """
 
     # t0 -> tf

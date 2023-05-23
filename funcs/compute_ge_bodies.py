@@ -28,13 +28,14 @@ def compute_ge_bodies(ge_fm):
     Function computes the vector of forces for every body of every muscle
 
     Parameters:
-    ge_fm           : dictionary 
-                      ge_fm force vector for every force applied in every point
-                      of every muscle 
+        ge_fm           : dictionary
+                          ge_fm force vector for every force applied in every point
+                          of every muscle
                      
     Returns:
-    ge_bodies          : dictionary
-                         ge_fm force vector for every body of every muscle
+        ge_bodies          : dictionary
+                             ge_fm force vector for every body of every muscle
+
     """
     
     # Initialize g_bodies

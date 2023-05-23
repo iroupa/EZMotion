@@ -25,6 +25,7 @@ from assemble_C_matrix import assemble_C_matrix
 
 def apply_force(force, locCoords):
     """
+    
     Apply external force vector to generic body.
 
     Parameters:
@@ -36,6 +37,7 @@ def apply_force(force, locCoords):
     Returns:
         bodyforce   :   numpy.array
                         force applied to point 'p' of body 'i' with local coordinates
+    
     """
 
     cMatrix = assemble_C_matrix(locCoords)

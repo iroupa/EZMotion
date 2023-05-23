@@ -26,6 +26,7 @@ import numpy as np
 def evaluate_cross_product_angular_driver(nCoordinates, constraintByType, dataConst, q, qpto, phi, dPhidq, niu, gamma,
                                           rowIn):
     """
+    
     Function computes and assign the contributions of the dot product angular constraint between two vectors
     (support and moving) to Phi vector, dPhidq (Jacobian matrix), niu vector and gamma vector.
 
@@ -51,11 +52,13 @@ def evaluate_cross_product_angular_driver(nCoordinates, constraintByType, dataCo
         rowIn               :   int
                                 number of line to insert kinematic constraint equation contribution in phi,
                                 dPhidq, niu and gamma
+    
     Returns:
                             :   dictionary
                                 Dictionary of numpy.ndarrays with the following
                                 keys 'Phi', 'dPhidq', 'niu', 'gamma' and respective
                                 values for Dot Product Angular Constraint.
+    
     """
 
     # Row index to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'

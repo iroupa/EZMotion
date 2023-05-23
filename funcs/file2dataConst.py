@@ -35,6 +35,7 @@ def file2dataConst(fpath):
     Return
         dataConst   :   numpy.ndarray
                         all the information describing the topology of the multibody system
+    
     """
 
     dataConst = np.loadtxt(fpath, dtype='float', delimiter=',', comments="#")

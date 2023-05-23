@@ -36,6 +36,7 @@ def read_inertial_parameters(fpath):
         inertial_parameters :   dict
                                 inertial parameters (mass, moment of inertia, and local coordinates of
                                 the origin of the local reference frame) of each segment of the multibody system.
+    
     """
 
     model_inertial_parameters_info = {}

@@ -40,6 +40,7 @@ def moment2forceCouple(q, bodyNumber, moment_of_force):
     Returns:
         bodyforce           :   numpy.array
                                 spring force applied to body 'i' centre of mass coordinate
+    
     """
 
     # Force 1 local coordinates

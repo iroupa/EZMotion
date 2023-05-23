@@ -42,6 +42,7 @@ def read_angular_driver_info(row, idx, ang_drivers_info):
         ang_drivers_info    :   dictionary
                                 info (n_bodies, bodies and type of constraint) of each
                                 driver of the multibody system.
+    
     """
 
     if idx in [2, 4, 13, 15]:

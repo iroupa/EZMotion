@@ -66,6 +66,7 @@ def muscle_analysis(muscle_info, q, qp, nCoordinates, rb_info):
                             passive force of each muscle of the biomechanical model
         f_ce            :   list
                             contractile force of each muscle of the biomechanical model
+    
     """
 
     # Compute musculotendon length and muscle contraction velocity

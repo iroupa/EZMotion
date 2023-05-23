@@ -45,6 +45,7 @@ def pad_signal_(signal, slope_frames, start_idx, end_idx, nPads_begin, nPads_end
     Returns:
                         :   numpy array
                             padded numpy array
+    
     """
 
     signal_length = signal.shape[0]

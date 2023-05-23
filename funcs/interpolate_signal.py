@@ -38,6 +38,7 @@ def interpolate_1D_data(y, nPoints):
     Returns:
         ynew    :   numpy.array
                     time series interpolated
+    
     """
 
     # Create numpy array 'x' with the length of 'y' array to use as interpolation 'xs'

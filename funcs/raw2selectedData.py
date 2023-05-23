@@ -40,6 +40,7 @@ def raw2selectedData(y, drivers_info):
         output_data     : dictionary
                         knots, coefficients and spline order for raw data and
                         first and second spline derivatives
+    
     """
 
     # Empty dictionary to store raw data and spline and derivatives parameters (knots, coefficients and spline order )

@@ -61,6 +61,7 @@ def inverse_dynamic_analysis(t, q, qpp, model_n_mixed_angular_drivers, modeling_
         lmm                             :   numpy.array
                                             lagrange multipliers obtained by solving the equations of motion
                                             of the multibody system
+    
     """
 
     if model_n_mixed_angular_drivers > 1:

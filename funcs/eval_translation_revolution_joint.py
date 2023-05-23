@@ -56,6 +56,7 @@ def evaluate_translation_revolution_joint(nCoordinates, constraintByType, dataCo
                                                                 Dictionary of numpy.ndarrays with the following
                                                                 keys 'Phi', 'dPhidq', 'niu', 'gamma' and respective
                                                                 values for Translation Joint Constraint.
+    
     """
 
     # Row Idx to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'

@@ -55,11 +55,13 @@ def evaluate_dot_product_angular_driver_grounded_mixed(nRigidBodies, nCoordinate
         rowIn               :   int
                                 number of line to insert kinematic constraint equation contribution in phi,
                                 dPhidq, niu and gamma
+    
     Returns:
                             : dictionary
                                 Dictionary of numpy.ndarrays with the following
                                 keys 'Phi', 'dPhidq', 'niu', 'gamma' and respective
                                 values for Dot Product Angular Grounded Constraint.
+    
     """
 
     # Row index to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'

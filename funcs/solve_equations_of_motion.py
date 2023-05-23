@@ -35,6 +35,30 @@ from compute_splined_forces_coords import compute_splined_forces_coords
 def solve_equations_of_motion(y0, t, nRigidBodies, massMatrix, nCoordinates, nConstraintsByType, dataConst, Phi,
                               dPhidq, niu, gamma, alpha, beta, gravitationalForces, forceSplineFuncs='',
                               sda_Parameters='', MomentsofForce=''):
+    """
+
+    Parameters:
+        y0:
+        t:
+        nRigidBodies:
+        massMatrix:
+        nCoordinates:
+        nConstraintsByType:
+        dataConst:
+        Phi:
+        dPhidq:
+        niu:
+        gamma:
+        alpha:
+        beta:
+        gravitationalForces:
+        forceSplineFuncs:
+        sda_Parameters:
+        MomentsofForce:
+
+    Returns:
+
+    """
 
     gVector = np.zeros(nRigidBodies * 4)
 

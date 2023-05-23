@@ -29,15 +29,15 @@ def compute_lines_info(fpath, q):
 
     Function compiles the data of each line of the multibody system to be plotted
 
-    Parameters
-    fpath		    :   str
-                        absolute path of the file containing the local coordinates of ech sehgment to plot
-    q				:   numpy.array
-                        vector of generalized coordinates of the multibody system
+    Parameters:
+        fpath		    :   str
+                            absolute path of the file containing the local coordinates of ech sehgment to plot
+        q				:   numpy.array
+                            vector of generalized coordinates of the multibody system
 
-    Return
-    lines_info	    :   dictionary
-                        body number and respective global coordinates of the model to plot
+    Returns:
+        lines_info	    :   dictionary
+                            body number and respective global coordinates of the model to plot
 
     """
 

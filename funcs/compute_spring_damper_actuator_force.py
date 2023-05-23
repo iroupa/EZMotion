@@ -42,6 +42,7 @@ def compute_spring_damper_actuator_force(q, qp, sda_parameters):
     Returns:
         springDamperforce   :   dictionary
                                 body number and respective generalized SDA forces
+    
     """
 
     # Assign spring damper and actuator parameters to variables

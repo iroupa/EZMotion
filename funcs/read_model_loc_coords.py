@@ -37,6 +37,7 @@ def read_model_loc_coords(fpath):
         model_segments_coords   :   dictionary
                                     local coordinates of the points of interest
                                     of each segments of the model.
+    
     """
 
     model_segments_coords = {}

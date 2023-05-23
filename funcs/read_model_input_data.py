@@ -49,6 +49,7 @@ def read_model_input_data(fpath, filter_data='', fs=100, R2=0.9, fc=8, order=4):
     Returns:
         result      :   pandas.DataFrame
                         model drivers data
+    
     """
 
     result = pd.read_csv(fpath, delimiter=',', comment="#")

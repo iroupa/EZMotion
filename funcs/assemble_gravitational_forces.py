@@ -29,14 +29,15 @@ def assemble_gravitational_forces(dataConst, inertial_parameters):
     Function assembles the vector of gravitational forces of the multibody system. 
 
     Parameters:
-    dataConst             	:   numpy.ndarray
-                                Constants matrix
-    inertial_parameters     :   dictionary
-                                Model segments inertial parameters
+        dataConst             	:   numpy.ndarray
+                                    Constants matrix
+        inertial_parameters     :   dictionary
+                                    Model segments inertial parameters
 
     Returns:
-    gravitational_forces    :  dict
-                               Dictionary containing all inertial forces for each body of multibody system 
+        gravitational_forces    :  dict
+                                   Dictionary containing all inertial forces for each body of multibody system
+
     """
 
     # Row Idx to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'

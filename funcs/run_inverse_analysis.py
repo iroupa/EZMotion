@@ -77,33 +77,33 @@ def run_inverse_analysis(analysis_type,
     Function performs the kinematic, inverse dynamic or inverse musculoskeletal analysis of a multibody system.
 
     Parameters:
-    analysis_type               :   str
-                                    type of analysis to perform (Kinematic, Inverse Dynamic, Musculoskeletal)
-    modeling_file_fpath         :   str
-                                    absolute path of the modeling file of the multibody system
-    model_data_fpath            :   str
-                                    absolute path of the file containing the multibody system drives data
-    model_state_fpath           :   str
-                                    absolute path of the file containing the generalized coodinates of the multibody
-                                    system for the initial instant
-    model_force_files_fpath     :   str
-                                    absolute path of the folder containing the external forces files to apply during
-                                    the analysis
-    muscle_db_fpath             :   str
-                                    absolute path of the file containing the parameters of the muscles dataset
-    model_outputs_folder        :   str
-                                    absolute path of the folder to export the analysis outcomes
-    fs                          :   float
-                                    analysis sampling frequency
-    t0                          :   float
-                                    analysis initial time
-    tf                          :   float
-                                    analysis final time
-    widget                      :   wx.TextCtrl
-                                    widget used to export analysis messages and errors
-    mode                        :   string
-                                    flag to select how to use the current script, (gui - in EZMotion,
-                                    script - standalone function)
+        analysis_type               :   str
+                                        type of analysis to perform (Kinematic, Inverse Dynamic, Musculoskeletal)
+        modeling_file_fpath         :   str
+                                        absolute path of the modeling file of the multibody system
+        model_data_fpath            :   str
+                                        absolute path of the file containing the multibody system drives data
+        model_state_fpath           :   str
+                                        absolute path of the file containing the generalized coodinates of the multibody
+                                        system for the initial instant
+        model_force_files_fpath     :   str
+                                        absolute path of the folder containing the external forces files to apply during
+                                        the analysis
+        muscle_db_fpath             :   str
+                                        absolute path of the file containing the parameters of the muscles dataset
+        model_outputs_folder        :   str
+                                        absolute path of the folder to export the analysis outcomes
+        fs                          :   float
+                                        analysis sampling frequency
+        t0                          :   float
+                                        analysis initial time
+        tf                          :   float
+                                        analysis final time
+        widget                      :   wx.TextCtrl
+                                        widget used to export analysis messages and errors
+        mode                        :   string
+                                        flag to select how to use the current script, (gui - in EZMotion,
+                                        script - standalone function)
 
     Returns:
 

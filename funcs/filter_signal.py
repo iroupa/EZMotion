@@ -37,7 +37,7 @@ def butter_filter(y, fs, fc, filter_order):
                             cuttof frequency in Hertz
         filter_order    :   int
                             order of the filter
-    Return:
+    Returns:
                         :   numpy.array
                             input signal filtered
     

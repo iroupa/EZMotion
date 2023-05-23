@@ -26,6 +26,7 @@ import numpy as np
 def evaluate_dot_product_angular_driver(nCoordinates, constraintByType, dataConst, q, qpto, phi, dPhidq, niu, gamma,
                                         rowIn):
     """
+    
     Function computes and assigns contributions of dot product angular  constraint between two vectors
     (support and moving) to Phi vector, dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic and 
     dynamic analysis.
@@ -58,6 +59,7 @@ def evaluate_dot_product_angular_driver(nCoordinates, constraintByType, dataCons
                                 Dictionary of numpy.ndarrays with the following
                                 keys 'Phi', 'dPhidq', 'niu', 'gamma' and respective
                                 values for Dot Product Angular  Constraint.
+    
     """
 
     # Row index to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'

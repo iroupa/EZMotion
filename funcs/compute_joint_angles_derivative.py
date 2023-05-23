@@ -30,21 +30,22 @@ def compute_joint_angles_derivative(joint_angles, t0, tf, dt, der):
     Function computes the 'n' derivative of each angle of each revolute
     joint of the multibody system.
 
-    Parameters
-    joint_angles			:   numpy array
-                                angle of each revolute joint of the multibody system
-    t0						:   float
-                                initial time of the analysis
-    tf						:   float
-                                final time of the analysis
-    dt						:   float
-                                time step of the analysis
-    der						:   int
-                                degree of the derivative
+    Parameters:
+        joint_angles			:   numpy array
+                                    angle of each revolute joint of the multibody system
+        t0						:   float
+                                    initial time of the analysis
+        tf						:   float
+                                    final time of the analysis
+        dt						:   float
+                                    time step of the analysis
+        der						:   int
+                                    degree of the derivative
 
-    Return
-    joint_angles_der_rep	: numpy array
-                            'n' derivative of each angle of each revolute joint of the multibody system
+    Returns:
+        joint_angles_der_rep	:   numpy array
+                                    'n' derivative of each angle of each revolute joint of the multibody system
+
     """
 
     joint_angles_der_rep = np.zeros((joint_angles.shape[0], joint_angles.shape[1]))

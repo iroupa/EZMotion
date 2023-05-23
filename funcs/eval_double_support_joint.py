@@ -30,7 +30,7 @@ def evaluate_double_support_joint(nCoordinates,  constraintByType, dataConst, q,
     Function computes and assigns the contributions of the double support joint constraint equations to phi vector,
     dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic and dynamic analysis.
 
-    Parameters
+    Parameters:
         nCoordinates        :   int
                                 Model total number of coordinates
         constraintByType    :   int
@@ -54,11 +54,13 @@ def evaluate_double_support_joint(nCoordinates,  constraintByType, dataConst, q,
         rowIn               :   int
                                 number of line to insert kinematic constraint equation contribution in phi,
                                 dPhidq, niu and gamma
+    
     Returns:
                             : Dictionary
                                 Dictionary of numpy.ndarrays with the following
                                 keys 'Phi', 'dPhidq', 'niu', 'gamma' and respective
                                 values for Double Support constraint.
+    
     """
 
     # Get Row Idx to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'

@@ -29,15 +29,16 @@ def assemble_g_M(nCoordinates, ge_bodies):
     Function assembles the vector of generalized coordinates of the whole system for every muscle
 
     Parameters:
-    nCoordinates    :   int
-                        number of coordinates of the system
-    ge_bodies       :   dictionary
-                        ge_fm force vector for every body of every muscle muscle
+        nCoordinates    :   int
+                            number of coordinates of the system
+        ge_bodies       :   dictionary
+                            ge_fm force vector for every body of every muscle muscle
 
     Returns:
-    g_M             :   np.array
-                        vector of the generalised coordinates of the whole
-                        system for every muscle (each line is a different muscle)
+        g_M             :   np.array
+                            vector of the generalised coordinates of the whole
+                            system for every muscle (each line is a different muscle)
+
     """
     
     # number of muscles

@@ -31,7 +31,7 @@ def evaluate_dot_product_angular_driver_grounded(nCoordinates, constraintByType,
     (support and moving) to Phi vector, dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic and 
     dynamic analysis.
 
-    Parameters
+    Parameters:
         nCoordinates        :   int
                                 Model total number of coordinates
         constraintByType   :   int
@@ -53,7 +53,8 @@ def evaluate_dot_product_angular_driver_grounded(nCoordinates, constraintByType,
         rowIn               :   int
                                 number of line to insert kinematic constraint equation contribution in phi,
                                 dPhidq, niu and gamma
-    Return
+    
+    Returns:
                             :dictionary
                                 Dictionary of numpy.ndarrays with the following
                                 keys 'Phi', 'dPhidq', 'niu', 'gamma' and respective

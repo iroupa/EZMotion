@@ -31,15 +31,17 @@ def compute_fmP(muscle_info, force):
 
 
     Parameters:
-    muscle_info        : dictionary
-                         information about every muscle of the model
-    force              : list 
-                         contractile (CE) or passive (PE) force values for all 
-                         the muscles
+        muscle_info        : dictionary
+                             information about every muscle of the model
+        force              : list
+                             contractile (CE) or passive (PE) force values for all
+                             the muscles
+
     Returns:
-    fmP                : dictionary
-                         Vectorial (CE or PE) muscle force component for all the 
-                         force application points of the muscles          
+        fmP                : dictionary
+                             Vectorial (CE or PE) muscle force component for all the
+                             force application points of the muscles
+
     """
     
     # Initialize fmP vectorial (passive or contractile elements)

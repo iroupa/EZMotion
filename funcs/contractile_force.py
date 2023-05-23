@@ -23,19 +23,21 @@ __license__ = "Apache 2.0"
 
 def compute_contractile_element(muscle_info, fl_component, fv_component, mode):
     """
+    
     Function computes the contractile force for every muscle, for a certain time instance.
     
     Parameters:
-    muscle_info         : dictionary
-                          muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model 
-    fl_component        : list
-                          force-length component for every muscle, for a certain time instance
-    fv_component        : list
-                          force-velocity component for every muscle, for a certain time instance
+        muscle_info         : dictionary
+                              muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model
+        fl_component        : list
+                              force-length component for every muscle, for a certain time instance
+        fv_component        : list
+                              force-velocity component for every muscle, for a certain time instance
                           
     Returns:
-    f_ce                : list
-                          contractile force element for every muscle
+        f_ce                : list
+                              contractile force element for every muscle
+    
     """
     
     # Initialize f_ce list

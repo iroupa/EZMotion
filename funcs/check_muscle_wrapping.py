@@ -42,6 +42,7 @@ def check_muscle_wrapping(P, S, r, direction):
                     cartesian coordinates of the distal contact point of the muscle before the obstacle
         wrapping:   boolean
                     True if wrapping occurs or False if wrapping does not occur
+    
     """
 
     Px, Py = P[0], P[1]

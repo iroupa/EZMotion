@@ -39,6 +39,7 @@ def compute_spline_knots_coeffs_degree(time, y, splineDegree=3):
                         contains the vector of knots, the B-spline coefficients, and the degree of the spline.
 
     """
+    
     from scipy.interpolate import splrep
 
     # Create cubic spline function for 'x' and 'y' values

@@ -31,14 +31,14 @@ def compute_joints_angles_inverse(dataConst, q):
     Function computes the angle for each revolute joint of the multibody system.
 
     Parameters
-    dataConst		:   numpy.array
-                        information about the modeling of the multibody system
-    q				:   numpy.array
-                        vector of generalized coordinates of the multibody system
+        dataConst		:   numpy.array
+                            information about the modeling of the multibody system
+        q				:   numpy.array
+                            vector of generalized coordinates of the multibody system
 
     Return
-    joint_angles	:   numpy.array
-                        joint angles of the revolute joints of the multibody system
+        joint_angles	:   numpy.array
+                            joint angles of the revolute joints of the multibody system
 
     """
 

@@ -34,22 +34,22 @@ def compute_lmt_and_vm(muscle_info, q, qp, rb_info):
     that contains the parameters of each muscle used in the biomechanical model.
 
     Parameters:
-    muscle_info          : dictionary 
-                           information about every muscle of the model
-    q                    : list
-                           q vector from the kinematic analysis
-    qp                   : list
-                           qp vector from the kinematic analysis
+        muscle_info          : dictionary
+                               information about every muscle of the model
+        q                    : list
+                               q vector from the kinematic analysis
+        qp                   : list
+                               qp vector from the kinematic analysis
                            
     Returns:
-    l_mt                 : list    
-                           musculotendon length of every muscle of the model
+        l_mt                 : list
+                               musculotendon length of every muscle of the model
 
-    v_m					 : list
-                           musculotendon length of every muscle of the model
+        v_m					 : list
+                               musculotendon length of every muscle of the model
 
-    muscle_info:		 : dictionary
-                           Contains the muscle database
+        muscle_info:		 : dictionary
+                               Contains the muscle database
 
     """
     

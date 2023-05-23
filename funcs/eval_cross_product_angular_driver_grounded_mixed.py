@@ -26,6 +26,7 @@ import numpy as np
 def evaluate_cross_product_angular_driver_grounded_mixed(nRigidBodies, nCoordinates, constraintByType, dataConst, q,
                                                          qpto, phi, dPhidq, niu, gamma, rowIn):
     """
+    
     Function computes and assigns contributions of cross product mixed angular grounded constraint between two 
     vectors (support and moving) to Phi vector, dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic 
     and dynamic analysis.
@@ -54,11 +55,13 @@ def evaluate_cross_product_angular_driver_grounded_mixed(nRigidBodies, nCoordina
         rowIn               :   int
                                 number of line to insert kinematic constraint equation contribution in phi,
                                 dPhidq, niu and gamma
+    
     Returns:
                             :   dictionary
                                 Dictionary of numpy.ndarrays with the following
                                 keys 'Phi', 'dPhidq', 'niu', 'gamma' and respective
                                 values for Dot Product Angular Grounded Constraint.
+    
     """
 
     # Row index to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'

@@ -29,28 +29,28 @@ def compute_eom_constraints(x, generalized_forces_vector, dPhidq, massMatrix, qp
       Function computes the equation of motion in the homogeneous form.
 
       Parameters:
-      x                         :   numpy.array
-                                    solution of the static optimization problem
-      generalized_forces_vector :   numpy.array
-                                    vector of generalized external forces of the multibody system
-      dPhidq                    :   numpy.array
-                                    jacobian matrix of the multibody system
-      massMatrix                :   numpy.array
-                                    mass matrix of the multibody system
-      qpp                       :   numpy.array
-                                    vector of generalized accelerations of the multibody system
-      nCoordinates              :   int
-                                    number of generalized coordinates of the multibody system
-      g_M_pe                    :   numpy.array
-                                    vector of generalized coordinates of the passive force of whole system
-                                    for every muscle
-      g_M_ce                    :   numpy.array
-                                    vector of generalized coordinates of the contractile force of whole
-                                    system for every muscle
+          x                         :   numpy.array
+                                        solution of the static optimization problem
+          generalized_forces_vector :   numpy.array
+                                        vector of generalized external forces of the multibody system
+          dPhidq                    :   numpy.array
+                                        jacobian matrix of the multibody system
+          massMatrix                :   numpy.array
+                                        mass matrix of the multibody system
+          qpp                       :   numpy.array
+                                        vector of generalized accelerations of the multibody system
+          nCoordinates              :   int
+                                        number of generalized coordinates of the multibody system
+          g_M_pe                    :   numpy.array
+                                        vector of generalized coordinates of the passive force of whole system
+                                        for every muscle
+          g_M_ce                    :   numpy.array
+                                        vector of generalized coordinates of the contractile force of whole
+                                        system for every muscle
 
       Returns:
-      f_eq                      :   numpy.array
-                                    equation of motion in the homogeneous form.
+          f_eq                      :   numpy.array
+                                        equation of motion in the homogeneous form.
 
       """
 

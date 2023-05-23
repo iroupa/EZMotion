@@ -39,6 +39,7 @@ def compute_force_length_component(muscle_info, l_m, muscle_type):
         fl_component       : list
                              force-length component of each muscle of the biomechanical model,
                              for a certain time instance
+    
     """
     
     # Initialize fl_component list 

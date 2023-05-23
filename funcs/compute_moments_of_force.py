@@ -27,6 +27,7 @@ from read_angular_driver_info import read_angular_driver_info
 
 def compute_moments_of_force(dataConst, q, lmm, weight):
     """
+    
     Function computes the net moment of force for each revolute joint of the model.
 
     Parameters:

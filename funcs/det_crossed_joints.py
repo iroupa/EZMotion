@@ -33,7 +33,9 @@ def det_crossed_joints(muscle_info):
     Return
                             :   list os lists
                                 number of the bodies that define the joints crossed by muscles
+    
     """
+    
     crossed_joint = []
 
     # Update through all joints of the model (joints_info)

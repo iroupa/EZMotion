@@ -33,14 +33,14 @@ def compute_export_model_loc_coords(fpath, export_fpath):
     that will be used to visualize the segments of the multibody system.
 
     Parameters:
-    fpath                       :   string
-                                    absolute path of the input file
-    export_fpath                :   string
-                                    absolute path of the output file
-    
+        fpath                       :   string
+                                        absolute path of the input file
+        export_fpath                :   string
+                                        absolute path of the output file
+
     Returns:
-    model_segments_loc_coords   :   pandas.dataframe
-                                    local coordinates of the points of interest of the multibody system
+        model_segments_loc_coords   :   pandas.dataframe
+                                        local coordinates of the points of interest of the multibody system
 
     """
 

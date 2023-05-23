@@ -28,6 +28,9 @@ TODO:
 24: read_model_q except too broad
 25: clean and document solve_equations_of_motion script
 25: clean and document update_data_const 
+26: check_smaller_equal docstring
+27: check_non_negative docstring
+28: document compute_joints_angles_fd in docstring
 
 Next steps:
 1: Reduce reduzir ficheiro de musculos

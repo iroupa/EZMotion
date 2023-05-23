@@ -29,7 +29,8 @@ from apply_force import apply_force
 
 def compute_splined_forces_coords(t, q, forceSplineFuncs, generalized_forces_vector):
     """
-    Function compute new coordinates and forces and update the vector of generalized forces.
+    
+    Function computes new coordinates and forces and update the vector of generalized forces.
 
     Parameters:
         t							:   float

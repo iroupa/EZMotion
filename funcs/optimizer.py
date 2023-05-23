@@ -42,6 +42,7 @@ def cost_function(x, nh, nm):
     Returns:
         f0  :   float
                 value of the
+    
     """
 
     a = x[nh:]
@@ -55,6 +56,7 @@ def cost_function(x, nh, nm):
 
 def cost_function_jacobian(x, nh, nm):
     """
+    
     Define cost function to evaluate in the optimization problem.
 
     Parameters:

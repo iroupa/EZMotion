@@ -42,6 +42,7 @@ def compute_spline_coords(time, y, splineDegree=3):
         dofsplKnotsCoeffsDegree :   dictionary
                                     knots, coefficients and spline order of input spline and respective
                                     first and second spline derivative.
+    
     """
 
     # Empty dictionary to be filled with spline Knots Coeffs and Degree for each data column in 'y'

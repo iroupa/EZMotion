@@ -22,8 +22,8 @@ __license__ = "Apache 2.0"
 
 
 def compute_passive_element(muscle_info, l_m, f_pe_mode):
-    
     """
+    
     Function computes the passive element force for a certain time instance.
     
     Parameters:
@@ -36,6 +36,7 @@ def compute_passive_element(muscle_info, l_m, f_pe_mode):
     Returns:
         f_pe                : list
                               passive force element for every muscle
+    
     """
     
     # Initialize f_ce list

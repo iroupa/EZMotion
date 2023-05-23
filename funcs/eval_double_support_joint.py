@@ -32,11 +32,11 @@ def evaluate_double_support_joint(nCoordinates,  constraintByType, dataConst, q,
 
     Parameters:
         nCoordinates        :   int
-                                Model total number of coordinates
+                                total number of generalized coordinates of the multibody system
         constraintByType    :   int
-                                number of constraints by type
+                                Number of kinematic constraints of the multibody system
         dataConst           :   numpy.ndarray
-                                Constants matrix
+                                information describing the topology of the multibody system
         q                   :   numpy.ndarray
                                 vector of generalized coordinates of the multibody system
         qpto                :   numpy.ndarray
@@ -44,22 +44,22 @@ def evaluate_double_support_joint(nCoordinates,  constraintByType, dataConst, q,
         phi                 :   numpy.ndarray
                                 vector of kinematic constraints of the multibody system
         dPhidq              :   numpy.ndarray
-                                model Jacobian matrix
+                                jacobian matrix of the multibody system
         niu                 :   numpy.ndarray
-                                right hand side vector of velocity kinematic constraint equations
-                                of the multibody system
+                                right hand side of the velocity vector of kinematic constraint equations
         gamma               :   numpy.ndarray
-                                right hand side vector of acceleration kinematic constraint equations
-                                of the multibody system
+                                right hand side of the acceleration vector of kinematic constraint equations
         rowIn               :   int
                                 number of line to insert kinematic constraint equation contribution in phi,
                                 dPhidq, niu and gamma
     
     Returns:
-                            : Dictionary
-                                Dictionary of numpy.ndarrays with the following
-                                keys 'Phi', 'dPhidq', 'niu', 'gamma' and respective
-                                values for Double Support constraint.
+            {'Phi': phi, 'dPhidq': dPhidq, 'niu': niu, 'gamma': gamma, 'rowOut': rowIn + 1}:  dictionary
+                                                                                            Contributions of Double
+                                                                                            Support Constraint to phi,
+                                                                                            dPhidq, niu and gamma
+                                                                                            vectors and the ending index
+                                                                                            of such contributions
     
     """
 

@@ -31,26 +31,27 @@ def evaluate_translation_revolution_joint(nCoordinates, constraintByType, dataCo
 
     Parameters:
         nCoordinates        :   int
-                                Model total number of coordinates
+                                total number of generalized coordinates of the multibody system
         constraintByType    :   int
-                                Number of constraints by type
+                                Number of kinematic constraints of the multibody system
         dataConst           :   numpy.ndarray
-                                Constants matrix
+                                information describing the topology of the multibody system
         q                   :   numpy.ndarray
-                                model coordinates vector
+                                vector of generalized coordinates of the multibody system
         qpto                :   numpy.ndarray
-                                Velocity coordinates vector
+                                vector of generalized velocities of the multibody system
         phi                 :   numpy.ndarray
-                                Model constraints vector
+                                vector of kinematic constraints of the multibody system
         dPhidq              :   numpy.ndarray
-                                Model Jacobian matrix
+                                jacobian matrix of the multibody system
         niu                 :   numpy.ndarray
-                                right hand side velocity equations vector
+                                right hand side of the velocity vector of kinematic constraint equations
         gamma               :   numpy.ndarray
-                                right hand side acceleration equations vector
+                                right hand side of the acceleration vector of kinematic constraint equations
         rowIn               :   int
-                                        number of line to insert kinematic constraint equation contribution in phi,
-                                        dPhidq, niu and gamma
+                                number of line to insert kinematic constraint equation contribution in phi,
+                                dPhidq, niu and gamma
+
     Returns:
         {'Phi':phi,'dPhidq':dPhidq, 'niu':niu, 'gamma':gamma} : dictionary
                                                                 Dictionary of numpy.ndarrays with the following

@@ -10,8 +10,6 @@ TODO:
 To correct
 
 1: check compute_joints_angles_fd problems phi key 
-2: review docstring of all kinematic constraints equations
-
 3: check compute_lmt_and_vm function
 4: Replace np.matrix (compute_ge_fm, compute_ge_bodies)
 5: document compute_force_velocity_component muscle type in docstring
@@ -27,6 +25,7 @@ To correct
 2: review kinematic constraints equation eval revolute_translation_joint
 
 Corrected
+1: review docstring of all kinematic constraints equations
 2: check_non_negative docstring
 3: document pad_data_2_filter
 4: Comment compute_eom_constraints function

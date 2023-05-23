@@ -56,7 +56,8 @@ def solve_equations_of_motion(y0, t, nRigidBodies, massMatrix, nCoordinates, nCo
            phi                     :   numpy.array
                                        Vector of constraint function values for each constraint
            dPhidq                  :   numpy.array
-                                       Jacobian matrix of the constraint functions with respect to the generalized coordinates
+                                       Jacobian matrix of the constraint functions with respect to the
+                                       generalized coordinates
            niu                     :   numpy.array
                                        Vector of constraint velocities for each constraint
            gamma                   :   float
@@ -89,7 +90,7 @@ def solve_equations_of_motion(y0, t, nRigidBodies, massMatrix, nCoordinates, nCo
     # Assign position initial state to vector 'q'
     q = y0[0:int(nCoordinates)]
 
-    # Assign velcoity initial state to vector 'qp'
+    # Assign velocity initial state to vector 'qp'
     qp = y0[int(nCoordinates):]
 
     # Evaluate kinematic constraints
@@ -171,7 +172,7 @@ def solve_equations_of_motion(y0, t, nRigidBodies, massMatrix, nCoordinates, nCo
     # Create the vector of derivatives of the state vector of the multibody system with respect to time
     dydt = np.concatenate((qp, qpp))
 
-    # Retrun the vector of derivatives of the state vector of the multibody system with respect to time
+    # Return the vector of derivatives of the state vector of the multibody system with respect to time
     return dydt
 
 

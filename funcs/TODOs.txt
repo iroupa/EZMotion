@@ -1,11 +1,20 @@
 TODO
 1: Update index of each field in each kinematic constraint equation
 
-Done 
+Corrected
 eval_unit_vector.py
+eval_revolute_joint.py
 read_inertial_parameters
+eval_double_support_joint.py
+compute_joint_angles_derivative
 
-Missing
+To correct
+check compute_joint_angles_forward
+check compute_joint_angles_inverse
+
+read_angular_driver_info
+eval_single_support_joint.py
+eval_trajectory_driver.py
 eval_cross_product_angular_driver.py
 eval_cross_product_angular_driver_grounded.py
 eval_cross_product_angular_driver_grounded_mixed.py
@@ -14,12 +23,6 @@ eval_dot_product_angular_driver.py
 eval_dot_product_angular_driver_grounded.py
 eval_dot_product_angular_driver_grounded_mixed.py
 eval_dot_product_angular_driver_mixed.py
-eval_double_support_joint.py
-eval_kinematic_constraints.py
-eval_kinematic_constraints_FD.py
-eval_revolute_joint.py
-eval_single_support_joint.py
-eval_trajectory_driver.py
 eval_translation_revolution_joint.py
 
 

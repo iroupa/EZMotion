@@ -57,7 +57,6 @@ from inverse_dynamic_analysis import inverse_dynamic_analysis
 from inverse_kinematic_analysis import inverse_kinematic_analysis
 from read_model_rb_info import read_model_rb_info
 
-
 def run_inverse_analysis(analysis_type, subject_bodymass, modeling_file_fpath, model_data_fpath, model_state_fpath,
                          model_drivers_labels_fpath, model_force_files_fpath, muscle_db_fpath, model_outputs_folder, fs,
                          t0, tf, mode, widget):
@@ -101,7 +100,7 @@ def run_inverse_analysis(analysis_type, subject_bodymass, modeling_file_fpath, m
 
     # Dictionary that matches the number of each model rigid body and the segment in the Horsman dataset
     # to which each muscle is attached
-    rb_info = read_model_rb_info(r'.\settings\rb_info.txt')
+    rb_info = read_model_rb_info(r'..\settings\rb_info.txt')
 
     # Initialize modeling_file from '.txt' file
     modeling_file = file2dataConst(modeling_file_fpath)

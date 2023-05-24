@@ -1,14 +1,58 @@
-To correct
-6: Update index of each field in each kinematic constraint equation 
-1: Remove muscle scaling factor from inside 'run_inverse_analysis' function 
-2: Insert option to visualize GRFs
-3: Insert option to visualize muscles
+TODO
+1: Update index of each field in each kinematic constraint equation
+
+Done 
+eval_unit_vector.py
+read_inertial_parameters
+
+Missing
+eval_cross_product_angular_driver.py
+eval_cross_product_angular_driver_grounded.py
+eval_cross_product_angular_driver_grounded_mixed.py
+eval_cross_product_angular_driver_mixed.py
+eval_dot_product_angular_driver.py
+eval_dot_product_angular_driver_grounded.py
+eval_dot_product_angular_driver_grounded_mixed.py
+eval_dot_product_angular_driver_mixed.py
+eval_double_support_joint.py
+eval_kinematic_constraints.py
+eval_kinematic_constraints_FD.py
+eval_revolute_joint.py
+eval_single_support_joint.py
+eval_trajectory_driver.py
+eval_translation_revolution_joint.py
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2: Remove muscle scaling factor from inside 'run_inverse_analysis' function
+3: Insert option to visualize GRFs
+4: Insert option to visualize muscles
 5: Normalizar powers outputs
-7: Create functions to read moments and sda forces to apply in the multibody system using the forces folder
-
-
-TODO:
-4: check compute_lmt_and_vm function linha 167v bc muscles TODO corrigir coords locais para tornar generico
+6: Create functions to read moments and sda forces to apply in the multibody system using the forces folder
+7: check compute_lmt_and_vm function linha 167v bc muscles TODO corrigir coords locais para tornar generico
 
 Corrected
 1: check compute_joints_angles_fd problems phi key 

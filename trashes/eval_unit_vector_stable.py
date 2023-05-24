@@ -67,14 +67,14 @@ def evaluate_unit_vector(nCoordinates, nConstraintByType, dataConst, q, qpto, ph
     constraintRowIndex = rowIn
 
     # Rigid body model number
-    bodyNumber = dataConst[nConstraintByType][1]
+    bodyNumber = dataConst[nConstraintByType][2]
 
     # Vector 'u' components; and velocity
     uVector = q[int(4 * (bodyNumber - 1) + 2): int(4 * (bodyNumber - 1) + 4)]
     uVectorpto = qpto[int(4 * (bodyNumber - 1) + 2): int(4 * (bodyNumber - 1) + 4)]
 
     # Vector 'u' Length;
-    uLength = dataConst[nConstraintByType][2]
+    uLength = dataConst[nConstraintByType][4]
 
     # Rigid Body Constraint contribution to 'phi' vector
     phi[constraintRowIndex] = np.dot(uVector, uVector) - uLength ** 2.0

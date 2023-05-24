@@ -67,7 +67,7 @@ def compute_ge_bodies(ge_fm):
 
         # Assign the g_muscle dictionary to the current muscle in ge_bodies dictionar
         ge_bodies[muscle_name] = g_muscle
-        
+
     # Return the ge_bodies dictionary
     return ge_bodies
 

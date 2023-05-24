@@ -28,7 +28,7 @@ subject_bodymass = 54  # kg
 
 # Path information
 input_folder = r'C:\Documentos\Ivo\GitHub\EZMotion\data_files'
-model = r'trial_0003_1passagem_FCC'
+model = r'trial_0003_1passagem_FCC_new'
 
 # Files absolute path
 modeling_file_fpath = [os.path.join(input_folder, model, x) for x in os.listdir(os.path.join(input_folder, model))
@@ -45,7 +45,7 @@ muscle_db_fpath = os.path.join(input_folder, model,
 
 # Analysis options
 # kinematic / inverse dynamic / musculoskeletal
-analysis_type = 'musculoskeletal'
+analysis_type = 'kinematic'
 
 # Frequency during analysis
 fs = 100
@@ -54,10 +54,10 @@ fs = 100
 dt = 1/fs
 
 # Analysis initial time
-t0 = 0.0
+t0 = 0.74
 
 # Analysis final time
-tf = 0.1
+tf = 1.82
 
 # Create dummy widget
 widget = ''

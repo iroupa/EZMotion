@@ -58,13 +58,13 @@ def compute_joints_angles_fd(dataConst, q):
         # Check for revolute joints constraint (idx == 9)
         if int(dataConst[row, 0]) == 9:
             # Store information about the joint in joints_info dictionary
-            joints_info[joint_counter] = {'body_1': int(dataConst[row, 2]), 'body_2': int(dataConst[row, 3])}
+            joints_info[joint_counter] = {'body_1': int(dataConst[row, 1]), 'body_2': int(dataConst[row, 2])}
             joint_counter += 1
 
         # Check for ground joint constraint (idx = 8)
         if int(dataConst[row, 0]) == 8:
             # Store information about the joint with ground in joints_info dictionary
-            joints_info[joint_counter] = {'body_1': int(dataConst[row, 2]), 'body_2': 'ground'}
+            joints_info[joint_counter] = {'body_1': int(dataConst[row, 1]), 'body_2': 'ground'}
             joint_counter += 1
 
     # Iterate through the joints in joints_info

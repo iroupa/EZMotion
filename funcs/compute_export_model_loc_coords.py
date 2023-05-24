@@ -44,18 +44,41 @@ def compute_export_model_loc_coords(fpath, export_fpath):
 
     """
 
+    # Initialize the dictionary to store the local coordinates of model segments
     model_segments_loc_coords = {}
 
     # Load modeling file data
     dataConst = np.loadtxt(fpath, dtype='float', delimiter=',')
 
+    # Iterate through the rows of the data
     for row in dataConst:
-        if row[0] == 9:
-            moving_body_1 = row[2]
-            moving_body_2 = row[3]
-            moving_body_1_loc_coords = [row[6], row[7]]
-            moving_body_2_loc_coords = [row[8], row[9]]
+        # Check if the kinematic constraint is a double support joint
+        if row[0] == 8:
+            # Get the number of the moving body
+            moving_body_1 = row[1]
 
+            # Get the local coordinates of the moving body
+            moving_body_1_loc_coords = [row[2], row[3]]
+
+            # Update the model_segments_loc_coords dictionary for moving_body_1
+            if moving_body_1 not in model_segments_loc_coords.keys():
+                model_segments_loc_coords[moving_body_1] = moving_body_1_loc_coords + [0, 0]
+            elif moving_body_1 in model_segments_loc_coords.keys():
+                loc_coords = str(model_segments_loc_coords[moving_body_1])
+                if str(moving_body_1_loc_coords).replace('[', '').replace(']', '') in loc_coords:
+                    pass
+                else:
+                    model_segments_loc_coords[moving_body_1] = model_segments_loc_coords[moving_body_1] + \
+                                                               moving_body_1_loc_coords + [0, 0]
+
+        # Check if the kinematic constraint is a revolute joint
+        if row[0] == 9:
+            moving_body_1 = row[1]
+            moving_body_2 = row[2]
+            moving_body_1_loc_coords = [row[3], row[4]]
+            moving_body_2_loc_coords = [row[5], row[6]]
+
+            # Update the model_segments_loc_coords dictionary for moving_body_1
             if moving_body_1 not in model_segments_loc_coords.keys():
                 model_segments_loc_coords[moving_body_1] = moving_body_1_loc_coords
             elif moving_body_1 in model_segments_loc_coords.keys():
@@ -66,6 +89,7 @@ def compute_export_model_loc_coords(fpath, export_fpath):
                     model_segments_loc_coords[moving_body_1] = model_segments_loc_coords[moving_body_1] + \
                                                                moving_body_1_loc_coords
 
+            # Update the model_segments_loc_coords dictionary for moving_body_2
             if moving_body_2 not in model_segments_loc_coords.keys():
                 model_segments_loc_coords[moving_body_2] = moving_body_2_loc_coords
             elif moving_body_2 in model_segments_loc_coords.keys():
@@ -76,21 +100,20 @@ def compute_export_model_loc_coords(fpath, export_fpath):
                     model_segments_loc_coords[moving_body_2] = model_segments_loc_coords[
                                                                    moving_body_2] + moving_body_2_loc_coords
 
-    # find the max number of local variables of each segment of the model
+    # Find the maximum number of local variables among all segments of the model
     maxlength = 0
     for _ in range(0, len(model_segments_loc_coords.keys())):
         length = len(model_segments_loc_coords[_ + 1])
         if length > maxlength:
             maxlength = length
 
-    # normalize the length of the list of local variables of each segment of the model
+    # Normalize the length of the list of local variables of each segment of the model
     for _ in range(0, len(model_segments_loc_coords.keys())):
         length = len(model_segments_loc_coords[_ + 1])
         if length < maxlength:
             model_segments_loc_coords[_ + 1] = model_segments_loc_coords[_ + 1] + [0, 0]
 
-    # Convert dictionary with the local variables of each segment of the model
-    # to pandas dataframe
+    # Convert the dictionary with the local variables of each segment to a pandas dataframe
     data = pd.DataFrame.from_dict(model_segments_loc_coords).to_numpy()
 
     # Write the local variables of each segment into the output file

@@ -40,6 +40,7 @@ def compute_moments_of_force(dataConst, q, lmm, weight):
                                     vector of lagrange multipliers of the multibody system
         weight					:   float
                                     subject weight
+
     Returns:
         net_moments_of_force	:   numpy.array
                                     vector of normalized net moments of force for each revolute joint of the model.

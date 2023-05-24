@@ -21,19 +21,21 @@ __email__ = "iroupa@gmail.com"
 __license__ = "Apache 2.0"
 
 
-def compute_contractile_element(muscle_info, fl_component, fv_component, mode):
+def compute_contractile_element(muscle_info, fl_component, fv_component, f_ce_muscle_mode):
     """
     
     Function computes the contractile force for every muscle, for a certain time instance.
     
     Parameters:
-        muscle_info         : dictionary
-                              muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model
-        fl_component        : list
-                              force-length component for every muscle, for a certain time instance
-        fv_component        : list
-                              force-velocity component for every muscle, for a certain time instance
-                          
+        muscle_info         :   dictionary
+                                muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model
+        fl_component        :   list
+                                force-length component for every muscle, for a certain time instance
+        fv_component        :   list
+                                force-velocity component for every muscle, for a certain time instance
+        f_ce_muscle_mode    :   str (on / off)
+                                option to apply or not the muscle contractile component in the multibody system
+
     Returns:
         f_ce                : list
                               contractile force element for every muscle
@@ -48,12 +50,17 @@ def compute_contractile_element(muscle_info, fl_component, fv_component, mode):
         # maximum isometric force
         fo = muscle_info[muscle_idx]['fo']
 
+        # Obtain muscle length
         muscle_length = fl_component[muscle_idx]
+
+        # Obtain muscle velocity
         muscle_velocity = fv_component[muscle_idx]
 
-        if mode.lower() == 'on':
+        #  Apply the muscle passive component in the multibody system
+        if f_ce_muscle_mode.lower() == 'on':
             f_ce_muscle = (muscle_length * muscle_velocity)/fo
-        elif mode.lower() == 'off':
+        #  Do not apply the muscle passive component in the multibody system
+        elif f_ce_muscle_mode.lower() == 'off':
             f_ce_muscle = fo
         else:
             raise

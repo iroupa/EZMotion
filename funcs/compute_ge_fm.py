@@ -52,7 +52,7 @@ def compute_ge_fm(muscle_info, fmP):
     c_matrix = {}
     
     # Complete c_matrix dictionary with the CMp values for every point in every muscle
-    # Go through every muscle 
+    # Iterate through all muscles
     for muscle_idx in range(0, len(muscle_info.keys())):
         # muscle name
         muscle_name = muscle_idx
@@ -87,30 +87,45 @@ def compute_ge_fm(muscle_info, fmP):
         muscle_name = m
 
         for i in range(0, len(fmP[muscle_name].keys())):
+            # Obtain body 1 number
             body1 = c_matrix[muscle_name][i][0]
+
+            # Obtain body 2 number
             body2 = c_matrix[muscle_name][i+1][0]
 
+            # Obtain c_matrix for point 'i'
             c_matrix1 = c_matrix[muscle_name][i][1]
+
+            # Obtain c_matrix for point 'i + 1'
             c_matrix2 = c_matrix[muscle_name][i+1][1]
 
+            # Obtain the vectorial passive muscle force component for application points 'i'
             fmP_column1 = [[fmP[muscle_name][i][0][0]], [fmP[muscle_name][i][0][1]]]
+
+            # Obtain the vectorial passive muscle force component for application points 'i + 1'
             fmP_column2 = [[fmP[muscle_name][i][1][0]], [fmP[muscle_name][i][1][1]]]
 
-            ge_value1 = c_matrix1.T * np.matrix(fmP_column1)
-            ge_value2 = c_matrix2.T * np.matrix(fmP_column2)
+            # Compute ge_fm force for application point 'i'
+            ge_value1 = c_matrix1.T.dot(np.array(fmP_column1))
 
+            # Compute ge_fm force for application point 'i + 1'
+            ge_value2 = c_matrix2.T.dot(np.array(fmP_column2))
+
+            # Append ge_fm force to the force vector of every force applied
+            # in every point of every muscle
             if body1 in ge_fm[muscle_name]:
                 ge_fm[muscle_name][body1].append(ge_value1)
             else:
                 ge_fm[muscle_name][body1] = [ge_value1]
 
+            # Append ge_fm force to the force vector of every force applied
+            # in every point of every muscle
             if body2 in ge_fm[muscle_name]:
                 ge_fm[muscle_name][body2].append(ge_value2)
             else:
                 ge_fm[muscle_name][body2] = [ge_value2]
 
     return ge_fm
-
 
 if __name__ == "__main__":
     import doctest

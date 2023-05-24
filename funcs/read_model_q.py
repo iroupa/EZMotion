@@ -48,7 +48,7 @@ def read_model_q(fpath):
                 elem = elem.strip()
                 try:
                     q.append(float(elem))
-                except:
+                except Exception as error:  # pylint: disable=broad-except
                     pass
 
     return np.array(q, dtype='f')

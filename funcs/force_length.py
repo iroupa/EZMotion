@@ -30,11 +30,13 @@ def compute_force_length_component(muscle_info, l_m, muscle_type):
     for a given time instance.
     
     Parameters:
-        muscle_info        : dictionary
-                             muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model
-        l_m                : list
-                             muscle fibers length of every muscle of the model
-                         
+        muscle_info        :    dictionary
+                                muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model
+        l_m                :    list
+                                muscle fibers length of every muscle of the model
+        muscle_type        :    str (Hill / '')
+                                type of muscle model to compute the force length component
+
     Returns:
         fl_component       : list
                              force-length component of each muscle of the biomechanical model,

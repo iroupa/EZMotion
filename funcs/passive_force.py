@@ -21,7 +21,7 @@ __email__ = "iroupa@gmail.com"
 __license__ = "Apache 2.0"
 
 
-def compute_passive_element(muscle_info, l_m, f_pe_mode):
+def compute_passive_element(muscle_info, l_m, f_pe_muscle_mode):
     """
     
     Function computes the passive element force for a certain time instance.
@@ -31,7 +31,8 @@ def compute_passive_element(muscle_info, l_m, f_pe_mode):
                               information about every muscle of the model
         l_m                 : list
                               muscle fibers length of every muscle of the model
-        f_pe_mode           :
+        f_pe_muscle_mode    : str (on / off)
+                              option to apply or not the muscle passive component in the multibody system
 
     Returns:
         f_pe                : list
@@ -60,9 +61,11 @@ def compute_passive_element(muscle_info, l_m, f_pe_mode):
         elif 1.63 * lo < lm:
             f_pe_muscle = 2 * fo
 
-        if f_pe_mode.lower() == 'on':
+        #  Apply the muscle passive component in the multibody system
+        if f_pe_muscle_mode.lower() == 'on':
             f_pe.append(f_pe_muscle)
-        elif f_pe_mode.lower() == 'off':
+        #  No not apply the muscle passive component in the multibody system
+        elif f_pe_muscle_mode.lower() == 'off':
             f_pe.append(0)
         else:
             raise

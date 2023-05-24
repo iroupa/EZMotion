@@ -35,7 +35,8 @@ def compute_force_velocity_component(muscle_info, v_m, muscle_type):
                                 information about every muscle of the model
         v_m                 :   list
                                 velocity of every muscle, for a certain time instance
-        muscle_type         :   str
+        muscle_type         :   str (Hill / '')
+                                type of muscle model to compute the force velocity component
 
     Returns:
         fv_component        :   list
@@ -68,8 +69,10 @@ def compute_force_velocity_component(muscle_info, v_m, muscle_type):
         elif 0.2 * vo < vm:
             fv_muscle = + ((pi * fo)/(4 * atan(5))) + fo
 
+        # Use the Hill type muscle model to compute the force velocity component
         if muscle_type.lower() == 'hill':
             fv_component.append(fv_muscle)
+        # Do not use the Hill type muscle model to compute the force velocity component
         else:
             fv_component.append(fo)
 

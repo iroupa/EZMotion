@@ -1,22 +1,14 @@
-TODO:
+To correct
+6: Update index of each field in each kinematic constraint equation 
 1: Remove muscle scaling factor from inside 'run_inverse_analysis' function 
 2: Insert option to visualize GRFs
 3: Insert option to visualize muscles
-4: clean-up commented scripts (compute moments_of_force, solve_eom)
 5: Normalizar powers outputs
-6: Update index of each field in each kinematic constraint equation 
-7: Create functions to read moments and sda fors to apply in the multibody system using the forces folder
+7: Create functions to read moments and sda forces to apply in the multibody system using the forces folder
 
-To correct
 
-1: Replace np.matrix (compute_ge_fm, compute_ge_bodies)
-2: document compute_force_velocity_component muscle type in docstring
-3: document compute_passive_element in docstring
+TODO:
 4: check compute_lmt_and_vm function linha 167v bc muscles TODO corrigir coords locais para tornar generico
-
-7: read_model_q except too broad
-8: change count_model_DoF name to count_model_Driver
-9: check read_DoFs labels change to drivers
 
 Corrected
 1: check compute_joints_angles_fd problems phi key 
@@ -35,14 +27,21 @@ Corrected
 16: check_smaller_equal docstring
 17: document optimizer script in docstring
 18: clean optimizer script comments
+19: document compute_force_velocity_component muscle type in docstring
+20: clean-up commented scripts (compute moments_of_force, solve_eom)
+21: document compute_passive_element in docstring
+22: Replace np.matrix (compute_ge_fm, compute_ge_bodies)
 
 
 Next steps:
 1: Reduce reduzir ficheiro de musculos
 2: Export lmm_rep and intersegmental_forces msk and ida analysis
 3: Colocar circulo para potencias e momentos
-10: Remove nCoordinates from evaluate_cross_product_angular_driver function
-11: review kinematic constraints equation eval revolute_translation_joint
+4: Remove nCoordinates from evaluate_cross_product_angular_driver function
+5: review kinematic constraints equation eval revolute_translation_joint
+6: change count_model_DoF name to count_model_Driver
+7: check read_DoFs labels change to drivers
+8: read_model_q except too broad
 
 
 Rever:

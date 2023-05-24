@@ -28,12 +28,6 @@ from compute_splined_forces_coords import compute_splined_forces_coords
 from compute_spring_damper_actuator_force import compute_spring_damper_actuator_force
 from moment2forceCouple import moment2forceCouple
 
-# scipy.integrate.odeint
-# y0, t
-
-# scipy.integrate.ode
-# t, y0
-
 
 def solve_equations_of_motion(y0, t, nRigidBodies, massMatrix, nCoordinates, nConstraintsByType, dataConst, phi,
                               dPhidq, niu, gamma, alpha, beta, gravitationalForces, forceSplineFuncs='',

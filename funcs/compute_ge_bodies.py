@@ -50,21 +50,25 @@ def compute_ge_bodies(ge_fm):
         # Initialize g_muscle
         g_muscle = {}
         
-        # Go through every body
+        # Iterate through all bodies
         for body in muscle.keys():
             g_vectors = muscle[body]
             
-            # Initialize g_body
-            g_body = np.matrix([[0], [0], [0], [0]])
-             
+            # # Initialize g_body as a numpy array of zeros with shape (4, 1)
+            g_body = np.zeros((4, 1))
+
+            # Compute the sum of all g_vectors for the current body
             for i in range(0, len(g_vectors)):
                 g_aux = g_body + g_vectors[i]
                 g_body = g_aux
- 
-            g_muscle[body] = g_body 
-    
+
+            # Assign the computed g_body to the current body in g_muscle dictionary
+            g_muscle[body] = g_body
+
+        # Assign the g_muscle dictionary to the current muscle in ge_bodies dictionar
         ge_bodies[muscle_name] = g_muscle
         
+    # Return the ge_bodies dictionary
     return ge_bodies
 
 

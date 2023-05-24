@@ -24,7 +24,7 @@ import numpy as np
 from scipy.interpolate import CubicSpline
 
 
-def compute_joint_angles_derivative(joint_angles, t0, tf, dt, der):
+def compute_joint_angles_derivative(joint_angles, der):
     """
 
     Function computes the 'n' derivative of each angle of each revolute
@@ -33,12 +33,6 @@ def compute_joint_angles_derivative(joint_angles, t0, tf, dt, der):
     Parameters:
         joint_angles			:   numpy array
                                     angle of each revolute joint of the multibody system
-        t0						:   float
-                                    initial time of the analysis
-        tf						:   float
-                                    final time of the analysis
-        dt						:   float
-                                    time step of the analysis
         der						:   int
                                     degree of the derivative
 
@@ -48,18 +42,27 @@ def compute_joint_angles_derivative(joint_angles, t0, tf, dt, der):
 
     """
 
+    # Initialize the joint_angles_der_rep array with zeros
     joint_angles_der_rep = np.zeros((joint_angles.shape[0], joint_angles.shape[1]))
 
+    # Get the number of data points (samples)
     ys = joint_angles.shape[0]
-    xs = np.arange(t0, tf, dt)
 
-    if ys != int(xs.shape[0]):
-        xs = np.arange(t0, tf + dt, dt)
+    # Generate the corresponding x values using numpy arange
+    xs = np.arange(0, ys, 1)
 
+    # Iterate over each joint angle column
     for _ in range(0, joint_angles.shape[1]):
+        # Get the y values for the current joint angle column
         y = joint_angles[:, _]
+
+        # Create a cubic spline interpolation function for the current joint angle column
         angle_spline_func = CubicSpline(xs, y)
+
+        # Compute the derivative (angular velocity) using the spline function
         angular_velocity = angle_spline_func(xs, der)
+
+        # Assign the computed angular velocity to the corresponding column in joint_angles_der_rep
         joint_angles_der_rep[:, _] = angular_velocity
 
     return joint_angles_der_rep

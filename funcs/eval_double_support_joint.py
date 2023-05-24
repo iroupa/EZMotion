@@ -67,11 +67,12 @@ def evaluate_double_support_joint(nCoordinates,  constraintByType, dataConst, q,
     constraintRowIdxs = [rowIn, rowIn + 1]
 
     # Get moving body number
-    movingBodyNumber = int(dataConst[constraintByType, 2])
+    movingBodyNumber = int(dataConst[constraintByType, 1])
 
     # Assign moving and support bodies local coordinates
-    movingLocCoords = dataConst[constraintByType, 6:8]
-    supportCoords = dataConst[constraintByType, 8:10]
+    movingLocCoords = dataConst[constraintByType, 2:4]
+    supportCoords = dataConst[constraintByType, 4:6]
+
     supportVels = dataConst[constraintByType, 10:12]
     supportAcc = dataConst[constraintByType, 12:14]
 

@@ -68,12 +68,12 @@ def evaluate_revolute_joint(nCoordinates, constraintByType, dataConst, q, qpto, 
     constraintRowIdxs = [rowIn, rowIn + 1]
 
     # Rigid bodies model number
-    parentBodyNumber = int(dataConst[constraintByType, 2])
-    childBodyNumber = int(dataConst[constraintByType, 3])
+    parentBodyNumber = int(dataConst[constraintByType, 1])
+    childBodyNumber = int(dataConst[constraintByType, 2])
 
     # parentBody and childBody Local Coordinates
-    parentLocCoords = dataConst[constraintByType, 6:8]
-    childLocCoords = dataConst[constraintByType, 8:10]
+    parentLocCoords = dataConst[constraintByType, 3:5]
+    childLocCoords = dataConst[constraintByType, 5:7]
 
     # Create bodies 'C' Matrix
     parentCMatrix = assemble_C_matrix(parentLocCoords)

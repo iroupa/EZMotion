@@ -54,21 +54,33 @@ def updateDataConst(time, dataConst, func, nConstrainByType, dofType):
         if dof != 0:
             # Calculate new position value, based on spline interpolation,
             # and update respective dataConst row and col
-            dataConst[nConstrainByType, 10] = splev(time, func[dof]['splPos'], der=0)
+            dataConst[nConstrainByType, 6] = splev(time, func[dof]['splPos'], der=0)
 
             # Calculate new velocity value, based on spline interpolation,
             # and update respective dataConst row and col
-            dataConst[nConstrainByType, 11] = splev(time, func[dof]['splVel'], der=0)
+            dataConst[nConstrainByType, 7] = splev(time, func[dof]['splVel'], der=0)
 
             # Calculate new acceleration value, based on spline interpolation,
             # and update respective dataConst row and col
-            dataConst[nConstrainByType, 12] = splev(time, func[dof]['splAcc'], der=0)
+            dataConst[nConstrainByType, 8] = splev(time, func[dof]['splAcc'], der=0)
         return dataConst
 
-    # Check for linear driver (dofType == 1)
+    # Check for trajectory driver (dofType == 1)
     elif int(dofType) == 1:
 
         # 'X' component
+        dof = int(dataConst[nConstrainByType, 2])
+
+        # Calculate new position value, based on spline interpolation, and update respective dataConst row and col
+        dataConst[nConstrainByType, 6] = splev(time, func[dof]['splPos'], der=0)
+
+        # Calculate new velocity value, based on spline interpolation, and update respective dataConst row and col
+        dataConst[nConstrainByType, 8] = splev(time, func[dof]['splVel'], der=0)
+
+        # Calculate new acceleration value, based on spline interpolation, and update respective dataConst row and col
+        dataConst[nConstrainByType, 10] = splev(time, func[dof]['splAcc'], der=0)
+
+        # 'Y' component
         dof = int(dataConst[nConstrainByType, 3])
 
         # Calculate new position value, based on spline interpolation, and update respective dataConst row and col
@@ -79,18 +91,6 @@ def updateDataConst(time, dataConst, func, nConstrainByType, dofType):
 
         # Calculate new acceleration value, based on spline interpolation, and update respective dataConst row and col
         dataConst[nConstrainByType, 11] = splev(time, func[dof]['splAcc'], der=0)
-
-        # 'Y' component
-        dof = int(dataConst[nConstrainByType, 4])
-
-        # Calculate new position value, based on spline interpolation, and update respective dataConst row and col
-        dataConst[nConstrainByType, 8] = splev(time, func[dof]['splPos'], der=0)
-
-        # Calculate new velocity value, based on spline interpolation, and update respective dataConst row and col
-        dataConst[nConstrainByType, 10] = splev(time, func[dof]['splVel'], der=0)
-
-        # Calculate new acceleration value, based on spline interpolation, and update respective dataConst row and col
-        dataConst[nConstrainByType, 12] = splev(time, func[dof]['splAcc'], der=0)
 
         return dataConst
     else:

@@ -66,19 +66,19 @@ def evaluate_trajectory_driver(nCoordinates, constraintByType, dataConst, q, qpt
     constraintRowIdxs = [rowIn, rowIn + 1]
 
     # Rigid bodies model number
-    BodyNumber = int(dataConst[constraintByType, 2])
+    BodyNumber = int(dataConst[constraintByType, 1])
 
     # Create Parent and Child Rigid Body 'q' Coordinates
     bodyQVec = q[4 * (BodyNumber - 1): 4 * (BodyNumber - 1) + 4]
 
     # Point 'P' Local Coordinates wrt Moving Body
-    PointPLocCoords = dataConst[constraintByType, 5:7]
+    PointPLocCoords = dataConst[constraintByType, 4:6]
 
     # Point 'P' Local Coordinates wrt Moving Body
     pointPCMatrix = assemble_C_matrix(PointPLocCoords)
 
     # Prescribed Position = position_prescribed
-    position_prescribed = dataConst[constraintByType, 7:9]
+    position_prescribed = dataConst[constraintByType, 6:8]
 
     # Moving Rigid Body Constraint contribution to 'phi' vector
     phi[constraintRowIdxs] = np.dot(pointPCMatrix, bodyQVec) - position_prescribed
@@ -88,13 +88,13 @@ def evaluate_trajectory_driver(nCoordinates, constraintByType, dataConst, q, qpt
     dPhidq[constraintRowIdxs, bodyColsIdxs[0]:bodyColsIdxs[-1]] = pointPCMatrix
 
     # PrescribedVelocity
-    velocity_prescribed = dataConst[constraintByType, 9:11]
+    velocity_prescribed = dataConst[constraintByType, 8:10]
 
     # Moving Rigid Body Constraint contribution to 'niu' vector
     niu[constraintRowIdxs] = velocity_prescribed
 
     # Prescribed Acceleration
-    acceleration_prescribed = dataConst[constraintByType, 11:13]
+    acceleration_prescribed = dataConst[constraintByType, 10:12]
 
     # Moving Rigid Body Constraint contribution to 'gamma' vector
     gamma[constraintRowIdxs] = acceleration_prescribed

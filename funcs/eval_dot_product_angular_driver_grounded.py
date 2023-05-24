@@ -68,7 +68,7 @@ def evaluate_dot_product_angular_driver_grounded(nCoordinates, constraintByType,
     constraintRowIndex = rowIn
 
     # Rigid bodies model number
-    movingBodyNumber = dataConst[constraintByType, 2]
+    movingBodyNumber = dataConst[constraintByType, 1]
 
     # Vector 'u' components;
     # Moving Body 'x', and 'y' values ;
@@ -76,24 +76,24 @@ def evaluate_dot_product_angular_driver_grounded(nCoordinates, constraintByType,
     uVectorpto = qpto[int(4 * (movingBodyNumber - 1) + 2): int(4 * (movingBodyNumber - 1) + 4)]
 
     # Vector 'u' Length;
-    uLength = dataConst[constraintByType, 4]
+    uLength = dataConst[constraintByType, 2]
 
     # Vector 'v' components;
     # Ground body orientation
-    vVector = dataConst[constraintByType, 8:10]
+    vVector = dataConst[constraintByType, 4:6]
     vVectorpto = np.array([0.0, 0.0])
 
     # Vector 'v' Length;
-    vLength = dataConst[constraintByType, 5]
+    vLength = dataConst[constraintByType, 3]
 
     # Theta
-    theta = dataConst[constraintByType, 10]
+    theta = dataConst[constraintByType, 6]
 
     # Thetap
-    thetap = dataConst[constraintByType, 11]
+    thetap = dataConst[constraintByType, 7]
 
     # Thetapp
-    thetapp = dataConst[constraintByType, 12]
+    thetapp = dataConst[constraintByType, 8]
 
     # Dot Product Angular Grounded Constraint contribution to 'phi' vector
     phi[constraintRowIndex] = np.dot(uVector, vVector) - uLength * vLength * np.cos(theta)

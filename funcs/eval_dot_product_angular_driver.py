@@ -70,31 +70,31 @@ def evaluate_dot_product_angular_driver(nCoordinates, constraintByType, dataCons
     constraintRowIndex = rowIn
 
     # Rigid bodies model number
-    parentBodyNumber = int(dataConst[constraintByType, 2])
-    childBodyNumber = int(dataConst[constraintByType, 3])
+    parentBodyNumber = int(dataConst[constraintByType, 1])
+    childBodyNumber = int(dataConst[constraintByType, 2])
 
     # Vector 'u' components;
     uVector = q[4 * (parentBodyNumber - 1) + 2: 4 * (parentBodyNumber - 1) + 4]
     uVectorpto = qpto[4 * (parentBodyNumber - 1) + 2: 4 * (parentBodyNumber - 1) + 4]
 
     # Vector 'u' Length;
-    uLength = dataConst[constraintByType, 4]
+    uLength = dataConst[constraintByType, 3]
 
     # Vector 'v' components;
     vVector = q[4 * (childBodyNumber - 1) + 2: 4 * (childBodyNumber - 1) + 4]
     vVectorpto = qpto[4 * (childBodyNumber - 1) + 2: 4 * (childBodyNumber - 1) + 4]
 
     # Vector 'v' Length;
-    vLength = dataConst[constraintByType, 5]
+    vLength = dataConst[constraintByType, 4]
 
     # Theta
-    theta = dataConst[constraintByType, 10]
+    theta = dataConst[constraintByType, 6]
 
     # Thetap
-    thetap = dataConst[constraintByType, 11]
+    thetap = dataConst[constraintByType, 7]
 
     # Thetapp
-    thetapp = dataConst[constraintByType, 12]
+    thetapp = dataConst[constraintByType, 8]
 
     # Dot Product Angular Constraint contribution to 'phi' vector
     phi[constraintRowIndex] = np.dot(uVector, vVector) - uLength * vLength * np.cos(theta)

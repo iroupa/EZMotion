@@ -70,14 +70,14 @@ def evaluate_cross_product_angular_driver_grounded(nCoordinates,  constraintByTy
     constraintRowIndex = rowIn
 
     # Rigid bodies model number
-    movingBodyNumber = int(dataConst[constraintByType, 2])
+    movingBodyNumber = int(dataConst[constraintByType, 1])
 
     # Vector 'u' components;
-    uVector = q[int(4*(movingBodyNumber-1)+2): int(4*(movingBodyNumber-1)+4)]
-    uVectorpto = qpto[int(4*(movingBodyNumber-1)+2): int(4*(movingBodyNumber-1)+4)]
+    uVector = q[int(4 * (movingBodyNumber - 1) + 2): int(4 * (movingBodyNumber - 1) + 4)]
+    uVectorpto = qpto[int(4 * (movingBodyNumber - 1) + 2): int(4 * (movingBodyNumber- 1) + 4)]
 
     # Vector 'u' Length;
-    uLength = dataConst[constraintByType, 4]
+    uLength = dataConst[constraintByType, 2]
 
     # Vector 'u' perpendicular;
     uVectorPerp = np.array([-uVector[1], uVector[0]])
@@ -88,31 +88,31 @@ def evaluate_cross_product_angular_driver_grounded(nCoordinates,  constraintByTy
 
     # Vector 'v' components;
     # Ground body orientation
-    vVector = dataConst[constraintByType, 8:10]
+    vVector = dataConst[constraintByType, 4:6]
     vVectorpto = np.array([0.0, 0.0])
 
     # Vector 'v' Length;
-    vLength = dataConst[constraintByType, 5]
+    vLength = dataConst[constraintByType, 3]
 
     # Vector 'v' perpendicular;
     vVectorPerp = np.array([-vVector[1], vVector[0]])
 
     # Theta
-    theta = dataConst[constraintByType, 10]
+    theta = dataConst[constraintByType, 6]
 
     # Thetap
     # Thetap == dTheta/dt  -> Newton's notation vs Leibnitz notation
-    thetap = dataConst[constraintByType, 11]
+    thetap = dataConst[constraintByType, 7]
 
     # Thetapp
     # Thetapp == d2Theta/dt2 -> Newton's notation vs Leibnitz notation
-    thetapp = dataConst[constraintByType, 12]
+    thetapp = dataConst[constraintByType, 8]
 
     # Cross Product Angular Grounded Constraint contribution to 'phi' vector
-    phi[constraintRowIndex] = np.dot(uVectorPerp, vVector) - uLength*vLength*np.sin(theta)
+    phi[constraintRowIndex] = np.dot(uVectorPerp, vVector) - uLength * vLength * np.sin(theta)
 
     # Cross Product Angular Grounded Constraint to jacobian matrix
-    movingBodyCols = [4 * (movingBodyNumber-1) + 2, 4 * (movingBodyNumber-1) + 3]
+    movingBodyCols = [4 * (movingBodyNumber-1) + 2, 4 * (movingBodyNumber - 1) + 3]
 
     dPhidq[constraintRowIndex, movingBodyCols] = -vVectorPerp
 

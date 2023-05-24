@@ -225,8 +225,8 @@ def run_forward_analysis(analysis_type,
     model_q_coords_header = compute_q_coords_labels(nRigidBodies, model_mixed_angular_drivers)
 
     # Compute model joints angles velocity and acceleration
-    joint_angles_vel_rep = compute_joint_angles_derivative(joint_angles_rep, t0, tf, dt, 1)
-    joint_angles_acc_rep = compute_joint_angles_derivative(joint_angles_rep, t0, tf, dt, 2)
+    joint_angles_vel_rep = compute_joint_angles_derivative(joint_angles_rep, 1)
+    joint_angles_acc_rep = compute_joint_angles_derivative(joint_angles_rep, 2)
 
     # Export analysis outputs
     export_analysis_outputs(model_outputs_fpath=os.path.join(model_outputs_folder, analysis_type.lower()

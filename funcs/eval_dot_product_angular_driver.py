@@ -66,7 +66,7 @@ def evaluate_dot_product_angular_driver(nCoordinates, constraintByType, dataCons
     
     """
 
-    # Row index to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'
+    # Row index to insert constraint contribution in 'phi', 'Jacobian', 'niu' and 'gamma'
     constraintRowIndex = rowIn
 
     # Rigid bodies model number

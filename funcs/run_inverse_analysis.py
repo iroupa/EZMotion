@@ -100,7 +100,7 @@ def run_inverse_analysis(analysis_type, subject_bodymass, modeling_file_fpath, m
 
     # Dictionary that matches the number of each model rigid body and the segment in the Horsman dataset
     # to which each muscle is attached
-    rb_info = read_model_rb_info(r'..\settings\rb_info.txt')
+    rb_info = read_model_rb_info(r'.\settings\rb_info.txt')
 
     # Initialize modeling_file from '.txt' file
     modeling_file = file2dataConst(modeling_file_fpath)
@@ -447,8 +447,8 @@ def run_inverse_analysis(analysis_type, subject_bodymass, modeling_file_fpath, m
     model_q_coords_header = compute_q_coords_labels(nRigidBodies, model_n_mixed_angular_drivers)
 
     # Compute joints angles velocity and acceleration
-    joint_angles_vel_rep = compute_joint_angles_derivative(joint_angles_rep, t0, tf, dt, 1)
-    joint_angles_acc_rep = compute_joint_angles_derivative(joint_angles_rep, t0, tf, dt, 2)
+    joint_angles_vel_rep = compute_joint_angles_derivative(joint_angles_rep, 1)
+    joint_angles_acc_rep = compute_joint_angles_derivative(joint_angles_rep, 2)
 
     # Export analysis outputs
     if analysis_type.lower().strip() == 'kinematic':

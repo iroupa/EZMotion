@@ -39,8 +39,10 @@ def read_model_rb_info(fpath):
     
     """
 
+    # Initialize the dictionary to store segment labels and numbers
     rb_info = {}
 
+    # Read the file containing segment labels and numbers
     with open(fpath, 'r', newline='') as file:
         reader = csv.reader(file)
         for line in reader:
@@ -49,6 +51,7 @@ def read_model_rb_info(fpath):
                 rb_number = line[1]
                 rb_info[segment_label] = rb_number
 
+    # Return the dictionary containing the labels and number of each segment
     return rb_info
 
 

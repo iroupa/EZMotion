@@ -8,24 +8,21 @@ read_inertial_parameters
 eval_double_support_joint.py
 compute_joint_angles_derivative
 update DataConst for eval_trajectory_driver.py
-
-Recheck
 eval_dot_product_angular_driver_grounded.py
 eval_cross_product_angular_driver_grounded.py
 eval_dot_product_angular_driver.py
 eval_cross_product_angular_driver.py
+eval_dot_product_angular_driver_grounded_mixed.py
+eval_cross_product_angular_driver_grounded_mixed.py
 update DataConst for eval_dot_product_angular_driver.py and eval_cross_product_angular_driver.py
 update DataConst for eval_dot_product_angular_driver.py and eval_cross_product_angular_driver.py
 
 To correct
 
-eval_cross_product_angular_driver_grounded_mixed.py
 eval_cross_product_angular_driver_mixed.py
-eval_dot_product_angular_driver_grounded_mixed.py
 eval_dot_product_angular_driver_mixed.py
 
 eval_single_support_joint.py
-
 eval_translation_revolution_joint.py
 
 

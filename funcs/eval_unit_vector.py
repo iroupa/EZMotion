@@ -81,7 +81,6 @@ def evaluate_unit_vector(nCoordinates, nConstraintByType, dataConst, q, qpto, ph
 
     # Rigid Body Constraint contribution to jacobian matrix
     cols = [int(4 * (bodyNumber - 1) + 2), int(4 * (bodyNumber - 1) + 3)]
-
     dPhidq[constraintRowIndex, cols] = 2 * uVector
 
     # Rigid Body Constraint contribution to 'niu' vector

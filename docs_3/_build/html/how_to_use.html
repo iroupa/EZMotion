@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="english" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to use &mdash; EZMotion 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Input Files" href="input_files.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EZMotion
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#run-analysis">Run Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visualize-outputs">Visualize Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="input_files.html">Input Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeling.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EZMotion</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">How to use</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/how_to_use.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="how-to-use">
+<h1>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">EZMotion</span></code> has a graphical user interface with two panels, <code class="docutils literal notranslate"><span class="pre">Analysis</span></code> (see Figure 1) and <code class="docutils literal notranslate"><span class="pre">Visualization</span></code> (see Figure 2), that allows to perform the kinematic or dynamic analysis or to visualize and export the analysis outputs. A description of how to use both is presented below.</p>
+<section id="run-analysis">
+<h2>Run Analysis<a class="headerlink" href="#run-analysis" title="Permalink to this heading"></a></h2>
+<p>To run an analysis, is it necessary to select the required input files and then press the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Analysis</span></code> button. The output file (<code class="docutils literal notranslate"><span class="pre">.out</span></code> extension) will be exported to the folder selected on the <code class="docutils literal notranslate"><span class="pre">Export</span> <span class="pre">Files</span></code> section.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Analysis_Panel.png"><img alt="EZMotion: Analysis Panel" src="_images/EZ_Motion_Analysis_Panel.png" style="width: 401.25px; height: 777.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 1. EZMotion: Analysis Panel.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The <code class="docutils literal notranslate"><span class="pre">Analysis</span> <span class="pre">Type</span></code> section allows to select one of the following type of analysis to perform: <code class="docutils literal notranslate"><span class="pre">Kinematic</span></code>, <code class="docutils literal notranslate"><span class="pre">Inverse</span> <span class="pre">Dynamic</span></code>, <code class="docutils literal notranslate"><span class="pre">Forward</span> <span class="pre">Dynamic</span></code> or <code class="docutils literal notranslate"><span class="pre">Musculoskeletal</span></code>. According to the selection the number of fields in the <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span></code> section will be updated.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span> <span class="pre">Folder</span></code> section allows to select the folder in which the input files for the seleted analysis are located. By selecting a specific folder, the input fields in the <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span></code> section will be automatically updated. However, it is also possible to manually select the input files in the <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span></code> section.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Analysis</span> <span class="pre">Parameters</span></code> section allows to select the initial and final timeof th eanalyis as well as its sampling frequency. The subject mass will be used to normalize the dynamic outputs of the analysis, such as the joint moments or joint power of the model.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Export</span> <span class="pre">Files</span></code> section allows to select the folder to which the outputs of the analysis will be exported. This field is automatically updated when the <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span> <span class="pre">Folder</span></code> section is updated.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Messages</span></code> section provides a feedback about the evolution of the analysis.</p>
+</section>
+<section id="visualize-outputs">
+<h2>Visualize Outputs<a class="headerlink" href="#visualize-outputs" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Visualization</span> <span class="pre">Panel</span></code>     comprises two resizable panels. In the left  the input files and the variable to plot <code class="docutils literal notranslate"><span class="pre">(Plot</span> <span class="pre">Data</span> <span class="pre">&gt;</span> <span class="pre">Variable)</span></code> are selected, while in the right one the model and the selected variable are plotted. To start the animation, it is necessary to press the <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Model</span></code> button.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span> <span class="pre">Folder</span></code> section allows to select the folder in which the input files for the seleted analysis are located. By selecting a specific folder, the input fields in the <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span></code> section will be automatically updated. However, it is also possible to manually select the input files in the <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span></code> section.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Plot</span> <span class="pre">Data</span></code> section allows to select the variable of the model that will be presented in the lower right plot. Moreover, it also allows to present the raw or filtered data of the variable. For that purpose, it is necessary to select the <code class="docutils literal notranslate"><span class="pre">Yes</span></code> option on the <code class="docutils literal notranslate"><span class="pre">Plot</span> <span class="pre">Data</span> <span class="pre">&gt;</span> <span class="pre">Filter</span> <span class="pre">Data</span></code> and select the pretended cuttoff frequency in Hz.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Outputs</span></code> section allows to select the folder to which the variable presented on the lower right plot may be exported.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Messages</span></code> section alerts the user in case an error occurred during the visualization of the outputs.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Viz_Panel.png"><img alt="EZMotion: Visualization Panel" src="_images/EZ_Motion_Viz_Panel.png" style="width: 864.0px; height: 615.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 2. EZMotion: Visualization Panel.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>To export the variable presented on the lower right plot side to a new file <code class="docutils literal notranslate"><span class="pre">(.csv</span> <span class="pre">extension)</span></code>, it is necessary to select the 'Yes' option on the <code class="docutils literal notranslate"><span class="pre">Outputs</span> <span class="pre">&gt;</span> <span class="pre">Export</span> <span class="pre">Outputs</span></code> section (see Figure 3). Next, the initial and the final frame of the analysis must be defined as well as if the variable will be normalized (n = 101 samples).</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Viz_Panel_Export_Outputs.png"><img alt="EZMotion: Visualization Panel" src="_images/EZ_Motion_Viz_Panel_Export_Outputs.png" style="width: 423.75px; height: 255.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 3. EZMotion: Visualization Panel.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="input_files.html" class="btn btn-neutral float-right" title="Input Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ivo Roupa.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

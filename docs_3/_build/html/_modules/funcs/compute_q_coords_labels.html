@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="english" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>funcs.compute_q_coords_labels &mdash; EZMotion 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EZMotion
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to_use.html">How to use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../input_files.html">Input Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples.html">Examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EZMotion</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">funcs.compute_q_coords_labels</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for funcs.compute_q_coords_labels</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright 2023 Ivo Roupa</span>
+
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Ivo_Roupa&#39;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2023 Ivo Roupa&quot;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;iroupa@gmail.com&quot;</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
+
+
+<div class="viewcode-block" id="compute_q_coords_labels"><a class="viewcode-back" href="../../funcs.html#funcs.compute_q_coords_labels.compute_q_coords_labels">[docs]</a><span class="k">def</span> <span class="nf">compute_q_coords_labels</span><span class="p">(</span><span class="n">nRigidBodies</span><span class="p">,</span> <span class="n">model_mixed_angular_drivers</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Function creates a list with the label of each generalized coordinate, including</span>
+<span class="sd">    mixed coordinates if they exist of the model.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        nRigidBodies                :   int</span>
+<span class="sd">                                        number of rigid bodies of the multibody system</span>
+<span class="sd">        model_mixed_angular_drivers :   numpy.array</span>
+<span class="sd">                                        number of mixed angular drivers of the multibody system</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        model_q_coordinates_labels  :   list</span>
+<span class="sd">                                        labels of all generalized coordinates of the multibody system</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">model_q_coordinates_labels</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nRigidBodies</span><span class="p">):</span>
+        <span class="n">model_q_coordinates_labels</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;Body_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">_</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_X&#39;</span><span class="p">]</span>
+        <span class="n">model_q_coordinates_labels</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;Body_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">_</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_Y&#39;</span><span class="p">]</span>
+        <span class="n">model_q_coordinates_labels</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;Body_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">_</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_Ux&#39;</span><span class="p">]</span>
+        <span class="n">model_q_coordinates_labels</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;Body_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">_</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_Uy&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">model_mixed_angular_drivers</span><span class="p">):</span>
+        <span class="n">model_q_coordinates_labels</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;Mixed_Ang_Driver_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">_</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+
+    <span class="k">return</span> <span class="n">model_q_coordinates_labels</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+        
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">optionflags</span><span class="o">=</span><span class="n">doctest</span><span class="o">.</span><span class="n">NORMALIZE_WHITESPACE</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ivo Roupa.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

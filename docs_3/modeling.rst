@@ -1,21 +1,920 @@
 Modeling
 ============
 
-``EZMotion`` is a high-level OO Python package which aims to provide an easy and intuitive way of interacting with nearby Bluetooth Low Energy (BLE) devices (GATT servers). In essence, this package is an extension of the ``bluepy`` package created by Ian Harvey (see `here <https://github.com/IanHarvey/bluepy/>`_)
+``Multibody systems`` (MBS) are composed by a collection of bodies interconnected to each other by different types of joints, that constrain their motion, and acted upon by forces of different origins [REF:Flores].
+To model the components of those systems, such as ``segments`` and ``joints``, different mathematical formulations can be used. These formulations require the use of a set of parameters, referred to as generalized coordinates, that uniquely defines the position and orientation of each system’s component during the motion analysis. 
 
+In the ``EZMotion`` tool, the fully cartesian coordinates (FCC) with a generic rigid body [Ref - Ivo] were used to model and analyze the kinematics and dynamics of mechanical and biomechanical multibody systems. 
+The details of the modeling procedure of each of the components is presented below. 
+ 
+``[Usage of each component in FDA and IDA]`
+
+
+Segments
+--------
+
+Each segment of the model must be modeled as a rigid body. Thus, for each segment of the model it is necessary to include a rigid body kinematic constraint as presented below (See Figure 1).   
 
 Rigid Body
-**********
+**************
+
+Ensure that the segment maintains its length constant during the analysis.
+
+.. figure:: .\\images\\generic_rigid_body.png
+	:scale: 10 %
+	:align: center
+	:alt: Representation of a generic rigid body
+
+	Fig 1. Representation of a generic rigid body
+
+.. list-table:: Rigid Body: Fields Description
+   :widths: 25 75 
+   :header-rows: 1
+   
+   * - Label
+     - Description
+   * - Type
+     - Type of kinematic constraint ( == 1)
+   * - Body
+     - Number of the segment 
+   * - Lu
+     - Segment length
+   * - Mass
+     - Mass of the segment
+   * - Moment of Inertia
+     - Moment of inertia of the segment
+   * - CoMLocCoordsX
+     - Local coordinate of the *x* coordinate of the CoM with respect to the local reference frame of the segment 
+   * - CoMLocCoordsY
+     - Local coordinate of the *y* coordinate of the CoM with respect to the local reference frame of the segment 
+
+.. list-table:: Rigid Body: Modeling Example
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
+
+   * - Type
+     - Body
+     - Lu
+     - Mass
+     - Moment of Inertia
+     - CoMLocCoordsX
+     - CoMLocCoordsY
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+   * - 1
+     - 1
+     - 1
+     - 1
+     - 0.0833
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+
+Joints
+--------
+
+Joints allow for the rlativ emotion between adjacent bodies. Below is presented how to include a revolute, a double support or a single joint in a multibody system.  
 
 
 Revolute Joint
-***********
+**************
+
+Allows the rotational motion between two adjacent bodies (See Figure 2).
+
+
+.. figure:: .\\images\\revolute_joint.png
+	:scale: 15 %
+	:align: center
+	:alt: Representation of a revolute joint
+
+	Fig 2. Representation of a revolute joint. 
+
+.. list-table:: Revolute Joint: Fields Description
+   :widths: 25 75 
+   :header-rows: 1
+   
+   * - Label
+     - Description
+   * - Type
+     - Type of kinematic constraint ( == 9)
+   * - MovBd1
+     - Number of the moving segment 1 
+   * - MovBd2
+     - Number of the moving segment 1
+   * - LcCMvB1x
+     - Local coordinate of the *x* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - LcCMvB1y
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - LcCMvB2x
+     - Local coordinate of the *x* coordinate of the revolute joint with respect to the local reference frame of segment 2
+   * - LcCMvB2y
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 2
+
+.. list-table:: Revolute Joint: Modeling Example
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
+
+   * - Type
+     - MovBd1
+     - MovBd2
+     - LcCMvB1x
+     - LcCMvB1y
+     - LcCMvB2x
+     - LcCMvB2y
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+   * - 1
+     - 1
+     - 1
+     - 1
+     - 0.0833
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
 
 
 Double Support Joint
-***********
+********************
+
+Allows the rotational motion of one body with respect to a ``fixed`` point (See Figure 3).
+
+.. figure:: .\\images\\double_support_joint.png
+	:scale: 15 %
+	:align: center
+	:alt: Representation of a double support joint
+
+	Fig 3. Representation of a double support joint. 
+
+.. list-table:: Double Support Joint: Fields Description
+   :widths: 25 75 
+   :header-rows: 1
+   
+   * - Label
+     - Description
+   * - Type
+     - Type of kinematic constraint ( == 8)
+   * - MovBd1
+     - Number of the moving segment 1 
+   * - LcCMvBx
+     - Local coordinate of the *x* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - LcCMvBy
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - GlCSpX
+     - Global coordinate of the *x* coordinate of the double support joint
+   * - GlCSpY
+     - Global coordinate of the *y* coordinate of the double support joint
 
 
-Single Support Joint
-***********
+.. list-table:: Double Support: Modeling Example
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
 
+   * - Type
+     - MovBd1
+     - MovBd2
+     - LcCMvB1x
+     - LcCMvB1y
+     - LcCMvB2x
+     - LcCMvB2y
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+   * - 8
+     - 1
+     - -1
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+
+Single Support Joint ``Correct Tables Info``
+*************************
+
+Allows rotation and translation in one direction (see Figure 4.).
+
+
+.. figure:: .\\images\\single_support_joint.png
+	:scale: 15 %
+	:align: center
+	:alt: Representation of a single support joint
+
+	Fig 4. Representation of a single support joint. 
+
+.. list-table:: Single Support Joint: Fields Description
+   :widths: 25 75 
+   :header-rows: 1
+   
+   * - Label
+     - Description
+   * - Type
+     - Type of kinematic constraint ( == )
+   * - ``AQUI``
+     - Number of the moving segment 1 
+   * - MovBd2
+     - Number of the moving segment 1
+   * - LcCMvB1x
+     - Local coordinate of the *x* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - LcCMvB1y
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - LcCMvB2x
+     - Local coordinate of the *x* coordinate of the revolute joint with respect to the local reference frame of segment 2
+   * - LcCMvB2y
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 2
+
+.. list-table:: Single Support Joint: Modeling Example
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
+
+   * - Type
+     - MovBd1
+     - MovBd2
+     - LcCMvB1x
+     - LcCMvB1y
+     - LcCMvB2x
+     - LcCMvB2y
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+   * - 1
+     - 1
+     - 1
+     - 1
+     - 0.0833
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+
+
+
+Drivers:
+--------
+
+There are essentially two types of kinematic drivers: ``the angular driver``, used to prescribe the angular position of an angle, between two segments or a segment and a global axis, throughout the analysis period, and the ``trajectory driver``, used to prescribe the trajectory of a given point with respect to a given reference. 
+
+The angular driver defined using the dot product fails to guide the angle for values in the vicinity of 0° and 180°, since the two vectors become aligned. To overcome this situation, it is necessary to use an angular driver defined usig the cross product between such vectors. In certian cases, the position or orientation of the rigid bodies need to be constrained with respect to the global reference frame (grounded). In such cases, it is possible to define specific kinematic constraint equations that relate a given rigid body with the Cartesian coordinates of fixed (grounded) points and unit vectors, defined in the global reference frame. 
+
+Angular Driver: Dot Product
+***************************
+
+Allows driving the angle between two segments using the dot product (see Figure 5.).
+
+.. figure:: .\\images\\Angular_Driver_Dot_Product.png
+	:scale: 15 %
+	:align: center
+	:alt: Representation of the angular driver using the dot product between two segments.
+
+	Fig 5. Representation of the angular driver using the dot product between two segments. 
+
+.. list-table:: Angular driver using the dot product: Fields Description
+   :widths: 25 75  
+   :header-rows: 1
+   
+   * - Label
+     - Description
+   * - Type
+     - Type of kinematic constraint ( == 2)
+   * - ParentBd
+     - Number of the moving segment 1 
+   * - ChildBd
+     - Number of the moving segment 1
+   * - Lu
+     - Length of the unitary vector of segment 1
+   * - Lv
+     - Length of the unitary vector of segment 1
+   * - DoF
+     - Number of the guided degree of freedom
+ 
+
+.. list-table:: Angular driver using the dot product: Modeling Example
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
+
+   * - Type
+     - ParentBd
+     - ChildBd
+     - Lu
+     - Lv
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - DoF
+   * - 2
+     - 1
+     - 2
+     - 1
+     - 1
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 1
+
+Angular Driver: Cross Product
+*****************************
+
+Allows driving the angle between two segments using the cross product (see Figure 6.).
+
+
+.. figure:: .\\images\\Angular_Driver_Dot_Product.png
+	:scale: 15 %
+	:align: center
+	:alt: Representation of the angular driver using the cross product between two segments.
+
+	Fig 6. Representation of the angular driver using the cross product between two segments. 
+
+.. list-table:: Angular driver using the cross product: Fields Description
+   :widths: 25 75 
+   :header-rows: 1
+   
+   * - Label
+     - Description
+   * - Type
+     - Type of kinematic constraint ( == 2)
+   * - ParentBd
+     - Number of the moving segment 1 
+   * - ChildBd
+     - Number of the moving segment 1
+   * - Lu
+     - Length of the unitary vector of segment 1
+   * - Lv
+     - Length of the unitary vector of segment 1
+   * - DoF
+     - Number of the guided degree of freedom
+
+.. list-table:: Angular driver using the cross product: Modeling Example
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
+
+   * - Type
+     - ParentBd
+     - ChildBd
+     - Lu
+     - Lv
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - DoF
+   * - 4
+     - 1
+     - 2
+     - 1
+     - 1
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 1
+	 	 
+Angular Driver Grounded: Dot Product
+*************************
+
+Allows driving the angle between one segment and one axis of the global reference frame (see Figure 7.).
+
+
+.. figure:: .\\images\\angular_driver_grounded.png
+	:scale: 15 %
+	:align: center
+	:alt: Representation of the angular driver grounded using the dot product between one segment and one axis of the global reference frame
+
+	Fig 7. Representation of the angular driver grounded using the dot product.
+
+.. list-table:: Representation of the angular driver grounded using the dot product: Fields Description
+   :widths: 25 75 
+   :header-rows: 1
+   
+   * - Label
+     - Description
+   * - Type
+     - Type of kinematic constraint ( == 3)
+   * - MovBb
+     - Number of the moving segment 
+   * - Lu
+     - Length of the unitary vector of segment 1
+   * - Lv
+     - Length of the unitary vector of global axis
+   * - GlCVtX
+     - 'x' component fo the orientation ovector of the unitary vector of global axis
+   * - GlCVtY
+     - 'y' component fo the orientation ovector of the unitary vector of global axis
+   * - DoF
+     - Number of the guided degree of freedom
+
+.. list-table:: Representation of the angular driver grounded using the dot product: Modeling Example
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
+
+   * - Type
+     - MovBd1
+     - MovBd2
+     - Lu
+     - Lv
+     - GlCVtX
+     - GlCVtY
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+   * - 3
+     - 1
+     - 1
+     - 1
+     - 1
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 1
+	 
+
+
+Angular Driver Grounded: Cross Product
+*************************
+
+Allows driving the angle between one segment and one axis of the global reference frame (see Figure 8.).
+
+
+.. figure:: .\\images\\angular_driver_grounded.png
+	:scale: 15 %
+	:align: center
+	:alt: Representation of the angular driver grounded using the cross product between one segment and one axis of the global reference frame
+
+	Fig 8. Representation of the angular driver grounded using the cross product.
+
+.. list-table:: Representation of the angular driver grounded using the cross product: Fields Description
+   :widths: 25 75 
+   :header-rows: 1
+   
+   * - Label
+     - Description
+   * - Type
+     - Type of kinematic constraint ( == 5)
+   * - MovBb
+     - Number of the moving segment 
+   * - Lu
+     - Length of the unitary vector of segment 1
+   * - Lv
+     - Length of the unitary vector of global axis
+   * - GlCVtX
+     - 'x' component fo the orientation ovector of the unitary vector of global axis
+   * - GlCVtY
+     - 'y' component fo the orientation ovector of the unitary vector of global axis
+   * - DoF
+     - Number of the guided degree of freedom
+
+.. list-table:: Representation of the angular driver grounded using the dot product: Modeling Example
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
+
+   * - Type
+     - MovBd1
+     - MovBd2
+     - Lu
+     - Lv
+     - GlCVtX
+     - GlCVtY
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+   * - 5
+     - 1
+     - 1
+     - 1
+     - 1
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 1
+	 
+
+Angular Driver Mixed: Dot Product
+*************************
+
+``Kinematic constraint used to ensure that the ``[....]`` during the analysis`` (see Figure 9.).
+
+
+.. figure:: .\\images\\Angular_Driver_Dot_Product.png
+	:scale: 15 %
+	:align: center
+	:alt: Representation of the angular driver mixed using the dot product between two segments
+
+	Fig 9. Representation of the angular driver mixed using the dot product between two segments. 
+
+.. list-table:: Angular driver mixed using the dot product: Fields Description
+   :widths: 25 75 
+   :header-rows: 1
+   
+   * - Label
+     - Description
+   * - Type
+     - Type of kinematic constraint ( == 13)
+   * - MovBd1
+     - Number of the moving segment 1 
+   * - MovBd2
+     - Number of the moving segment 1
+   * - LcCMvB1x
+     - Local coordinate of the *x* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - LcCMvB1y
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - LcCMvB2x
+     - Local coordinate of the *x* coordinate of the revolute joint with respect to the local reference frame of segment 2
+   * - LcCMvB2y
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 2
+
+.. list-table::  Angular driver mixed using the dot product: Modeling Example
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
+
+   * - Type
+     - ParentBd
+     - ChildBd
+     - Lu
+     - Lv
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - DoF
+   * - 13
+     - 1
+     - 2
+     - 1
+     - 1
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 2
+	 
+
+Angular Driver Mixed: Cross Product
+*************************
+
+``Kinematic constraint used to ensure that the ``[....]`` during the analysis`` (see Figure 10.).
+
+
+.. figure:: .\\images\\Angular_Driver_Dot_Product.png
+	:scale: 15 %
+	:align: center
+	:alt: Representation of the angular driver mixed using the cross product between two segments
+
+	Fig 10. Representation of the angular driver mixed using the cross product between two segments. 
+
+.. list-table:: Angular driver mixed using the cross product: Fields Description
+   :widths: 25 75 
+   :header-rows: 1
+   
+   * - Label
+     - Description
+   * - Type
+     - Type of kinematic constraint ( == 15)
+   * - MovBd1
+     - Number of the moving segment 1 
+   * - MovBd2
+     - Number of the moving segment 1
+   * - LcCMvB1x
+     - Local coordinate of the *x* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - LcCMvB1y
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - LcCMvB2x
+     - Local coordinate of the *x* coordinate of the revolute joint with respect to the local reference frame of segment 2
+   * - LcCMvB2y
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 2
+
+.. list-table::  Angular driver mixed using the cross product: Modeling Example
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
+
+   * - Type
+     - ParentBd
+     - ChildBd
+     - Lu
+     - Lv
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - DoF
+   * - 15
+     - 1
+     - 2
+     - 1
+     - 1
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 2
+
+
+Angular Driver Grounded Mixed: Dot Product
+*************************
+
+``Kinematic constraint used to ensure that the ``[....]`` during the analysis`` (see Figure 11.).
+
+.. figure:: .\\images\\revolute_joint.png
+	:scale: 20 %
+	:align: center
+	:alt: Representation of a revolute joint
+
+	Fig 11. Representation of a revolute joint. 
+
+.. list-table:: Revolute Joint: Fields Description
+   :widths: 25 75 
+   :header-rows: 1
+   
+   * - Label
+     - Description
+   * - Type
+     - Type of kinematic constraint ( == 9)
+   * - MovBd1
+     - Number of the moving segment 1 
+   * - MovBd2
+     - Number of the moving segment 1
+   * - LcCMvB1x
+     - Local coordinate of the *x* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - LcCMvB1y
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - LcCMvB2x
+     - Local coordinate of the *x* coordinate of the revolute joint with respect to the local reference frame of segment 2
+   * - LcCMvB2y
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 2
+
+.. list-table:: Revolute Joint: Modeling Example
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
+
+   * - Type
+     - MovBd1
+     - MovBd2
+     - LcCMvB1x
+     - LcCMvB1y
+     - LcCMvB2x
+     - LcCMvB2y
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+   * - 1
+     - 1
+     - 1
+     - 1
+     - 0.0833
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+	 
+Angular Driver Grounded Mixed: Cross Product
+*************************
+
+``Kinematic constraint used to ensure that the ``[....]`` during the analysis`` (see Figure 12.).
+
+.. figure:: .\\images\\revolute_joint.png
+	:scale: 15 %
+	:align: center
+	:alt: Representation of a revolute joint
+
+	Fig 12. Representation of a revolute joint. 
+
+.. list-table:: Revolute Joint: Fields Description
+   :widths: 25 75 
+   :header-rows: 1
+   
+   * - Label
+     - Description
+   * - Type
+     - Type of kinematic constraint ( == 9)
+   * - MovBd1
+     - Number of the moving segment 1 
+   * - MovBd2
+     - Number of the moving segment 1
+   * - LcCMvB1x
+     - Local coordinate of the *x* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - LcCMvB1y
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - LcCMvB2x
+     - Local coordinate of the *x* coordinate of the revolute joint with respect to the local reference frame of segment 2
+   * - LcCMvB2y
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 2
+
+.. list-table:: Revolute Joint: Modeling Example
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
+
+   * - Type
+     - MovBd1
+     - MovBd2
+     - LcCMvB1x
+     - LcCMvB1y
+     - LcCMvB2x
+     - LcCMvB2y
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+   * - 1
+     - 1
+     - 1
+     - 1
+     - 0.0833
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+	 
+
+
+Trajectory Driver
+*************************
+
+``Kinematic constraint used to ensure that the ``[....]`` during the analysis`` (see Figure 13.).
+
+.. figure:: .\\images\\trajectory_driver.png
+	:scale: 15 %
+	:align: center
+	:alt: Representation of a revolute joint
+
+	Fig 13. Representation of the trajectory driver. 
+
+.. list-table:: Trajectory driver: Fields Description
+   :widths: 25 75 
+   :header-rows: 1
+    
+   * - Label
+     - Description
+   * - Type
+     - Type of kinematic constraint ( == 6)
+   * - MovBd1
+     - Number of the moving segment 1 
+   * - DoFx
+     - Number of the moving segment 1
+   * - DoFy
+     - Local coordinate of the *x* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - LcCMvBx
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 1
+   * - LcCMvBy
+     - Local coordinate of the *x* coordinate of the revolute joint with respect to the local reference frame of segment 2
+   * - GlCoordX*
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 2
+   * - GlCoordY*
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 2
+   * - GlCoordVelX*
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 2
+   * - GlCoordVelY*
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 2
+   * - GlCoordAcclX*
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 2
+   * - GlCoordAcclY*
+     - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 2
+   * - DoFType
+     - 
+
+.. list-table:: Trajectory driver: Modeling Example
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
+
+
+   # Trajectory Driver Constraint : R Ankle marker
+   # Type, MovBd, DoFx,  DoFy,  LcCMvBx, LcCMvBy, GlCoordX*, GlCoordY*, GlCoordVelX*, GlCoordVelY*, GlCoordAccX*, GlCoordAccY*, -, DoFType 
+     6,    9,    31,    32,        0,  -0.208,         0,    	  0,            0,            0,            0,            0, 0,       1
+   
+   
+
+
+   * - Type
+     - MovBd1
+     - MovBd2
+     - LcCMvB1x
+     - LcCMvB1y
+     - LcCMvB2x
+     - LcCMvB2y
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+   * - 1
+     - 1
+     - 1
+     - 1
+     - 0.0833
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0
+     - 0

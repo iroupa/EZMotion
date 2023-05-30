@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="english" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples &mdash; EZMotion 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Modeling" href="modeling.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EZMotion
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_use.html">How to use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_files.html">Input Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeling.html">Modeling</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#forward-dynamic-analysis">Forward Dynamic Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#single-pendulum">Single Pendulum</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modeling-file">Modeling File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#state-file-position">State File (position)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#state-file-velocity">State File (velocity)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#slider-crank">Slider-Crank</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Modeling File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">State File (position)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">State File (velocity)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#inverse-dynamic-analysis">Inverse Dynamic Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#double-pendulum">Double Pendulum</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Modeling File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#state-file">State File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-file">Data File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#labels-file">Labels File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#single-body">Single Body</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Modeling File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">State File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Data File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Labels File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lower-body">Lower Body</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Modeling File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">State File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Data File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Labels File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#force-file">Force File</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EZMotion</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h1>
+<p>This section includes examples of the input files required to perform the forward and inverse dynamic analysis of distinct multibody systems.</p>
+<section id="forward-dynamic-analysis">
+<h2>Forward Dynamic Analysis<a class="headerlink" href="#forward-dynamic-analysis" title="Permalink to this heading"></a></h2>
+<section id="single-pendulum">
+<h3>Single Pendulum<a class="headerlink" href="#single-pendulum" title="Permalink to this heading"></a></h3>
+<p>This model is composed by a body with unitary mass (m = 1 kg) connected to the ground through a link with unitary length (L_1 = 1 m) that connects the ground via a double support joint. For the forward dynamics simulation, the system moves only under the effect of gravity with zero initial velocity. The pendulum starts in a horizontal position with the body’s center of mass located at coordinates P_2=[-1, 0]</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_images/single_pendulum.png"><img alt="Representation of the single pendulum mechanism" src="_images/single_pendulum.png" style="width: 335.25px; height: 276.15px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 1.  Representation of the single pendulum mechanism.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="modeling-file">
+<h4>Modeling File<a class="headerlink" href="#modeling-file" title="Permalink to this heading"></a></h4>
+<table class="docutils align-center" id="id14">
+<caption><span class="caption-text">Example of single pendulum modeling file (.mod)</span><a class="headerlink" href="#id14" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p># Type</p></th>
+<th class="head"><p>Body</p></th>
+<th class="head"><p>Lu</p></th>
+<th class="head"><p>Mass</p></th>
+<th class="head"><p>Moment_Inertia</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1.0</p></td>
+<td><p>1.0</p></td>
+<td><p>0.0833</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong># Type</strong></p></td>
+<td><p><strong>MovBd</strong></p></td>
+<td><p><strong>LcCMvBx</strong></p></td>
+<td><p><strong>LcCMvBy</strong></p></td>
+<td><p><strong>GlCSpX</strong></p></td>
+<td><p><strong>GlCSpY</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>1</p></td>
+<td><p>-1</p></td>
+<td><p>0.0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="state-file-position">
+<h4>State File (position)<a class="headerlink" href="#state-file-position" title="Permalink to this heading"></a></h4>
+<table class="docutils align-center" id="id15">
+<caption><span class="caption-text">Example of single pendulum state file (.q)</span><a class="headerlink" href="#id15" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p># CoMx</p></th>
+<th class="head"><p>CoMy</p></th>
+<th class="head"><p>Ux</p></th>
+<th class="head"><p>Uy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-1.0</p></td>
+<td><p>0.0</p></td>
+<td><p>-1.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="state-file-velocity">
+<h4>State File (velocity)<a class="headerlink" href="#state-file-velocity" title="Permalink to this heading"></a></h4>
+<table class="docutils align-center" id="id16">
+<caption><span class="caption-text">Example of single pendulum state file (.qp)</span><a class="headerlink" href="#id16" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p># CoMxp</p></th>
+<th class="head"><p>CoMyp</p></th>
+<th class="head"><p>Uxp</p></th>
+<th class="head"><p>Uyp</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0.0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="slider-crank">
+<h3>Slider-Crank<a class="headerlink" href="#slider-crank" title="Permalink to this heading"></a></h3>
+<p>The slider crank mechanism is composed by two identical rods (L_1 and L_2) with unitary length, a uniformly distributed mass of 1kg and a square cross section of 0.01m2, which are constrained in P_2 by a revolute joint. The slider is considered to be massless and no friction with the ground is considered. A <code class="docutils literal notranslate"><span class="pre">translation-revolute</span></code> joint is introduced between body L_2 and the ground, such that point P_3 is constrained to move only along the x axis. The system moves under gravity effect from the initial position, represented in Fig. 2, to which corresponds θ=π⁄4. The initial velocity of point P_3 is defined as 4 m.s-1 in the negative direction of the horizontal x axis.</p>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="_images/slider_crank.png"><img alt="Representation of the slider-crank mechanism" src="_images/slider_crank.png" style="width: 406.65px; height: 236.39999999999998px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 2.  Representation of the slider-crank mechanism.</span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="id1">
+<h4>Modeling File<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
+</section>
+<section id="id2">
+<h4>State File (position)<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
+</section>
+<section id="id3">
+<h4>State File (velocity)<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
+</section>
+</section>
+</section>
+<section id="inverse-dynamic-analysis">
+<h2>Inverse Dynamic Analysis<a class="headerlink" href="#inverse-dynamic-analysis" title="Permalink to this heading"></a></h2>
+<section id="double-pendulum">
+<h3>Double Pendulum<a class="headerlink" href="#double-pendulum" title="Permalink to this heading"></a></h3>
+<p>This model is composed of <code class="docutils literal notranslate"><span class="pre">[...]</span></code></p>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="images/double_pendulum.png"><img alt="Representation of the double pendulum mechanism" src="images/double_pendulum.png" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 3.  Representation of the double pendulum mechanism.</span><a class="headerlink" href="#id18" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="id4">
+<h4>Modeling File<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h4>
+</section>
+<section id="state-file">
+<h4>State File<a class="headerlink" href="#state-file" title="Permalink to this heading"></a></h4>
+</section>
+<section id="data-file">
+<h4>Data File<a class="headerlink" href="#data-file" title="Permalink to this heading"></a></h4>
+</section>
+<section id="labels-file">
+<h4>Labels File<a class="headerlink" href="#labels-file" title="Permalink to this heading"></a></h4>
+</section>
+</section>
+<section id="single-body">
+<h3>Single Body<a class="headerlink" href="#single-body" title="Permalink to this heading"></a></h3>
+<p>This model is composed of <code class="docutils literal notranslate"><span class="pre">[...]</span></code></p>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="images/single_body.png"><img alt="Representation of the single body" src="images/single_body.png" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 4.  Representation of the single body.</span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="id5">
+<h4>Modeling File<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h4>
+</section>
+<section id="id6">
+<h4>State File<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h4>
+</section>
+<section id="id7">
+<h4>Data File<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h4>
+</section>
+<section id="id8">
+<h4>Labels File<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h4>
+</section>
+</section>
+<section id="lower-body">
+<h3>Lower Body<a class="headerlink" href="#lower-body" title="Permalink to this heading"></a></h3>
+<p>This model is composed of <code class="docutils literal notranslate"><span class="pre">[...]</span></code></p>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="images/lower_body.png"><img alt="Representation of the lower body" src="images/lower_body.png" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 5.  Representation of the lower body.</span><a class="headerlink" href="#id20" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="id9">
+<h4>Modeling File<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h4>
+</section>
+<section id="id10">
+<h4>State File<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h4>
+</section>
+<section id="id11">
+<h4>Data File<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h4>
+</section>
+<section id="id12">
+<h4>Labels File<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h4>
+</section>
+<section id="force-file">
+<h4>Force File<a class="headerlink" href="#force-file" title="Permalink to this heading"></a></h4>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modeling.html" class="btn btn-neutral float-left" title="Modeling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ivo Roupa.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -215,7 +215,7 @@ def run_forward_analysis(analysis_type,
     # Compute and assign model joints angles to report variable
     for _ in range(0, q_rep.shape[0]):
         joint_angles_header, joint_angles = compute_joints_angles_fd(dataConst, q_rep[_])
-        joint_angles_rep[_] = joint_angles
+        # joint_angles_rep[_] = joint_angles
 
     frames_rep = np.arange(0, nFrames, 1)
     frames_rep = frames_rep.reshape(frames_rep.shape[0], 1)
@@ -225,8 +225,8 @@ def run_forward_analysis(analysis_type,
     model_q_coords_header = compute_q_coords_labels(nRigidBodies, model_mixed_angular_drivers)
 
     # Compute model joints angles velocity and acceleration
-    joint_angles_vel_rep = compute_joint_angles_derivative(joint_angles_rep, 1)
-    joint_angles_acc_rep = compute_joint_angles_derivative(joint_angles_rep, 2)
+    # joint_angles_vel_rep = compute_joint_angles_derivative(joint_angles_rep, 1)
+    # joint_angles_acc_rep = compute_joint_angles_derivative(joint_angles_rep, 2)
 
     # Export analysis outputs
     export_analysis_outputs(model_outputs_fpath=os.path.join(model_outputs_folder, analysis_type.lower()
@@ -236,10 +236,10 @@ def run_forward_analysis(analysis_type,
                             model_q_header=['#Frame', 'Time'] + model_q_coords_header,
                             q_rep=np.concatenate((frames_rep, time_span, q_rep), axis=1),
                             qp_rep=np.concatenate((frames_rep, time_span, qp_rep), axis=1),
-                            model_joints_angles_header=['#Frame', 'Time'] + joint_angles_header,
-                            model_joints_angles=np.concatenate((frames_rep, time_span, joint_angles_rep), axis=1),
-                            model_joints_ang_vel=np.concatenate((frames_rep, time_span, joint_angles_vel_rep), axis=1),
-                            model_joints_ang_acc=np.concatenate((frames_rep, time_span, joint_angles_acc_rep), axis=1),
+                            # model_joints_angles_header=['#Frame', 'Time'] + joint_angles_header  #,
+                            # model_joints_angles=np.concatenate((frames_rep, time_span, joint_angles_rep), axis=1),
+                            # model_joints_ang_vel=np.concatenate((frames_rep, time_span, joint_angles_vel_rep), axis=1),
+                            # model_joints_ang_acc=np.concatenate((frames_rep, time_span, joint_angles_acc_rep), axis=1),
                             )
 
     return os.path.join(model_outputs_folder, analysis_type.lower() + '_analysis_outputs.out')

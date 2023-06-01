@@ -1,7 +1,7 @@
 Input Files
 ========
 
-For each type of analysis, the list of inputs files, its extension and description are presented below. A detailed description of each file and is availbale at <link>
+For each type of analysis, the list of inputs files needed, their extension and their description are presented below. 
 
 Kinematic Analysis
 **********
@@ -126,7 +126,7 @@ Vizualization
      - Local coordinates of the extremities of each segment of the model     
    * - External forces
      - .f
-     - External forces applied drng the analysis     
+     - External forces applied during the analysis     
    * - Muscles
      - .msk
      - File containing the muscle parameters

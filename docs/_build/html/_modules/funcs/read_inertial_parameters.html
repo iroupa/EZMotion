@@ -46,6 +46,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../input_files.html">Input Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modeling.html">Modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support.html">Support <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">text</span> <span class="pre">and</span> <span class="pre">links]</span></code></a></li>
 </ul>
 
         </div>
@@ -122,7 +123,7 @@
 
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">modeling_file_data</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">model_inertial_parameters_info</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">])]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Mass&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span>
+            <span class="n">model_inertial_parameters_info</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Mass&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span>
                                                            <span class="s1">&#39;Moment_Inertia&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span>
                                                            <span class="s1">&#39;CoM_LocCoordX&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">5</span><span class="p">]),</span>
                                                            <span class="s1">&#39;CoM_LocCoordY&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">6</span><span class="p">])}</span>

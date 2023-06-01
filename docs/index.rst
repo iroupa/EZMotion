@@ -15,6 +15,7 @@ Welcome to EZMotion's documentation!
 	input_files
 	modeling 
 	examples
+	support 
 	
 Indices and tables
 ==================

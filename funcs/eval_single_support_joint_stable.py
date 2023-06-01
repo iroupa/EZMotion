@@ -68,22 +68,22 @@ def evaluate_single_support_joint(nCoordinates, constraintByType, dataConst, q, 
     constraintRowIndex = rowIn
 
     # Rigid bodies model number
-    movingBodyNumber = int(dataConst[constraintByType, 1])
+    movingBodyNumber = int(dataConst[constraintByType, 2])
 
     # Constraint Direction
     # 0 - x
     # 1 - y
-    constraintDirection = int(dataConst[constraintByType, 2])
+    constraintDirection = int(dataConst[constraintByType, 3])
 
     # parentBody and childBody Local Coordinates
-    movingLocCoords = dataConst[constraintByType, 3:5]
-    supportCoords = dataConst[constraintByType, 5:7]
+    movingLocCoords = dataConst[constraintByType, 6:8]
+    supportCoords = dataConst[constraintByType, 8:10]
 
     # Create bodies 'C' Matrix
     movingCMatrix = assemble_C_matrix(movingLocCoords)
 
     # Create moving and Child Rigid Body 'q' Coordinates
-    movingQVec = q[4 * (movingBodyNumber - 1):4 * (movingBodyNumber - 1) + 4]
+    movingQVec = q[4*(movingBodyNumber-1):4*(movingBodyNumber-1)+4]
 
     # Single support constraint contribution to 'phi' vector
     # Row index must be constraintRowIdx -> to -> constraintRowIdx+2 due to slicing operation in Python. With
@@ -95,7 +95,7 @@ def evaluate_single_support_joint(nCoordinates, constraintByType, dataConst, q, 
     # moving Rigid Body
 
     # Define moving Rigid Body Columns in jacobian matrix
-    movingColsIdxs = [4 * (movingBodyNumber - 1), 4 * (movingBodyNumber - 1) + 4]
+    movingColsIdxs = [4*(movingBodyNumber-1), 4*(movingBodyNumber-1)+4]
 
     # Row index must be [constraintRowIdx : constraintRowIdx + 2] due to slicing operation in Python. With
     # these idxs data will be inserted from row 'constraintRowIdx' to row 'constraintRowIdx + 1'

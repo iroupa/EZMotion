@@ -47,7 +47,7 @@ def read_inertial_parameters(fpath):
 
     for row in modeling_file_data:
         if int(row[0]) == 1:
-            model_inertial_parameters_info[int(row[2])] = {'Mass': float(row[3]),
+            model_inertial_parameters_info[int(row[1])] = {'Mass': float(row[3]),
                                                            'Moment_Inertia': float(row[4]),
                                                            'CoM_LocCoordX': float(row[5]),
                                                            'CoM_LocCoordY': float(row[6])}

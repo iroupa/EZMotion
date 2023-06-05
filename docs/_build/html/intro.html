@@ -44,12 +44,15 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_use.html">How to use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input_files.html">Input Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modeling.html">Modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="support.html">Support <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">text</span> <span class="pre">and</span> <span class="pre">links]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support <code class="docutils literal notranslate"><span class="pre">[Include</span> <span class="pre">text</span> <span class="pre">and</span> <span class="pre">links]</span></code></a></li>
 </ul>
 
         </div>
@@ -78,9 +81,15 @@
              
   <section id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">EZMotion</span></code> is a Python tool that provides an easy and intuitive way to model and perform kinematic and dynamic analyses of mechanical and biomechanical multibody systems without requiring coding skills. The current implementation has been developed in Python 3.</p>
-<p>A description on how to use the <code class="docutils literal notranslate"><span class="pre">EZMotion</span></code> and the necessary input files is provided in the <a class="reference internal" href="how_to_use.html"><span class="doc">How to use</span></a> and <a class="reference internal" href="input_files.html"><span class="doc">Input Files</span></a> sections. Additionally information regarding the modeling of mechanical or biomechanical multibody systems and several working examples are provided in the <a class="reference internal" href="modeling.html"><span class="doc">Modeling</span></a> and <a class="reference internal" href="examples.html"><span class="doc">Examples</span></a> sections.</p>
-<p>The files presented in the <a class="reference internal" href="examples.html"><span class="doc">Examples</span></a> section include examples of all kinematic constraint equations required to model multibody systems and of the structure of each input file required for the forward and inverse analyses.</p>
+<p><code class="docutils literal notranslate"><span class="pre">EZMotion</span></code> is a Python tool that provides an easy and intuitive way to model and perform kinematic and dynamic analyses of planar mechanical and biomechanical multibody systems without requiring coding skills and visualize its outputs. The current implementation has been developed in <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3</span></code>, and its outputs have been validated against those available in the IFToMM library of computational benchmark problems [1].</p>
+<p>A description on how to use <code class="docutils literal notranslate"><span class="pre">EZMotion</span></code> to perform an analysis and visualize its outputs is provided in the <a class="reference internal" href="how_to_use.html"><span class="doc">How to use</span></a> section.</p>
+<p>The <a class="reference internal" href="input_files.html"><span class="doc">Input Files</span></a> section includes the list of all input files required for each type of analysis and their description.</p>
+<p><a class="reference internal" href="modeling.html"><span class="doc">Modeling</span></a> section provides a detailed description on how to model  customized <code class="docutils literal notranslate"><span class="pre">multibody</span> <span class="pre">systems</span></code> within the framework of <code class="docutils literal notranslate"><span class="pre">multibody</span> <span class="pre">system</span> <span class="pre">dynamics</span></code>.</p>
+<p>The <a class="reference internal" href="examples.html"><span class="doc">Examples</span></a> section include examples of all input files required to perform: <code class="docutils literal notranslate"><span class="pre">forward</span> <span class="pre">dynamic</span> <span class="pre">analysis</span></code> of a single pendulum and a slider crank mechanism; <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">analysis</span></code> of a single body and a human lower body model and the <code class="docutils literal notranslate"><span class="pre">inverse</span> <span class="pre">dynamic</span> <span class="pre">analysis</span></code> of a four bar mechanism.</p>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<p>[1] IFToMM technical committee for multibody dynamics, library of computational benchmark problems, (2022).</p>
+</section>
 </section>
 
 

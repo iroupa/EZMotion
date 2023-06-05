@@ -244,7 +244,6 @@ def run_forward_analysis(analysis_type,
 
     return os.path.join(model_outputs_folder, analysis_type.lower() + '_analysis_outputs.out')
 
-
 if __name__ == "__main__":
     import doctest
 

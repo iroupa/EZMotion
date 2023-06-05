@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Support [Correct text and links]" href="support.html" />
+    <link rel="next" title="Support [Include text and links]" href="support.html" />
     <link rel="prev" title="Modeling" href="modeling.html" /> 
 </head>
 
@@ -51,33 +51,42 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#forward-dynamic-analysis">Forward Dynamic Analysis</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#single-pendulum">Single Pendulum</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#modeling-file">Modeling File</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#state-file-position">State File (position)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#state-file-velocity">State File (velocity)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modeling-file-mod">Modeling File (.mod)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#state-file-q-generalized-coordinates">State File (.q): Generalized Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#state-file-qp-generalized-velocities">State File (.qp): Generalized Velocities</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#slider-crank">Slider-Crank</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Modeling File</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">State File (position)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">State File (velocity)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Modeling File (.mod)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">State File (.q): Generalized Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">State File (.qp): Generalized Velocities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#kinematic-analysis">Kinematic Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#single-body">Single Body</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Modeling File (.mod)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">State File (.q): Generalized Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-file-data">Data File (.data)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#labels-file-lbl">Labels File (.lbl)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lower-body-update-model-figure-description-and-input-files">Lower Body <code class="docutils literal notranslate"><span class="pre">[Update</span> <span class="pre">model</span> <span class="pre">figure</span> <span class="pre">description</span> <span class="pre">and</span> <span class="pre">input</span> <span class="pre">files]</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modeling-file-mod-correct-example-and-description-tables">Modeling File (.mod) <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">example</span> <span class="pre">and</span> <span class="pre">description</span> <span class="pre">tables]</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#state-file-q-generalized-coordinates-correct-number-of-rows">State File (.q): Generalized Coordinates <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">rows]</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-file-data-correct-number-of-rows-and-columns">Data File (.data) <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">rows</span> <span class="pre">and</span> <span class="pre">columns]</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#labels-file-correct-number-of-rows">Labels File <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">rows]</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#inverse-dynamic-analysis">Inverse Dynamic Analysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#single-body">Single Body</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id4">Modeling File</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#state-file">State File</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#data-file">Data File</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#labels-file">Labels File</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#lower-body-update-model-description-and-input-files">Lower Body <code class="docutils literal notranslate"><span class="pre">[Update</span> <span class="pre">model</span> <span class="pre">description</span> <span class="pre">and</span> <span class="pre">input</span> <span class="pre">files]</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id5">Modeling File</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id6">State File</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id7">Data File</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id8">Labels File</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#force-file">Force File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-four-bar-mechanism">Double Four-Bar mechanism</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Modeling File (.mod) <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">example</span> <span class="pre">and</span> <span class="pre">description</span> <span class="pre">tables]</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">State File (.q): Generalized Coordinates <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">rows]</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Data File (.data) <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">rows</span> <span class="pre">and</span> <span class="pre">columns]</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Labels File <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">rows]</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
@@ -85,7 +94,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="support.html">Support <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">text</span> <span class="pre">and</span> <span class="pre">links]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support <code class="docutils literal notranslate"><span class="pre">[Include</span> <span class="pre">text</span> <span class="pre">and</span> <span class="pre">links]</span></code></a></li>
 </ul>
 
         </div>
@@ -114,22 +123,23 @@
              
   <section id="examples">
 <h1>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h1>
-<p>This section includes examples of the input files required to perform the forward and inverse dynamic analysis of distinct multibody systems.</p>
+<p>This section includes examples of the input files required to perform the forward and inverse dynamic analysis of distinct multibody systems. An important remark regarding all input files is that all values must be separated by commas.</p>
 <section id="forward-dynamic-analysis">
 <h2>Forward Dynamic Analysis<a class="headerlink" href="#forward-dynamic-analysis" title="Permalink to this heading"></a></h2>
 <section id="single-pendulum">
 <h3>Single Pendulum<a class="headerlink" href="#single-pendulum" title="Permalink to this heading"></a></h3>
 <p>This model is composed by a body with unitary mass (m = 1 kg) connected to the ground through a link with unitary length (L1 = 1 m) that connects the ground via a double support joint [1]. For the forward dynamics simulation, the system moves only under the effect of gravity with zero initial velocity. The pendulum starts in a horizontal position with the body’s center of mass located at coordinates P2 = [-1, 0]</p>
-<figure class="align-center" id="id9">
-<a class="reference internal image-reference" href="_images/single_pendulum.png"><img alt="Representation of the single pendulum mechanism" src="_images/single_pendulum.png" style="width: 335.25px; height: 276.15px;" /></a>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/single_pendulum.png"><img alt="Representation of the planar single pendulum mechanism" src="_images/single_pendulum.png" style="width: 335.25px; height: 276.15px;" /></a>
 <figcaption>
-<p><span class="caption-text">Fig 1.  Representation of the single pendulum mechanism.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 1.  Representation of the planar single pendulum mechanism.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<section id="modeling-file">
-<h4>Modeling File<a class="headerlink" href="#modeling-file" title="Permalink to this heading"></a></h4>
-<table class="docutils align-center" id="id10">
-<caption><span class="caption-text">Example of single pendulum modeling file (.mod)</span><a class="headerlink" href="#id10" title="Permalink to this table"></a></caption>
+<section id="modeling-file-mod">
+<h4>Modeling File (.mod)<a class="headerlink" href="#modeling-file-mod" title="Permalink to this heading"></a></h4>
+<p>This file contains 2 rows with 14 columns.</p>
+<table class="docutils align-center" id="id11">
+<caption><span class="caption-text">Table 1. Example of the planar single pendulum modeling file (.mod)</span><a class="headerlink" href="#id11" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -211,11 +221,32 @@
 </tr>
 </tbody>
 </table>
+<table class="docutils align-center" id="id12">
+<caption><span class="caption-text">Table 2. Description of each row of the modeling file (.mod) of the planar single pendulum mechanism.</span><a class="headerlink" href="#id12" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Line</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Model the double support joint.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Model the rigid body.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="state-file-position">
-<h4>State File (position)<a class="headerlink" href="#state-file-position" title="Permalink to this heading"></a></h4>
-<table class="docutils align-center" id="id11">
-<caption><span class="caption-text">Example of single pendulum state file (.q)</span><a class="headerlink" href="#id11" title="Permalink to this table"></a></caption>
+<section id="state-file-q-generalized-coordinates">
+<span id="target-to-state-file-q"></span><h4>State File (.q): Generalized Coordinates<a class="headerlink" href="#state-file-q-generalized-coordinates" title="Permalink to this heading"></a></h4>
+<p>This file contains 1 row (one per rigid body) with 4 generalized coordinates (4 per rigid body of the multibody system).</p>
+<table class="docutils align-center" id="id13">
+<caption><span class="caption-text">Table 3. Example of the planar single pendulum state file with generalized coordinates (.q).</span><a class="headerlink" href="#id13" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -237,11 +268,38 @@
 </tr>
 </tbody>
 </table>
+<table class="docutils align-center" id="id14">
+<caption><span class="caption-text">Table 4. Description of each row of the state file containing the generalized coordinates (.q) of the planar single pendulum mechanism.</span><a class="headerlink" href="#id14" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><em>x</em> component of the cartesian coordinates of the CoM of the body of the multibody system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p><em>y</em> component of the cartesian coordinates of the CoM of the body of the multibody system.</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p><em>x</em> component of the unitary vector defining the orientation of the body.</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p><em>y</em> component of the unitary vector defining the orientation of the body.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="state-file-velocity">
-<h4>State File (velocity)<a class="headerlink" href="#state-file-velocity" title="Permalink to this heading"></a></h4>
-<table class="docutils align-center" id="id12">
-<caption><span class="caption-text">Example of single pendulum state file (.qp)</span><a class="headerlink" href="#id12" title="Permalink to this table"></a></caption>
+<section id="state-file-qp-generalized-velocities">
+<span id="target-to-state-file-qp"></span><h4>State File (.qp): Generalized Velocities<a class="headerlink" href="#state-file-qp-generalized-velocities" title="Permalink to this heading"></a></h4>
+<p>This file contains 1 row (one per rigid body) with 4 generalized coordinates (4 per rigid body of the multibody system).</p>
+<table class="docutils align-center" id="id15">
+<caption><span class="caption-text">Table 5. Example of the planar single pendulum state file with generalized velocities (.qp).</span><a class="headerlink" href="#id15" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -263,21 +321,48 @@
 </tr>
 </tbody>
 </table>
+<table class="docutils align-center" id="id16">
+<caption><span class="caption-text">Table 6. Description of each row of the state file containing the generalized velocities (.qp) of the planar single pendulum mechanism.</span><a class="headerlink" href="#id16" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><em>x</em> component of the velocity coordinates of the CoM of the body of the multibody system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p><em>y</em> component of the velocity coordinates of the CoM of the body of the multibody system.</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p><em>x</em> component of the velocity of the unitary vector defining the orientation of the body.</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p><em>y</em> component of the velocity of the unitary vector defining the orientation of the body.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 <section id="slider-crank">
 <h3>Slider-Crank<a class="headerlink" href="#slider-crank" title="Permalink to this heading"></a></h3>
 <p>The slider crank mechanism is composed by two identical rods (L1 and L2) with unitary length, a uniformly distributed mass of 1 kg and a square cross section of 0.01 m2, which are constrained in P2 by a revolute joint. The slider is considered to be massless and no friction with the ground is considered [1]. A single support joint is introduced, such that point P3 is constrained to move only along the <em>x</em> axis. The system moves under gravity effect from the initial position, represented in Fig. 2, to which corresponds θ=π⁄4. The initial velocity of point P3 is defined as 4 m.s-1 in the negative direction of the horizontal <em>x</em> axis.</p>
-<figure class="align-center" id="id13">
-<a class="reference internal image-reference" href="_images/slider_crank.png"><img alt="Representation of the slider-crank mechanism" src="_images/slider_crank.png" style="width: 406.65px; height: 236.39999999999998px;" /></a>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="_images/slider_crank.png"><img alt="Representation of the planar slider-crank mechanism." src="_images/slider_crank.png" style="width: 406.65px; height: 236.39999999999998px;" /></a>
 <figcaption>
-<p><span class="caption-text">Fig 2.  Representation of the slider-crank mechanism.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 2.  Representation of the planar slider-crank mechanism.</span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <section id="id1">
-<h4>Modeling File<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
-<table class="docutils align-center" id="id14">
-<caption><span class="caption-text">Example of the slider-crank modeling file (.mod)</span><a class="headerlink" href="#id14" title="Permalink to this table"></a></caption>
+<h4>Modeling File (.mod)<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
+<p>This file contains 5 rows with 14 columns each. For further details about the modeling of each component please check <a class="reference internal" href="modeling.html"><span class="doc">Modeling</span></a> section.</p>
+<table class="docutils align-center" id="id18">
+<caption><span class="caption-text">Table 7. Example of the planar slider-crank modeling file (.mod).</span><a class="headerlink" href="#id18" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -449,65 +534,129 @@
 </tr>
 </tbody>
 </table>
+<table class="docutils align-center" id="id19">
+<caption><span class="caption-text">Table 8. Description of each row of the modeling file (.mod) of the planar slider-crank mechanism.</span><a class="headerlink" href="#id19" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Row</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Model rigid body 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Model rigid body 2.</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Model the double support joint.</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Model the revoluute joint between body 1 and body 2.</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Model the single support joint.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="id2">
-<h4>State File (position)<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
-<table class="docutils align-center" id="id15">
-<caption><span class="caption-text">Example of the slider-crank state file (.q)</span><a class="headerlink" href="#id15" title="Permalink to this table"></a></caption>
+<h4>State File (.q): Generalized Coordinates<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
+<p>This file contains 2 rows, each with 4 generalized coordinates for the initial time. For further details about the number of generalized coordinates please <a class="reference internal" href="#target-to-state-file-q"><span class="std std-ref">check</span></a> section.</p>
+<table class="docutils align-center" id="id20">
+<caption><span class="caption-text">Table 9. Example of the planar slider-crank state file with generalized coordinates (.qp).</span><a class="headerlink" href="#id20" title="Permalink to this table"></a></caption>
 <colgroup>
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p># CoMx,</p></th>
 <th class="head"><p>CoMy,</p></th>
 <th class="head"><p>Ux,</p></th>
 <th class="head"><p>Uy,</p></th>
-<th class="head"><p>CoMx,</p></th>
-<th class="head"><p>CoMy,</p></th>
-<th class="head"><p>Ux,</p></th>
-<th class="head"><p>Uy</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>0.353,</p></td>
 <td><p>0.353,</p></td>
 <td><p>0.707,</p></td>
-<td><p>0.707,</p></td>
-<td><p>1.06,</p></td>
+<td><p>0.707</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.06,</p></td>
 <td><p>0.353,</p></td>
 <td><p>0.707,</p></td>
 <td><p>-0.707</p></td>
 </tr>
 </tbody>
 </table>
+<table class="docutils align-center" id="id21">
+<caption><span class="caption-text">Table 10. Description of each row of the state file containing the generalized coordinates (.q) of the planar slider-crank mechanism.</span><a class="headerlink" href="#id21" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Row</p></th>
+<th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p><em>x</em> component of the cartesian coordinates of the CoM of the body 1 of the multibody system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p><em>y</em> component of the cartesian coordinates of the CoM of the body 1 of the multibody system.</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>3</p></td>
+<td><p><em>x</em> component of the unitary vector defining the orientation of the body 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>4</p></td>
+<td><p><em>y</em> component of the unitary vector defining the orientation of the body 1.</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p><em>x</em> component of the cartesian coordinates of the CoM of the body 2 of the multibody system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p><em>y</em> component of the cartesian coordinates of the CoM of the body 2 of the multibody system.</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>3</p></td>
+<td><p><em>x</em> component of the unitary vector defining the orientation of the body 2.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>4</p></td>
+<td><p><em>y</em> component of the unitary vector defining the orientation of the body 2.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="id3">
-<h4>State File (velocity)<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
-<table class="docutils align-center" id="id16">
-<caption><span class="caption-text">Example of the slider-crank state file (.qp)</span><a class="headerlink" href="#id16" title="Permalink to this table"></a></caption>
+<h4>State File (.qp): Generalized Velocities<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
+<p>This file contains 2 rows, each with 4 generalized velocities. For further details about the number of generalized velocities please <a class="reference internal" href="#target-to-state-file-qp"><span class="std std-ref">check</span></a>.</p>
+<table class="docutils align-center" id="id22">
+<caption><span class="caption-text">Table 11. Example of the planar slider-crank state file with generalized velocities (.qp).</span><a class="headerlink" href="#id22" title="Permalink to this table"></a></caption>
 <colgroup>
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p># CoMxp,</p></th>
-<th class="head"><p>CoMyp,</p></th>
-<th class="head"><p>Uxp,</p></th>
-<th class="head"><p>Uyp,</p></th>
-<th class="head"><p>CoMxp,</p></th>
 <th class="head"><p>CoMyp,</p></th>
 <th class="head"><p>Uxp,</p></th>
 <th class="head"><p>Uyp</p></th>
@@ -517,33 +666,83 @@
 <tr class="row-even"><td><p>-1.0,</p></td>
 <td><p>1.00110944,</p></td>
 <td><p>-1.99999678,</p></td>
-<td><p>2.0022221,</p></td>
-<td><p>-2.9999956,</p></td>
+<td><p>2.0022221</p></td>
+</tr>
+<tr class="row-odd"><td><p>-2.9999956,</p></td>
 <td><p>1.00111024,</p></td>
 <td><p>-1.99999443,</p></td>
 <td><p>-2.00222049</p></td>
 </tr>
 </tbody>
 </table>
+<table class="docutils align-center" id="id23">
+<caption><span class="caption-text">Table 12.  Description of each row of the state file containing the generalized velocities (.qp) of the planar slider-crank mechanism.</span><a class="headerlink" href="#id23" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Row</p></th>
+<th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p><em>x</em> component of the velocity coordinates of the CoM of the body 1 of the multibody system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p><em>y</em> component of the velocity coordinates of the CoM of the body 1 of the multibody system.</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>3</p></td>
+<td><p><em>x</em> component of the velocity of the unitary vector defining the orientation of the body 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>4</p></td>
+<td><p><em>y</em> component of the velocity of the unitary vector defining the orientation of the body 1.</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p><em>x</em> component of the velocity coordinates of the CoM of the body 2 of the multibody system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p><em>y</em> component of the velocity coordinates of the CoM of the body 2 of the multibody system.</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>3</p></td>
+<td><p><em>x</em> component of the velocity of the unitary vector defining the orientation of the body 2.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>4</p></td>
+<td><p><em>y</em> component of the velocity of the unitary vector defining the orientation of the body 2.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 </section>
-<section id="inverse-dynamic-analysis">
-<h2>Inverse Dynamic Analysis<a class="headerlink" href="#inverse-dynamic-analysis" title="Permalink to this heading"></a></h2>
+<section id="kinematic-analysis">
+<h2>Kinematic Analysis<a class="headerlink" href="#kinematic-analysis" title="Permalink to this heading"></a></h2>
 <section id="single-body">
 <h3>Single Body<a class="headerlink" href="#single-body" title="Permalink to this heading"></a></h3>
 <p>This model is composed of a single segment that moves along the <em>x</em> axis of the global reference frame.
 The system starts in a diagonal position with respect to the global reference frame (θ=π⁄8 w) with its center of mass located at coordinates P1 = [-1, 0]. No external forces are applied to the system during the analysis.</p>
-<figure class="align-center" id="id17">
-<a class="reference internal image-reference" href="_images/single_body.png"><img alt="Representation of the single body" src="_images/single_body.png" style="width: 140.1px; height: 144.75px;" /></a>
+<figure class="align-center" id="id24">
+<a class="reference internal image-reference" href="_images/single_body.png"><img alt="Representation of the planar single body." src="_images/single_body.png" style="width: 140.1px; height: 144.75px;" /></a>
 <figcaption>
-<p><span class="caption-text">Fig 4.  Representation of the single body.</span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 4.  Representation of the planar single body.</span><a class="headerlink" href="#id24" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <section id="id4">
-<h4>Modeling File<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h4>
-<table class="docutils align-center" id="id18">
-<caption><span class="caption-text">Example of single body modeling file (.mod)</span><a class="headerlink" href="#id18" title="Permalink to this table"></a></caption>
+<h4>Modeling File (.mod)<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h4>
+<p>This file contains 4 rows, each with 14 columns. For further details about the modeling of each component please check <a class="reference internal" href="modeling.html"><span class="doc">Modeling</span></a> section.</p>
+<table class="docutils align-center" id="id25">
+<caption><span class="caption-text">Table 13. Example of the modeling file (.mod) of the planar single body model.</span><a class="headerlink" href="#id25" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -685,11 +884,41 @@ The system starts in a diagonal position with respect to the global reference fr
 </tr>
 </tbody>
 </table>
+<table class="docutils align-center" id="id26">
+<caption><span class="caption-text">Table 14. Description of each row of the modeling file (.mod) of the planar single-body model.</span><a class="headerlink" href="#id26" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Row</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Model rigid body 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Model rigid body 2.</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Model the prescribed angular driver grounded using dot product; .</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Model the prescribed angular driver grounded using cross product; .</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Model the trajectory driver of the CoM of the multibody system.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="state-file">
-<h4>State File<a class="headerlink" href="#state-file" title="Permalink to this heading"></a></h4>
-<table class="docutils align-center" id="id19">
-<caption><span class="caption-text">Example of single body state file (.q)</span><a class="headerlink" href="#id19" title="Permalink to this table"></a></caption>
+<section id="id5">
+<h4>State File (.q): Generalized Coordinates<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h4>
+<p>This file contains 1 row with 4 generalized coordinates. For further details about the number of generalized velocities please <a class="reference internal" href="#target-to-state-file-qp"><span class="std std-ref">check</span></a> section.</p>
+<table class="docutils align-center" id="id27">
+<caption><span class="caption-text">Table 15. Example of  body state file with generalized coordinates(.q) of the planar single body model.</span><a class="headerlink" href="#id27" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -711,11 +940,44 @@ The system starts in a diagonal position with respect to the global reference fr
 </tr>
 </tbody>
 </table>
+<table class="docutils align-center" id="id28">
+<caption><span class="caption-text">Table 16. Description of each row of the state file containing the generalized coordinates (.q) of the planar single body model.</span><a class="headerlink" href="#id28" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Row</p></th>
+<th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p><em>x</em> component of the cartesian coordinates of the CoM of the rigid body of the multibody system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p><em>y</em> component of the cartesian coordinates of the CoM of the rigid body of the multibody system.</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>3</p></td>
+<td><p><em>x</em> component of the unitary vector defining the orientation of the rigid body of the multibody system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>4</p></td>
+<td><p><em>y</em> component of the unitary vector defining the orientation of the rigid body of the multibody system.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="data-file">
-<h4>Data File<a class="headerlink" href="#data-file" title="Permalink to this heading"></a></h4>
-<table class="docutils align-center" id="id20">
-<caption><span class="caption-text">Example of single body data file (.data)</span><a class="headerlink" href="#id20" title="Permalink to this table"></a></caption>
+<section id="data-file-data">
+<h4>Data File (.data)<a class="headerlink" href="#data-file-data" title="Permalink to this heading"></a></h4>
+<p>This file contains 10 rows, each with 4 columns. The first row contains the time and the number of the prescribed angular and trajectory drivers of the model, respectively.</p>
+<table class="docutils align-center" id="id29">
+<caption><span class="caption-text">Table 17. Example of single body data file (.data)</span><a class="headerlink" href="#id29" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -775,48 +1037,40 @@ The system starts in a diagonal position with respect to the global reference fr
 <td><p>9.00,</p></td>
 <td><p>0.0</p></td>
 </tr>
-<tr class="row-odd"><td><p>2.25,</p></td>
-<td><p>0.785,</p></td>
-<td><p>10.0,</p></td>
-<td><p>0.0</p></td>
+</tbody>
+</table>
+<table class="docutils align-center" id="id30">
+<caption><span class="caption-text">Table 18. Description of each column of the data file (.data) of the planar single body model.</span><a class="headerlink" href="#id30" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
-<tr class="row-even"><td><p>2.50,</p></td>
-<td><p>0.785,</p></td>
-<td><p>11.0,</p></td>
-<td><p>0.0</p></td>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Period of time for the kinematic analysis.</p></td>
 </tr>
-<tr class="row-odd"><td><p>2.75,</p></td>
-<td><p>0.785,</p></td>
-<td><p>12.0,</p></td>
-<td><p>0.0</p></td>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Prescribed angle between the orientation vector of the local reference frame of the body and the ground.</p></td>
 </tr>
-<tr class="row-even"><td><p>3.00,</p></td>
-<td><p>0.785,</p></td>
-<td><p>13.0,</p></td>
-<td><p>0.0</p></td>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Prescribed <em>x</em> coordinates for the trajectory driver of the multibody system.</p></td>
 </tr>
-<tr class="row-odd"><td><p>3.25,</p></td>
-<td><p>0.785,</p></td>
-<td><p>14.0,</p></td>
-<td><p>0.0</p></td>
-</tr>
-<tr class="row-even"><td><p>3.50,</p></td>
-<td><p>0.785,</p></td>
-<td><p>15.0,</p></td>
-<td><p>0.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>3.75,</p></td>
-<td><p>0.785,</p></td>
-<td><p>16.0,</p></td>
-<td><p>0.0</p></td>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Prescribed <em>y</em> coordinates for the trajectory driver of the multibody system.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="labels-file">
-<h4>Labels File<a class="headerlink" href="#labels-file" title="Permalink to this heading"></a></h4>
-<table class="docutils align-center" id="id21">
-<caption><span class="caption-text">Example of single body labels file (.lbl)</span><a class="headerlink" href="#id21" title="Permalink to this table"></a></caption>
+<section id="labels-file-lbl">
+<h4>Labels File (.lbl)<a class="headerlink" href="#labels-file-lbl" title="Permalink to this heading"></a></h4>
+<p>This file contains 2 columns and 4 rows. The first row is te header of the file and contains the label and the label of each degree of freedom of the model, respectively.</p>
+<table class="docutils align-center" id="id31">
+<caption><span class="caption-text">Table 19. Example of the labels file (.lbl) of the planar single body model.</span><a class="headerlink" href="#id31" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -838,23 +1092,126 @@ The system starts in a diagonal position with respect to the global reference fr
 </tr>
 </tbody>
 </table>
+<table class="docutils align-center" id="id32">
+<caption><span class="caption-text">Table 20. Description of each column of the labels data file (.data) of the planar single body model.</span><a class="headerlink" href="#id32" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Label of the prescribed degree of freedom of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Number of the prescribed degree of freedom of the model.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
-<section id="lower-body-update-model-description-and-input-files">
-<h3>Lower Body <code class="docutils literal notranslate"><span class="pre">[Update</span> <span class="pre">model</span> <span class="pre">description</span> <span class="pre">and</span> <span class="pre">input</span> <span class="pre">files]</span></code><a class="headerlink" href="#lower-body-update-model-description-and-input-files" title="Permalink to this heading"></a></h3>
-<p>This model depicts the lower body of the human body and is composed of six segments (feet, legs and thighs) connected by revolute joints.
-The center of the hip, knee and ankle joint centers joint was defined as proposed by Wu et al. [3]. The inertial parameters were defined according to Dempster et al <code class="docutils literal notranslate"><span class="pre">[2]</span></code>.
-The ground reaction forces measured during the gait cycle using several force plates were applied in the analysis using the <em>.f</em> files presented below.</p>
-<figure class="align-center" id="id22">
+<section id="lower-body-update-model-figure-description-and-input-files">
+<h3>Lower Body <code class="docutils literal notranslate"><span class="pre">[Update</span> <span class="pre">model</span> <span class="pre">figure</span> <span class="pre">description</span> <span class="pre">and</span> <span class="pre">input</span> <span class="pre">files]</span></code><a class="headerlink" href="#lower-body-update-model-figure-description-and-input-files" title="Permalink to this heading"></a></h3>
+<p>This model represents the lower body of the human body and is composed of six segments (feet, legs and thighs) connected by revolute joints.
+The center of the hip, knee and ankle joint centers joint was defined as proposed by Wu et al. [2] and the inertial parameters according to Dempster et al [3].</p>
+<figure class="align-center" id="id33">
 <a class="reference internal image-reference" href="_images/lower_body.png"><img alt="Representation of the lower body" src="_images/lower_body.png" style="width: 409.5px; height: 389.4px;" /></a>
 <figcaption>
-<p><span class="caption-text">Fig 5.  Representation of the lower body (right limb - green, left limb - red, external forceapplied in the model - purple).</span><a class="headerlink" href="#id22" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 5.  Representation of the planar lower body of the human body (right limbs - green, left limbs - red).</span><a class="headerlink" href="#id33" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<section id="id5">
-<h4>Modeling File<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h4>
-<table class="docutils align-center" id="id23">
-<caption><span class="caption-text">Example of lower body modeling file (.mod)</span><a class="headerlink" href="#id23" title="Permalink to this table"></a></caption>
+<section id="modeling-file-mod-correct-example-and-description-tables">
+<h4>Modeling File (.mod) <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">example</span> <span class="pre">and</span> <span class="pre">description</span> <span class="pre">tables]</span></code><a class="headerlink" href="#modeling-file-mod-correct-example-and-description-tables" title="Permalink to this heading"></a></h4>
+<p>This file contains 2 rows, each with 14 columns.</p>
+<table class="docutils align-center" id="id34">
+<caption><span class="caption-text">Table 21. Example of the planar lower body modeling file (.mod).</span><a class="headerlink" href="#id34" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p># Type</p></th>
+<th class="head"><p>Body</p></th>
+<th class="head"><p>Lu</p></th>
+<th class="head"><p>Mass</p></th>
+<th class="head"><p>Moment_Inertia</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1.0</p></td>
+<td><p>1.0</p></td>
+<td><p>0.0833</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong># Type</strong></p></td>
+<td><p><strong>MovBd</strong></p></td>
+<td><p><strong>LcCMvBx</strong></p></td>
+<td><p><strong>LcCMvBy</strong></p></td>
+<td><p><strong>GlCSpX</strong></p></td>
+<td><p><strong>GlCSpY</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>1</p></td>
+<td><p>-1</p></td>
+<td><p>0.0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id35">
+<caption><span class="caption-text">Table 22. Description of each row of the modeling file (.mod) of the planar lower body model.</span><a class="headerlink" href="#id35" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -937,10 +1294,34 @@ The ground reaction forces measured during the gait cycle using several force pl
 </tbody>
 </table>
 </section>
-<section id="id6">
-<h4>State File<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h4>
-<table class="docutils align-center" id="id24">
-<caption><span class="caption-text">Example of lower body state file (.q)</span><a class="headerlink" href="#id24" title="Permalink to this table"></a></caption>
+<section id="state-file-q-generalized-coordinates-correct-number-of-rows">
+<h4>State File (.q): Generalized Coordinates <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">rows]</span></code><a class="headerlink" href="#state-file-q-generalized-coordinates-correct-number-of-rows" title="Permalink to this heading"></a></h4>
+<p>This file contains 2 rows, each with 4 columns.</p>
+<table class="docutils align-center" id="id36">
+<caption><span class="caption-text">Table 23. Example of the planar lower body state file with generalized coordinates (.q)</span><a class="headerlink" href="#id36" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p># CoMx</p></th>
+<th class="head"><p>CoMy</p></th>
+<th class="head"><p>Ux</p></th>
+<th class="head"><p>Uy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-1.0</p></td>
+<td><p>0.0</p></td>
+<td><p>-1.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id37">
+<caption><span class="caption-text">Table 24. Description of each column of the state file with generalized coordinates (.q) of the plantar lower body model.</span><a class="headerlink" href="#id37" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -963,1587 +1344,386 @@ The ground reaction forces measured during the gait cycle using several force pl
 </tbody>
 </table>
 </section>
-<section id="id7">
-<h4>Data File<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h4>
-</section>
-<section id="id8">
-<h4>Labels File<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h4>
-</section>
-<section id="force-file">
-<h4>Force File<a class="headerlink" href="#force-file" title="Permalink to this heading"></a></h4>
-<table class="docutils align-center" id="id25">
-<caption><span class="caption-text">Example of lower body labels file (.f)</span><a class="headerlink" href="#id25" title="Permalink to this table"></a></caption>
+<section id="data-file-data-correct-number-of-rows-and-columns">
+<h4>Data File (.data) <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">rows</span> <span class="pre">and</span> <span class="pre">columns]</span></code><a class="headerlink" href="#data-file-data-correct-number-of-rows-and-columns" title="Permalink to this heading"></a></h4>
+<p>This file contains 10 rows, each with 4 columns. The first row contains the time and the number of the prescribed angular and trajectory drivers of the model, respectively.</p>
+<table class="docutils align-center" id="id38">
+<caption><span class="caption-text">Table 26. Description of each column of the data file (.data) of the plantar lower body model.</span><a class="headerlink" href="#id38" title="Permalink to this table"></a></caption>
 <colgroup>
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p># Coordinates type : globals,</p></th>
-<th class="head"><p>,</p></th>
-<th class="head"><p>,</p></th>
-<th class="head"><p>,</p></th>
-<th class="head"><p>,</p></th>
-<th class="head"><p>,</p></th>
+<tr class="row-odd"><th class="head"><p># CoMx</p></th>
+<th class="head"><p>CoMy</p></th>
+<th class="head"><p>Ux</p></th>
+<th class="head"><p>Uy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-1.0</p></td>
+<td><p>0.0</p></td>
+<td><p>-1.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="labels-file-correct-number-of-rows">
+<h4>Labels File <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">rows]</span></code><a class="headerlink" href="#labels-file-correct-number-of-rows" title="Permalink to this heading"></a></h4>
+<p>This file contains 2 rows, each with 4 columns.</p>
+<table class="docutils align-center" id="id39">
+<caption><span class="caption-text">Table 27. Example of lower body labels file (.lbl)</span><a class="headerlink" href="#id39" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p># CoMxp</p></th>
+<th class="head"><p>CoMyp</p></th>
+<th class="head"><p>Uxp</p></th>
+<th class="head"><p>Uyp</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0.0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id40">
+<caption><span class="caption-text">Table 28. Description of each column of the labels file (.lbl) of the lower body model.</span><a class="headerlink" href="#id40" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p># CoMxp</p></th>
+<th class="head"><p>CoMyp</p></th>
+<th class="head"><p>Uxp</p></th>
+<th class="head"><p>Uyp</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0.0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="inverse-dynamic-analysis">
+<h2>Inverse Dynamic Analysis<a class="headerlink" href="#inverse-dynamic-analysis" title="Permalink to this heading"></a></h2>
+<section id="double-four-bar-mechanism">
+<h3>Double Four-Bar mechanism<a class="headerlink" href="#double-four-bar-mechanism" title="Permalink to this heading"></a></h3>
+<p>The double four-bar linkage (see Figure 6) is composed of 5 identical rods, each one having a 1 m length and a uniformly distributed mass of 1 kg. The bodies (L1, L3 and L5) are connected to the ground through three pinned support joints,
+while the remaining bodies are connected by four frictionless revolute joints.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[The</span> <span class="pre">system</span> <span class="pre">moves</span> <span class="pre">under</span> <span class="pre">the</span> <span class="pre">effect</span> <span class="pre">of</span> <span class="pre">gravity,</span> <span class="pre">starting</span> <span class="pre">with</span> <span class="pre">an</span> <span class="pre">initial</span> <span class="pre">velocity</span> <span class="pre">of</span> <span class="pre">1</span> <span class="pre">ms−1</span> <span class="pre">at</span> <span class="pre">points</span> <span class="pre">and</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">positive</span> <span class="pre">direction</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">x</span> <span class="pre">global</span> <span class="pre">axis.</span></code></p>
+<p>In the initial position the angle between L1, L3 and L5 and and the ground is π/2.</p>
+<section id="id6">
+<h4>Modeling File (.mod) <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">example</span> <span class="pre">and</span> <span class="pre">description</span> <span class="pre">tables]</span></code><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h4>
+<p>This file contains 2 rows, each with 14 columns.</p>
+<table class="docutils align-center" id="id41">
+<caption><span class="caption-text">Table 21. Example of the planar lower body modeling file (.mod).</span><a class="headerlink" href="#id41" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p># Type</p></th>
+<th class="head"><p>Body</p></th>
+<th class="head"><p>Lu</p></th>
+<th class="head"><p>Mass</p></th>
+<th class="head"><p>Moment_Inertia</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
 <th class="head"></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><strong># Time</strong>,</p></td>
-<td><p><strong>Fx</strong>,</p></td>
-<td><p><strong>Fz</strong>,</p></td>
-<td><p><strong>Coord_X</strong>,</p></td>
-<td><p><strong>Coord_z</strong>,</p></td>
-<td><p><strong>On_Off</strong>,</p></td>
-<td><p><strong>nb</strong></p></td>
-</tr>
-<tr class="row-odd"><td><p>0.0,</p></td>
-<td><p>0.07607,</p></td>
-<td><p>2.52718,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.01,</p></td>
-<td><p>0.09844,</p></td>
-<td><p>2.52643,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.02,</p></td>
-<td><p>0.09833,</p></td>
-<td><p>2.25707,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.03,</p></td>
-<td><p>0.05257,</p></td>
-<td><p>2.07989,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.04,</p></td>
-<td><p>0.00713,</p></td>
-<td><p>2.70241,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.05,</p></td>
-<td><p>0.16676,</p></td>
-<td><p>2.08025,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.06,</p></td>
-<td><p>0.09839,</p></td>
-<td><p>2.52334,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.07,</p></td>
-<td><p>0.0982,</p></td>
-<td><p>2.43484,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.08,</p></td>
-<td><p>0.07494,</p></td>
-<td><p>2.07793,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.09,</p></td>
-<td><p>0.05287,</p></td>
-<td><p>3.14489,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.10,</p></td>
-<td><p>0.09762,</p></td>
-<td><p>2.43326,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.11,</p></td>
-<td><p>0.09824,</p></td>
-<td><p>2.16983,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.12,</p></td>
-<td><p>0.12078,</p></td>
-<td><p>2.78906,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.13,</p></td>
-<td><p>0.16644,</p></td>
-<td><p>2.0798,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.14,</p></td>
-<td><p>0.09846,</p></td>
-<td><p>2.52197,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.15,</p></td>
-<td><p>0.09798,</p></td>
-<td><p>2.87842,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.16,</p></td>
-<td><p>0.07487,</p></td>
-<td><p>2.61049,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.17,</p></td>
-<td><p>0.07559,</p></td>
-<td><p>2.52218,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.18,</p></td>
-<td><p>0.07542,</p></td>
-<td><p>2.87828,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.19,</p></td>
-<td><p>0.21192,</p></td>
-<td><p>2.52347,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.20,</p></td>
-<td><p>0.09831,</p></td>
-<td><p>2.52369,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.21,</p></td>
-<td><p>0.0986,</p></td>
-<td><p>2.612,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.22,</p></td>
-<td><p>0.00702,</p></td>
-<td><p>2.6131,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.23,</p></td>
-<td><p>0.12129,</p></td>
-<td><p>2.43723,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.24,</p></td>
-<td><p>-0.06115,</p></td>
-<td><p>2.88113,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.25,</p></td>
-<td><p>4.01002,</p></td>
-<td><p>48.12998,</p></td>
-<td><p>-0.34709,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.26,</p></td>
-<td><p>-8.68075,</p></td>
-<td><p>140.61377,</p></td>
-<td><p>-0.34333,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.27,</p></td>
-<td><p>-23.16476,</p></td>
-<td><p>223.96656,</p></td>
-<td><p>-0.33987,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.28,</p></td>
-<td><p>-39.04216,</p></td>
-<td><p>277.62097,</p></td>
-<td><p>-0.33632,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.29,</p></td>
-<td><p>-52.61925,</p></td>
-<td><p>305.59991,</p></td>
-<td><p>-0.33171,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.3,</p></td>
-<td><p>-61.77443,</p></td>
-<td><p>332.01396,</p></td>
-<td><p>-0.32521,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.31,</p></td>
-<td><p>-68.90608,</p></td>
-<td><p>375.22302,</p></td>
-<td><p>-0.31709,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.32,</p></td>
-<td><p>-77.28999,</p></td>
-<td><p>431.74128,</p></td>
-<td><p>-0.30849,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.33,</p></td>
-<td><p>-86.53383,</p></td>
-<td><p>485.16378,</p></td>
-<td><p>-0.30043,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.34,</p></td>
-<td><p>-93.61554,</p></td>
-<td><p>524.81376,</p></td>
-<td><p>-0.29312,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.35,</p></td>
-<td><p>-96.92363,</p></td>
-<td><p>552.36849,</p></td>
-<td><p>-0.28629,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.36,</p></td>
-<td><p>-97.31204,</p></td>
-<td><p>574.01121,</p></td>
-<td><p>-0.27982,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.37,</p></td>
-<td><p>-96.01907,</p></td>
-<td><p>591.6616,</p></td>
-<td><p>-0.27383,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.38,</p></td>
-<td><p>-93.32435,</p></td>
-<td><p>602.74963,</p></td>
-<td><p>-0.26834,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.39,</p></td>
-<td><p>-89.161,</p></td>
-<td><p>605.28305,</p></td>
-<td><p>-0.26314,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.40,</p></td>
-<td><p>-83.85387,</p></td>
-<td><p>600.50564,</p></td>
-<td><p>-0.25788,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.41,</p></td>
-<td><p>-77.95584,</p></td>
-<td><p>590.94141,</p></td>
-<td><p>-0.25235,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.42,</p></td>
-<td><p>-71.87833,</p></td>
-<td><p>577.6014,</p></td>
-<td><p>-0.2465,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.43,</p></td>
-<td><p>-65.87397,</p></td>
-<td><p>559.95366,</p></td>
-<td><p>-0.24042,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.44,</p></td>
-<td><p>-60.1257,</p></td>
-<td><p>538.04756,</p></td>
-<td><p>-0.23432,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.45,</p></td>
-<td><p>-54.73172,</p></td>
-<td><p>513.81971,</p></td>
-<td><p>-0.22835,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.46,</p></td>
-<td><p>-49.71224,</p></td>
-<td><p>490.19649,</p></td>
-<td><p>-0.22263,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.47,</p></td>
-<td><p>-45.0747,</p></td>
-<td><p>469.28681,</p></td>
-<td><p>-0.2172,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.48,</p></td>
-<td><p>-40.81123,</p></td>
-<td><p>451.57871,</p></td>
-<td><p>-0.21217,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.49,</p></td>
-<td><p>-36.84405,</p></td>
-<td><p>436.59179,</p></td>
-<td><p>-0.20765,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.50,</p></td>
-<td><p>-33.072,</p></td>
-<td><p>423.94364,</p></td>
-<td><p>-0.20371,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.51,</p></td>
-<td><p>-29.50546,</p></td>
-<td><p>413.73025,</p></td>
-<td><p>-0.20026,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.52,</p></td>
-<td><p>-26.27353,</p></td>
-<td><p>406.17217,</p></td>
-<td><p>-0.19717,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.53,</p></td>
-<td><p>-23.42613,</p></td>
-<td><p>401.2665,</p></td>
-<td><p>-0.1944,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.54,</p></td>
-<td><p>-20.78131,</p></td>
-<td><p>398.91973,</p></td>
-<td><p>-0.19199,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.55,</p></td>
-<td><p>-18.06043,</p></td>
-<td><p>399.25639,</p></td>
-<td><p>-0.19,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.56,</p></td>
-<td><p>-15.16143,</p></td>
-<td><p>402.53623,</p></td>
-<td><p>-0.18835,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.57,</p></td>
-<td><p>-12.22292,</p></td>
-<td><p>408.67091,</p></td>
-<td><p>-0.18685,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.58,</p></td>
-<td><p>-9.41244,</p></td>
-<td><p>416.94382,</p></td>
-<td><p>-0.18535,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.59,</p></td>
-<td><p>-6.68965,</p></td>
-<td><p>426.33614,</p></td>
-<td><p>-0.18386,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.60,</p></td>
-<td><p>-3.76338,</p></td>
-<td><p>436.12084,</p></td>
-<td><p>-0.18251,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.61,</p></td>
-<td><p>-0.23757,</p></td>
-<td><p>446.15186,</p></td>
-<td><p>-0.18137,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.62,</p></td>
-<td><p>4.18404,</p></td>
-<td><p>456.76858,</p></td>
-<td><p>-0.18047,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.63,</p></td>
-<td><p>9.54102,</p></td>
-<td><p>468.61537,</p></td>
-<td><p>-0.17973,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.64,</p></td>
-<td><p>15.56654,</p></td>
-<td><p>482.47632,</p></td>
-<td><p>-0.17905,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.65,</p></td>
-<td><p>21.80632,</p></td>
-<td><p>498.94703,</p></td>
-<td><p>-0.17831,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.66,</p></td>
-<td><p>27.91256,</p></td>
-<td><p>517.90932,</p></td>
-<td><p>-0.17749,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.67,</p></td>
-<td><p>33.92529,</p></td>
-<td><p>538.16752,</p></td>
-<td><p>-0.17663,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.68,</p></td>
-<td><p>40.25318,</p></td>
-<td><p>557.70278,</p></td>
-<td><p>-0.17579,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.69,</p></td>
-<td><p>47.31195,</p></td>
-<td><p>574.48038,</p></td>
-<td><p>-0.17495,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.70,</p></td>
-<td><p>55.14854,</p></td>
-<td><p>587.06995,</p></td>
-<td><p>-0.17404,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.71,</p></td>
-<td><p>63.39333,</p></td>
-<td><p>594.51924,</p></td>
-<td><p>-0.17297,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.72,</p></td>
-<td><p>71.52216,</p></td>
-<td><p>595.96452,</p></td>
-<td><p>-0.17173,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.73,</p></td>
-<td><p>79.14485,</p></td>
-<td><p>590.82206,</p></td>
-<td><p>-0.17037,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.74,</p></td>
-<td><p>86.1124,</p></td>
-<td><p>579.29438,</p></td>
-<td><p>-0.16899,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.75,</p></td>
-<td><p>92.40142,</p></td>
-<td><p>562.05628,</p></td>
-<td><p>-0.1676,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.76,</p></td>
-<td><p>97.82674,</p></td>
-<td><p>539.08333,</p></td>
-<td><p>-0.16605,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.77,</p></td>
-<td><p>101.82997,</p></td>
-<td><p>509.16231,</p></td>
-<td><p>-0.16425,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.78,</p></td>
-<td><p>103.71402,</p></td>
-<td><p>470.90119,</p></td>
-<td><p>-0.16236,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.79,</p></td>
-<td><p>103.13396,</p></td>
-<td><p>423.7632,</p></td>
-<td><p>-0.16064,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.80,</p></td>
-<td><p>99.90074,</p></td>
-<td><p>367.62185,</p></td>
-<td><p>-0.15903,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.81,</p></td>
-<td><p>92.88837,</p></td>
-<td><p>302.24807,</p></td>
-<td><p>-0.15696,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.82,</p></td>
-<td><p>79.81858,</p></td>
-<td><p>229.26912,</p></td>
-<td><p>-0.15395,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.83,</p></td>
-<td><p>59.62864,</p></td>
-<td><p>155.39577,</p></td>
-<td><p>-0.15026,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.84,</p></td>
-<td><p>35.56294,</p></td>
-<td><p>91.93082,</p></td>
-<td><p>-0.14661,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.85,</p></td>
-<td><p>14.58387,</p></td>
-<td><p>48.51363,</p></td>
-<td><p>-0.14322,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.86,</p></td>
-<td><p>2.20157,</p></td>
-<td><p>26.2273,</p></td>
-<td><p>-0.13953,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.87,</p></td>
-<td><p>-2.07501,</p></td>
-<td><p>16.96717,</p></td>
-<td><p>-0.13499,</p></td>
-<td><p>0.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.88,</p></td>
-<td><p>-0.98662,</p></td>
-<td><p>6.24043,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.89,</p></td>
-<td><p>0.48246,</p></td>
-<td><p>4.02066,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.90,</p></td>
-<td><p>0.09516,</p></td>
-<td><p>4.29075,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.91,</p></td>
-<td><p>0.32355,</p></td>
-<td><p>4.0236,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.92,</p></td>
-<td><p>0.23221,</p></td>
-<td><p>3.75881,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.93,</p></td>
-<td><p>0.11825,</p></td>
-<td><p>3.9349,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.94,</p></td>
-<td><p>0.18727,</p></td>
-<td><p>3.40302,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.95,</p></td>
-<td><p>0.23268,</p></td>
-<td><p>3.49205,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.96,</p></td>
-<td><p>0.16372,</p></td>
-<td><p>3.93457,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.97,</p></td>
-<td><p>0.16472,</p></td>
-<td><p>3.75939,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.98,</p></td>
-<td><p>0.11905,</p></td>
-<td><p>3.84893,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>0.99,</p></td>
-<td><p>0.09555,</p></td>
-<td><p>3.31544,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.00,</p></td>
-<td><p>0.09608,</p></td>
-<td><p>3.31681,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.01,</p></td>
-<td><p>0.0963,</p></td>
-<td><p>3.93788,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.02,</p></td>
-<td><p>0.11935,</p></td>
-<td><p>3.40584,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.03,</p></td>
-<td><p>0.02771,</p></td>
-<td><p>3.76115,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.04,</p></td>
-<td><p>0.09661,</p></td>
-<td><p>3.31804,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.05,</p></td>
-<td><p>0.05121,</p></td>
-<td><p>3.49635,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.06,</p></td>
-<td><p>0.09646,</p></td>
-<td><p>3.3166,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.07,</p></td>
-<td><p>0.05113,</p></td>
-<td><p>3.31851,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.08,</p></td>
-<td><p>0.1649,</p></td>
-<td><p>3.49479,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.09,</p></td>
-<td><p>0.11935,</p></td>
-<td><p>3.40547,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.10,</p></td>
-<td><p>0.00551,</p></td>
-<td><p>3.1411,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.11,</p></td>
-<td><p>0.09689,</p></td>
-<td><p>3.40732,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.12,</p></td>
-<td><p>0.05144,</p></td>
-<td><p>3.40778,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.13,</p></td>
-<td><p>0.02837,</p></td>
-<td><p>3.40578,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.14,</p></td>
-<td><p>0.11968,</p></td>
-<td><p>3.67272,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.15,</p></td>
-<td><p>0.02866,</p></td>
-<td><p>3.67554,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.16,</p></td>
-<td><p>0.0972,</p></td>
-<td><p>3.22835,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.17,</p></td>
-<td><p>0.09704,</p></td>
-<td><p>3.31869,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.18,</p></td>
-<td><p>0.0287,</p></td>
-<td><p>3.23066,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.19,</p></td>
-<td><p>0.05118,</p></td>
-<td><p>3.05249,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.20,</p></td>
-<td><p>-0.06274,</p></td>
-<td><p>3.49845,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.21,</p></td>
-<td><p>0.09738,</p></td>
-<td><p>3.31798,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.22,</p></td>
-<td><p>-0.06226,</p></td>
-<td><p>2.87895,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.23,</p></td>
-<td><p>0.02916,</p></td>
-<td><p>3.4992,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.24,</p></td>
-<td><p>0.07388,</p></td>
-<td><p>3.05187,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.25,</p></td>
-<td><p>0.02894,</p></td>
-<td><p>3.14112,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.26,</p></td>
-<td><p>0.09715,</p></td>
-<td><p>3.05135,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.27,</p></td>
-<td><p>0.00657,</p></td>
-<td><p>3.05338,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.28,</p></td>
-<td><p>0.00596,</p></td>
-<td><p>3.1424,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.29,</p></td>
-<td><p>-0.06207,</p></td>
-<td><p>3.32271,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.30,</p></td>
-<td><p>0.16558,</p></td>
-<td><p>2.78478,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.31,</p></td>
-<td><p>0.00663,</p></td>
-<td><p>3.40894,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.32,</p></td>
-<td><p>-0.03938,</p></td>
-<td><p>2.87707,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.33,</p></td>
-<td><p>0.02961,</p></td>
-<td><p>3.14241,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.34,</p></td>
-<td><p>0.02889,</p></td>
-<td><p>3.1406,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.35,</p></td>
-<td><p>0.00564,</p></td>
-<td><p>2.87535,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.36,</p></td>
-<td><p>0.0288,</p></td>
-<td><p>3.05443,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.37,</p></td>
-<td><p>-0.08539,</p></td>
-<td><p>3.32073,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.38,</p></td>
-<td><p>0.0059,</p></td>
-<td><p>2.87547,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.39,</p></td>
-<td><p>-0.10827,</p></td>
-<td><p>2.87575,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.40,</p></td>
-<td><p>0.00661,</p></td>
-<td><p>3.05277,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.41,</p></td>
-<td><p>0.16554,</p></td>
-<td><p>3.31618,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.42,</p></td>
-<td><p>0.11991,</p></td>
-<td><p>3.1427,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.43,</p></td>
-<td><p>-0.06275,</p></td>
-<td><p>3.05449,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.44,</p></td>
-<td><p>0.0516,</p></td>
-<td><p>2.87427,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.45,</p></td>
-<td><p>0.07446,</p></td>
-<td><p>3.0525,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.46,</p></td>
-<td><p>-0.03928,</p></td>
-<td><p>2.87704,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.47,</p></td>
-<td><p>0.0065,</p></td>
-<td><p>3.40818,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.48,</p></td>
-<td><p>0.07472,</p></td>
-<td><p>2.69876,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.49,</p></td>
-<td><p>-0.08462,</p></td>
-<td><p>3.23169,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.50,</p></td>
-<td><p>0.07526,</p></td>
-<td><p>2.87715,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.51,</p></td>
-<td><p>0.05301,</p></td>
-<td><p>3.05514,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.52,</p></td>
-<td><p>0.02903,</p></td>
-<td><p>2.78805,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.53,</p></td>
-<td><p>0.05193,</p></td>
-<td><p>3.49661,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.54,</p></td>
-<td><p>0.00629,</p></td>
-<td><p>2.69796,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.55,</p></td>
-<td><p>0.00627,</p></td>
-<td><p>2.87606,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.56,</p></td>
-<td><p>0.09728,</p></td>
-<td><p>2.69729,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.57,</p></td>
-<td><p>0.00652,</p></td>
-<td><p>2.87547,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.58,</p></td>
-<td><p>0.0291,</p></td>
-<td><p>2.8755,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.59,</p></td>
-<td><p>0.09774,</p></td>
-<td><p>2.78963,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.60,</p></td>
-<td><p>-0.06245,</p></td>
-<td><p>2.878,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.61,</p></td>
-<td><p>-0.10758,</p></td>
-<td><p>3.32155,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.62,</p></td>
-<td><p>0.07545,</p></td>
-<td><p>3.0557,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.63,</p></td>
-<td><p>-0.03904,</p></td>
-<td><p>2.61089,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.64,</p></td>
-<td><p>0.05167,</p></td>
-<td><p>3.14097,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.65,</p></td>
-<td><p>0.02976,</p></td>
-<td><p>3.14456,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.66,</p></td>
-<td><p>-0.03923,</p></td>
-<td><p>2.69967,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.67,</p></td>
-<td><p>0.07521,</p></td>
-<td><p>3.1423,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.68,</p></td>
-<td><p>0.00652,</p></td>
-<td><p>2.78832,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.69,</p></td>
-<td><p>-0.10745,</p></td>
-<td><p>2.52461,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.70,</p></td>
-<td><p>0.0062,</p></td>
-<td><p>2.69916,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.71,</p></td>
-<td><p>-0.06212,</p></td>
-<td><p>2.7867,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.72,</p></td>
-<td><p>0.02996,</p></td>
-<td><p>2.87842,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.73,</p></td>
-<td><p>-0.06209,</p></td>
-<td><p>3.23029,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.74,</p></td>
-<td><p>0.00646,</p></td>
-<td><p>2.87889,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.75,</p></td>
-<td><p>0.09798,</p></td>
-<td><p>3.0539,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.76,</p></td>
-<td><p>-0.0621,</p></td>
-<td><p>2.70242,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.77,</p></td>
-<td><p>0.00668,</p></td>
-<td><p>2.87624,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.78,</p></td>
-<td><p>-0.06139,</p></td>
-<td><p>3.40955,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.79,</p></td>
-<td><p>-0.08504,</p></td>
-<td><p>2.78673,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.8,</p></td>
-<td><p>0.05236,</p></td>
-<td><p>2.52498,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.81,</p></td>
-<td><p>0.05273,</p></td>
-<td><p>3.1443,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.82,</p></td>
-<td><p>0.05194,</p></td>
-<td><p>2.87726,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.83,</p></td>
-<td><p>-0.06212,</p></td>
-<td><p>2.61292,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.84,</p></td>
-<td><p>0.05185,</p></td>
-<td><p>2.69655,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.85,</p></td>
-<td><p>-0.10756,</p></td>
-<td><p>3.32159,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.86,</p></td>
-<td><p>-0.10755,</p></td>
-<td><p>2.61057,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.87,</p></td>
-<td><p>0.05233,</p></td>
-<td><p>3.14239,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.88,</p></td>
-<td><p>0.05185,</p></td>
-<td><p>2.52244,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.89,</p></td>
-<td><p>-0.06203,</p></td>
-<td><p>2.8765,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.90,</p></td>
-<td><p>0.02909,</p></td>
-<td><p>2.51981,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-even"><td><p>1.91,</p></td>
-<td><p>0.02884,</p></td>
-<td><p>2.60962,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1.92,</p></td>
-<td><p>0.05285,</p></td>
-<td><p>2.7008,</p></td>
-<td><p>-0.33825,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>12.0</p></td>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1.0</p></td>
+<td><p>1.0</p></td>
+<td><p>0.0833</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong># Type</strong></p></td>
+<td><p><strong>MovBd</strong></p></td>
+<td><p><strong>LcCMvBx</strong></p></td>
+<td><p><strong>LcCMvBy</strong></p></td>
+<td><p><strong>GlCSpX</strong></p></td>
+<td><p><strong>GlCSpY</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>1</p></td>
+<td><p>-1</p></td>
+<td><p>0.0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id42">
+<caption><span class="caption-text">Table 22. Description of each row of the modeling file (.mod) of the planar lower body model.</span><a class="headerlink" href="#id42" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p># Type</p></th>
+<th class="head"><p>Body</p></th>
+<th class="head"><p>Lu</p></th>
+<th class="head"><p>Mass</p></th>
+<th class="head"><p>Moment_Inertia</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1.0</p></td>
+<td><p>1.0</p></td>
+<td><p>0.0833</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong># Type</strong></p></td>
+<td><p><strong>MovBd</strong></p></td>
+<td><p><strong>LcCMvBx</strong></p></td>
+<td><p><strong>LcCMvBy</strong></p></td>
+<td><p><strong>GlCSpX</strong></p></td>
+<td><p><strong>GlCSpY</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>1</p></td>
+<td><p>-1</p></td>
+<td><p>0.0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id7">
+<h4>State File (.q): Generalized Coordinates <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">rows]</span></code><a class="headerlink" href="#id7" title="Permalink to this heading"></a></h4>
+<p>This file contains 2 rows, each with 4 columns.</p>
+<table class="docutils align-center" id="id43">
+<caption><span class="caption-text">Table 23. Example of the planar lower body state file with generalized coordinates (.q)</span><a class="headerlink" href="#id43" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p># CoMx</p></th>
+<th class="head"><p>CoMy</p></th>
+<th class="head"><p>Ux</p></th>
+<th class="head"><p>Uy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-1.0</p></td>
+<td><p>0.0</p></td>
+<td><p>-1.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id44">
+<caption><span class="caption-text">Table 24. Description of each column of the state file with generalized coordinates (.q) of the plantar lower body model.</span><a class="headerlink" href="#id44" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p># CoMx</p></th>
+<th class="head"><p>CoMy</p></th>
+<th class="head"><p>Ux</p></th>
+<th class="head"><p>Uy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-1.0</p></td>
+<td><p>0.0</p></td>
+<td><p>-1.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h4>Data File (.data) <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">rows</span> <span class="pre">and</span> <span class="pre">columns]</span></code><a class="headerlink" href="#id8" title="Permalink to this heading"></a></h4>
+<p>This file contains 10 rows, each with 4 columns. The first row contains the time and the number of the prescribed angular and trajectory drivers of the model, respectively.</p>
+<table class="docutils align-center" id="id45">
+<caption><span class="caption-text">Table 26. Description of each column of the data file (.data) of the plantar lower body model.</span><a class="headerlink" href="#id45" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p># CoMx</p></th>
+<th class="head"><p>CoMy</p></th>
+<th class="head"><p>Ux</p></th>
+<th class="head"><p>Uy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-1.0</p></td>
+<td><p>0.0</p></td>
+<td><p>-1.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h4>Labels File <code class="docutils literal notranslate"><span class="pre">[Correct</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">rows]</span></code><a class="headerlink" href="#id9" title="Permalink to this heading"></a></h4>
+<p>This file contains 2 rows, each with 4 columns.</p>
+<table class="docutils align-center" id="id46">
+<caption><span class="caption-text">Table 27. Example of lower body labels file (.lbl)</span><a class="headerlink" href="#id46" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p># CoMxp</p></th>
+<th class="head"><p>CoMyp</p></th>
+<th class="head"><p>Uxp</p></th>
+<th class="head"><p>Uyp</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0.0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id47">
+<caption><span class="caption-text">Table 28. Description of each column of the labels file (.lbl) of the lower body model.</span><a class="headerlink" href="#id47" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p># CoMxp</p></th>
+<th class="head"><p>CoMyp</p></th>
+<th class="head"><p>Uxp</p></th>
+<th class="head"><p>Uyp</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0.0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
 </tr>
 </tbody>
 </table>
@@ -2563,7 +1743,7 @@ The ground reaction forces measured during the gait cycle using several force pl
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="modeling.html" class="btn btn-neutral float-left" title="Modeling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="support.html" class="btn btn-neutral float-right" title="Support [Correct text and links]" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="support.html" class="btn btn-neutral float-right" title="Support [Include text and links]" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

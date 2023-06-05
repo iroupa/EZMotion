@@ -103,7 +103,7 @@ Musculoskeletal Analysis
      - .msk
      - File containing the muscle parameters
 	 
-Vizualization
+Visualization
 **********
 .. list-table:: Input Files
    :widths: 25 25 50

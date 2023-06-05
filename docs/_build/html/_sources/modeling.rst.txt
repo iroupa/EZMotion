@@ -7,11 +7,7 @@ To model the components of these systems, such as ``segments`` and ``joints``, d
 
 In the ``EZMotion`` tool, the fully cartesian coordinates (FCC) with a generic rigid body [2] are used to model and analyze the kinematics and dynamics of mechanical and biomechanical multibody systems. 
 
-
-The details of the modeling procedure of the components of a multibody system is presented below. 
-
-``Incluir explicação mais detalhada`` 
-
+The details of the modeling procedure of each component of a multibody system is presented below. This information regarding the modeling of each model component must be included in a new line in the :doc:`modeling file </modeling>` of the multibody system.  
 
 |
 Segments

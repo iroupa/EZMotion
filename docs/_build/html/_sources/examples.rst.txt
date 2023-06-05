@@ -1,7 +1,7 @@
 Examples
 ============
 
-This section includes examples of the input files required to perform the forward and inverse dynamic analysis of distinct multibody systems. 
+This section includes examples of the input files required to perform the forward and inverse dynamic analysis of distinct multibody systems. An important remark regarding all input files is that all values must be separated by commas.
 
 Forward Dynamic Analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~ 
@@ -14,40 +14,91 @@ This model is composed by a body with unitary mass (m = 1 kg) connected to the g
 .. figure:: .\\images\\single_pendulum.png
 	:scale: 15 %
 	:align: center
-	:alt: Representation of the single pendulum mechanism
+	:alt: Representation of the planar single pendulum mechanism
 
-	Fig 1.  Representation of the single pendulum mechanism. 
+	Fig 1.  Representation of the planar single pendulum mechanism. 
 
-Modeling File
-***********
+Modeling File (.mod)
+********************
 
-.. csv-table:: Example of single pendulum modeling file (.mod)
+This file contains 2 rows with 14 columns.
+
+.. csv-table:: Table 1. Example of the planar single pendulum modeling file (.mod)
    :file: .\\csv\\single_pendulum_model\\single_pendulum_modeling_file.csv
    :align: center
    :escape: '
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
-State File (position)
-***********
+.. list-table:: Table 2. Description of each row of the modeling file (.mod) of the planar single pendulum mechanism.
+   :widths: 30 70
+   :align: center
+   :header-rows: 1
 
-.. csv-table:: Example of single pendulum state file (.q)
+   * - Line
+     - Description
+   * - 1
+     - Model the double support joint.
+   * - 2
+     - Model the rigid body.
+
+.. _target to state_file_q:
+State File (.q): Generalized Coordinates
+****************************************
+
+This file contains 1 row (one per rigid body) with 4 generalized coordinates (4 per rigid body of the multibody system).
+
+.. csv-table:: Table 3. Example of the planar single pendulum state file with generalized coordinates (.q).
    :file: .\\csv\\single_pendulum_model\\single_pendulum_q_file.csv
    :escape: '
    :align: center
    :widths: 25 25 25 25
    :header-rows: 1
 
-State File (velocity)
-***********
+.. list-table:: Table 4. Description of each row of the state file containing the generalized coordinates (.q) of the planar single pendulum mechanism.
+   :widths: 30 70
+   :align: center
+   :header-rows: 1
 
-.. csv-table:: Example of single pendulum state file (.qp)
+   * - Column
+     - Description
+   * - 1
+     - *x* component of the cartesian coordinates of the CoM of the body of the multibody system.
+   * - 2
+     - *y* component of the cartesian coordinates of the CoM of the body of the multibody system.
+   * - 3
+     - *x* component of the unitary vector defining the orientation of the body.
+   * - 4
+     - *y* component of the unitary vector defining the orientation of the body.
+
+.. _target to state_file_qp:
+State File (.qp): Generalized Velocities
+****************************************
+
+This file contains 1 row (one per rigid body) with 4 generalized coordinates (4 per rigid body of the multibody system). 
+
+.. csv-table:: Table 5. Example of the planar single pendulum state file with generalized velocities (.qp). 
    :file: .\\csv\\single_pendulum_model\\single_pendulum_qp_file.csv
    :align: center
    :escape: '
    :widths: 25 25 25 25
    :header-rows: 1
 
+.. list-table:: Table 6. Description of each row of the state file containing the generalized velocities (.qp) of the planar single pendulum mechanism.
+   :widths: 50 50
+   :align: center
+   :header-rows: 1
+
+   * - Column
+     - Description
+   * - 1
+     - *x* component of the velocity coordinates of the CoM of the body of the multibody system.
+   * - 2
+     - *y* component of the velocity coordinates of the CoM of the body of the multibody system.
+   * - 3
+     - *x* component of the velocity of the unitary vector defining the orientation of the body.
+   * - 4
+     - *y* component of the velocity of the unitary vector defining the orientation of the body.
 
 Slider-Crank
 ------------
@@ -57,42 +108,133 @@ The slider crank mechanism is composed by two identical rods (L1 and L2) with un
 .. figure:: .\\images\\slider_crank.png
 	:scale: 15 %
 	:align: center
-	:alt: Representation of the slider-crank mechanism
+	:alt: Representation of the planar slider-crank mechanism.
 
-	Fig 2.  Representation of the slider-crank mechanism. 
+	Fig 2.  Representation of the planar slider-crank mechanism. 
 
-Modeling File
-***********
+Modeling File (.mod)
+********************
 
-.. csv-table:: Example of the slider-crank modeling file (.mod)
+This file contains 5 rows with 14 columns each. For further details about the modeling of each component please check :doc:`Modeling </modeling>` section.
+
+.. csv-table:: Table 7. Example of the planar slider-crank modeling file (.mod).
    :file: .\\csv\\slider_crank_model\\slider_crank_modeling_file.csv
    :align: center
    :escape: '
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
-State File (position)
-***********
+.. list-table:: Table 8. Description of each row of the modeling file (.mod) of the planar slider-crank mechanism.
+   :widths: 30 70
+   :align: center
+   :header-rows: 1
 
-.. csv-table:: Example of the slider-crank state file (.q)
+   * - Row
+     - Description
+   * - 1
+     - Model rigid body 1
+   * - 2
+     - Model rigid body 2.
+   * - 3
+     - Model the double support joint.
+   * - 4
+     - Model the revoluute joint between body 1 and body 2.
+   * - 5
+     - Model the single support joint.
+
+State File (.q): Generalized Coordinates 
+****************************************
+
+This file contains 2 rows, each with 4 generalized coordinates for the initial time. For further details about the number of generalized coordinates please :ref:`check <target to state_file_q>` section. 
+
+.. csv-table:: Table 9. Example of the planar slider-crank state file with generalized coordinates (.qp).
    :file: .\\csv\\slider_crank_model\\slider_crank_q_file.csv
    :align: center
    :escape: '
-   :widths: 12 12 12 12 12 12 12 12
+   :widths: 25 25 25 25
    :header-rows: 1
 
-State File (velocity)
-***********
+.. list-table:: Table 10. Description of each row of the state file containing the generalized coordinates (.q) of the planar slider-crank mechanism.
+   :widths: 25 25 50
+   :align: center
+   :header-rows: 1
 
-.. csv-table:: Example of the slider-crank state file (.qp)
+   * - Row
+     - Column
+     - Description
+   * - 1
+     - 1
+     - *x* component of the cartesian coordinates of the CoM of the body 1 of the multibody system.
+   * - 1
+     - 2
+     - *y* component of the cartesian coordinates of the CoM of the body 1 of the multibody system.
+   * - 1
+     - 3
+     - *x* component of the unitary vector defining the orientation of the body 1.
+   * - 1
+     - 4
+     - *y* component of the unitary vector defining the orientation of the body 1.
+   * - 2
+     - 1
+     - *x* component of the cartesian coordinates of the CoM of the body 2 of the multibody system.
+   * - 2
+     - 2
+     - *y* component of the cartesian coordinates of the CoM of the body 2 of the multibody system.
+   * - 2
+     - 3
+     - *x* component of the unitary vector defining the orientation of the body 2.
+   * - 2
+     - 4
+     - *y* component of the unitary vector defining the orientation of the body 2.
+
+State File (.qp): Generalized Velocities
+****************************************
+
+This file contains 2 rows, each with 4 generalized velocities. For further details about the number of generalized velocities please :ref:`check <target to state_file_qp>`. 
+
+.. csv-table:: Table 11. Example of the planar slider-crank state file with generalized velocities (.qp).
    :file: .\\csv\\slider_crank_model\\slider_crank_qp_file.csv
    :align: center
    :escape: '
-   :widths: 12 12 12 12 12 12 12 12
+   :widths: 25 25 25 25
    :header-rows: 1
 
-Inverse Dynamic Analysis
-~~~~~~~~~~~~~~~~~~~~~~~~ 
+.. list-table:: Table 12.  Description of each row of the state file containing the generalized velocities (.qp) of the planar slider-crank mechanism.
+   :widths: 25 25 50
+   :align: center
+   :header-rows: 1
+
+   * - Row
+     - Column
+     - Description
+   * - 1
+     - 1
+     - *x* component of the velocity coordinates of the CoM of the body 1 of the multibody system.
+   * - 1
+     - 2
+     - *y* component of the velocity coordinates of the CoM of the body 1 of the multibody system.
+   * - 1
+     - 3
+     - *x* component of the velocity of the unitary vector defining the orientation of the body 1.
+   * - 1
+     - 4
+     - *y* component of the velocity of the unitary vector defining the orientation of the body 1.
+   * - 2
+     - 1
+     - *x* component of the velocity coordinates of the CoM of the body 2 of the multibody system.
+   * - 2
+     - 2
+     - *y* component of the velocity coordinates of the CoM of the body 2 of the multibody system.
+   * - 2
+     - 3
+     - *x* component of the velocity of the unitary vector defining the orientation of the body 2.
+   * - 2
+     - 4
+     - *y* component of the velocity of the unitary vector defining the orientation of the body 2.
+
+
+Kinematic Analysis
+~~~~~~~~~~~~~~~~~~ 
 
 Single Body
 ------------
@@ -100,125 +242,318 @@ Single Body
 This model is composed of a single segment that moves along the *x* axis of the global reference frame. 
 The system starts in a diagonal position with respect to the global reference frame (θ=π⁄8 w) with its center of mass located at coordinates P1 = [-1, 0]. No external forces are applied to the system during the analysis.
 
-
 .. figure:: .\\images\\single_body.png
 	:scale: 15 %
 	:align: center
-	:alt: Representation of the single body
+	:alt: Representation of the planar single body.
 
-	Fig 4.  Representation of the single body. 
+	Fig 4.  Representation of the planar single body. 
 
-.. csv-table:: Example of single body modeling file (.mod)
+.. csv-table:: Table 13. Example of the planar single body modeling file (.mod)
    :file: .\\csv\\single_body_modeling_file.csv
    :align: center
    :escape: '
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
-Modeling File
-***********
+Modeling File (.mod)
+*******************
 
-.. csv-table:: Example of single body modeling file (.mod)
+This file contains 4 rows, each with 14 columns. For further details about the modeling of each component please check :doc:`Modeling </modeling>` section.
+
+.. csv-table:: Table 13. Example of the modeling file (.mod) of the planar single body model.
    :file: .\\csv\\single_body_model\\single_body_modeling_file.csv
    :align: center
    :escape: '
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
-State File
-***********
+.. list-table:: Table 14. Description of each row of the modeling file (.mod) of the planar single-body model.
+   :widths: 30 70
+   :align: center
+   :header-rows: 1
 
-.. csv-table:: Example of single body state file (.q)
+   * - Row
+     - Description
+   * - 1
+     - Model rigid body 1
+   * - 2
+     - Model rigid body 2.
+   * - 3
+     - Model the prescribed angular driver grounded using dot product; .
+   * - 4
+     - Model the prescribed angular driver grounded using cross product; .
+   * - 5
+     - Model the trajectory driver of the CoM of the multibody system.
+
+State File (.q): Generalized Coordinates
+***************************************
+
+This file contains 1 row with 4 generalized coordinates. For further details about the number of generalized velocities please :ref:`check <target to state_file_qp>` section.
+
+.. csv-table:: Table 15. Example of  body state file with generalized coordinates(.q) of the planar single body model.
    :file: .\\csv\\single_body_model\\single_body_q_file.csv
    :align: center
    :escape: '
    :widths: 25 25 25 25
    :header-rows: 1
 
-Data File
-***********
+.. list-table:: Table 16. Description of each row of the state file containing the generalized coordinates (.q) of the planar single body model.
+   :widths: 25 25 50
+   :align: center
+   :header-rows: 1
 
-.. csv-table:: Example of single body data file (.data)
+   * - Row
+     - Column
+     - Description
+   * - 1
+     - 1
+     - *x* component of the cartesian coordinates of the CoM of the rigid body of the multibody system.
+   * - 1
+     - 2
+     - *y* component of the cartesian coordinates of the CoM of the rigid body of the multibody system.
+   * - 1
+     - 3
+     - *x* component of the unitary vector defining the orientation of the rigid body of the multibody system.
+   * - 1
+     - 4
+     - *y* component of the unitary vector defining the orientation of the rigid body of the multibody system.
+
+Data File (.data)
+*****************
+
+This file contains 10 rows, each with 4 columns. The first row contains the time and the number of the prescribed angular and trajectory drivers of the model, respectively. 
+
+.. csv-table:: Table 17. Example of single body data file (.data)
    :file: .\\csv\\single_body_model\\single_body_data_file.csv
    :align: center
    :escape: '
    :widths: 25 25 25 25
    :header-rows: 1
 
-Labels File
-***********
+.. list-table:: Table 18. Description of each column of the data file (.data) of the planar single body model.
+   :widths: 25 75
+   :align: center
+   :header-rows: 1
 
-.. csv-table:: Example of single body labels file (.lbl)
+   * - Column
+     - Description
+   * - 1 
+     - Period of time for the kinematic analysis. 
+   * - 2 
+     - Prescribed angle between the orientation vector of the local reference frame of the body and the ground. 
+   * - 3 
+     - Prescribed *x* coordinates for the trajectory driver of the multibody system.
+   * - 4 
+     - Prescribed *y* coordinates for the trajectory driver of the multibody system.
+
+Labels File (.lbl)
+******************
+
+This file contains 2 columns and 4 rows. The first row is te header of the file and contains the label and the label of each degree of freedom of the model, respectively. 
+
+.. csv-table:: Table 19. Example of the labels file (.lbl) of the planar single body model.
    :file: .\\csv\\single_body_model\\single_body_labels_file.csv
    :align: center
    :escape: '
    :widths: 50 50
    :header-rows: 1
 
-Lower Body ``[Update model description and input files]``
+.. list-table:: Table 20. Description of each column of the labels data file (.data) of the planar single body model.
+   :widths: 50 50
+   :align: center
+   :header-rows: 1
+
+   * - Column
+     - Description
+   * - 1 
+     - Label of the prescribed degree of freedom of the model. 
+   * - 2 
+     - Number of the prescribed degree of freedom of the model. 
+
+Lower Body ``[Update model figure description and input files]``
 ------------
 
-This model depicts the lower body of the human body and is composed of six segments (feet, legs and thighs) connected by revolute joints. 
-The center of the hip, knee and ankle joint centers joint was defined as proposed by Wu et al. [3]. The inertial parameters were defined according to Dempster et al ``[2]``. 
-The ground reaction forces measured during the gait cycle using several force plates were applied in the analysis using the *.f* files presented below.
+This model represents the lower body of the human body and is composed of six segments (feet, legs and thighs) connected by revolute joints. 
+The center of the hip, knee and ankle joint centers joint was defined as proposed by Wu et al. [2] and the inertial parameters according to Dempster et al [3]. 
  
 .. figure:: .\\images\\lower_body.png
 	:scale: 15 %
 	:align: center
 	:alt: Representation of the lower body
 
-	Fig 5.  Representation of the lower body (right limb - green, left limb - red, external forceapplied in the model - purple). 
+	Fig 5.  Representation of the planar lower body of the human body (right limbs - green, left limbs - red). 
 
-Modeling File
-***********
+Modeling File (.mod) ``[Correct example and description tables]`` 
+********************
 
-.. csv-table:: Example of lower body modeling file (.mod)
+This file contains 2 rows, each with 14 columns.
+
+.. csv-table:: Table 21. Example of the planar lower body modeling file (.mod).
    :file: .\\csv\\lower_body_model\\lower_body_modeling_file.csv
    :align: center
    :escape: '
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
-State File
-***********
+.. csv-table:: Table 22. Description of each row of the modeling file (.mod) of the planar lower body model.
+   :file: .\\csv\\lower_body_model\\lower_body_modeling_file.csv
+   :align: center
+   :escape: '
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
 
-.. csv-table:: Example of lower body state file (.q)
+State File (.q): Generalized Coordinates ``[Correct number of rows]`` 
+****************************************
+
+This file contains 2 rows, each with 4 columns.
+
+.. csv-table:: Table 23. Example of the planar lower body state file with generalized coordinates (.q)
+   :file: .\\csv\\lower_body_model\\lower_body_q_file.csv
+   :align: center
+   :escape: '
+   :widths: 25 25 25 25
+   :header-rows: 1
+   
+.. csv-table:: Table 24. Description of each column of the state file with generalized coordinates (.q) of the plantar lower body model. 
    :file: .\\csv\\lower_body_model\\lower_body_q_file.csv
    :align: center
    :escape: '
    :widths: 25 25 25 25
    :header-rows: 1
 
-Data File
-***********
+Data File (.data) ``[Correct number of rows and columns]`` 
+*****************
 
-.. csv-table:: Example of lower body data file (.data)
+This file contains 10 rows, each with 4 columns. The first row contains the time and the number of the prescribed angular and trajectory drivers of the model, respectively. 
+
+.. csv-table:: Table 25. Example of lower body data file (.data)
    :file: .\\csv\\lower_body_model\\lower_body_data_file.csv
    :align: center
    :escape: '
    :widths: 25 25 25 25
    :header-rows: 1
 
-Labels File
+.. csv-table:: Table 26. Description of each column of the data file (.data) of the plantar lower body model. 
+   :file: .\\csv\\lower_body_model\\lower_body_q_file.csv
+   :align: center
+   :escape: '
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+Labels File ``[Correct number of rows]`` 
 ***********
 
-.. csv-table:: Example of lower body labels file (.lbl)
+This file contains 2 rows, each with 4 columns.
+
+.. csv-table:: Table 27. Example of lower body labels file (.lbl)
    :file: .\\csv\\lower_body_model\\lower_body_labels_file.csv
    :align: center
    :escape: '
    :widths: 25 25 25 25
    :header-rows: 1
 
-Force File
+.. csv-table:: Table 28. Description of each column of the labels file (.lbl) of the lower body model.
+   :file: .\\csv\\lower_body_model\\lower_body_labels_file.csv
+   :align: center
+   :escape: '
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+Inverse Dynamic Analysis
+~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+Double Four-Bar mechanism
+-------------------------
+
+The double four-bar linkage (see Figure 6) is composed of 5 identical rods, each one having a 1 m length and a uniformly distributed mass of 1 kg. The bodies (L1, L3 and L5) are connected to the ground through three pinned support joints,
+while the remaining bodies are connected by four frictionless revolute joints. 
+
+``[The system moves under the effect of gravity, starting with an initial velocity of 1 ms−1 at points and in the positive direction of the x global axis.`` 
+
+In the initial position the angle between L1, L3 and L5 and and the ground is π/2. 
+
+Modeling File (.mod) ``[Correct example and description tables]`` 
+********************
+
+This file contains 2 rows, each with 14 columns.
+
+.. csv-table:: Table 21. Example of the planar lower body modeling file (.mod).
+   :file: .\\csv\\lower_body_model\\lower_body_modeling_file.csv
+   :align: center
+   :escape: '
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
+
+.. csv-table:: Table 22. Description of each row of the modeling file (.mod) of the planar lower body model.
+   :file: .\\csv\\lower_body_model\\lower_body_modeling_file.csv
+   :align: center
+   :escape: '
+   :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+   :header-rows: 1
+
+State File (.q): Generalized Coordinates ``[Correct number of rows]`` 
+****************************************
+
+This file contains 2 rows, each with 4 columns.
+
+.. csv-table:: Table 23. Example of the planar lower body state file with generalized coordinates (.q)
+   :file: .\\csv\\lower_body_model\\lower_body_q_file.csv
+   :align: center
+   :escape: '
+   :widths: 25 25 25 25
+   :header-rows: 1
+   
+.. csv-table:: Table 24. Description of each column of the state file with generalized coordinates (.q) of the plantar lower body model. 
+   :file: .\\csv\\lower_body_model\\lower_body_q_file.csv
+   :align: center
+   :escape: '
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+Data File (.data) ``[Correct number of rows and columns]`` 
+*****************
+
+This file contains 10 rows, each with 4 columns. The first row contains the time and the number of the prescribed angular and trajectory drivers of the model, respectively. 
+
+.. csv-table:: Table 25. Example of lower body data file (.data)
+   :file: .\\csv\\lower_body_model\\lower_body_data_file.csv
+   :align: center
+   :escape: '
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+.. csv-table:: Table 26. Description of each column of the data file (.data) of the plantar lower body model. 
+   :file: .\\csv\\lower_body_model\\lower_body_q_file.csv
+   :align: center
+   :escape: '
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+Labels File ``[Correct number of rows]`` 
 ***********
 
-.. csv-table:: Example of lower body labels file (.f)
-   :file: .\\csv\\lower_body_model\\lower_body_force_file.csv
+This file contains 2 rows, each with 4 columns.
+
+.. csv-table:: Table 27. Example of lower body labels file (.lbl)
+   :file: .\\csv\\lower_body_model\\lower_body_labels_file.csv
    :align: center
-   :escape: '  
-   :widths: 15 15 15 15 15 15 15
+   :escape: '
+   :widths: 25 25 25 25
    :header-rows: 1
-      
+
+.. csv-table:: Table 28. Description of each column of the labels file (.lbl) of the lower body model.
+   :file: .\\csv\\lower_body_model\\lower_body_labels_file.csv
+   :align: center
+   :escape: '
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+
+
+
+
+
    
 References
 *************************

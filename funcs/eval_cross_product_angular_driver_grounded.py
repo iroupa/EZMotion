@@ -77,7 +77,8 @@ def evaluate_cross_product_angular_driver_grounded(nCoordinates,  constraintByTy
     uVectorpto = qpto[int(4 * (movingBodyNumber - 1) + 2): int(4 * (movingBodyNumber- 1) + 4)]
 
     # Vector 'u' Length;
-    uLength = dataConst[constraintByType, 2]
+    # uLength = dataConst[constraintByType, 2]
+    uLength = 1
 
     # Vector 'u' perpendicular;
     uVectorPerp = np.array([-uVector[1], uVector[0]])
@@ -88,11 +89,12 @@ def evaluate_cross_product_angular_driver_grounded(nCoordinates,  constraintByTy
 
     # Vector 'v' components;
     # Ground body orientation
-    vVector = dataConst[constraintByType, 4:6]
+    vVector = dataConst[constraintByType, 2:4]
     vVectorpto = np.array([0.0, 0.0])
 
     # Vector 'v' Length;
-    vLength = dataConst[constraintByType, 3]
+    # vLength = dataConst[constraintByType, 3]
+    vLength = 1
 
     # Vector 'v' perpendicular;
     vVectorPerp = np.array([-vVector[1], vVector[0]])

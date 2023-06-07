@@ -62,6 +62,9 @@ def read_model_input_data(fpath, filter_data='', fs=100, R2=0.9, fc=8, order=4):
     elif filter_data.lower() == 'butter':
         for column in header_labels:
             result[column] = butter_filter(result[column].to_numpy(), fs, fc, order)
+    elif filter_data.lower() == 'no':
+        for column in header_labels:
+            result[column] = result[column]
 
     return result
 

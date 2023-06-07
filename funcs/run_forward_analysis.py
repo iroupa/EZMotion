@@ -50,6 +50,7 @@ def run_forward_analysis(analysis_type,
                          fs,
                          t0,
                          tf,
+                         mode,
                          widget):
     """
 
@@ -170,9 +171,12 @@ def run_forward_analysis(analysis_type,
     #
     sda_Parameters = {}
 
-    widget.Clear()
-    widget.SetValue(
-        'Forward Dynamic Analysis started at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+    if mode.lower() == 'gui':
+        widget.Clear()
+        widget.SetValue(
+            'Forward Dynamic Analysis started at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+    elif mode.lower() == 'script':
+        print('Forward Dynamic Analysis started at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
 
     gravitationalForces = assemble_gravitational_forces(dataConst, inertial_parameters)
 
@@ -199,9 +203,13 @@ def run_forward_analysis(analysis_type,
                        momentsSplineFuncs),
                  full_output=0)
 
-    # Write forward dynamic analysis feedback to 'Messages' wxTextCtrl widget
-    widget.AppendText(
-        'Forward Dynamic Analysis finished at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+    if mode.lower() == 'gui':
+        # Write forward dynamic analysis feedback to 'Messages' wxTextCtrl widget
+        widget.AppendText(
+            'Forward Dynamic Analysis finished at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
+    elif mode.lower() == 'script':
+        # Write forward dynamic analysis feedback to 'Messages' wxTextCtrl widget
+        print('Forward Dynamic Analysis finished at ' + str(time.strftime("%a, %d %b %Y %H:%M:%S +0000 \n")))
 
     # Assign generalized coordinates to report variable
     q_rep = sol[:, 0:nRigidBodies * 4]

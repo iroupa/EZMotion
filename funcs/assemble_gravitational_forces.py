@@ -46,7 +46,7 @@ def assemble_gravitational_forces(dataConst, inertial_parameters):
     gravitational_forces = {}
 
     for body in bodies_numbers_list:
-        gravitational_forces[body] = np.array([0, inertial_parameters[body]['Mass']*-9.81, 0, 0])
+        gravitational_forces[body] = np.array([0, inertial_parameters[body]['Mass'] * -9.81, 0, 0])
 
     return gravitational_forces
 

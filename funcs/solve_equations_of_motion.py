@@ -94,10 +94,13 @@ def solve_equations_of_motion(y0, t, nRigidBodies, massMatrix, nCoordinates, nCo
     modelKinematics = evaluate_kinematic_constraints_FD(q, t, nRigidBodies, nCoordinates, nConstraintsByType,
                                                         dataConst, qp, phi, dPhidq, niu, gamma)
 
+    # print('gVector', gVector)
     # Check if external forces exist:
     if len(forceSplineFuncs.items()) > 0:
+        # print('IFR')
         # Compute splined forces acting on the system
         gVector = compute_splined_forces_coords(t, q, forceSplineFuncs, gVector)
+        # print('gVector', gVector)
 
     # Compute spring and damper forces, convert to generalized forces and applied it to respective body
     if len(sda_Parameters.items()) > 0:

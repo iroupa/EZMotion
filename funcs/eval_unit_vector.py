@@ -74,7 +74,8 @@ def evaluate_unit_vector(nCoordinates, nConstraintByType, dataConst, q, qpto, ph
     uVectorpto = qpto[int(4 * (bodyNumber - 1) + 2): int(4 * (bodyNumber - 1) + 4)]
 
     # Vector 'u' Length;
-    uLength = dataConst[nConstraintByType][2]
+    # uLength = dataConst[nConstraintByType][2]
+    uLength = 1
 
     # Rigid Body Constraint contribution to 'phi' vector
     phi[constraintRowIndex] = np.dot(uVector, uVector) - uLength ** 2.0

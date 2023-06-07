@@ -78,14 +78,16 @@ def evaluate_dot_product_angular_driver(nCoordinates, constraintByType, dataCons
     uVectorpto = qpto[4 * (parentBodyNumber - 1) + 2: 4 * (parentBodyNumber - 1) + 4]
 
     # Vector 'u' Length;
-    uLength = dataConst[constraintByType, 3]
+    # uLength = dataConst[constraintByType, 3]
+    uLength = 1
 
     # Vector 'v' components;
     vVector = q[4 * (childBodyNumber - 1) + 2: 4 * (childBodyNumber - 1) + 4]
     vVectorpto = qpto[4 * (childBodyNumber - 1) + 2: 4 * (childBodyNumber - 1) + 4]
 
     # Vector 'v' Length;
-    vLength = dataConst[constraintByType, 4]
+    # vLength = dataConst[constraintByType, 4]
+    vLength = 1
 
     # Theta
     theta = dataConst[constraintByType, 6]

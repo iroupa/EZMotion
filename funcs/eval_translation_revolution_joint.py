@@ -62,7 +62,9 @@ def evaluate_translation_revolution_joint(nCoordinates, constraintByType, dataCo
 
     # Row Idx to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'
     #constraintRowIdxs = [dataConst[constraintByType, 1], dataConst[constraintByType, 1] + 1]
-    constraintRowIdxs = [rowIn, rowIn + 1]
+    # From FCC 2d
+    # constraintRowIdx = int(dataConst[constraintByType, 1])
+    constraintRowIdx = [rowIn]
 
     # Rigid bodies model number
     parentBodyNumber = int(dataConst[constraintByType, 2])
@@ -72,7 +74,7 @@ def evaluate_translation_revolution_joint(nCoordinates, constraintByType, dataCo
     # Point 'point1' belongs to parent body
     point1LocCoords = dataConst[constraintByType, 6:8]
 
-	# Points 'point2' and 'point3' belong to child body
+    # Points 'point2' and 'point3' belong to child body
     point2LocCoords = dataConst[constraintByType, 8:10]
     point3LocCoords = dataConst[constraintByType, 10:12]
     
@@ -104,30 +106,30 @@ def evaluate_translation_revolution_joint(nCoordinates, constraintByType, dataCo
     vVectorPerp = np.array([-vVector[1], vVector[0]])
 
     # Translation Revolution joint constraint contribution to 'phi' vector
-    phi[constraintRowIndex] = np.dot(uVectorPerp, vVector) #- uLength*vLength*np.sin(0)
+    phi[constraintRowIdx] = np.dot(uVectorPerp, vVector) #- uLength*vLength*np.sin(0)
 
     # Translation Revolution joint constraint contribution to jacobian matrix
     # Parent Rigid Body
     # Define Parent Rigid Body Columns and childBody Columns in jacobian matrix
-    parentColsIdxes = [4*(parentBodyNumber-1), 4*(parentBodyNumber-1)+ 4]
-    childColsIdxes  = [4*(childBodyNumber-1) , 4*(childBodyNumber-1) + 4]
+    parentColsIdxes = [4 * (parentBodyNumber - 1), 4 * (parentBodyNumber-1) + 4]
+    childColsIdxes  = [4 * (childBodyNumber - 1) , 4 * (childBodyNumber-1) + 4]
 
     R90 = np.array([[0, -1],
                     [1, 0]])
 
     C32 = point3_CMatrix - point2_CMatrix
 
-    f = np.linalg.multi_dot((point1_CMatrix.T,R90.T,C32)).T
+    f = np.linalg.multi_dot((point1_CMatrix.T, R90.T, C32)).T
 
     # dPhidq[constraintRowIdx, parentColsIdxes[0]: parentColsIdxes[-1]] = -np.linalg.multi_dot((childQVec,(point1_CMatrix.T,R90.T,C32).T))
-    dPhidq[constraintRowIndex, parentColsIdxes[0]: parentColsIdxes[-1]] = -np.linalg.multi_dot((childQVec,f))
-    dPhidq[constraintRowIndex, childColsIdxes[0] : childColsIdxes[-1]] = np.linalg.multi_dot((childQVec,point2_CMatrix.T,R90.T,C32))
+    dPhidq[constraintRowIdx, parentColsIdxes[0]: parentColsIdxes[-1]] = -np.linalg.multi_dot((childQVec, f))
+    dPhidq[constraintRowIdx, childColsIdxes[0] : childColsIdxes[-1]] = np.linalg.multi_dot((childQVec, point2_CMatrix.T, R90.T, C32))
 
     # Revolute translation joint constraint contribution to 'niu' vector
-    niu[constraintRowIndex]     = 0
+    niu[constraintRowIdx] = 0
 
     # Revolute translation joint constraint contribution to 'gamma' vector
-    gamma[constraintRowIndex]   = -2*(np.linalg.norm(uVector))
+    gamma[constraintRowIdx] = -2 * (np.linalg.norm(uVector))
 
     return {'Phi':phi,'dPhidq':dPhidq, 'niu':niu, 'gamma':gamma, 'rowOut': rowIn + 1}
 

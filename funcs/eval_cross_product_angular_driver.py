@@ -77,7 +77,8 @@ def evaluate_cross_product_angular_driver(nCoordinates, constraintByType, dataCo
     uVectorpto = qpto[4*(parentBodyNumber-1) + 2: 4 * (parentBodyNumber-1) + 4]
 
     # Vector 'u' Length;
-    uLength = dataConst[constraintByType, 3]
+    # uLength = dataConst[constraintByType, 3]
+    uLength = 1
 
     # Vector 'u' perpendicular;
     uVectorPerp = np.array([-uVector[1], uVector[0]])
@@ -88,7 +89,8 @@ def evaluate_cross_product_angular_driver(nCoordinates, constraintByType, dataCo
     vVectorpto = qpto[4 * (childBodyNumber - 1) + 2: 4 * (childBodyNumber - 1) + 4]
 
     # Vector 'v' Length
-    vLength = dataConst[constraintByType, 4]
+    # vLength = dataConst[constraintByType, 4]
+    vLength = 1
 
     # Vector 'v' perpendicular;
     vVectorPerp = np.array([-vVector[1], vVector[0]])
@@ -103,8 +105,8 @@ def evaluate_cross_product_angular_driver(nCoordinates, constraintByType, dataCo
     phi[constraintRowIndex] = np.dot(uVectorPerp, vVector) - uLength*vLength*np.sin(theta)
 
     # Parent Rigid Body Constraint contribution to jacobian matrix
-    parentCols = [4*(parentBodyNumber-1)+2, 4*(parentBodyNumber-1)+3]
-    childCols = [4*(childBodyNumber-1)+2, 4*(childBodyNumber-1)+3]
+    parentCols = [4 * (parentBodyNumber - 1) + 2, 4 * (parentBodyNumber - 1) + 3]
+    childCols = [4 * (childBodyNumber - 1) + 2, 4 * (childBodyNumber - 1) + 3]
 
     dPhidq[constraintRowIndex, parentCols] = -vVectorPerp
     dPhidq[constraintRowIndex, childCols] = uVectorPerp
@@ -114,7 +116,7 @@ def evaluate_cross_product_angular_driver(nCoordinates, constraintByType, dataCo
     thetap = dataConst[constraintByType, 7]
 
     # Rigid Body Constraint contribution to 'niu' vector
-    niu[constraintRowIndex] = uLength*vLength*np.cos(theta)*thetap
+    niu[constraintRowIndex] = uLength * vLength * np.cos(theta) * thetap
 
     # Thetapp
     # Thetapp == d2Theta/dt2 -> Newton's notation vs Leibnitz notation

@@ -140,7 +140,7 @@ def run_inverse_analysis(analysis_type, subject_bodymass, modeling_file_fpath, m
             totalNumberConstraints += value * 2
 
     # Read experimental acquisition data
-    labData = read_model_input_data(model_data_fpath, filter_data='butter', fs=fs, fc=8, order=4)
+    labData = read_model_input_data(model_data_fpath, filter_data='no', fs=fs, fc=8, order=4)
 
     # Compute experimental acquisition time data
     acq_time = labData.iloc[:, 0]
@@ -266,10 +266,10 @@ def run_inverse_analysis(analysis_type, subject_bodymass, modeling_file_fpath, m
                                                                  mode)
 
         # Compute model joints angles and obtain respective labels
-        joint_angles_header, joint_angles = compute_joints_angles_inverse(modeling_file, q[0:nRigidBodies * 4])
+        # joint_angles_header, joint_angles = compute_joints_angles_inverse(modeling_file, q[0:nRigidBodies * 4])
 
         # Assign model joints angles to report variable
-        joint_angles_rep[frame, :] = joint_angles
+        # joint_angles_rep[frame, :] = joint_angles
 
         # Assign model generalized coordinates to report variable
         q_rep[frame, :] = q
@@ -462,7 +462,7 @@ def run_inverse_analysis(analysis_type, subject_bodymass, modeling_file_fpath, m
             q_rep=np.concatenate((frames_rep, time_rep, q_rep), axis=1),
             qp_rep=np.concatenate((frames_rep, time_rep, qp_rep), axis=1),
             qpp_rep=np.concatenate((frames_rep, time_rep, qpp_rep), axis=1),
-            model_joints_angles_header=['# Frame', 'Time'] + joint_angles_header,
+            model_joints_angles_header=['# Frame', 'Time'], #+ joint_angles_header,
             model_joints_angles=np.concatenate((frames_rep, time_rep, joint_angles_rep), axis=1),
             model_joints_ang_vel=np.concatenate((frames_rep, time_rep, joint_angles_vel_rep), axis=1),
             model_joints_ang_acc=np.concatenate((frames_rep, time_rep, joint_angles_acc_rep), axis=1),

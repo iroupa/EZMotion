@@ -1,4 +1,6 @@
 TODO
+create .jt file for single body
+correct idxs for angles and moments
 1: Update index of each field in each kinematic constraint equation
 
 Corrected

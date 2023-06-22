@@ -20,30 +20,4 @@ __copyright__ = "Copyright (C) 2023 Ivo Roupa"
 __email__ = "iroupa@gmail.com"
 __license__ = "Apache 2.0"
 
-import numpy as np
-
-
-def file2dataConst(fpath):
-    """
-    
-    Function reads the information describing the topology of the multibody system.     
-  
-    Parameters
-        fpath       :   str
-                        modeling file containing all the information describing the topology of the multibody system
-
-    Return
-        dataConst   :   numpy.ndarray
-                        all the information describing the topology of the multibody system
-    
-    """
-
-    dataConst = np.loadtxt(fpath, dtype='float', delimiter=',', comments="#")
-
-    return dataConst
-
-
-if __name__ == "__main__":
-    import doctest
-        
-    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE)
+input_folder =

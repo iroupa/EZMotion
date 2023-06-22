@@ -24,7 +24,6 @@ import numpy as np
 import pandas as pd
 from read_angular_driver_info import read_angular_driver_info
 
-
 def compute_joints_angles_inverse(dataConst, q):
     """
 
@@ -32,7 +31,8 @@ def compute_joints_angles_inverse(dataConst, q):
 
     Parameters
         dataConst		:   numpy.array
-                            information about the modeling of the multibody system
+                            multidimensional numpy array containing the information regarding the modeling
+                                    of each component of the multibody system
         q				:   numpy.array
                             vector of generalized coordinates of the multibody system
 
@@ -43,19 +43,10 @@ def compute_joints_angles_inverse(dataConst, q):
     """
 
     # Dictionary to store information about angular drivers
-    ang_drivers_info = {}
+    ang_drivers_info = read_angular_driver_info(dataConst)
 
     # List to store labels of joint angles
     model_joint_angles_labels = []
-
-    constraints_type_idx = [2, 3, 4, 5, 12, 13, 14, 15]
-
-    # Iterate through each row of dataConst
-    for row in dataConst:
-        # Check for specific constraint types related to angular drivers
-        for constraint_type in constraints_type_idx:
-            # Read and store angular driver information
-            read_angular_driver_info(row, constraint_type, ang_drivers_info)
 
     # Dictionary to store joint angles
     joint_angles = {}

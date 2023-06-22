@@ -33,7 +33,7 @@ def compute_moments_of_force(dataConst, q, lmm, weight):
     Parameters:
         dataConst				:   numpy.array
                                     multidimensional numpy array containing the information regarding the modeling
-                                    of the multibody system
+                                    of each component of the multibody system
         q						:   numpy.array
                                     vector of generalized coordinates of the multibody system
         lmm						:   numpy.array
@@ -47,12 +47,15 @@ def compute_moments_of_force(dataConst, q, lmm, weight):
     
     """
 
-    ang_drivers_info = {}
+    # Dictionary to store information about angular drivers
+    ang_drivers_info = read_angular_driver_info(dataConst)
 
-    constraints_type_idx = [2, 3, 4, 5, 12, 13, 14, 15]
-    for row in dataConst:
-        for constraint_type in constraints_type_idx:
-            read_angular_driver_info(row, constraint_type, ang_drivers_info)
+    # ang_drivers_info = {}
+    #
+    # constraints_type_idx = [2, 3, 4, 5, 12, 13, 14, 15]
+    # for row in dataConst:
+    #     for constraint_type in constraints_type_idx:
+    #         read_angular_driver_info(row, constraint_type, ang_drivers_info)
 
     net_moments_of_force = {}
     joint_angles = {}

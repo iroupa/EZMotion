@@ -41,7 +41,7 @@ def assemble_gravitational_forces(dataConst, inertial_parameters):
     """
 
     # Row Idx to insert constraint contribution in 'Phi', 'Jacobian', 'niu' and 'gamma'
-    bodies_numbers_list = [int(x[2]) for x in dataConst if x[0] == 1]
+    bodies_numbers_list = [int(x[1]) for x in dataConst if x[0] == 1]
 
     gravitational_forces = {}
 

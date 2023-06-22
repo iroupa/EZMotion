@@ -24,11 +24,13 @@ from run_inverse_analysis import run_inverse_analysis
 import os
 
 # Subject anthropometric measurements
-subject_bodymass = 1  # kg
+subject_bodymass = 54  # kg
 
 # Path information
 input_folder = r'C:\Documentos\Ivo\GitHub\EZMotion\data_files'
-model = r'double_pendulum'
+# model = r'single_pendulum'
+# model = r'trial_0003_1passagem_FCC_new'
+model = r'trial_0003_1passagem_MC_new'
 
 # Files absolute path
 modeling_file_fpath = [os.path.join(input_folder, model, x) for x in os.listdir(os.path.join(input_folder, model))
@@ -45,7 +47,8 @@ muscle_db_fpath = os.path.join(input_folder, model,
 
 # Analysis options
 # kinematic / inverse dynamic / musculoskeletal
-analysis_type = 'kinematic'
+# analysis_type = 'kinematic'
+analysis_type = 'musculoskeletal'
 
 # Frequency during analysis
 fs = 100
@@ -57,7 +60,7 @@ dt = 1/fs
 t0 = 0.0
 
 # Analysis final time
-tf = 1.0
+tf = .8
 
 # Create dummy widget
 widget = ''

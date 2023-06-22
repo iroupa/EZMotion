@@ -30,7 +30,7 @@ from assemble_mass_matrix import assemble_mass_matrix
 from compute_eom_constraints import compute_eom_constraints
 from compute_joint_angles_derivative import compute_joint_angles_derivative
 from compute_joints_angles_inverse import compute_joints_angles_inverse
-from compute_export_model_loc_coords import compute_export_model_loc_coords
+from create_model_loc_coords_file import create_model_loc_coords_file
 from compute_moments_of_force import compute_moments_of_force
 from compute_normalized_muscle_length import compute_norm_muscle_lengths
 from compute_q_coords_labels import compute_q_coords_labels
@@ -38,11 +38,11 @@ from compute_spline_coords import compute_spline_coords
 from compute_splined_forces import compute_splined_forces
 from count_model_DoF import count_model_DoF
 from export_analysis_outputs import export_analysis_outputs
-from file2dataConst import file2dataConst
+from read_modeling_file import read_modeling_file
 from initialize_analysis_variables import initialize_analysis_variables
 from initialize_report_variables import initialize_report_variables
 from muscle_analysis import muscle_analysis
-from raw2selectedData import raw2selectedData
+from read_raw_kinematic_data import read_raw_kinematic_data
 from read_DoF_labels import read_DoF_labels
 from read_force_file_info import read_force_file_info
 from read_inertial_parameters import read_inertial_parameters
@@ -103,36 +103,33 @@ def run_inverse_analysis(analysis_type, subject_bodymass, modeling_file_fpath, m
     rb_info = read_model_rb_info(r'.\settings\rb_info.txt')
 
     # Initialize modeling_file from '.txt' file
-    modeling_file = file2dataConst(modeling_file_fpath)
+    modeling_file = read_modeling_file(modeling_file_fpath)
 
-    # Export model local coordinates file
-    compute_export_model_loc_coords(modeling_file_fpath, model_outputs_folder)
+    # Export local coordinates file of each segment of the multibody system
+    create_model_loc_coords_file(modeling_file_fpath, model_outputs_folder)
 
-    # Compute total number of rigid bodies
+    # Compute total number of rigid bodies of the multibody system
     nRigidBodies = sum([v for k, v in Counter(modeling_file[:, 0]).items() if k == 1])
 
-    # Get number of model angular drivers
+    # Get number of angular drivers of the multibody system
     model_angular_drivers = count_model_DoF(modeling_file)['angular_dofs']
 
-    # Get number of model mixed angular drivers
+    # Get number of model mixed angular drivers of the multibody system
     model_n_mixed_angular_drivers = int(count_model_DoF(modeling_file)['mixed_dofs'])
 
-    # Compute number of generalized coordinates of the model
+    # Compute number of generalized coordinates of the multibody system
     nCoordinates = nRigidBodies * 4 + model_n_mixed_angular_drivers
 
-    # Compute total number of kinematic constraints
+    # Compute total number of kinematic constraints of the multibody system
     nConstraintsByType = len(modeling_file[:, 0])
 
-    # Compute total number of angular drivers kinematic constraints
+    # Compute total number of angular drivers kinematic constraints of the multibody system
     angDriversConstraints = sum([v for k, v in Counter(modeling_file[:, 0]).items() if k == 2 or k == 3])
 
-    # Compute total number of ground and revolute joints kinematic constraints
-    # ground_revolute_DriversConstraints = sum([v for k, v in Counter(modeling_file[:, 0]).items() if k == 8 or k == 9])
-
-    # N. total lines of modeling_file
+    # N. total lines of the modeling file of the multibody system
     totalNumberConstraints = 0
 
-    # Update total number of constraints of the model
+    # Update total number of constraints of the multibody system
     for key, value in Counter(modeling_file[:, 0]).items():
         if key in [1, 2, 3, 4, 5, 7, 10]:
             totalNumberConstraints += value
@@ -173,7 +170,7 @@ def run_inverse_analysis(analysis_type, subject_bodymass, modeling_file_fpath, m
     dof_colName_dict = read_DoF_labels(model_drivers_labels_fpath)
 
     # Select data to be splined based on te data provided in the DoF_Labels input file
-    data2spline = raw2selectedData(labData, dof_colName_dict)
+    data2spline = read_raw_kinematic_data(labData, dof_colName_dict)
 
     # Time interval between consecutive frames during kinematic analysis
     dt = 1 / fs
@@ -266,10 +263,10 @@ def run_inverse_analysis(analysis_type, subject_bodymass, modeling_file_fpath, m
                                                                  mode)
 
         # Compute model joints angles and obtain respective labels
-        # joint_angles_header, joint_angles = compute_joints_angles_inverse(modeling_file, q[0:nRigidBodies * 4])
+        joint_angles_header, joint_angles = compute_joints_angles_inverse(modeling_file, q[0:nRigidBodies * 4])
 
         # Assign model joints angles to report variable
-        # joint_angles_rep[frame, :] = joint_angles
+        joint_angles_rep[frame, :] = joint_angles
 
         # Assign model generalized coordinates to report variable
         q_rep[frame, :] = q
@@ -462,7 +459,7 @@ def run_inverse_analysis(analysis_type, subject_bodymass, modeling_file_fpath, m
             q_rep=np.concatenate((frames_rep, time_rep, q_rep), axis=1),
             qp_rep=np.concatenate((frames_rep, time_rep, qp_rep), axis=1),
             qpp_rep=np.concatenate((frames_rep, time_rep, qpp_rep), axis=1),
-            model_joints_angles_header=['# Frame', 'Time'], #+ joint_angles_header,
+            model_joints_angles_header=['# Frame', 'Time'] + joint_angles_header,
             model_joints_angles=np.concatenate((frames_rep, time_rep, joint_angles_rep), axis=1),
             model_joints_ang_vel=np.concatenate((frames_rep, time_rep, joint_angles_vel_rep), axis=1),
             model_joints_ang_acc=np.concatenate((frames_rep, time_rep, joint_angles_acc_rep), axis=1),

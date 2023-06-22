@@ -67,5 +67,36 @@ def read_force_file_info(fpath):
 
 if __name__ == "__main__":
     import doctest
+    import os
 
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE)
+
+    input_folder = r'C:\Documentos\Ivo\GitHub\EZMotion\data_files\trial_0003_1passagem_FCC_new'
+
+    files_force = [os.path.join(input_folder, x) for x in os.listdir(input_folder) if x.endswith('.f')]
+
+    force_files_data = {}
+
+    scaling_factor = 1
+
+    grf_info = {}
+
+    for _ in range(0, len(files_force)):
+        model_rigid_body_number = int(list(read_force_file_info(files_force[_]).keys())[0])
+        file_data = read_force_file_info(files_force[_])
+        fp_Fx = file_data[model_rigid_body_number]['force'][:,0]
+        fp_Fz = file_data[model_rigid_body_number]['force'][:,1]
+        fp_CoP_X = file_data[model_rigid_body_number]['coords'][:,0]
+        fp_CoP_Z = file_data[model_rigid_body_number]['coords'][:,1]
+
+        fp_idxs = np.where((fp_Fx ** 2 + fp_Fz ** 2) ** 0.5 > 5)
+
+        fp_Fx = (fp_Fx / np.linalg.norm(fp_Fx)) * scaling_factor
+        fp_Fz = (fp_Fz / np.linalg.norm(fp_Fz)) * scaling_factor
+
+        grf_info[_] = {'Fx': fp_Fx,
+                       'Fz': fp_Fz,
+                       'CoP_X': fp_CoP_X,
+                       'CoP_Z': fp_CoP_Z}
+
+    a = 1

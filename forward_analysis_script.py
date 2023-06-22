@@ -29,7 +29,7 @@ subject_bodymass = 1  # kg
 # Path information
 input_folder = r'C:\Documentos\Ivo\GitHub\EZMotion\data_files'
 model = r'single_pendulum_FD'
-model = r'double_pendulum_FD'
+# model = r'double_pendulum_FD'
 
 # Files absolute path
 # Modeling file
@@ -61,7 +61,7 @@ dt = 1/fs
 t0 = 0.0
 
 # Analysis final time
-tf = 1
+tf = 10
 
 # Create dummy widget
 widget = ''

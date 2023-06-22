@@ -5,4 +5,4 @@
 #
 # Double Support Constraint
 # Type, MovBd, LcCMvBx, LcCMvBy, GlCSpX, GlCSpY, , , , , , , , 
-     8,     1,      -1,       0,      0,      0, 0, 0, 0, 0, 0, 0, 0, 0   
+     8,     1,    -0.5,       0,      0,      0, 0, 0, 0, 0, 0, 0, 0, 0   

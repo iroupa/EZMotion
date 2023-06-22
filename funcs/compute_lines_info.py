@@ -27,11 +27,11 @@ from read_model_loc_coords import read_model_loc_coords
 def compute_lines_info(fpath, q):
     """
 
-    Function compiles the data of each line of the multibody system to be plotted
+    Function computes the global coordinates of each extremity of each segment of the multibody system
 
     Parameters:
         fpath		    :   str
-                            absolute path of the file containing the local coordinates of ech sehgment to plot
+                            absolute path of the file containing the local coordinates of ech segment to plot
         q				:   numpy.array
                             vector of generalized coordinates of the multibody system
 
@@ -41,24 +41,34 @@ def compute_lines_info(fpath, q):
 
     """
 
-    # Compiles data of each line of the multibody system to be plotted
-
+    # Read the local coordinates of each segment of the multibody system
     linesData = read_model_loc_coords(fpath)
 
+    # Create dictionary to store the global coordinates of he extremities of each segment of the multibody system
     lines_info = {}
 
+    # Check if the list of local coordinates is non empty
     if len(linesData.keys()) > 0:
+
+        # Iterate over each key of the dictionary containing the local coordinates of each body of the multibody system
         for body_number, loc_coords in linesData.items():
             joint_coords = {}
+
+            # Iterate over local coordinates of the current body
             for loc_coords_idx in range(0, len(loc_coords)):
                 bodyCMatrix = assemble_C_matrix(loc_coords[loc_coords_idx])
+
+                # Iterate over generalized coordinates (q) of the multibody system
                 for _ in range(q.shape[0]):
                     bodyQVec = q[_, 4 * (body_number - 1):4 * (body_number - 1) + 4]
-                    # joint = bodyCMatrix.dot(bodyQVec)
+
+                    # Calculate the joint coordinates using the C matrix and q vector
                     if _ in joint_coords:
                         joint_coords[_].update({'joint_' + str(loc_coords_idx + 1): bodyCMatrix.dot(bodyQVec)})
                     else:
                         joint_coords[_] = {'joint_' + str(loc_coords_idx + 1): bodyCMatrix.dot(bodyQVec)}
+
+            # Assign the global coordinates of the extremity of each segment of the multibody system to lines_info
             lines_info[body_number] = joint_coords
 
     return lines_info

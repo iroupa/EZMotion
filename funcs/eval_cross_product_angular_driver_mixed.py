@@ -72,8 +72,8 @@ def evaluate_cross_product_angular_driver_mixed(nRigidBodies, nCoordinates, cons
     constraintRowIndex = rowIn
 
     # Rigid bodies model number
-    parentBodyNumber = int(dataConst[constraintByType, 2])
-    childBodyNumber = int(dataConst[constraintByType, 3])
+    parentBodyNumber = int(dataConst[constraintByType, 1])
+    childBodyNumber = int(dataConst[constraintByType, 2])
 
     # Degree of Freedom number
     dof = int(dataConst[constraintByType, 13])
@@ -83,7 +83,8 @@ def evaluate_cross_product_angular_driver_mixed(nRigidBodies, nCoordinates, cons
     uVectorpto = qpto[4 * (parentBodyNumber - 1) + 2: 4 * (parentBodyNumber-1) + 4]
 
     # Vector 'u' Length;
-    uLength = dataConst[constraintByType, 4]
+    # uLength = dataConst[constraintByType, 4]
+    uLength = 1
 
     # Vector 'u' perpendicular;
     uVectorPerp = np.array([-uVector[1], uVector[0]])
@@ -94,7 +95,8 @@ def evaluate_cross_product_angular_driver_mixed(nRigidBodies, nCoordinates, cons
     vVectorpto = qpto[4 * (childBodyNumber-1) + 2: 4 * (childBodyNumber-1) + 4]
 
     # Vector 'v' Length
-    vLength = dataConst[constraintByType, 5]
+    # vLength = dataConst[constraintByType, 5]
+    vLength = 1
 
     # Vector 'v' perpendicular;
     vVectorPerp = np.array([-vVector[1], vVector[0]])

@@ -30,7 +30,7 @@ from compute_joints_angles_forward import compute_joints_angles_fd
 from compute_q_coords_labels import compute_q_coords_labels
 from count_model_DoF import count_model_DoF
 from export_analysis_outputs import export_analysis_outputs
-from file2dataConst import file2dataConst
+from read_modeling_file import read_modeling_file
 from initialize_analysis_variables import initialize_analysis_variables
 from read_inertial_parameters import read_inertial_parameters
 from solve_equations_of_motion import solve_equations_of_motion
@@ -38,7 +38,7 @@ from assemble_mass_matrix import assemble_mass_matrix
 from assemble_gravitational_forces import assemble_gravitational_forces
 from read_force_file_info import read_force_file_info
 from compute_splined_forces import compute_splined_forces
-from compute_export_model_loc_coords import compute_export_model_loc_coords
+from create_model_loc_coords_file import create_model_loc_coords_file
 
 
 def run_forward_analysis(analysis_type,
@@ -90,30 +90,30 @@ def run_forward_analysis(analysis_type,
                    os.listdir(os.path.join(model_force_files_folder_path)) if x.endswith('.f')]  # [0]
 
     # Initialize dataConst from '.csv' file
-    dataConst = file2dataConst(modeling_file_fpath)
+    dataConst = read_modeling_file(modeling_file_fpath)
 
     # Export model local coordinates file
-    compute_export_model_loc_coords(modeling_file_fpath, model_outputs_folder)
+    create_model_loc_coords_file(modeling_file_fpath, model_outputs_folder)
 
-    # N. rigid bodies
+    # N. rigid bodies of multibody system
     nRigidBodies = sum([v for k, v in Counter(dataConst[:, 0]).items() if k == 1])
 
-    # Get number of model angular drivers
+    # Get number of model angular drivers of multibody system
     model_angular_drivers = count_model_DoF(dataConst)['angular_dofs']
 
-    # Get number of model mixed angular drivers
+    # Get number of model mixed angular drivers of multibody system
     model_mixed_angular_drivers = count_model_DoF(dataConst)['mixed_dofs']
 
-    # N. of generalized coordinates
+    # N. of generalized coordinates of the multibody system
     nCoordinates = nRigidBodies * 4 + model_mixed_angular_drivers
 
-    # N. of constraints by type
+    # N. of constraints by type of the multibody system
     nConstraintsByType = len(dataConst[:, 0])
 
-    # N. of angular drivers constraints
+    # N. of angular drivers constraints of multibody system
     angDriversConstraints = sum([v for k, v in Counter(dataConst[:, 0]).items() if k == 6])
 
-    # N. total lines of dataConst
+    # N. total lines of dataConst of the multibody system
     totalNumberConstraints = 0
 
     for key, value in Counter(dataConst[:, 0]).items():
@@ -136,7 +136,6 @@ def run_forward_analysis(analysis_type,
 
     # Kinematic analysis total number of frames
     nFrames = int((tf - t0) * fs) + 1
-
     force_total_data = {}
 
     for _ in range(0, len(force_files)):
@@ -166,9 +165,9 @@ def run_forward_analysis(analysis_type,
     y0 = np.hstack((q, qp))
 
     # Create the time vector of the forward analysis
-    time_span = np.arange(t0, tf_adj, dt)
+    # time_span = np.arange(t0, tf_adj, dt)
+    time_span = np.arange(t0, tf + dt, dt)
 
-    #
     sda_Parameters = {}
 
     if mode.lower() == 'gui':
@@ -223,31 +222,32 @@ def run_forward_analysis(analysis_type,
     # Compute and assign model joints angles to report variable
     for _ in range(0, q_rep.shape[0]):
         joint_angles_header, joint_angles = compute_joints_angles_fd(dataConst, q_rep[_])
-        # joint_angles_rep[_] = joint_angles
+        joint_angles_rep[_] = joint_angles
 
-    frames_rep = np.arange(0, nFrames, 1)
-    frames_rep = frames_rep.reshape(frames_rep.shape[0], 1)
+    # Create 'number of frames' nad ' 'time analysis instants' array to export
     time_span = time_span.reshape(time_span.shape[0], 1)
+    frames_rep = np.arange(0, time_span.shape[0], 1)
+    frames_rep = frames_rep.reshape(frames_rep.shape[0], 1)
 
     # Obtain the labels of each generalized coordinate of the model
     model_q_coords_header = compute_q_coords_labels(nRigidBodies, model_mixed_angular_drivers)
 
     # Compute model joints angles velocity and acceleration
-    # joint_angles_vel_rep = compute_joint_angles_derivative(joint_angles_rep, 1)
-    # joint_angles_acc_rep = compute_joint_angles_derivative(joint_angles_rep, 2)
+    joint_angles_vel_rep = compute_joint_angles_derivative(joint_angles_rep, 1)
+    joint_angles_acc_rep = compute_joint_angles_derivative(joint_angles_rep, 2)
 
     # Export analysis outputs
     export_analysis_outputs(model_outputs_fpath=os.path.join(model_outputs_folder, analysis_type.lower()
                                                              + '_analysis_outputs.out'),
                             nRigidBodies=nRigidBodies,
                             fs=fs,
-                            model_q_header=['#Frame', 'Time'] + model_q_coords_header,
-                            q_rep=np.concatenate((frames_rep, time_span, q_rep), axis=1),
-                            qp_rep=np.concatenate((frames_rep, time_span, qp_rep), axis=1),
-                            # model_joints_angles_header=['#Frame', 'Time'] + joint_angles_header  #,
-                            # model_joints_angles=np.concatenate((frames_rep, time_span, joint_angles_rep), axis=1),
-                            # model_joints_ang_vel=np.concatenate((frames_rep, time_span, joint_angles_vel_rep), axis=1),
-                            # model_joints_ang_acc=np.concatenate((frames_rep, time_span, joint_angles_acc_rep), axis=1),
+                            model_q_header = ['#Frame', 'Time'] + model_q_coords_header,
+                            q_rep = np.concatenate((frames_rep, time_span, q_rep), axis=1),
+                            qp_rep = np.concatenate((frames_rep, time_span, qp_rep), axis=1),
+                            model_joints_angles_header = ['#Frame', 'Time'] + joint_angles_header,
+                            model_joints_angles = np.concatenate((frames_rep, time_span, joint_angles_rep), axis=1),
+                            model_joints_ang_vel = np.concatenate((frames_rep, time_span, joint_angles_vel_rep), axis=1),
+                            model_joints_ang_acc = np.concatenate((frames_rep, time_span, joint_angles_acc_rep), axis=1),
                             )
 
     return os.path.join(model_outputs_folder, analysis_type.lower() + '_analysis_outputs.out')

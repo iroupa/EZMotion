@@ -71,8 +71,8 @@ def evaluate_dot_product_angular_driver_mixed(nRigidBodies, nCoordinates, constr
     constraintRowIndex = rowIn
 
     # Rigid bodies model number
-    parentBodyNumber = int(dataConst[constraintByType, 2])
-    childBodyNumber = int(dataConst[constraintByType, 3])
+    parentBodyNumber = int(dataConst[constraintByType, 1])
+    childBodyNumber = int(dataConst[constraintByType, 2])
 
     # Degree of Freedom number
     dof = int(dataConst[constraintByType, 13])
@@ -83,7 +83,8 @@ def evaluate_dot_product_angular_driver_mixed(nRigidBodies, nCoordinates, constr
     uVectorpto = qpto[4 * (parentBodyNumber - 1) + 2: 4 * (parentBodyNumber - 1) + 4]
 
     # Vector 'u' Length;
-    uLength = dataConst[constraintByType, 4]
+    # uLength = dataConst[constraintByType, 4]
+    uLength = 1
 
     # Vector 'v' components;
     # Ground body orientation
@@ -92,6 +93,7 @@ def evaluate_dot_product_angular_driver_mixed(nRigidBodies, nCoordinates, constr
 
     # Vector 'v' Length;
     vLength = dataConst[constraintByType, 5]
+    vLength = 1
 
     # Theta
     # -1 Because Python starts at 0

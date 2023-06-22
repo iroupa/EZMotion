@@ -23,10 +23,10 @@ __license__ = "Apache 2.0"
 import pandas as pd
 
 
-def raw2selectedData(y, drivers_info):
+def read_raw_kinematic_data(y, drivers_info):
     """
     
-    Function computes the knots, coefficients and spline order for raw data 
+    Function computes the knots, coefficients and spline order for raw kinematic data
     and first and second spline derivatives.
 
     Parameters:

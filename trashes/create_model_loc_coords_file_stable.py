@@ -26,7 +26,7 @@ import numpy as np
 import pandas as pd
 
 
-def compute_export_model_loc_coords(fpath, export_fpath):
+def create_model_loc_coords_file(fpath, export_fpath):
     """
     
     Function exports the local coordinates of the points of interest of the multibody system to a .jt file

@@ -1,4 +1,24 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#
+# Copyright 2023 Ivo Roupa
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#     http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+__author__ = 'Ivo_Roupa'
+__copyright__ = "Copyright (C) 2023 Ivo Roupa"
+__email__ = "iroupa@gmail.com"
+__license__ = "Apache 2.0"
 
 import wx
 import wx.xrc
@@ -21,7 +41,6 @@ from read_model_outputs import read_model_outputs
 from compute_lines_info import compute_lines_info
 from compute_axis_limits import compute_axis_limits
 
-# class Analysis_Panel(wx.Panel):
 
 class Analysis_Panel(wx.Panel):
 
@@ -84,7 +103,7 @@ class Analysis_Panel(wx.Panel):
 
         self.m_dirPicker_input_files_folder = wx.DirPickerCtrl(sbSizer1_4_1.GetStaticBox(), wx.ID_ANY, wx.EmptyString,
                                                                u"Select a folder", wx.DefaultPosition, wx.DefaultSize,
-                                                               wx.DIRP_DEFAULT_STYLE, validator = DirObjectValidator('dir'))
+                                                               wx.DIRP_DEFAULT_STYLE, validator=DirObjectValidator('dir'))
 
         bSizer1_4_1_1.Add(self.m_dirPicker_input_files_folder, 1, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
@@ -111,7 +130,7 @@ class Analysis_Panel(wx.Panel):
 
         self.m_filePicker_modeling_file = wx.FilePickerCtrl(sbSizer1_6_1.GetStaticBox(), wx.ID_ANY, wx.EmptyString,
                                                             u"Select a file", u"*.*", wx.DefaultPosition,
-                                                            wx.DefaultSize, wx.FLP_DEFAULT_STYLE, validator = DirObjectValidator('file'))
+                                                            wx.DefaultSize, wx.FLP_DEFAULT_STYLE, validator=DirObjectValidator('file'))
 
         bSizer1_6_1_1.Add(self.m_filePicker_modeling_file, 1, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
@@ -130,7 +149,7 @@ class Analysis_Panel(wx.Panel):
 
         self.m_filePicker_model_state_q = wx.FilePickerCtrl(sbSizer1_6_1.GetStaticBox(), wx.ID_ANY, wx.EmptyString,
                                                             u"Select a file", u"*.*", wx.DefaultPosition,
-                                                            wx.DefaultSize, wx.FLP_DEFAULT_STYLE, validator = DirObjectValidator('file'))
+                                                            wx.DefaultSize, wx.FLP_DEFAULT_STYLE, validator=DirObjectValidator('file'))
         bSizer1_6_1_2.Add(self.m_filePicker_model_state_q, 1, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
         sbSizer1_6_1.Add(bSizer1_6_1_2, 0, wx.EXPAND, 15)
@@ -148,7 +167,7 @@ class Analysis_Panel(wx.Panel):
 
         self.m_filePicker_model_state_qp = wx.FilePickerCtrl(sbSizer1_6_1.GetStaticBox(), wx.ID_ANY, wx.EmptyString,
                                                              u"Select a file", u"*.*", wx.DefaultPosition,
-                                                             wx.DefaultSize, wx.FLP_DEFAULT_STYLE, validator = DirObjectValidator('file'))
+                                                             wx.DefaultSize, wx.FLP_DEFAULT_STYLE, validator=DirObjectValidator('file'))
 
         bSizer1_6_1_3.Add(self.m_filePicker_model_state_qp, 1, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
@@ -166,7 +185,7 @@ class Analysis_Panel(wx.Panel):
         self.m_filePicker_model_drivers_labels = wx.FilePickerCtrl(sbSizer1_6_1.GetStaticBox(), wx.ID_ANY,
                                                                    wx.EmptyString, u"Select a file", u"*.*",
                                                                    wx.DefaultPosition, wx.DefaultSize,
-                                                                   wx.FLP_DEFAULT_STYLE, validator = DirObjectValidator('file'))
+                                                                   wx.FLP_DEFAULT_STYLE, validator=DirObjectValidator('file'))
 
         bSizer1_6_1_4.Add(self.m_filePicker_model_drivers_labels, 1, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
@@ -183,7 +202,7 @@ class Analysis_Panel(wx.Panel):
 
         self.m_filePicker_model_data = wx.FilePickerCtrl(sbSizer1_6_1.GetStaticBox(), wx.ID_ANY, wx.EmptyString,
                                                          u"Select a file", u"*.*", wx.DefaultPosition, wx.DefaultSize,
-                                                         wx.FLP_DEFAULT_STYLE, validator = DirObjectValidator('file'))
+                                                         wx.FLP_DEFAULT_STYLE, validator=DirObjectValidator('file'))
 
         bSizer1_6_1_5.Add(self.m_filePicker_model_data, 1, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
@@ -200,7 +219,7 @@ class Analysis_Panel(wx.Panel):
 
         self.m_dirPicker_force_files = wx.DirPickerCtrl(sbSizer1_6_1.GetStaticBox(), wx.ID_ANY, wx.EmptyString,
                                                         u"Select a folder", wx.DefaultPosition, wx.DefaultSize,
-                                                        wx.DIRP_DEFAULT_STYLE, validator = DirObjectValidator('dir'))
+                                                        wx.DIRP_DEFAULT_STYLE, validator=DirObjectValidator('dir'))
 
         bSizer1_6_1_6.Add(self.m_dirPicker_force_files, 1, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
@@ -218,7 +237,7 @@ class Analysis_Panel(wx.Panel):
         self.m_filePicker_inertial_parameters = wx.FilePickerCtrl(sbSizer1_6_1.GetStaticBox(), wx.ID_ANY,
                                                                   wx.EmptyString, u"Select a file", u"*.*",
                                                                   wx.DefaultPosition, wx.DefaultSize,
-                                                                  wx.FLP_DEFAULT_STYLE, validator = DirObjectValidator('file'))
+                                                                  wx.FLP_DEFAULT_STYLE, validator=DirObjectValidator('file'))
 
         bSizer1_6_1_7.Add(self.m_filePicker_inertial_parameters, 1, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
@@ -235,7 +254,7 @@ class Analysis_Panel(wx.Panel):
 
         self.m_filePicker_msk_database = wx.FilePickerCtrl(sbSizer1_6_1.GetStaticBox(), wx.ID_ANY, wx.EmptyString,
                                                            u"Select a file", u"*.*", wx.DefaultPosition, wx.DefaultSize,
-                                                           wx.FLP_DEFAULT_STYLE, validator = DirObjectValidator('file'))
+                                                           wx.FLP_DEFAULT_STYLE, validator=DirObjectValidator('file'))
 
         bSizer_1_6_1_8.Add(self.m_filePicker_msk_database, 1, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
@@ -260,7 +279,7 @@ class Analysis_Panel(wx.Panel):
         bSizer1_8_1_1.Add(self.m_static_init_time, 0, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
         self.m_textCtrl_init_time = wx.TextCtrl(sbSizer1_8_1.GetStaticBox(), wx.ID_ANY, u"0", wx.DefaultPosition,
-                                                wx.DefaultSize, 0, validator = TextObjectValidator('no-alpha'))
+                                                wx.DefaultSize, 0, validator=TextObjectValidator('no-alpha'))
 
         bSizer1_8_1_1.Add(self.m_textCtrl_init_time, 0, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
@@ -276,7 +295,7 @@ class Analysis_Panel(wx.Panel):
         bSizer1_8_1_2.Add(self.m_static_end_time, 0, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
         self.m_textCtrl_end_time = wx.TextCtrl(sbSizer1_8_1.GetStaticBox(), wx.ID_ANY, wx.EmptyString,
-                                               wx.DefaultPosition, wx.DefaultSize, 0, validator = TextObjectValidator('no-alpha'))
+                                               wx.DefaultPosition, wx.DefaultSize, 0, validator=TextObjectValidator('no-alpha'))
         bSizer1_8_1_2.Add(self.m_textCtrl_end_time, 0, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
         sbSizer1_8_1.Add(bSizer1_8_1_2, 0, wx.EXPAND, 5)
@@ -292,7 +311,7 @@ class Analysis_Panel(wx.Panel):
         bSizer1_8_1_3.Add(self.m_static_sampling_frequency, 0, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
         self.m_textCtrl_sampling_frequency = wx.TextCtrl(sbSizer1_8_1.GetStaticBox(), wx.ID_ANY, u"100",
-                                                         wx.DefaultPosition, wx.DefaultSize, 0, validator = TextObjectValidator('no-alpha'))
+                                                         wx.DefaultPosition, wx.DefaultSize, 0, validator=TextObjectValidator('no-alpha'))
         bSizer1_8_1_3.Add(self.m_textCtrl_sampling_frequency, 0, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
         sbSizer1_8_1.Add(bSizer1_8_1_3, 0, wx.EXPAND, 5)
@@ -300,15 +319,16 @@ class Analysis_Panel(wx.Panel):
         bSizer1_8_1_4 = wx.BoxSizer(wx.HORIZONTAL)
 
         self.m_static_subject_bodymass = wx.StaticText(sbSizer1_8_1.GetStaticBox(), wx.ID_ANY,
-                                                         u"Subject Bodymass (Kg)", wx.DefaultPosition, wx.DefaultSize,
-                                                         0)
+                                                       u"Subject Bodymass (Kg)", wx.DefaultPosition, wx.DefaultSize,
+                                                       0)
         self.m_static_subject_bodymass.Wrap(-1)
         self.m_static_subject_bodymass.SetMinSize(wx.Size(150, -1))
 
         bSizer1_8_1_4.Add(self.m_static_subject_bodymass, 0, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
         self.m_textCtrl_subject_bodymass = wx.TextCtrl(sbSizer1_8_1.GetStaticBox(), wx.ID_ANY, u"50",
-                                                         wx.DefaultPosition, wx.DefaultSize, 0, validator = TextObjectValidator('no-alpha'))
+                                                       wx.DefaultPosition, wx.DefaultSize, 0,
+                                                       validator=TextObjectValidator('no-alpha'))
 
         bSizer1_8_1_4.Add(self.m_textCtrl_subject_bodymass, 0, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
@@ -334,7 +354,7 @@ class Analysis_Panel(wx.Panel):
 
         self.m_dirPicker_outputs_folder = wx.DirPickerCtrl(sbSizer1_10_1.GetStaticBox(), wx.ID_ANY, wx.EmptyString,
                                                            u"Select a folder", wx.DefaultPosition, wx.DefaultSize,
-                                                           wx.DIRP_DEFAULT_STYLE, validator = DirObjectValidator('dir'))
+                                                           wx.DIRP_DEFAULT_STYLE, validator=DirObjectValidator('dir'))
 
         bSizer1_10_1_1.Add(self.m_dirPicker_outputs_folder, 1, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
@@ -674,47 +694,59 @@ class Analysis_Panel(wx.Panel):
         try:
             if self.m_comboBox_analysis_type.GetValue() == 'Kinematic':
                 input_files_folder_fpath = self.m_dirPicker_input_files_folder.GetPath()
-                self.m_filePicker_modeling_file.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.mod')][0])
+                self.m_filePicker_modeling_file.SetPath([os.path.join(input_files_folder_fpath, x)
+                                                         for x in os.listdir(input_files_folder_fpath) if
+                                                         x.endswith('.mod')][0])
 
-                self.m_filePicker_model_state_q.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.q')][0])
+                self.m_filePicker_model_state_q.SetPath([os.path.join(input_files_folder_fpath, x) for x
+                                                         in os.listdir(input_files_folder_fpath) if
+                                                         x.endswith('.q')][0])
 
-                self.m_filePicker_model_drivers_labels.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.lbl')][0])
+                self.m_filePicker_model_drivers_labels.SetPath([os.path.join(input_files_folder_fpath, x) for x in
+                                                                os.listdir(input_files_folder_fpath) if
+                                                                x.endswith('.lbl')][0])
 
-                self.m_filePicker_model_data.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.data')][0])
+                self.m_filePicker_model_data.SetPath([os.path.join(input_files_folder_fpath, x) for x in
+                                                      os.listdir(input_files_folder_fpath) if
+                                                      x.endswith('.data')][0])
 
             elif self.m_comboBox_analysis_type.GetValue() == 'Forward Dynamic':
                 input_files_folder_fpath = self.m_dirPicker_input_files_folder.GetPath()
-                self.m_filePicker_modeling_file.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.mod')][0])
+                self.m_filePicker_modeling_file.SetPath([os.path.join(input_files_folder_fpath, x) for x in
+                                                         os.listdir(input_files_folder_fpath) if
+                                                         x.endswith('.mod')][0])
 
-                self.m_filePicker_model_state_q.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.q')][0])
+                self.m_filePicker_model_state_q.SetPath([os.path.join(input_files_folder_fpath, x) for x in
+                                                         os.listdir(input_files_folder_fpath) if
+                                                         x.endswith('.q')][0])
 
-                self.m_filePicker_model_state_qp.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.qp')][0])
+                self.m_filePicker_model_state_qp.SetPath([os.path.join(input_files_folder_fpath, x) for x in
+                                                          os.listdir(input_files_folder_fpath) if
+                                                          x.endswith('.qp')][0])
 
                 self.m_dirPicker_force_files.SetPath(input_files_folder_fpath)
 
-                # self.m_filePicker_inertial_parameters.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
+                # self.m_filePicker_inertial_parameters.SetPath([os.path.join(input_files_folder_fpath, x) for x in
+                # os.listdir(input_files_folder_fpath) if
                 #               x.endswith('.mp')][0])
 
             elif self.m_comboBox_analysis_type.GetValue() == 'Inverse Dynamic':
                 input_files_folder_fpath = self.m_dirPicker_input_files_folder.GetPath()
-                self.m_filePicker_modeling_file.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.mod')][0])
+                self.m_filePicker_modeling_file.SetPath([os.path.join(input_files_folder_fpath, x) for x in
+                                                         os.listdir(input_files_folder_fpath) if
+                                                         x.endswith('.mod')][0])
 
-                self.m_filePicker_model_state_q.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.q')][0])
+                self.m_filePicker_model_state_q.SetPath([os.path.join(input_files_folder_fpath, x) for x in
+                                                         os.listdir(input_files_folder_fpath) if
+                                                         x.endswith('.q')][0])
 
-                self.m_filePicker_model_drivers_labels.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.lbl')][0])
+                self.m_filePicker_model_drivers_labels.SetPath([os.path.join(input_files_folder_fpath, x) for x in
+                                                                os.listdir(input_files_folder_fpath) if
+                                                                x.endswith('.lbl')][0])
 
-                self.m_filePicker_model_data.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.data')][0])
+                self.m_filePicker_model_data.SetPath([os.path.join(input_files_folder_fpath, x) for x in
+                                                     os.listdir(input_files_folder_fpath) if
+                                                      x.endswith('.data')][0])
 
                 self.m_dirPicker_force_files.SetPath(input_files_folder_fpath)
 
@@ -723,25 +755,30 @@ class Analysis_Panel(wx.Panel):
 
             elif self.m_comboBox_analysis_type.GetValue() == 'Musculoskeletal':
                 input_files_folder_fpath = self.m_dirPicker_input_files_folder.GetPath()
-                self.m_filePicker_modeling_file.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.mod')][0])
+                self.m_filePicker_modeling_file.SetPath([os.path.join(input_files_folder_fpath, x) for x in
+                                                         os.listdir(input_files_folder_fpath) if
+                                                         x.endswith('.mod')][0])
 
-                self.m_filePicker_model_state_q.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.q')][0])
+                self.m_filePicker_model_state_q.SetPath([os.path.join(input_files_folder_fpath, x) for x in
+                                                         os.listdir(input_files_folder_fpath) if
+                                                         x.endswith('.q')][0])
 
-                self.m_filePicker_model_drivers_labels.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.lbl')][0])
+                self.m_filePicker_model_drivers_labels.SetPath([os.path.join(input_files_folder_fpath, x) for x in
+                                                                os.listdir(input_files_folder_fpath) if
+                                                                x.endswith('.lbl')][0])
 
-                self.m_filePicker_model_data.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.data')][0])
+                self.m_filePicker_model_data.SetPath([os.path.join(input_files_folder_fpath, x) for x in
+                                                      os.listdir(input_files_folder_fpath) if
+                                                      x.endswith('.data')][0])
 
                 self.m_dirPicker_force_files.SetPath(input_files_folder_fpath)
 
                 # self.m_filePicker_inertial_parameters.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
                 #               x.endswith('.mp')][0])
 
-                self.m_filePicker_msk_database.SetPath([os.path.join(input_files_folder_fpath, x) for x in os.listdir(input_files_folder_fpath) if
-                              x.endswith('.msk')][0])
+                self.m_filePicker_msk_database.SetPath([os.path.join(input_files_folder_fpath, x) for x in
+                                                        os.listdir(input_files_folder_fpath) if
+                                                        x.endswith('.msk')][0])
 
             self.m_dirPicker_outputs_folder.SetPath(self.m_dirPicker_input_files_folder.GetPath())
 
@@ -791,19 +828,17 @@ class Analysis_Panel(wx.Panel):
         event.Skip()
 
     def m_button_analysisOnButtonClick(self, event):
-            # Disable run analysis button until the end of the analysis
-            self.m_button_analysis.Enable(False)
+        # Disable run analysis button until the end of the analysis
+        self.m_button_analysis.Enable(False)
 
-            input_files_ctrls_list = []
+        input_files_ctrls_list = []
 
-            input_folder_ctrls_list = []
-
-            analysis_parameters_ctrls_list = [self.m_textCtrl_init_time,
-                                              self.m_textCtrl_end_time,
-                                              self.m_textCtrl_sampling_frequency]
+        analysis_parameters_ctrls_list = [self.m_textCtrl_init_time,
+                                          self.m_textCtrl_end_time,
+                                          self.m_textCtrl_sampling_frequency]
 
         # two tabs here
-        # try:
+        try:
             if self.m_comboBox_analysis_type.GetValue() == 'Kinematic':
                 input_files_ctrls_list = [self.m_filePicker_modeling_file,
                                           self.m_filePicker_model_state_q,
@@ -852,109 +887,111 @@ class Analysis_Panel(wx.Panel):
                 ctrl.GetValidator().Validate(ctrl)
 
             # three tabs here
-            # try:
-            fs = float(self.m_textCtrl_sampling_frequency.GetValue())
-            t0 = float(self.m_textCtrl_init_time.GetValue())
+            try:
+                fs = float(self.m_textCtrl_sampling_frequency.GetValue())
+                t0 = float(self.m_textCtrl_init_time.GetValue())
 
-            tf_fpath = self.m_filePicker_model_data.GetPath()
+                tf_fpath = self.m_filePicker_model_data.GetPath()
 
-            if self.m_comboBox_analysis_type.GetValue() != 'Forward Dynamic':
-                data = np.loadtxt(tf_fpath, dtype='float', delimiter=',', skiprows=1)
-            tf = float(self.m_textCtrl_end_time.GetValue())
+                if self.m_comboBox_analysis_type.GetValue() != 'Forward Dynamic':
+                    data = np.loadtxt(tf_fpath, dtype='float', delimiter=',', skiprows=1)
+                tf = float(self.m_textCtrl_end_time.GetValue())
 
-            check_smaller_equal(self.m_textCtrl_init_time, self.m_textCtrl_end_time)
+                check_smaller_equal(self.m_textCtrl_init_time, self.m_textCtrl_end_time)
 
                 # four tabs here
-                # try:
-            # Clear Messages Text Box
-            self.m_textCtrl_Messages.Clear()
+                try:
+                    # Clear Messages Text Box
+                    self.m_textCtrl_Messages.Clear()
 
-            # Run analysis
-            if self.m_comboBox_analysis_type.GetValue() == 'Kinematic':
-                model_output_fpath = run_inverse_analysis(self.m_comboBox_analysis_type.GetValue(),
-                                                          float(self.m_textCtrl_subject_bodymass.GetValue()),
-                                                          self.m_filePicker_modeling_file.GetPath(),
-                                                          self.m_filePicker_model_data.GetPath(),
-                                                          self.m_filePicker_model_state_q.GetPath(),
-                                                          self.m_filePicker_model_drivers_labels.GetPath(),
-                                                          '',
-                                                          '',
-                                                          self.m_dirPicker_outputs_folder.GetPath(),
-                                                          float(self.m_textCtrl_sampling_frequency.GetValue()),
-                                                          float(self.m_textCtrl_init_time.GetValue()),
-                                                          float(self.m_textCtrl_end_time.GetValue()),
-                                                          'gui',
-                                                          self.m_textCtrl_Messages
-                                                          )
+                    # Run analysis
+                    if self.m_comboBox_analysis_type.GetValue() == 'Kinematic':
+                        model_output_fpath = run_inverse_analysis(self.m_comboBox_analysis_type.GetValue(),
+                                                                  float(self.m_textCtrl_subject_bodymass.GetValue()),
+                                                                  self.m_filePicker_modeling_file.GetPath(),
+                                                                  self.m_filePicker_model_data.GetPath(),
+                                                                  self.m_filePicker_model_state_q.GetPath(),
+                                                                  self.m_filePicker_model_drivers_labels.GetPath(),
+                                                                  '',
+                                                                  '',
+                                                                  self.m_dirPicker_outputs_folder.GetPath(),
+                                                                  float(self.m_textCtrl_sampling_frequency.GetValue()),
+                                                                  float(self.m_textCtrl_init_time.GetValue()),
+                                                                  float(self.m_textCtrl_end_time.GetValue()),
+                                                                  'gui',
+                                                                  self.m_textCtrl_Messages
+                                                                  )
 
-            elif self.m_comboBox_analysis_type.GetValue() == 'Forward Dynamic':
-                model_output_fpath = run_forward_analysis(self.m_comboBox_analysis_type.GetValue(),
-                                                          self.m_filePicker_modeling_file.GetPath(),
-                                                          self.m_filePicker_model_state_q.GetPath(),
-                                                          self.m_filePicker_model_state_qp.GetPath(),
-                                                          self.m_dirPicker_force_files.GetPath(),
-                                                          self.m_dirPicker_outputs_folder.GetPath(),
-                                                          float(self.m_textCtrl_sampling_frequency.GetValue()),
-                                                          float(self.m_textCtrl_init_time.GetValue()),
-                                                          float(self.m_textCtrl_end_time.GetValue()),
-                                                          self.m_textCtrl_Messages)
+                    elif self.m_comboBox_analysis_type.GetValue() == 'Forward Dynamic':
+                        model_output_fpath = run_forward_analysis(self.m_comboBox_analysis_type.GetValue(),
+                                                                  self.m_filePicker_modeling_file.GetPath(),
+                                                                  self.m_filePicker_model_state_q.GetPath(),
+                                                                  self.m_filePicker_model_state_qp.GetPath(),
+                                                                  self.m_dirPicker_force_files.GetPath(),
+                                                                  self.m_dirPicker_outputs_folder.GetPath(),
+                                                                  float(self.m_textCtrl_sampling_frequency.GetValue()),
+                                                                  float(self.m_textCtrl_init_time.GetValue()),
+                                                                  float(self.m_textCtrl_end_time.GetValue()),
+                                                                  'gui',
+                                                                  self.m_textCtrl_Messages)
 
-            elif self.m_comboBox_analysis_type.GetValue() == 'Inverse Dynamic':
-                model_output_fpath = run_inverse_analysis(self.m_comboBox_analysis_type.GetValue(),
-                                                          float(self.m_textCtrl_subject_bodymass.GetValue()),
-                                                          self.m_filePicker_modeling_file.GetPath(),
-                                                          self.m_filePicker_model_data.GetPath(),
-                                                          self.m_filePicker_model_state_q.GetPath(),
-                                                          self.m_filePicker_model_drivers_labels.GetPath(),
-                                                          self.m_dirPicker_force_files.GetPath(),
-                                                          '',
-                                                          self.m_dirPicker_outputs_folder.GetPath(),
-                                                          float(self.m_textCtrl_sampling_frequency.GetValue()),
-                                                          float(self.m_textCtrl_init_time.GetValue()),
-                                                          float(self.m_textCtrl_end_time.GetValue()),
-                                                          'gui',
-                                                          self.m_textCtrl_Messages
-                                                          )
+                    elif self.m_comboBox_analysis_type.GetValue() == 'Inverse Dynamic':
+                        model_output_fpath = run_inverse_analysis(self.m_comboBox_analysis_type.GetValue(),
+                                                                  float(self.m_textCtrl_subject_bodymass.GetValue()),
+                                                                  self.m_filePicker_modeling_file.GetPath(),
+                                                                  self.m_filePicker_model_data.GetPath(),
+                                                                  self.m_filePicker_model_state_q.GetPath(),
+                                                                  self.m_filePicker_model_drivers_labels.GetPath(),
+                                                                  self.m_dirPicker_force_files.GetPath(),
+                                                                  '',
+                                                                  self.m_dirPicker_outputs_folder.GetPath(),
+                                                                  float(self.m_textCtrl_sampling_frequency.GetValue()),
+                                                                  float(self.m_textCtrl_init_time.GetValue()),
+                                                                  float(self.m_textCtrl_end_time.GetValue()),
+                                                                  'gui',
+                                                                  self.m_textCtrl_Messages
+                                                                  )
 
-            elif self.m_comboBox_analysis_type.GetValue() == 'Musculoskeletal':
-                model_output_fpath = run_inverse_analysis(self.m_comboBox_analysis_type.GetValue(),
-                                                          float(self.m_textCtrl_subject_bodymass.GetValue()),
-                                                          self.m_filePicker_modeling_file.GetPath(),
-                                                          self.m_filePicker_model_data.GetPath(),
-                                                          self.m_filePicker_model_state_q.GetPath(),
-                                                          self.m_filePicker_model_drivers_labels.GetPath(),
-                                                          self.m_dirPicker_force_files.GetPath(),
-                                                          self.m_filePicker_msk_database.GetPath(),
-                                                          self.m_dirPicker_outputs_folder.GetPath(),
-                                                          float(self.m_textCtrl_sampling_frequency.GetValue()),
-                                                          float(self.m_textCtrl_init_time.GetValue()),
-                                                          float(self.m_textCtrl_end_time.GetValue()),
-                                                          'gui',
-                                                          self.m_textCtrl_Messages
-                                                          )
+                    elif self.m_comboBox_analysis_type.GetValue() == 'Musculoskeletal':
+                        model_output_fpath = run_inverse_analysis(self.m_comboBox_analysis_type.GetValue(),
+                                                                  float(self.m_textCtrl_subject_bodymass.GetValue()),
+                                                                  self.m_filePicker_modeling_file.GetPath(),
+                                                                  self.m_filePicker_model_data.GetPath(),
+                                                                  self.m_filePicker_model_state_q.GetPath(),
+                                                                  self.m_filePicker_model_drivers_labels.GetPath(),
+                                                                  self.m_dirPicker_force_files.GetPath(),
+                                                                  self.m_filePicker_msk_database.GetPath(),
+                                                                  self.m_dirPicker_outputs_folder.GetPath(),
+                                                                  float(self.m_textCtrl_sampling_frequency.GetValue()),
+                                                                  float(self.m_textCtrl_init_time.GetValue()),
+                                                                  float(self.m_textCtrl_end_time.GetValue()),
+                                                                  'gui',
+                                                                  self.m_textCtrl_Messages
+                                                                  )
 
+                    self.m_button_analysis.Enable(True)
+
+                # four tabs here
+                except Exception as e:
+                    self.m_button_analysis.Enable(True)
+                    self.m_textCtrl_Messages.AppendText(str(e.__class__.__name__) + " : " + str(e) + '\n')
+                    pass
+
+            # three tabs here
+            except Exception as e:
+                self.m_button_analysis.Enable(True)
+                self.m_textCtrl_Messages.AppendText(str(e.__class__.__name__) + " : " + str(e) + '\n')
+                pass
+
+        # two tabs here
+        except Exception as e:
             self.m_button_analysis.Enable(True)
-        #
-        #         # four tabs here
-        #         except Exception as e:
-        #             self.m_button_analysis.Enable(True)
-        #             self.m_textCtrl_Messages.AppendText(str(e) + '\n')
-        #             pass
-        #
-        #     # three tabs here
-        #     except Exception as e:
-        #         self.m_button_analysis.Enable(True)
-        #         self.m_textCtrl_Messages.AppendText(str(e) + '\n')
-        #         pass
-        #
-        # # two tabs here
-        # except Exception as e:
-        #     self.m_button_analysis.Enable(True)
-        #     self.m_textCtrl_Messages.AppendText(str(e) + '\n')
-        #     pass
+            self.m_textCtrl_Messages.AppendText(str(e.__class__.__name__) + " : " + str(e) + '\n')
+            pass
 
     def m_button_Messages_clearOnButtonClick(self, event):
         self.m_textCtrl_Messages.Clear()
+
 
 if __name__ == "__main__":
     import doctest

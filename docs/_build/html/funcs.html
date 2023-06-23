@@ -424,35 +424,8 @@ of the multibody system</p></li>
 </dd></dl>
 
 </section>
-<section id="module-funcs.compute_export_model_loc_coords">
-<span id="funcs-compute-export-model-loc-coords-module"></span><h2>funcs.compute_export_model_loc_coords module<a class="headerlink" href="#module-funcs.compute_export_model_loc_coords" title="Permalink to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="funcs.compute_export_model_loc_coords.compute_export_model_loc_coords">
-<span class="sig-prename descclassname"><span class="pre">funcs.compute_export_model_loc_coords.</span></span><span class="sig-name descname"><span class="pre">compute_export_model_loc_coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">export_fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/compute_export_model_loc_coords.html#compute_export_model_loc_coords"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.compute_export_model_loc_coords.compute_export_model_loc_coords" title="Permalink to this definition"></a></dt>
-<dd><p>Function exports the local coordinates of the points of interest of the multibody system to a .jt file
-that will be used to visualize the segments of the multibody system.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fpath</strong> -- string
-absolute path of the input file</p></li>
-<li><p><strong>export_fpath</strong> -- string
-absolute path of the output file</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>pandas.dataframe</dt><dd><p>local coordinates of the points of interest of the multibody system</p>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>model_segments_loc_coords</p>
-</dd>
-</dl>
-</dd></dl>
-
+<section id="funcs-compute-export-model-loc-coords-module">
+<h2>funcs.compute_export_model_loc_coords module<a class="headerlink" href="#funcs-compute-export-model-loc-coords-module" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-funcs.compute_fmP">
 <span id="funcs-compute-fmp-module"></span><h2>funcs.compute_fmP module<a class="headerlink" href="#module-funcs.compute_fmP" title="Permalink to this heading"></a></h2>
@@ -1463,26 +1436,8 @@ muscle activations of each muscle of the multibody system</p></li>
 </dd></dl>
 
 </section>
-<section id="module-funcs.file2dataConst">
-<span id="funcs-file2dataconst-module"></span><h2>funcs.file2dataConst module<a class="headerlink" href="#module-funcs.file2dataConst" title="Permalink to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="funcs.file2dataConst.file2dataConst">
-<span class="sig-prename descclassname"><span class="pre">funcs.file2dataConst.</span></span><span class="sig-name descname"><span class="pre">file2dataConst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/file2dataConst.html#file2dataConst"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.file2dataConst.file2dataConst" title="Permalink to this definition"></a></dt>
-<dd><p>Function reads the information describing the topology of the multibody system.</p>
-<dl class="simple">
-<dt>Parameters</dt><dd><dl class="simple">
-<dt>fpath<span class="classifier">str</span></dt><dd><p>modeling file containing all the information describing the topology of the multibody system</p>
-</dd>
-</dl>
-</dd>
-<dt>Return</dt><dd><dl class="simple">
-<dt>dataConst<span class="classifier">numpy.ndarray</span></dt><dd><p>all the information describing the topology of the multibody system</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
+<section id="funcs-file2dataconst-module">
+<h2>funcs.file2dataConst module<a class="headerlink" href="#funcs-file2dataconst-module" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-funcs.filter_signal">
 <span id="funcs-filter-signal-module"></span><h2>funcs.filter_signal module<a class="headerlink" href="#module-funcs.filter_signal" title="Permalink to this heading"></a></h2>
@@ -1777,37 +1732,8 @@ option to apply or not the muscle passive component in the multibody system</p><
 </dd></dl>
 
 </section>
-<section id="module-funcs.raw2selectedData">
-<span id="funcs-raw2selecteddata-module"></span><h2>funcs.raw2selectedData module<a class="headerlink" href="#module-funcs.raw2selectedData" title="Permalink to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="funcs.raw2selectedData.raw2selectedData">
-<span class="sig-prename descclassname"><span class="pre">funcs.raw2selectedData.</span></span><span class="sig-name descname"><span class="pre">raw2selectedData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drivers_info</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/raw2selectedData.html#raw2selectedData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.raw2selectedData.raw2selectedData" title="Permalink to this definition"></a></dt>
-<dd><p>Function computes the knots, coefficients and spline order for raw data
-and first and second spline derivatives.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y</strong> -- Pandas.dataframe
-model drivers data</p></li>
-<li><p><strong>drivers_info</strong> -- dictionary
-dictionary with all model drivers number and respective
-data to be splined</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>dictionary</dt><dd><p>knots, coefficients and spline order for raw data and
-first and second spline derivatives</p>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>output_data</p>
-</dd>
-</dl>
-</dd></dl>
-
+<section id="funcs-raw2selecteddata-module">
+<h2>funcs.raw2selectedData module<a class="headerlink" href="#funcs-raw2selecteddata-module" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-funcs.read_DoF_labels">
 <span id="funcs-read-dof-labels-module"></span><h2>funcs.read_DoF_labels module<a class="headerlink" href="#module-funcs.read_DoF_labels" title="Permalink to this heading"></a></h2>
@@ -1838,19 +1764,13 @@ absolute path of the file containing the number and label of each Dof of the mul
 <span id="funcs-read-angular-driver-info-module"></span><h2>funcs.read_angular_driver_info module<a class="headerlink" href="#module-funcs.read_angular_driver_info" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="funcs.read_angular_driver_info.read_angular_driver_info">
-<span class="sig-prename descclassname"><span class="pre">funcs.read_angular_driver_info.</span></span><span class="sig-name descname"><span class="pre">read_angular_driver_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ang_drivers_info</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/read_angular_driver_info.html#read_angular_driver_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.read_angular_driver_info.read_angular_driver_info" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">funcs.read_angular_driver_info.</span></span><span class="sig-name descname"><span class="pre">read_angular_driver_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeling_file_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/read_angular_driver_info.html#read_angular_driver_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.read_angular_driver_info.read_angular_driver_info" title="Permalink to this definition"></a></dt>
 <dd><p>Function compiles the information about the angular driving constraint equations of
 the multibody system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>row</strong> -- numpy.array
-info about each angular driving constraint equation of the multibody system.</p></li>
-<li><p><strong>idx</strong> -- int
-type of each angular driving constraint equation of the multibody system</p></li>
-<li><p><strong>ang_drivers_info</strong> -- dictionary
-empty dictionary .</p></li>
-</ul>
+<dd class="field-odd"><p><strong>modeling_file_data</strong> -- numpy array
+all information regarding the modeling of each component of the multibody system</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><dl class="simple">

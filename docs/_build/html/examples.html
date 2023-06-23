@@ -159,10 +159,10 @@
 <thead>
 <tr class="row-odd"><th class="head"><p># Type,</p></th>
 <th class="head"><p>Body,</p></th>
-<th class="head"><p>Lu,</p></th>
 <th class="head"><p>Mass,</p></th>
 <th class="head"><p>Moment of Inertia,</p></th>
-<th class="head"><p>,</p></th>
+<th class="head"><p>CoMLocCoordsX,</p></th>
+<th class="head"><p>CoMLocCoordsY,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
@@ -177,8 +177,8 @@
 <tr class="row-even"><td><p>1,</p></td>
 <td><p>1,</p></td>
 <td><p>1,</p></td>
-<td><p>1,</p></td>
-<td><p>0.0833,</p></td>
+<td><p>0.0,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
@@ -234,10 +234,10 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>1</p></td>
-<td><p>Model the double support joint.</p></td>
+<td><p>Model the rigid body.</p></td>
 </tr>
 <tr class="row-odd"><td><p>2</p></td>
-<td><p>Model the rigid body.</p></td>
+<td><p>Model the double support joint.</p></td>
 </tr>
 </tbody>
 </table>
@@ -382,11 +382,11 @@
 <thead>
 <tr class="row-odd"><th class="head"><p># Type,</p></th>
 <th class="head"><p>Body,</p></th>
-<th class="head"><p>Lu,</p></th>
 <th class="head"><p>Mass,</p></th>
 <th class="head"><p>Moment of Inertia,</p></th>
 <th class="head"><p>CoMLocCoordsX,</p></th>
 <th class="head"><p>CoMLocCoordsY,</p></th>
+<th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
@@ -400,10 +400,10 @@
 <tr class="row-even"><td><p>1,</p></td>
 <td><p>1,</p></td>
 <td><p>1,</p></td>
-<td><p>1,</p></td>
 <td><p>0.0833,</p></td>
-<td><p>			  0,</p></td>
 <td><p>			   0,</p></td>
+<td><p>			  0,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
@@ -412,13 +412,13 @@
 <td><p>0,</p></td>
 <td><p>0</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong># Type</strong>,</p></td>
+<tr class="row-odd"><td><p><strong>Type</strong>,</p></td>
 <td><p><strong>Body</strong>,</p></td>
-<td><p><strong>Lu</strong>,</p></td>
 <td><p><strong>Mass</strong>,</p></td>
 <td><p><strong>Moment of Inertia</strong>,</p></td>
 <td><p><strong>CoMLocCoordsX</strong>,</p></td>
 <td><p><strong>CoMLocCoordsY</strong>,</p></td>
+<td><p>,</p></td>
 <td><p>,</p></td>
 <td><p>,</p></td>
 <td><p>,</p></td>
@@ -430,10 +430,10 @@
 <tr class="row-even"><td><p>1,</p></td>
 <td><p>2,</p></td>
 <td><p>1,</p></td>
-<td><p>1,</p></td>
 <td><p>0.0833,</p></td>
-<td><p>			    0,</p></td>
-<td><p>			     0,</p></td>
+<td><p>		     0,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
@@ -442,7 +442,7 @@
 <td><p>0,</p></td>
 <td><p>0</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong># Type</strong>,</p></td>
+<tr class="row-odd"><td><p><strong>Type</strong>,</p></td>
 <td><p><strong>MovBd</strong>,</p></td>
 <td><p><strong>LcCMvBx</strong>,</p></td>
 <td><p><strong>LcCMvBy</strong>,</p></td>
@@ -460,9 +460,9 @@
 <tr class="row-even"><td><p>8,</p></td>
 <td><p>1,</p></td>
 <td><p>-0.5,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
@@ -472,7 +472,7 @@
 <td><p>0,</p></td>
 <td><p>0</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong># Type</strong>,</p></td>
+<tr class="row-odd"><td><p><strong>Type</strong>,</p></td>
 <td><p><strong>MovBd1</strong>,</p></td>
 <td><p><strong>MovBd2</strong>,</p></td>
 <td><p><strong>LcCMvB1x</strong>,</p></td>
@@ -487,10 +487,10 @@
 <td><p>,</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>		 9,</p></td>
+<tr class="row-even"><td><p>9,</p></td>
 <td><p>	   1,</p></td>
 <td><p>2,</p></td>
-<td><p>	   0.5,</p></td>
+<td><p>0.5,</p></td>
 <td><p>0.0,</p></td>
 <td><p>-0.5,</p></td>
 <td><p>0,</p></td>
@@ -502,7 +502,7 @@
 <td><p>0,</p></td>
 <td><p>0</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong># Type</strong>,</p></td>
+<tr class="row-odd"><td><p><strong>Type</strong>,</p></td>
 <td><p><strong>MovBd</strong>,</p></td>
 <td><p><strong>BlkDir</strong>,</p></td>
 <td><p><strong>LcCMvBx</strong>,</p></td>
@@ -523,7 +523,7 @@
 <td><p>0.5,</p></td>
 <td><p>0.0,</p></td>
 <td><p>0.0,</p></td>
-<td><p>0.0,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
@@ -762,11 +762,11 @@ The system starts in a diagonal position with respect to the global reference fr
 <thead>
 <tr class="row-odd"><th class="head"><p># Type,</p></th>
 <th class="head"><p>Body,</p></th>
-<th class="head"><p>Lu,</p></th>
 <th class="head"><p>Mass,</p></th>
 <th class="head"><p>Moment of Inertia,</p></th>
 <th class="head"><p>CoMLocCoordsX,</p></th>
 <th class="head"><p>CoMLocCoordsY,</p></th>
+<th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
@@ -779,7 +779,7 @@ The system starts in a diagonal position with respect to the global reference fr
 <tbody>
 <tr class="row-even"><td><p>1,</p></td>
 <td><p>1,</p></td>
-<td><p>1.0,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
@@ -794,10 +794,10 @@ The system starts in a diagonal position with respect to the global reference fr
 </tr>
 <tr class="row-odd"><td><p><strong># Type</strong>,</p></td>
 <td><p><strong>MovBd</strong>,</p></td>
-<td><p><strong>Lu</strong>,</p></td>
-<td><p><strong>Lv</strong>,</p></td>
 <td><p><strong>GlCVtX</strong>,</p></td>
 <td><p><strong>GlCVtY</strong>,</p></td>
+<td><p>,</p></td>
+<td><p>,</p></td>
 <td><p>,</p></td>
 <td><p>,</p></td>
 <td><p>,</p></td>
@@ -809,9 +809,9 @@ The system starts in a diagonal position with respect to the global reference fr
 </tr>
 <tr class="row-even"><td><p>3,</p></td>
 <td><p>1,</p></td>
-<td><p>1.0,</p></td>
-<td><p>1.0,</p></td>
-<td><p>1.0,</p></td>
+<td><p>1,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
@@ -824,10 +824,10 @@ The system starts in a diagonal position with respect to the global reference fr
 </tr>
 <tr class="row-odd"><td><p><strong># Type</strong>,</p></td>
 <td><p><strong>MovBd</strong>,</p></td>
-<td><p><strong>Lu</strong>,</p></td>
-<td><p><strong>Lv</strong>,</p></td>
 <td><p><strong>GlCVtX</strong>,</p></td>
 <td><p><strong>GlCVtY</strong>,</p></td>
+<td><p>,</p></td>
+<td><p>,</p></td>
 <td><p>,</p></td>
 <td><p>,</p></td>
 <td><p>,</p></td>
@@ -840,8 +840,8 @@ The system starts in a diagonal position with respect to the global reference fr
 <tr class="row-even"><td><p>5,</p></td>
 <td><p>1,</p></td>
 <td><p>1,</p></td>
-<td><p>1,</p></td>
-<td><p>1,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
@@ -1119,7 +1119,7 @@ The system starts in a diagonal position with respect to the global reference fr
 <p>This model represents the lower body of the human body and is composed of six segments (feet, legs and thighs) connected by revolute joints.
 The center of the hip, knee and ankle joint centers joint was defined as proposed by Wu et al. [2] and the inertial parameters according to Dempster et al [3].</p>
 <figure class="align-center" id="id33">
-<a class="reference internal image-reference" href="_images/lower_body.png"><img alt="Representation of the lower body" src="_images/lower_body.png" style="width: 409.5px; height: 389.4px;" /></a>
+<a class="reference internal image-reference" href="_images/lower_body.png"><img alt="Representation of the lower body" src="_images/lower_body.png" style="width: 339.0px; height: 389.4px;" /></a>
 <figcaption>
 <p><span class="caption-text">Fig 5.  Representation of the planar lower body of the human body (right limbs - green, left limbs - red).</span><a class="headerlink" href="#id33" title="Permalink to this image"></a></p>
 </figcaption>

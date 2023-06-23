@@ -59,6 +59,7 @@ def compute_splined_forces_coords(t, q, forceSplineFuncs, generalized_forces_vec
         tck_coord_z = forceSplineFuncs[force][body]['tck_coords_z']
         tck_on_off = forceSplineFuncs[force][body]['tck_on_off']
 
+        print('time', t)
         # Spline on_off
         on_off = splev(t, tck_on_off, der=0, ext=2)
 

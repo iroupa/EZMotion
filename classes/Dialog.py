@@ -75,7 +75,8 @@ class MyDialog(wx.Dialog):
         bSizer_1.Add(self.m_static_y_axis, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 5)
 
         self.m_textCtrl_plot_y_axis_min = wx.TextCtrl(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition,
-                                                      Size(100, -1), 0)
+                                                      wx.Size(100, -1), 0)
+
         self.m_textCtrl_plot_y_axis_min.SetMinSize(wx.Size(50, -1))
 
         bSizer_1.Add(self.m_textCtrl_plot_y_axis_min, 1, wx.ALL | wx.EXPAND, 5)

@@ -64,7 +64,7 @@ The ``Input Files Folder > Input Files Folder`` option allows to select the fold
 **3. Step: Choose the input files for the type of analysis in step defined #1.** 
 ----------------------------------------------------
  
-This step is performed automatically during step #2. However, the user can select veach file manually, by using the selection tool available on the right side of the section. 
+This step is performed automatically during step #2. However, the user can select each file manually, by using the selection tool available on the right side of the section. 
 
 .. figure:: .\\images\\EZ_Motion_Analysis_Panel_Input_Files.png
    :scale: 75 %
@@ -73,10 +73,10 @@ This step is performed automatically during step #2. However, the user can selec
    
    Fig 4. EZMotion: Analysis Panel - Input Files Section.
 
-**4. Step: Set the initial and final time, sampling frequency and subject bodymass  for the analysis defined #1.**  
+**4. Step: Set the initial and final time, sampling frequency and subject bodymass for the analysis defined in step #1.**  
 ----------------------------------------------------
 
-The ``Analysis Parameters`` section allows to select the initial (``Analysis Parameters > Initial Time (s)``) and final time (``Analysis Parameters > Final Time (s)``) of the analysis as well as its sampling frequency (``Analysis Parameters > Sampling Frequency (Hz)``). The subject bodymass (``Analysis Parameters > Subject Bodymass (kg)``) will be used to normalize the dynamic outputs of the analysis, such as the ``joint moments`` or ``joint power`` of the model. 
+The ``Analysis Parameters`` section allows to select the initial (``Analysis Parameters > Initial Time (s)``) and final time (``Analysis Parameters > Final Time (s)``) of the analysis as well as its sampling frequency (``Analysis Parameters > Sampling Frequency (Hz)``). The subject bodymass (``Analysis Parameters > Subject Bodymass (kg)``) will be used to normalize the dynamic outputs of the analysis, such as the ``joint moments`` or ``joint power`` of the model. By default, this value is set to 1 kg.
 
 .. figure:: .\\images\\EZ_Motion_Analysis_Panel_Analysis_Parameters.png
    :scale: 75 %
@@ -125,7 +125,7 @@ The ``Messages`` section provides a feedback about the evolution of the analysis
 Visualize Outputs
 ~~~~~~~~~~~~~~~~~ 
 		
-The ``Visualization Panel``	comprises two resizable panels (see Figure 9). In the left panel, composed of several sections with distinct functions (see Table 2) the input files and the variable to plot are selected, while in the right panel the model and the selected variable are plotted. 
+The ``Visualization Panel``	comprises two resizable panels (see Figure 9). In the left panel, composed of several sections (see Table 2) with distinct functions  the input files and the variable to plot are selected, while in the right panel the model and the selected variable are plotted. 
 				
 .. figure:: .\\images\\EZ_Motion_Viz_Panel.png
 	:scale: 75 %
@@ -157,10 +157,10 @@ To visualize the analysis, the user needs to follow the following steps:
 
 To start the animation, it is necessary to press the ``Show Model`` button. 		
 
-**1. Step: Select the folder containing the input files for the animation.**
+**1. Step: Select the folder containing the input files for the animation. (optional)**
 ----------------------------------------------------
 				
-The ``Input Files Folder > Input Files Folder`` option allows to select the folder in which the input files for the animation are located. By selecting a specific folder, the input fields in the ``Input Files`` section will be automatically updated. However, it is also possible to manually select such input files.
+The ``Input Files Folder > Input Files Folder`` option allows to select the folder in which the input files for the animation are located. By selecting a specific folder, the input fields in the ``Input Files`` section (see Figure 4) will be automatically updated. However, it is also possible to manually select such input files.
 			
 		
 .. figure:: .\\images\\EZ_Motion_Viz_Panel_Input_Files_Folder.png
@@ -170,19 +170,19 @@ The ``Input Files Folder > Input Files Folder`` option allows to select the fold
    
    Fig 10. EZMotion: Visualization Panel - Input Files Folder.	
 			
-**2. Step: Select the input files for the analysis defined in step #1. (optional)**  
+**2. Step: Select the input files for the analysis defined in step #1. (mandatory)**  
 ----------------------------------------------------
 
 The ``Input Files Folder > Input Files Folder`` option allows to select the folder in which the ``input files`` for the selected analysis are located. The list of input files required for each type of analysis and their detailed description is provided in :doc:`Input Files </input_files>` and :doc:`Modeling </modeling>` sections, respectively. By selecting a specific folder, the input fields in the ``Input Files`` section will be automatically updated. However, it is also possible to manually select such input files.
 		
-.. figure:: .\\images\\EZ_Motion_Viz_Panel_Input_Files.png
+.. figure:: .\\images\\EZ_Motion_Viz_Panel.png
    :scale: 75 %
    :align: center
    :alt: EZMotion: Analysis Panel - Input Files Section
    
    Fig 11. EZMotion: Visualizatiom Panel - Input Files Section.
 	
-**3. Step: Select the variable to plot.**  
+**3. Step: Select the variable to plot. mandatory)**  
 ----------------------------------------------------		
 			
 The ``Plot Data > Variable`` option allows to select the variable of the model, available in the outputs file (``.out``), that will be presented in the lower right plot. 
@@ -199,7 +199,7 @@ By selecting the ``Plot Data > Filter Data > Yes`` option it is possible to plot
 **4. Step: Export plotted variable. (optional)**  
 ----------------------------------------------------	
 
-The ``Outputs`` section allows to select the folder to which the variable presented on the lower right plot will be exported. For that purpose it is necessary to select the ``Outputs > Export Outputs > Yes`` option (see Figure 4). Next, the user must define the initial ``Outputs > Initial Frame`` and final frame ``Outputs > End Frame`` of the analysis. If requested, the time variable may be normalized between 0 and 100 ``Outputs > Normalized``.
+The ``Outputs`` section allows to select the folder to which the variable presented on the lower right plot will be exported. For that purpose it is necessary to select the ``Outputs > Export Outputs > Yes`` option (see Figure 13). Next, the user must define the initial ``Outputs > Initial Frame`` and final frame ``Outputs > End Frame`` of the analysis. If requested, the time variable may be normalized between 0 and 100 % ``Outputs > Normalized``.
 		
 .. figure:: .\\images\\EZ_Motion_Viz_Panel_Export_Outputs.png
 	:scale: 75 %
@@ -209,7 +209,7 @@ The ``Outputs`` section allows to select the folder to which the variable presen
 	Fig 13. EZMotion: Visualization Panel - Export Outputs Section.
 	
 	
-**5. Step: View feedback**
+**5. Step: View feedback (optional)**
 -----------------------------------
 
 The ``Messages`` section alerts the user in case an error occurs during the visualization of the outputs.

@@ -21,35 +21,51 @@ __email__ = "iroupa@gmail.com"
 __license__ = "Apache 2.0"
 
 
+# import wx
+# import wx.xrc
+# import csv
+# import os
+# from scipy import signal
+# import numpy as np
+# from collections import Counter
+# import os
+# from matplotlib.backends.backend_wxagg import FigureCanvasWxAgg as FigureCanvas
+# from matplotlib.backends.backend_wxagg import NavigationToolbar2WxAgg as NavigationToolbar
+# import time
+# import matplotlib as mpl
+# import pathlib
+# from matplotlib.animation import FuncAnimation
+# import mpl_toolkits.axes_grid1
+# import matplotlib.pyplot as plt
+# from matplotlib.animation import FuncAnimation
+# import mpl_toolkits.axes_grid1
+# import matplotlib.widgets
+# import os
+# from classes.Player import Player
+# matplotlib.use('TkAgg')
+
 import wx
-import wx.xrc
 import csv
-import os
-from scipy import signal
 import numpy as np
 from collections import Counter
-import os
 from matplotlib.backends.backend_wxagg import FigureCanvasWxAgg as FigureCanvas
 from matplotlib.backends.backend_wxagg import NavigationToolbar2WxAgg as NavigationToolbar
 import time
 import matplotlib as mpl
 import pathlib
 from matplotlib.animation import FuncAnimation
-import mpl_toolkits.axes_grid1
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
-import mpl_toolkits.axes_grid1
-import matplotlib.widgets
-import os
 from classes.Player import Player
-matplotlib.use('TkAgg')
+
+mpl.use('TkAgg')
+
 
 
 class Plot_Panel(wx.Panel):
     def __init__(self, parent, id=-1, dpi=None, **kwargs):
         wx.Panel.__init__(self, parent, id=id, pos=(0.125, 0.92), **kwargs)
         # self.figure     = mpl.figure.Figure(dpi=dpi, figsize=(2, 2))
-        self.figure, (self.ax1, self.ax2) = plt.subplots(2, 1)
+        self.figure, (self.model_plot_ax, self.variable_plot_ax) = plt.subplots(2, 1)
         self.canvas = FigureCanvas(self, -1, self.figure)
         self.toolbar = NavigationToolbar(self.canvas)
         self.toolbar.Realize()
@@ -61,6 +77,7 @@ class Plot_Panel(wx.Panel):
         self.show_model_refs = True
         self.show_model_markers = True
         self.show_grfs = True
+        self.show_grid = True
 
         self.SetMinSize(wx.Size(250, 250))
 
@@ -80,22 +97,23 @@ class Plot_Panel(wx.Panel):
                    ):
 
         # Clear both axes when a new variable is selected
-        self.ax1.cla()
-        self.ax2.cla()
+        self.model_plot_ax.cla()
+        self.variable_plot_ax.cla()
 
         # Set variable plot 'y' label
-        self.ax2.set_ylabel(variable_plot_ylabel)
+        self.variable_plot_ax.set_ylabel(variable_plot_ylabel)
+        self.variable_plot_ax.set_xlabel('Frames [n]')
 
         # Turn grid of variable plot visible
-        self.ax2.grid(True)
+        self.variable_plot_ax.grid(True)
 
         # Set model plot 'x' and 'y' limits
-        self.ax1.set_xlim(model_plot_xlim)
-        self.ax1.set_ylim(model_plot_ylim)
+        self.model_plot_ax.set_xlim(model_plot_xlim)
+        self.model_plot_ax.set_ylim(model_plot_ylim)
 
         # Set plotted variable 'x' and 'y' limits
-        self.ax2.set_xlim(variable_plot_xlim)
-        self.ax2.set_ylim(variable_plot_ylim)
+        self.variable_plot_ax.set_xlim(variable_plot_xlim)
+        self.variable_plot_ax.set_ylim(variable_plot_ylim)
 
         # Get number of frames of processed data
         variable_plot_xdata = np.arange(0, variable_plot_ydata.shape[0], 1)
@@ -108,81 +126,100 @@ class Plot_Panel(wx.Panel):
 
         # Create the lines that represent the segments of the multibody system in the left plot
         model_segment_lines = sum(
-            [self.ax1.plot([], [], '-', color='black', linewidth=1.5) for n in range(int(nRigidBodies))], [])
+            [self.model_plot_ax.plot([], [], '-', color='black', linewidth=1.5) for n in range(int(nRigidBodies))], [])
 
         # Initialize the plot of the CoM of each segment of the model
         model_CoMs = sum(
-            [self.ax1.plot([], [], marker="o", color='orange', ms=15) for n in range(int(nRigidBodies))], [])
+            [self.model_plot_ax.plot([], [], marker="o", color='orange', ms=15) for n in range(int(nRigidBodies))], [])
 
         # Initialize the vertical line that follows the plot of the selected variable
-        v_line = self.ax2.axvline(0, color="cornflowerblue")
+        v_line = self.variable_plot_ax.axvline(0, color="cornflowerblue")
 
         # Initialize the plot of the selected variable
-        scatter_point, = self.ax2.plot([], [], marker="o", color="crimson", ms=10)
+        scatter_point, = self.variable_plot_ax.plot([], [], marker="o", color="crimson", ms=10)
 
         # Initialize the plot of 'x' axis of each segment of the model
-        x_axes_lines = sum([self.ax1.plot([], [], '-', color='red', linewidth=2.5) for n in
+        x_axes_lines = sum([self.model_plot_ax.plot([], [], '-', color='red', linewidth=2.5) for n in
                             range(int(nRigidBodies))], [])
 
         # Initialize the plot of 'z' axis of each segment of the model
-        z_axes_lines = sum([self.ax1.plot([], [], '-', color='blue', linewidth=2.5) for n in
+        z_axes_lines = sum([self.model_plot_ax.plot([], [], '-', color='blue', linewidth=2.5) for n in
                             range(int(nRigidBodies))], [])
 
         # Initialize the plot of the ground reaction forces of the model
         grf_lines = sum(
-                [self.ax1.plot([], [], '-', color='purple', linewidth=1.5) for n in range(len(grf_info.keys()))], [])
+                [self.model_plot_ax.plot([], [], '-', color='purple', linewidth=1.5) for n in range(len(grf_info.keys()))], [])
 
         # Initialize the plot of the experimental markers of the model
         model_markers_lines = sum(
-            [self.ax1.plot([], [], '-', marker="x", color='black', linewidth=1.5) for n in range(n_markers)],
+            [self.model_plot_ax.plot([], [], '-', marker="x", color='black', linewidth=1.5) for n in range(n_markers)],
             [])
 
         # Combine all plots lines in one object
-        lines = [model_segment_lines, model_CoMs, v_line, scatter_point, x_axes_lines,
-                 z_axes_lines, grf_lines, model_markers_lines]
+        lines = [model_segment_lines,
+                 model_CoMs,
+                 v_line,
+                 scatter_point,
+                 x_axes_lines,
+                 z_axes_lines,
+                 grf_lines,
+                 model_markers_lines]
 
         # Plot the selected variable of the model in self.axis 2
-        self.ax2.plot(variable_plot_ydata)
+        self.variable_plot_ax.plot(variable_plot_ydata)
+
 
         # Show value of selected variable of the model in every frame of the right plot
-        t1 = self.ax2.text(0, 0, '')
+        t1 = self.variable_plot_ax.text(0, 0, '')
 
         def init():
+            # Show model plot grid
+            if self.show_grid:
+                self.model_plot_ax.grid(True)
+            elif not self.show_grid:
+                self.model_plot_ax.grid(False)
+
             # Initialize model segments
             lines[0] = sum(
-                [self.ax1.plot([], [], '-', color='black', linewidth=1.5) for n in range(int(nRigidBodies))], [])
+                [self.model_plot_ax.plot([], [], '-', color='black', linewidth=1.5) for n in range(int(nRigidBodies))], [])
 
             # Initialize model segments CoMs
             lines[1] = sum(
-                [self.ax1.plot([], [], '-', marker="o", color='orange', linewidth=1.5) for n in
+                [self.model_plot_ax.plot([], [], '-', marker="o", color='orange', linewidth=1.5) for n in
                  range(int(nRigidBodies))], [])
 
             # Initialize vertical line for xy_data
-            lines[2] = self.ax2.axvline(0, color="cornflowerblue")
+            lines[2] = self.variable_plot_ax.axvline(0, color="cornflowerblue")
 
             # Initialize xy_data marker
-            lines[3] = self.ax2.plot([], [], marker="o", color="crimson", ms=15)
+            lines[3] = self.variable_plot_ax.plot([], [], marker="o", color="crimson", ms=15)
 
             # Initialize model segments 'x' axis
             lines[4] = sum(
-                [self.ax1.plot([], [], '-', color='red', linewidth=1.5) for n in range(int(nRigidBodies))], [])
+                [self.model_plot_ax.plot([], [], '-', color='red', linewidth=1.5) for n in range(int(nRigidBodies))], [])
 
             # Initialize model segments 'z' axis
             lines[5] = sum(
-                [self.ax1.plot([], [], '-', color='blue', linewidth=1.5) for n in range(int(nRigidBodies))], [])
+                [self.model_plot_ax.plot([], [], '-', color='blue', linewidth=1.5) for n in range(int(nRigidBodies))], [])
 
             # Initialize grf lines
             lines[6] = sum(
-                [self.ax1.plot([], [], '-', color='purple', linewidth=1.5) for n in range(len(grf_info.keys()))], [])
+                [self.model_plot_ax.plot([], [], '-', color='purple', linewidth=1.5) for n in range(len(grf_info.keys()))], [])
 
             # Initialize model markers
             lines[7] = sum(
-                [self.ax1.plot([], [], '-', marker="x", color='black', linewidth=1.5) for n in range(n_markers)],
+                [self.model_plot_ax.plot([], [], '-', marker="x", color='black', linewidth=1.5) for n in range(n_markers)],
                 [])
 
             return lines
 
         def animate(i):
+            # Update the state of the model grid
+            if self.show_grid:
+                self.model_plot_ax.grid(True)
+            elif not self.show_grid:
+                self.model_plot_ax.grid(False)
+
             # Update the position of the segments of the model
             for _ in range(0, int(nRigidBodies)):
                 xs = [lines_info[_ + 1][i]['joint_1'][0], lines_info[_ + 1][i]['joint_2'][0]]
@@ -213,10 +250,11 @@ class Plot_Panel(wx.Panel):
                     xs = [model_coordinates[i, _ * 4], model_coordinates[i, _ * 4] + dx]
                     ys = [model_coordinates[i, _ * 4 + 1], model_coordinates[i, _ * 4 + 1] + dy]
 
-                    xs_perp = [model_coordinates[i, _ * 4], model_coordinates[i, _ * 4] - dy]
-                    ys_perp = [model_coordinates[i, _ * 4 + 1], model_coordinates[i, _ * 4 + 1] + dx]
+                    dx_perp = [model_coordinates[i, _ * 4], model_coordinates[i, _ * 4] - dy]
+                    dy_perp = [model_coordinates[i, _ * 4 + 1], model_coordinates[i, _ * 4 + 1] + dx]
+
                     lines[4][_].set_data(xs, ys)
-                    lines[5][_].set_data(xs_perp, ys_perp)
+                    lines[5][_].set_data(dx_perp, dy_perp)
                     lines[4][_].set_visible(True)
                     lines[5][_].set_visible(True)
 

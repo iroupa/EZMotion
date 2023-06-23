@@ -88,7 +88,8 @@ class Player(FuncAnimation):
         elif self.i == self.max and not self.forwards:
             self.i -= 1
         self.func(self.i)
-        self.slider.reset(self)
+        self.slider.reset()
+        # self.slider.reset(self)
         self.slider.set_val(self.i)
         self.fig.canvas.draw_idle()
 

@@ -4,8 +4,8 @@ Input Files
 For each type of analysis, the list of inputs files needed, their extension and their description are presented below. 
 
 Kinematic Analysis
-**********
-.. list-table:: Input Files
+******************
+.. list-table:: Table 1. Kinematic Analysis - Input Files
    :widths: 25 25 50
    :header-rows: 1
 
@@ -26,8 +26,8 @@ Kinematic Analysis
      - Data used to drive the model during the analysis  
 
 Inverse Dynamic Analysis
-***********
-.. list-table:: Input Files
+************************
+.. list-table:: Table 2. Inverse Dynamic Analysis - Input Files
    :widths: 25 25 50
    :header-rows: 1
 
@@ -46,13 +46,13 @@ Inverse Dynamic Analysis
    * - Model Data
      - .data
      - Data used to drive the model during the analysis      
-   * - Force Files Folder
-     - 
-     - Path of the folder containing the force files to apply during the analysis
+   * - Force Files 
+     - .f
+     - External force files to apply during the analysis
 
 Forward Dynamic Analysis
-***********
-.. list-table:: Input Files
+************************
+.. list-table:: Table 1. Forward Dynamic Analysis - Input Files
    :widths: 25 25 50
    :header-rows: 1
 
@@ -68,13 +68,13 @@ Forward Dynamic Analysis
    * - Modeling State
      - .qp
      - Generalized velocities of the system for the initial time
-   * - Force Files Folder
-     - 
-     - Path of the folder containing the force files to apply during the analysis
+   * - Force Files
+     - .f
+     - External force files to apply during the analysis
 
 Musculoskeletal Analysis
-***********
-.. list-table:: Input Files
+************************
+.. list-table:: Table 4. Musculoskeletal Analysis - Input Files
    :widths: 25 25 50
    :header-rows: 1
 
@@ -96,9 +96,9 @@ Musculoskeletal Analysis
    * - Model Dat
      - .data
      - Data used to drive the model during the analysis     
-   * - Force Files Folder
-     - 
-     - Path of the folder containing the force files to apply during the analysis
+   * - Force Files
+     - .f
+     - External force files to apply during the analysis
   * - Muscle Files
      - .msk
      - File containing the muscle parameters

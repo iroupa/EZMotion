@@ -115,7 +115,7 @@
 </div>
 <section id="segments">
 <h2>Segments<a class="headerlink" href="#segments" title="Permalink to this heading"></a></h2>
-<p>Each segment of the model must be modeled as a rigid body. Thus, for each segment of the model it is necessary to include a rigid body kinematic constraint as presented below (See Figure 1).</p>
+<p>Each segment of the model must be modeled as a rigid body. Thus, for each segment of the model it is necessary to include a rigid body kinematic constraint as presented in Figure 1.</p>
 <section id="rigid-body">
 <h3>Rigid Body<a class="headerlink" href="#rigid-body" title="Permalink to this heading"></a></h3>
 <p>Ensure that the segment maintains constant length during the analysis.</p>
@@ -126,7 +126,7 @@
 </figcaption>
 </figure>
 <table class="docutils align-default" id="id2">
-<caption><span class="caption-text">Rigid Body: Fields Description</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 1. Rigid Body: Fields Description</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -143,25 +143,22 @@
 <tr class="row-odd"><td><p>Body</p></td>
 <td><p>Number of the segment</p></td>
 </tr>
-<tr class="row-even"><td><p>Lu</p></td>
-<td><p>Segment length</p></td>
-</tr>
-<tr class="row-odd"><td><p>Mass</p></td>
+<tr class="row-even"><td><p>Mass</p></td>
 <td><p>Mass of the segment</p></td>
 </tr>
-<tr class="row-even"><td><p>Moment of Inertia</p></td>
+<tr class="row-odd"><td><p>Moment of Inertia</p></td>
 <td><p>Moment of inertia of the segment</p></td>
 </tr>
-<tr class="row-odd"><td><p>CoMLocCoordsX</p></td>
+<tr class="row-even"><td><p>CoMLocCoordsX</p></td>
 <td><p>Local coordinate of the <em>x</em> coordinate of the CoM with respect to the local reference frame of the segment</p></td>
 </tr>
-<tr class="row-even"><td><p>CoMLocCoordsY</p></td>
+<tr class="row-odd"><td><p>CoMLocCoordsY</p></td>
 <td><p>Local coordinate of the <em>y</em> coordinate of the CoM with respect to the local reference frame of the segment</p></td>
 </tr>
 </tbody>
 </table>
 <table class="docutils align-default" id="id3">
-<caption><span class="caption-text">Rigid Body: Modeling Example</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 2. Rigid Body: Modeling Example</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -181,11 +178,11 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Type,</p></th>
 <th class="head"><p>Body,</p></th>
-<th class="head"><p>Lu,</p></th>
 <th class="head"><p>Mass,</p></th>
 <th class="head"><p>Moment of Inertia,</p></th>
 <th class="head"><p>CoMLocCoordsX,</p></th>
 <th class="head"><p>CoMLocCoordsY,</p></th>
+<th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
@@ -199,8 +196,8 @@
 <tr class="row-even"><td><p>1,</p></td>
 <td><p>1,</p></td>
 <td><p>1,</p></td>
-<td><p>1,</p></td>
 <td><p>0.0833,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
@@ -224,15 +221,15 @@
 <p>The angular driver defined using the dot product fails to guide the angle for values in the vicinity of 0° and 180°, since the two vectors become aligned. To overcome this situation, it is necessary to use an angular driver defined usig the cross product between such vectors. In certain cases, the position or orientation of the rigid bodies need to be constrained with respect to the global reference frame (grounded). In such cases, it is possible to define specific kinematic constraint equations that relate a given rigid body with the Cartesian coordinates of fixed (grounded) points and unit vectors, defined in the global reference frame.</p>
 <section id="angular-driver-dot-product">
 <h3>Angular Driver: Dot Product<a class="headerlink" href="#angular-driver-dot-product" title="Permalink to this heading"></a></h3>
-<p>Allows driving the angle between two segments using the dot product (see Figure 5).</p>
+<p>Allows driving the angle between two segments using the dot product (see Figure 2).</p>
 <figure class="align-center" id="id4">
 <a class="reference internal image-reference" href="_images/angular_driver.png"><img alt="Representation of the angular driver using the dot product between two segments." src="_images/angular_driver.png" style="width: 356.5px; height: 317.90000000000003px;" /></a>
 <figcaption>
-<p><span class="caption-text">Fig 5. Representation of the angular driver using the dot product between two segments.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 2. Representation of the angular driver using the dot product between two segments.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <table class="docutils align-default" id="id5">
-<caption><span class="caption-text">Angular driver using the dot product: Fields Description</span><a class="headerlink" href="#id5" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 3. Angular driver using the dot product: Fields Description</span><a class="headerlink" href="#id5" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -247,16 +244,10 @@
 <td><p>Type of kinematic constraint ( == 2)</p></td>
 </tr>
 <tr class="row-odd"><td><p>ParentBd</p></td>
-<td><p>Number of the moving segment 1</p></td>
+<td><p>Number of the moving body 1</p></td>
 </tr>
 <tr class="row-even"><td><p>ChildBd</p></td>
-<td><p>Number of the moving segment 1</p></td>
-</tr>
-<tr class="row-odd"><td><p>Lu</p></td>
-<td><p>Length of the unitary vector of segment 1</p></td>
-</tr>
-<tr class="row-even"><td><p>Lv</p></td>
-<td><p>Length of the unitary vector of segment 1</p></td>
+<td><p>Number of the moving body 2</p></td>
 </tr>
 <tr class="row-odd"><td><p>DoF</p></td>
 <td><p>Number of the guided degree of freedom</p></td>
@@ -264,105 +255,7 @@
 </tbody>
 </table>
 <table class="docutils align-default" id="id6">
-<caption><span class="caption-text">Angular driver using the dot product: Modeling Example</span><a class="headerlink" href="#id6" title="Permalink to this table"></a></caption>
-<colgroup>
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Type,</p></th>
-<th class="head"><p>ParentBd,</p></th>
-<th class="head"><p>ChildBd,</p></th>
-<th class="head"><p>Lu,</p></th>
-<th class="head"><p>Lv,</p></th>
-<th class="head"><p>,</p></th>
-<th class="head"><p>,</p></th>
-<th class="head"><p>,</p></th>
-<th class="head"><p>,</p></th>
-<th class="head"><p>,</p></th>
-<th class="head"><p>,</p></th>
-<th class="head"><p>,</p></th>
-<th class="head"><p>,</p></th>
-<th class="head"><p>DoF</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>2,</p></td>
-<td><p>1,</p></td>
-<td><p>2,</p></td>
-<td><p>1,</p></td>
-<td><p>1,</p></td>
-<td><p>0,</p></td>
-<td><p>0,</p></td>
-<td><p>0,</p></td>
-<td><p>0,</p></td>
-<td><p>0,</p></td>
-<td><p>0,</p></td>
-<td><p>0,</p></td>
-<td><p>0,</p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="angular-driver-grounded-dot-product">
-<h3>Angular Driver Grounded: Dot Product<a class="headerlink" href="#angular-driver-grounded-dot-product" title="Permalink to this heading"></a></h3>
-<p>Allows driving the angle between one segment and one axis of the global reference frame using the dot product (see Figure 7).</p>
-<figure class="align-center" id="id7">
-<a class="reference internal image-reference" href="_images/angular_driver_grounded.png"><img alt="Representation of the angular driver grounded using the dot product between one segment and one axis of the global reference frame" src="_images/angular_driver_grounded.png" style="width: 354.20000000000005px; height: 320.70000000000005px;" /></a>
-<figcaption>
-<p><span class="caption-text">Fig 7. Representation of the angular driver grounded using the dot product.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-<table class="docutils align-default" id="id8">
-<caption><span class="caption-text">Representation of the angular driver grounded using the dot product: Fields Description</span><a class="headerlink" href="#id8" title="Permalink to this table"></a></caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 75%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Label</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Type</p></td>
-<td><p>Type of kinematic constraint ( == 3)</p></td>
-</tr>
-<tr class="row-odd"><td><p>MovBb</p></td>
-<td><p>Number of the moving segment</p></td>
-</tr>
-<tr class="row-even"><td><p>Lu</p></td>
-<td><p>Length of the unitary vector of segment 1</p></td>
-</tr>
-<tr class="row-odd"><td><p>Lv</p></td>
-<td><p>Length of the unitary vector of global axis</p></td>
-</tr>
-<tr class="row-even"><td><p>GlCVtX</p></td>
-<td><p>'x' component fo the orientation ovector of the unitary vector of global axis</p></td>
-</tr>
-<tr class="row-odd"><td><p>GlCVtY</p></td>
-<td><p>'y' component fo the orientation ovector of the unitary vector of global axis</p></td>
-</tr>
-<tr class="row-even"><td><p>DoF</p></td>
-<td><p>Number of the guided degree of freedom</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-default" id="id9">
-<caption><span class="caption-text">Representation of the angular driver grounded using the dot product: Modeling Example</span><a class="headerlink" href="#id9" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 4. Angular driver using the dot product: Modeling Example</span><a class="headerlink" href="#id6" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -383,8 +276,97 @@
 <tr class="row-odd"><th class="head"><p>Type,</p></th>
 <th class="head"><p>MovBd1,</p></th>
 <th class="head"><p>MovBd2,</p></th>
-<th class="head"><p>Lu,</p></th>
-<th class="head"><p>Lv,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>DoF</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1,</p></td>
+<td><p>1,</p></td>
+<td><p>2,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="angular-driver-grounded-dot-product">
+<h3>Angular Driver Grounded: Dot Product<a class="headerlink" href="#angular-driver-grounded-dot-product" title="Permalink to this heading"></a></h3>
+<p>Allows driving the angle between one segment and one axis of the global reference frame using the dot product (see Figure 3).</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/angular_driver_grounded.png"><img alt="Representation of the angular driver grounded using the dot product between one segment and one axis of the global reference frame" src="_images/angular_driver_grounded.png" style="width: 354.20000000000005px; height: 320.70000000000005px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 3. Representation of the angular driver grounded using the dot product.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-text">Table 5. Representation of the angular driver grounded using the dot product: Fields Description</span><a class="headerlink" href="#id8" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Label</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Type</p></td>
+<td><p>Type of kinematic constraint ( == 3)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MovBd</p></td>
+<td><p>Number of the moving segment</p></td>
+</tr>
+<tr class="row-even"><td><p>GlCVtX</p></td>
+<td><p>'x' component of the global horizontal axis</p></td>
+</tr>
+<tr class="row-odd"><td><p>GlCVtY</p></td>
+<td><p>'y' component of the global horizontal axis</p></td>
+</tr>
+<tr class="row-even"><td><p>DoF</p></td>
+<td><p>Number of the guided degree of freedom</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text">Table 6. Representation of the angular driver grounded using the dot product: Modeling Example</span><a class="headerlink" href="#id9" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type,</p></th>
+<th class="head"><p>MovBd1,</p></th>
 <th class="head"><p>GlCVtX,</p></th>
 <th class="head"><p>GlCVtY,</p></th>
 <th class="head"><p>,</p></th>
@@ -393,15 +375,18 @@
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
-<th class="head"></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>DoF</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>3,</p></td>
 <td><p>1,</p></td>
 <td><p>1,</p></td>
-<td><p>1,</p></td>
-<td><p>1,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
@@ -417,15 +402,15 @@
 </section>
 <section id="angular-driver-cross-product">
 <h3>Angular Driver: Cross Product<a class="headerlink" href="#angular-driver-cross-product" title="Permalink to this heading"></a></h3>
-<p>Allows driving the angle between two segments using the cross product (see Figure 6).</p>
+<p>Allows driving the angle between two segments using the cross product (see Figure 4).</p>
 <figure class="align-center" id="id10">
 <a class="reference internal image-reference" href="_images/angular_driver.png"><img alt="Representation of the angular driver using the cross product between two segments." src="_images/angular_driver.png" style="width: 356.5px; height: 317.90000000000003px;" /></a>
 <figcaption>
-<p><span class="caption-text">Fig 6. Representation of the angular driver using the cross product between two segments.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 4. Representation of the angular driver using the cross product between two segments.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <table class="docutils align-default" id="id11">
-<caption><span class="caption-text">Angular driver using the cross product: Fields Description</span><a class="headerlink" href="#id11" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 7. Angular driver using the cross product: Fields Description</span><a class="headerlink" href="#id11" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -445,19 +430,13 @@
 <tr class="row-even"><td><p>ChildBd</p></td>
 <td><p>Number of the moving segment 1</p></td>
 </tr>
-<tr class="row-odd"><td><p>Lu</p></td>
-<td><p>Length of the unitary vector of segment 1</p></td>
-</tr>
-<tr class="row-even"><td><p>Lv</p></td>
-<td><p>Length of the unitary vector of segment 1</p></td>
-</tr>
 <tr class="row-odd"><td><p>DoF</p></td>
 <td><p>Number of the guided degree of freedom</p></td>
 </tr>
 </tbody>
 </table>
 <table class="docutils align-default" id="id12">
-<caption><span class="caption-text">Angular driver using the cross product: Modeling Example</span><a class="headerlink" href="#id12" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 8. Angular driver using the cross product: Modeling Example</span><a class="headerlink" href="#id12" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -478,8 +457,8 @@
 <tr class="row-odd"><th class="head"><p>Type,</p></th>
 <th class="head"><p>ParentBd,</p></th>
 <th class="head"><p>ChildBd,</p></th>
-<th class="head"><p>Lu,</p></th>
-<th class="head"><p>Lv,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
@@ -495,8 +474,8 @@
 <tr class="row-even"><td><p>4,</p></td>
 <td><p>1,</p></td>
 <td><p>2,</p></td>
-<td><p>1,</p></td>
-<td><p>1,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
@@ -512,15 +491,15 @@
 </section>
 <section id="angular-driver-grounded-cross-product">
 <h3>Angular Driver Grounded: Cross Product<a class="headerlink" href="#angular-driver-grounded-cross-product" title="Permalink to this heading"></a></h3>
-<p>Allows driving the angle between one segment and one axis of the global reference frame using the cross product (see Figure 8).</p>
+<p>Allows driving the angle between one segment and one axis of the global reference frame using the cross product (see Figure 5).</p>
 <figure class="align-center" id="id13">
 <a class="reference internal image-reference" href="_images/angular_driver_grounded.png"><img alt="Representation of the angular driver grounded using the cross product between one segment and one axis of the global reference frame" src="_images/angular_driver_grounded.png" style="width: 354.20000000000005px; height: 320.70000000000005px;" /></a>
 <figcaption>
-<p><span class="caption-text">Fig 8. Representation of the angular driver grounded using the cross product.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 5. Representation of the angular driver grounded using the cross product.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <table class="docutils align-default" id="id14">
-<caption><span class="caption-text">Representation of the angular driver grounded using the cross product: Fields Description</span><a class="headerlink" href="#id14" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 9. Representation of the angular driver grounded using the cross product: Fields Description</span><a class="headerlink" href="#id14" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -537,12 +516,6 @@
 <tr class="row-odd"><td><p>MovBb</p></td>
 <td><p>Number of the moving segment</p></td>
 </tr>
-<tr class="row-even"><td><p>Lu</p></td>
-<td><p>Length of the unitary vector of segment 1</p></td>
-</tr>
-<tr class="row-odd"><td><p>Lv</p></td>
-<td><p>Length of the unitary vector of global axis</p></td>
-</tr>
 <tr class="row-even"><td><p>GlCVtX</p></td>
 <td><p>'x' component fo the orientation ovector of the unitary vector of global axis</p></td>
 </tr>
@@ -555,7 +528,7 @@
 </tbody>
 </table>
 <table class="docutils align-default" id="id15">
-<caption><span class="caption-text">Representation of the angular driver grounded using the dot product: Modeling Example</span><a class="headerlink" href="#id15" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 10. Representation of the angular driver grounded using the dot product: Modeling Example</span><a class="headerlink" href="#id15" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -576,10 +549,10 @@
 <tr class="row-odd"><th class="head"><p>Type,</p></th>
 <th class="head"><p>MovBd1,</p></th>
 <th class="head"><p>MovBd2,</p></th>
-<th class="head"><p>Lu,</p></th>
-<th class="head"><p>Lv,</p></th>
 <th class="head"><p>GlCVtX,</p></th>
 <th class="head"><p>GlCVtY,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
@@ -594,7 +567,7 @@
 <td><p>1,</p></td>
 <td><p>1,</p></td>
 <td><p>1,</p></td>
-<td><p>1,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
@@ -614,15 +587,15 @@
 </section>
 <section id="trajectory-driver">
 <h2>Trajectory Driver:<a class="headerlink" href="#trajectory-driver" title="Permalink to this heading"></a></h2>
-<p>Allows to prescribe the trajectory of a given point with respect to a given reference (see Figure 13).</p>
+<p>Allows to prescribe the trajectory of a given point with respect to a given reference (see Figure 6).</p>
 <figure class="align-center" id="id16">
 <a class="reference internal image-reference" href="_images/trajectory_driver.png"><img alt="Representation of a revolute joint" src="_images/trajectory_driver.png" style="width: 339.90000000000003px; height: 309.20000000000005px;" /></a>
 <figcaption>
-<p><span class="caption-text">Fig 13. Representation of the trajectory driver.</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 6. Representation of the trajectory driver.</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <table class="docutils align-default" id="id17">
-<caption><span class="caption-text">Trajectory driver: Fields Description</span><a class="headerlink" href="#id17" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 11. Trajectory driver: Fields Description</span><a class="headerlink" href="#id17" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -675,7 +648,7 @@
 </tbody>
 </table>
 <table class="docutils align-default" id="id18">
-<caption><span class="caption-text">Trajectory driver: Modeling Example</span><a class="headerlink" href="#id18" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 12. Trajectory driver: Modeling Example</span><a class="headerlink" href="#id18" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -736,15 +709,15 @@
 <p>Joints allow for the relative emotion between adjacent bodies. Below is presented how to include a revolute, a double support or a single support joint in a multibody system.</p>
 <section id="single-support-joint">
 <h3>Single Support Joint<a class="headerlink" href="#single-support-joint" title="Permalink to this heading"></a></h3>
-<p>It allows 1 rotation and 1 translation in one direction (see Figure 4).</p>
+<p>It allows 1 rotation and 1 translation in one direction (see Figure 7).</p>
 <figure class="align-center" id="id19">
 <a class="reference internal image-reference" href="_images/single_support_joint.png"><img alt="Representation of a single support joint" src="_images/single_support_joint.png" style="width: 354.3px; height: 339.1px;" /></a>
 <figcaption>
-<p><span class="caption-text">Fig 4. Representation of a single support joint.</span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 7. Representation of a single support joint.</span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <table class="docutils align-default" id="id20">
-<caption><span class="caption-text">Single Support Joint: Fields Description</span><a class="headerlink" href="#id20" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 13. Single Support Joint: Fields Description</span><a class="headerlink" href="#id20" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -779,7 +752,7 @@
 </tbody>
 </table>
 <table class="docutils align-default" id="id21">
-<caption><span class="caption-text">Single Support Joint: Modeling Example</span><a class="headerlink" href="#id21" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 14. Single Support Joint: Modeling Example</span><a class="headerlink" href="#id21" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -834,15 +807,15 @@
 </section>
 <section id="double-support-joint">
 <h3>Double Support Joint<a class="headerlink" href="#double-support-joint" title="Permalink to this heading"></a></h3>
-<p>It allows the rotational motion of one body with respect to a <code class="docutils literal notranslate"><span class="pre">fixed</span></code> point (See Figure 3).</p>
+<p>It allows the rotational motion of one body with respect to a <code class="docutils literal notranslate"><span class="pre">fixed</span></code> point (See Figure 8).</p>
 <figure class="align-center" id="id22">
 <a class="reference internal image-reference" href="_images/double_support_joint.png"><img alt="Representation of a double support joint" src="_images/double_support_joint.png" style="width: 352.40000000000003px; height: 301.3px;" /></a>
 <figcaption>
-<p><span class="caption-text">Fig 3. Representation of a double support joint.</span><a class="headerlink" href="#id22" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 8. Representation of a double support joint.</span><a class="headerlink" href="#id22" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <table class="docutils align-default" id="id23">
-<caption><span class="caption-text">Double Support Joint: Fields Description</span><a class="headerlink" href="#id23" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 15. Double Support Joint: Fields Description</span><a class="headerlink" href="#id23" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -874,7 +847,7 @@
 </tbody>
 </table>
 <table class="docutils align-default" id="id24">
-<caption><span class="caption-text">Double Support: Modeling Example</span><a class="headerlink" href="#id24" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 16. Double Support: Modeling Example</span><a class="headerlink" href="#id24" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -929,15 +902,15 @@
 </section>
 <section id="revolute-joint">
 <h3>Revolute Joint<a class="headerlink" href="#revolute-joint" title="Permalink to this heading"></a></h3>
-<p>It allows the rotational motion between two adjacent bodies (See Figure 2).</p>
+<p>It allows the rotational motion between two adjacent bodies (See Figure 9).</p>
 <figure class="align-center" id="id25">
 <a class="reference internal image-reference" href="_images/revolute_joint.png"><img alt="Representation of a revolute joint" src="_images/revolute_joint.png" style="width: 354.3px; height: 318.0px;" /></a>
 <figcaption>
-<p><span class="caption-text">Fig 2. Representation of a revolute joint.</span><a class="headerlink" href="#id25" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 9. Representation of a revolute joint.</span><a class="headerlink" href="#id25" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <table class="docutils align-default" id="id26">
-<caption><span class="caption-text">Revolute Joint: Fields Description</span><a class="headerlink" href="#id26" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 17. Revolute Joint: Fields Description</span><a class="headerlink" href="#id26" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -972,7 +945,7 @@
 </tbody>
 </table>
 <table class="docutils align-default" id="id27">
-<caption><span class="caption-text">Revolute Joint: Modeling Example</span><a class="headerlink" href="#id27" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 18. Revolute Joint: Modeling Example</span><a class="headerlink" href="#id27" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -1030,15 +1003,15 @@
 <h2>Mixed Angular Drivers<a class="headerlink" href="#mixed-angular-drivers" title="Permalink to this heading"></a></h2>
 <section id="mixed-angular-driver-grounded-dot-product">
 <h3>Mixed Angular Driver Grounded: Dot Product<a class="headerlink" href="#mixed-angular-driver-grounded-dot-product" title="Permalink to this heading"></a></h3>
-<p>Allows computing the angle between one segment and the axis of the global reference frame using the dot product (see Figure 11).</p>
+<p>Allows computing the angle between one segment and the axis of the global reference frame using the dot product (see Figure 10).</p>
 <figure class="align-center" id="id28">
 <a class="reference internal image-reference" href="_images/mixed_angular_driver_grounded.png"><img alt="Representation of the mixed angular driver grounded using the dot product" src="_images/mixed_angular_driver_grounded.png" style="width: 354.20000000000005px; height: 320.70000000000005px;" /></a>
 <figcaption>
-<p><span class="caption-text">Fig 11. Representation of mixed angular driver grounded using the dot product.</span><a class="headerlink" href="#id28" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 10. Representation of mixed angular driver grounded using the dot product.</span><a class="headerlink" href="#id28" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <table class="docutils align-default" id="id29">
-<caption><span class="caption-text">Mixed angular driver grounded using the dot product: Fields Description</span><a class="headerlink" href="#id29" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 19. Mixed angular driver grounded using the dot product: Fields Description</span><a class="headerlink" href="#id29" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -1073,7 +1046,7 @@
 </tbody>
 </table>
 <table class="docutils align-default" id="id30">
-<caption><span class="caption-text">Mixed angular driver grounded using the dot product: Modeling Example</span><a class="headerlink" href="#id30" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 20. Mixed angular driver grounded using the dot product: Modeling Example</span><a class="headerlink" href="#id30" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -1093,10 +1066,10 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Type,</p></th>
 <th class="head"><p>MovBd,</p></th>
-<th class="head"><p>Lu,</p></th>
-<th class="head"><p>Lv,</p></th>
 <th class="head"><p>GlCVtX,</p></th>
 <th class="head"><p>GlCVtY,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
@@ -1112,7 +1085,7 @@
 <td><p>1,</p></td>
 <td><p>1,</p></td>
 <td><p>1,</p></td>
-<td><p>1,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
@@ -1128,15 +1101,15 @@
 </section>
 <section id="mixed-angular-driver-dot-product">
 <h3>Mixed Angular Driver: Dot Product<a class="headerlink" href="#mixed-angular-driver-dot-product" title="Permalink to this heading"></a></h3>
-<p>Allows computing the angle between two segments using the dot product (see Figure 9).</p>
+<p>Allows computing the angle between two segments using the dot product (see Figure 11).</p>
 <figure class="align-center" id="id31">
 <a class="reference internal image-reference" href="_images/mixed_angular_driver.png"><img alt="Representation of the mixed angular driver using the dot product between two segments" src="_images/mixed_angular_driver.png" style="width: 356.5px; height: 317.90000000000003px;" /></a>
 <figcaption>
-<p><span class="caption-text">Fig 9. Representation of the mixed angular driver using the dot product between two segments.</span><a class="headerlink" href="#id31" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 11. Representation of the mixed angular driver using the dot product between two segments.</span><a class="headerlink" href="#id31" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <table class="docutils align-default" id="id32">
-<caption><span class="caption-text">Mixed angular driver using the dot product: Fields Description</span><a class="headerlink" href="#id32" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 21. Mixed angular driver using the dot product: Fields Description</span><a class="headerlink" href="#id32" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -1156,19 +1129,13 @@
 <tr class="row-even"><td><p>ChildBd</p></td>
 <td><p>Number of the child moving segment 1</p></td>
 </tr>
-<tr class="row-odd"><td><p>Lu</p></td>
-<td><p>Length of the unitary vector defining the orientation vector of parent body</p></td>
-</tr>
-<tr class="row-even"><td><p>Lv</p></td>
-<td><p>Length of the unitary vector defining the orientation vector of child body</p></td>
-</tr>
 <tr class="row-odd"><td><p>DoF</p></td>
 <td><p>Number of the degree of freedom</p></td>
 </tr>
 </tbody>
 </table>
 <table class="docutils align-default" id="id33">
-<caption><span class="caption-text">Mixed angular driver using the dot product: Modeling Example</span><a class="headerlink" href="#id33" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 22. Mixed angular driver using the dot product: Modeling Example</span><a class="headerlink" href="#id33" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -1189,8 +1156,8 @@
 <tr class="row-odd"><th class="head"><p>Type,</p></th>
 <th class="head"><p>ParentBd,</p></th>
 <th class="head"><p>ChildBd,</p></th>
-<th class="head"><p>Lu,</p></th>
-<th class="head"><p>Lv,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
@@ -1206,8 +1173,8 @@
 <tr class="row-even"><td><p>13,</p></td>
 <td><p>1,</p></td>
 <td><p>2,</p></td>
-<td><p>1,</p></td>
-<td><p>1,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
@@ -1231,7 +1198,7 @@
 </figcaption>
 </figure>
 <table class="docutils align-default" id="id35">
-<caption><span class="caption-text">Mixed angular driver grounded using the cross product: Fields Description</span><a class="headerlink" href="#id35" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 23. Mixed angular driver grounded using the cross product: Fields Description</span><a class="headerlink" href="#id35" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -1248,12 +1215,6 @@
 <tr class="row-odd"><td><p>MovBd</p></td>
 <td><p>Number of the moving</p></td>
 </tr>
-<tr class="row-even"><td><p>Lu</p></td>
-<td><p>Length of the unitary vector defining the orientation vector of moving body</p></td>
-</tr>
-<tr class="row-odd"><td><p>Lv</p></td>
-<td><p>Length of the unitary vector defining the orientation vector of the global reference frame</p></td>
-</tr>
 <tr class="row-even"><td><p>GlCVtX</p></td>
 <td><p><em>x</em> component of the orientation vector of the global reference frame</p></td>
 </tr>
@@ -1266,7 +1227,7 @@
 </tbody>
 </table>
 <table class="docutils align-default" id="id36">
-<caption><span class="caption-text">Mixed angular driver grounded using the cross product: Modeling Example</span><a class="headerlink" href="#id36" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 24. Mixed angular driver grounded using the cross product: Modeling Example</span><a class="headerlink" href="#id36" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -1286,10 +1247,10 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Type,</p></th>
 <th class="head"><p>MovBd,</p></th>
-<th class="head"><p>Lu,</p></th>
-<th class="head"><p>Lv,</p></th>
 <th class="head"><p>GlCVtX,</p></th>
 <th class="head"><p>GlCVtY,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
@@ -1305,7 +1266,7 @@
 <td><p>1,</p></td>
 <td><p>1,</p></td>
 <td><p>1,</p></td>
-<td><p>1,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
@@ -1321,15 +1282,15 @@
 </section>
 <section id="mixed-angular-driver-cross-product">
 <h3>Mixed Angular Driver: Cross Product<a class="headerlink" href="#mixed-angular-driver-cross-product" title="Permalink to this heading"></a></h3>
-<p>Allows computing the angle between two segments using the cross product (see Figure 10).</p>
+<p>Allows computing the angle between two segments using the cross product (see Figure 13).</p>
 <figure class="align-center" id="id37">
 <a class="reference internal image-reference" href="_images/mixed_angular_driver.png"><img alt="Representation of the mixed angular driver using the cross product between two segments" src="_images/mixed_angular_driver.png" style="width: 356.5px; height: 317.90000000000003px;" /></a>
 <figcaption>
-<p><span class="caption-text">Fig 10. Representation of the mixed angular driver using the cross product between two segments.</span><a class="headerlink" href="#id37" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 13. Representation of the mixed angular driver using the cross product between two segments.</span><a class="headerlink" href="#id37" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <table class="docutils align-default" id="id38">
-<caption><span class="caption-text">Mixed angular driver using the cross product: Fields Description</span><a class="headerlink" href="#id38" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 25. Mixed angular driver using the cross product: Fields Description</span><a class="headerlink" href="#id38" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -1349,19 +1310,13 @@
 <tr class="row-even"><td><p>ChildBd</p></td>
 <td><p>Number of the child moving segment 1</p></td>
 </tr>
-<tr class="row-odd"><td><p>Lu</p></td>
-<td><p>Length of the unitary vector defining the orientation vector of parent body</p></td>
-</tr>
-<tr class="row-even"><td><p>Lv</p></td>
-<td><p>Length of the unitary vector defining the orientation vector of child body</p></td>
-</tr>
 <tr class="row-odd"><td><p>DoF</p></td>
 <td><p>Number of the degree of freedom</p></td>
 </tr>
 </tbody>
 </table>
 <table class="docutils align-default" id="id39">
-<caption><span class="caption-text">Mixed angular driver using the cross product: Modeling Example</span><a class="headerlink" href="#id39" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">Table 26. Mixed angular driver using the cross product: Modeling Example</span><a class="headerlink" href="#id39" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -1382,8 +1337,8 @@
 <tr class="row-odd"><th class="head"><p>Type,</p></th>
 <th class="head"><p>ParentBd,</p></th>
 <th class="head"><p>ChildBd,</p></th>
-<th class="head"><p>Lu,</p></th>
-<th class="head"><p>Lv,</p></th>
+<th class="head"><p>,</p></th>
+<th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
 <th class="head"><p>,</p></th>
@@ -1399,8 +1354,8 @@
 <tr class="row-even"><td><p>15,</p></td>
 <td><p>1,</p></td>
 <td><p>2,</p></td>
-<td><p>1,</p></td>
-<td><p>1,</p></td>
+<td><p>0,</p></td>
+<td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>
 <td><p>0,</p></td>

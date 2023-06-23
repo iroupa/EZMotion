@@ -38,9 +38,9 @@ This file contains 2 rows with 14 columns.
    * - Line
      - Description
    * - 1
-     - Model the double support joint.
-   * - 2
      - Model the rigid body.
+   * - 2
+     - Model the double support joint.
 
 .. _target to state_file_q:
 State File (.q): Generalized Coordinates

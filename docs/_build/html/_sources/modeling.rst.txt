@@ -13,7 +13,7 @@ The details of the modeling procedure of each component of a multibody system is
 Segments
 --------
 
-Each segment of the model must be modeled as a rigid body. Thus, for each segment of the model it is necessary to include a rigid body kinematic constraint as presented below (See Figure 1).   
+Each segment of the model must be modeled as a rigid body. Thus, for each segment of the model it is necessary to include a rigid body kinematic constraint as presented in Figure 1.   
 
 Rigid Body
 **************
@@ -27,7 +27,7 @@ Ensure that the segment maintains constant length during the analysis.
 
 	Fig 1. Representation of a generic rigid body
 
-.. list-table:: Rigid Body: Fields Description
+.. list-table:: Table 1. Rigid Body: Fields Description
    :widths: 25 75 
    :header-rows: 1
    
@@ -37,8 +37,6 @@ Ensure that the segment maintains constant length during the analysis.
      - Type of kinematic constraint ( == 1)
    * - Body
      - Number of the segment 
-   * - Lu
-     - Segment length
    * - Mass
      - Mass of the segment
    * - Moment of Inertia
@@ -48,13 +46,12 @@ Ensure that the segment maintains constant length during the analysis.
    * - CoMLocCoordsY
      - Local coordinate of the *y* coordinate of the CoM with respect to the local reference frame of the segment 
 
-.. list-table:: Rigid Body: Modeling Example
+.. list-table:: Table 2. Rigid Body: Modeling Example
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
    * - Type,
      - Body,
-     - Lu,
      - Mass,
      - Moment of Inertia,
      - CoMLocCoordsX,
@@ -66,11 +63,12 @@ Ensure that the segment maintains constant length during the analysis.
      - ,
      - ,
      - ,
+     - ,
    * - 1,
      - 1,
      - 1,
-     - 1,
      - 0.0833,
+     - 0,
      - 0,
      - 0,
      - 0,
@@ -93,16 +91,16 @@ The angular driver defined using the dot product fails to guide the angle for va
 Angular Driver: Dot Product
 *************************
 
-Allows driving the angle between two segments using the dot product (see Figure 5).
+Allows driving the angle between two segments using the dot product (see Figure 2).
 
 .. figure:: .\\images\\angular_driver.png
 	:scale: 10 %
 	:align: center
 	:alt: Representation of the angular driver using the dot product between two segments.
 
-	Fig 5. Representation of the angular driver using the dot product between two segments. 
+	Fig 2. Representation of the angular driver using the dot product between two segments. 
 
-.. list-table:: Angular driver using the dot product: Fields Description
+.. list-table:: Table 3. Angular driver using the dot product: Fields Description
    :widths: 25 75  
    :header-rows: 1
    
@@ -111,26 +109,23 @@ Allows driving the angle between two segments using the dot product (see Figure 
    * - Type
      - Type of kinematic constraint ( == 2)
    * - ParentBd
-     - Number of the moving segment 1 
+     - Number of the moving body 1 
    * - ChildBd
-     - Number of the moving segment 1
-   * - Lu
-     - Length of the unitary vector of segment 1
-   * - Lv
-     - Length of the unitary vector of segment 1
+     - Number of the moving body 2
    * - DoF
      - Number of the guided degree of freedom
- 
 
-.. list-table:: Angular driver using the dot product: Modeling Example
+
+.. list-table:: Table 4. Angular driver using the dot product: Modeling Example
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
+ 
    * - Type,
-     - ParentBd,
-     - ChildBd,
-     - Lu,
-     - Lv,
+     - MovBd1,
+     - MovBd2,
+     - ,
+     - ,
      - ,
      - ,
      - ,
@@ -140,11 +135,11 @@ Allows driving the angle between two segments using the dot product (see Figure 
      - ,
      - ,
      - DoF
-   * - 2,
+   * - 1,
      - 1,
      - 2,
-     - 1,
-     - 1,
+     - 0,
+     - 0,
      - 0,
      - 0,
      - 0,
@@ -154,11 +149,11 @@ Allows driving the angle between two segments using the dot product (see Figure 
      - 0,
      - 0,
      - 1
- 	 
+	 
 Angular Driver Grounded: Dot Product
 ************************************
 
-Allows driving the angle between one segment and one axis of the global reference frame using the dot product (see Figure 7).
+Allows driving the angle between one segment and one axis of the global reference frame using the dot product (see Figure 3).
 
 
 .. figure:: .\\images\\angular_driver_grounded.png
@@ -166,9 +161,9 @@ Allows driving the angle between one segment and one axis of the global referenc
 	:align: center
 	:alt: Representation of the angular driver grounded using the dot product between one segment and one axis of the global reference frame
 
-	Fig 7. Representation of the angular driver grounded using the dot product.
+	Fig 3. Representation of the angular driver grounded using the dot product.
 
-.. list-table:: Representation of the angular driver grounded using the dot product: Fields Description
+.. list-table:: Table 5. Representation of the angular driver grounded using the dot product: Fields Description
    :widths: 25 75 
    :header-rows: 1
    
@@ -176,28 +171,21 @@ Allows driving the angle between one segment and one axis of the global referenc
      - Description
    * - Type
      - Type of kinematic constraint ( == 3)
-   * - MovBb
+   * - MovBd
      - Number of the moving segment 
-   * - Lu
-     - Length of the unitary vector of segment 1
-   * - Lv
-     - Length of the unitary vector of global axis
    * - GlCVtX
-     - 'x' component fo the orientation ovector of the unitary vector of global axis
+     - 'x' component of the global horizontal axis
    * - GlCVtY
-     - 'y' component fo the orientation ovector of the unitary vector of global axis
+     - 'y' component of the global horizontal axis
    * - DoF
      - Number of the guided degree of freedom
 
-.. list-table:: Representation of the angular driver grounded using the dot product: Modeling Example
+.. list-table:: Table 6. Representation of the angular driver grounded using the dot product: Modeling Example
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
    * - Type,
      - MovBd1,
-     - MovBd2,
-     - Lu,
-     - Lv,
      - GlCVtX,
      - GlCVtY,
      - ,
@@ -206,12 +194,15 @@ Allows driving the angle between one segment and one axis of the global referenc
      - ,
      - ,
      - ,
-     - 
+     - ,
+     - ,
+     - ,
+     - DoF
    * - 3,
      - 1,
      - 1,
-     - 1,
-     - 1,
+     - 0,
+     - 0,
      - 0,
      - 0,
      - 0,
@@ -225,7 +216,7 @@ Allows driving the angle between one segment and one axis of the global referenc
 Angular Driver: Cross Product
 *****************************
 
-Allows driving the angle between two segments using the cross product (see Figure 6).
+Allows driving the angle between two segments using the cross product (see Figure 4).
 
 
 .. figure:: .\\images\\angular_driver.png
@@ -233,9 +224,9 @@ Allows driving the angle between two segments using the cross product (see Figur
 	:align: center
 	:alt: Representation of the angular driver using the cross product between two segments.
 
-	Fig 6. Representation of the angular driver using the cross product between two segments. 
+	Fig 4. Representation of the angular driver using the cross product between two segments. 
 
-.. list-table:: Angular driver using the cross product: Fields Description
+.. list-table:: Table 7. Angular driver using the cross product: Fields Description
    :widths: 25 75 
    :header-rows: 1
    
@@ -247,22 +238,18 @@ Allows driving the angle between two segments using the cross product (see Figur
      - Number of the moving segment 1 
    * - ChildBd
      - Number of the moving segment 1
-   * - Lu
-     - Length of the unitary vector of segment 1
-   * - Lv
-     - Length of the unitary vector of segment 1
    * - DoF
      - Number of the guided degree of freedom
 
-.. list-table:: Angular driver using the cross product: Modeling Example
+.. list-table:: Table 8. Angular driver using the cross product: Modeling Example
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
    * - Type,
      - ParentBd,
      - ChildBd,
-     - Lu,
-     - Lv,
+     - ,
+     - ,
      - ,
      - ,
      - ,
@@ -275,8 +262,8 @@ Allows driving the angle between two segments using the cross product (see Figur
    * - 4,
      - 1,
      - 2,
-     - 1,
-     - 1,
+     - 0,
+     - 0,
      - 0,
      - 0,
      - 0,
@@ -291,7 +278,7 @@ Allows driving the angle between two segments using the cross product (see Figur
 Angular Driver Grounded: Cross Product
 **************************************
 
-Allows driving the angle between one segment and one axis of the global reference frame using the cross product (see Figure 8).
+Allows driving the angle between one segment and one axis of the global reference frame using the cross product (see Figure 5).
 
 
 .. figure:: .\\images\\angular_driver_grounded.png
@@ -299,9 +286,9 @@ Allows driving the angle between one segment and one axis of the global referenc
 	:align: center
 	:alt: Representation of the angular driver grounded using the cross product between one segment and one axis of the global reference frame
 
-	Fig 8. Representation of the angular driver grounded using the cross product.
+	Fig 5. Representation of the angular driver grounded using the cross product.
 
-.. list-table:: Representation of the angular driver grounded using the cross product: Fields Description
+.. list-table:: Table 9. Representation of the angular driver grounded using the cross product: Fields Description
    :widths: 25 75 
    :header-rows: 1
    
@@ -311,10 +298,6 @@ Allows driving the angle between one segment and one axis of the global referenc
      - Type of kinematic constraint ( == 5)
    * - MovBb
      - Number of the moving segment 
-   * - Lu
-     - Length of the unitary vector of segment 1
-   * - Lv
-     - Length of the unitary vector of global axis
    * - GlCVtX
      - 'x' component fo the orientation ovector of the unitary vector of global axis
    * - GlCVtY
@@ -322,17 +305,17 @@ Allows driving the angle between one segment and one axis of the global referenc
    * - DoF
      - Number of the guided degree of freedom
 
-.. list-table:: Representation of the angular driver grounded using the dot product: Modeling Example
+.. list-table:: Table 10. Representation of the angular driver grounded using the dot product: Modeling Example
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
    * - Type,
      - MovBd1,
      - MovBd2,
-     - Lu,
-     - Lv,
      - GlCVtX,
      - GlCVtY,
+     - ,
+     - ,
      - ,
      - ,
      - ,
@@ -344,7 +327,7 @@ Allows driving the angle between one segment and one axis of the global referenc
      - 1,
      - 1,
      - 1,
-     - 1,
+     - 0,
      - 0,
      - 0,
      - 0,
@@ -359,7 +342,7 @@ Allows driving the angle between one segment and one axis of the global referenc
 Trajectory Driver:
 ---------------
 
-Allows to prescribe the trajectory of a given point with respect to a given reference (see Figure 13). 
+Allows to prescribe the trajectory of a given point with respect to a given reference (see Figure 6). 
 
 
 .. figure:: .\\images\\trajectory_driver.png
@@ -367,9 +350,9 @@ Allows to prescribe the trajectory of a given point with respect to a given refe
 	:align: center
 	:alt: Representation of a revolute joint
 
-	Fig 13. Representation of the trajectory driver. 
+	Fig 6. Representation of the trajectory driver. 
 
-.. list-table:: Trajectory driver: Fields Description
+.. list-table:: Table 11. Trajectory driver: Fields Description
    :widths: 25 75 
    :header-rows: 1
     
@@ -402,7 +385,7 @@ Allows to prescribe the trajectory of a given point with respect to a given refe
    * - DoFType
      - Type of degree of freedom (linear or angular)
 
-.. list-table:: Trajectory driver: Modeling Example
+.. list-table:: Table 12. Trajectory driver: Modeling Example
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
  
@@ -446,7 +429,7 @@ Joints allow for the relative emotion between adjacent bodies. Below is presente
 Single Support Joint
 ********************
 
-It allows 1 rotation and 1 translation in one direction (see Figure 4).
+It allows 1 rotation and 1 translation in one direction (see Figure 7).
 
 
 .. figure:: .\\images\\single_support_joint.png
@@ -454,9 +437,9 @@ It allows 1 rotation and 1 translation in one direction (see Figure 4).
 	:align: center
 	:alt: Representation of a single support joint
 
-	Fig 4. Representation of a single support joint. 
+	Fig 7. Representation of a single support joint. 
 
-.. list-table:: Single Support Joint: Fields Description
+.. list-table:: Table 13. Single Support Joint: Fields Description
    :widths: 25 75 
    :header-rows: 1
    
@@ -477,7 +460,7 @@ It allows 1 rotation and 1 translation in one direction (see Figure 4).
    * - GlCBlkDirY
      - *y* component of the axis of the global reference frame used to define the orientation of the moving direction
 
-.. list-table:: Single Support Joint: Modeling Example
+.. list-table:: Table 14. Single Support Joint: Modeling Example
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
@@ -514,16 +497,16 @@ It allows 1 rotation and 1 translation in one direction (see Figure 4).
 Double Support Joint
 ********************
 
-It allows the rotational motion of one body with respect to a ``fixed`` point (See Figure 3).
+It allows the rotational motion of one body with respect to a ``fixed`` point (See Figure 8).
 
 .. figure:: .\\images\\double_support_joint.png
 	:scale: 10 %
 	:align: center
 	:alt: Representation of a double support joint
 
-	Fig 3. Representation of a double support joint. 
+	Fig 8. Representation of a double support joint. 
 
-.. list-table:: Double Support Joint: Fields Description
+.. list-table:: Table 15. Double Support Joint: Fields Description
    :widths: 25 75 
    :header-rows: 1
    
@@ -543,7 +526,7 @@ It allows the rotational motion of one body with respect to a ``fixed`` point (S
      - Global coordinate of the *y* coordinate of the double support joint
 
 
-.. list-table:: Double Support: Modeling Example
+.. list-table:: Table 16. Double Support: Modeling Example
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
@@ -579,7 +562,7 @@ It allows the rotational motion of one body with respect to a ``fixed`` point (S
 Revolute Joint
 **************
 
-It allows the rotational motion between two adjacent bodies (See Figure 2).
+It allows the rotational motion between two adjacent bodies (See Figure 9).
 
 
 .. figure:: .\\images\\revolute_joint.png
@@ -587,9 +570,9 @@ It allows the rotational motion between two adjacent bodies (See Figure 2).
 	:align: center
 	:alt: Representation of a revolute joint
 
-	Fig 2. Representation of a revolute joint. 
+	Fig 9. Representation of a revolute joint. 
 
-.. list-table:: Revolute Joint: Fields Description
+.. list-table:: Table 17. Revolute Joint: Fields Description
    :widths: 25 75 
    :header-rows: 1
    
@@ -610,7 +593,7 @@ It allows the rotational motion between two adjacent bodies (See Figure 2).
    * - LcCMvB2y
      - Local coordinate of the *y* coordinate of the revolute joint with respect to the local reference frame of segment 2
 
-.. list-table:: Revolute Joint: Modeling Example
+.. list-table:: Table 18. Revolute Joint: Modeling Example
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
@@ -650,16 +633,16 @@ Mixed Angular Drivers
 Mixed Angular Driver Grounded: Dot Product
 ******************************************
 
-Allows computing the angle between one segment and the axis of the global reference frame using the dot product (see Figure 11).
+Allows computing the angle between one segment and the axis of the global reference frame using the dot product (see Figure 10).
 
 .. figure:: .\\images\\mixed_angular_driver_grounded.png
 	:scale: 10 %
 	:align: center
 	:alt: Representation of the mixed angular driver grounded using the dot product 
 
-	Fig 11. Representation of mixed angular driver grounded using the dot product. 
+	Fig 10. Representation of mixed angular driver grounded using the dot product. 
 
-.. list-table:: Mixed angular driver grounded using the dot product: Fields Description
+.. list-table:: Table 19. Mixed angular driver grounded using the dot product: Fields Description
    :widths: 25 75 
    :header-rows: 1
    
@@ -682,16 +665,16 @@ Allows computing the angle between one segment and the axis of the global refere
    * - DoF
      - Number of the degree of freedom
 
-.. list-table:: Mixed angular driver grounded using the dot product: Modeling Example
+.. list-table:: Table 20. Mixed angular driver grounded using the dot product: Modeling Example
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
    * - Type,
      - MovBd,
-     - Lu,
-     - Lv,
      - GlCVtX,
      - GlCVtY,
+     - ,
+     - ,
      - ,
      - ,
      - ,
@@ -704,7 +687,7 @@ Allows computing the angle between one segment and the axis of the global refere
      - 1,
      - 1,
      - 1,
-     - 1,
+     - 0,
      - 0,
      - 0,
      - 0,
@@ -719,16 +702,16 @@ Allows computing the angle between one segment and the axis of the global refere
 Mixed Angular Driver: Dot Product
 *********************************
 
-Allows computing the angle between two segments using the dot product (see Figure 9).
+Allows computing the angle between two segments using the dot product (see Figure 11).
 
 .. figure:: .\\images\\mixed_angular_driver.png
 	:scale: 10 %
 	:align: center
 	:alt: Representation of the mixed angular driver using the dot product between two segments
 
-	Fig 9. Representation of the mixed angular driver using the dot product between two segments. 
+	Fig 11. Representation of the mixed angular driver using the dot product between two segments. 
 
-.. list-table:: Mixed angular driver using the dot product: Fields Description
+.. list-table:: Table 21. Mixed angular driver using the dot product: Fields Description
    :widths: 25 75 
    :header-rows: 1
      
@@ -740,22 +723,18 @@ Allows computing the angle between two segments using the dot product (see Figur
      - Number of the parent moving segment 1 
    * - ChildBd
      - Number of the child moving segment 1
-   * - Lu
-     - Length of the unitary vector defining the orientation vector of parent body
-   * - Lv
-     - Length of the unitary vector defining the orientation vector of child body
    * - DoF
      - Number of the degree of freedom
 
-.. list-table::  Mixed angular driver using the dot product: Modeling Example
+.. list-table::  Table 22. Mixed angular driver using the dot product: Modeling Example
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
    * - Type,
      - ParentBd,
      - ChildBd,
-     - Lu,
-     - Lv,
+     - ,
+     - ,
      - ,
      - ,
      - ,
@@ -768,8 +747,8 @@ Allows computing the angle between two segments using the dot product (see Figur
    * - 13,
      - 1,
      - 2,
-     - 1,
-     - 1,
+     - 0,
+     - 0,
      - 0,
      - 0,
      - 0,
@@ -792,7 +771,7 @@ Allows computing the angle between one segment and the axis of the global refere
 
 	Fig 12. Representation of the mixed angular driver grounded using the cross product. 
 
-.. list-table:: Mixed angular driver grounded using the cross product: Fields Description
+.. list-table:: Table 23. Mixed angular driver grounded using the cross product: Fields Description
    :widths: 25 75 
    :header-rows: 1
      
@@ -802,10 +781,6 @@ Allows computing the angle between one segment and the axis of the global refere
      - Type of kinematic constraint ( == 14)
    * - MovBd
      - Number of the moving
-   * - Lu
-     - Length of the unitary vector defining the orientation vector of moving body
-   * - Lv
-     - Length of the unitary vector defining the orientation vector of the global reference frame 
    * - GlCVtX
      - *x* component of the orientation vector of the global reference frame
    * - GlCVtY
@@ -813,16 +788,16 @@ Allows computing the angle between one segment and the axis of the global refere
    * - DoF
      - Number of the degree of freedom
 
-.. list-table:: Mixed angular driver grounded using the cross product: Modeling Example
+.. list-table:: Table 24. Mixed angular driver grounded using the cross product: Modeling Example
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
    * - Type,
      - MovBd,
-     - Lu,
-     - Lv,
      - GlCVtX,
      - GlCVtY,
+     - ,
+     - ,
      - ,
      - ,
      - ,
@@ -835,7 +810,7 @@ Allows computing the angle between one segment and the axis of the global refere
      - 1,
      - 1,
      - 1,
-     - 1,
+     - 0,
      - 0,
      - 0,
      - 0,
@@ -849,16 +824,16 @@ Allows computing the angle between one segment and the axis of the global refere
 Mixed Angular Driver: Cross Product
 ***********************************
 
-Allows computing the angle between two segments using the cross product (see Figure 10).
+Allows computing the angle between two segments using the cross product (see Figure 13).
 
 .. figure:: .\\images\\mixed_angular_driver.png
 	:scale: 10 %
 	:align: center
 	:alt: Representation of the mixed angular driver using the cross product between two segments
 
-	Fig 10. Representation of the mixed angular driver using the cross product between two segments. 
+	Fig 13. Representation of the mixed angular driver using the cross product between two segments. 
 
-.. list-table:: Mixed angular driver using the cross product: Fields Description
+.. list-table:: Table 25. Mixed angular driver using the cross product: Fields Description
    :widths: 25 75 
    :header-rows: 1
    
@@ -870,22 +845,18 @@ Allows computing the angle between two segments using the cross product (see Fig
      - Number of the parent moving segment 1 
    * - ChildBd
      - Number of the child moving segment 1
-   * - Lu
-     - Length of the unitary vector defining the orientation vector of parent body
-   * - Lv
-     - Length of the unitary vector defining the orientation vector of child body
    * - DoF
      - Number of the degree of freedom
 
-.. list-table::  Mixed angular driver using the cross product: Modeling Example
+.. list-table::  Table 26. Mixed angular driver using the cross product: Modeling Example
    :widths: 7 7 7 7 7 7 7 7 7 7 7 7 7 7
    :header-rows: 1
 
    * - Type,
      - ParentBd,
      - ChildBd,
-     - Lu,
-     - Lv,
+     - ,
+     - ,
      - ,
      - ,
      - ,
@@ -898,8 +869,8 @@ Allows computing the angle between two segments using the cross product (see Fig
    * - 15,
      - 1,
      - 2,
-     - 1,
-     - 1,
+     - 0,
+     - 0,
      - 0,
      - 0,
      - 0,

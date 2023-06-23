@@ -828,17 +828,17 @@ class Analysis_Panel(wx.Panel):
         event.Skip()
 
     def m_button_analysisOnButtonClick(self, event):
-        # Disable run analysis button until the end of the analysis
-        self.m_button_analysis.Enable(False)
+            # Disable run analysis button until the end of the analysis
+            self.m_button_analysis.Enable(False)
 
-        input_files_ctrls_list = []
+            input_files_ctrls_list = []
 
-        analysis_parameters_ctrls_list = [self.m_textCtrl_init_time,
-                                          self.m_textCtrl_end_time,
-                                          self.m_textCtrl_sampling_frequency]
+            analysis_parameters_ctrls_list = [self.m_textCtrl_init_time,
+                                              self.m_textCtrl_end_time,
+                                              self.m_textCtrl_sampling_frequency]
 
         # two tabs here
-        try:
+        # try:
             if self.m_comboBox_analysis_type.GetValue() == 'Kinematic':
                 input_files_ctrls_list = [self.m_filePicker_modeling_file,
                                           self.m_filePicker_model_state_q,
@@ -887,107 +887,107 @@ class Analysis_Panel(wx.Panel):
                 ctrl.GetValidator().Validate(ctrl)
 
             # three tabs here
-            try:
-                fs = float(self.m_textCtrl_sampling_frequency.GetValue())
-                t0 = float(self.m_textCtrl_init_time.GetValue())
+            # try:
+            fs = float(self.m_textCtrl_sampling_frequency.GetValue())
+            t0 = float(self.m_textCtrl_init_time.GetValue())
 
-                tf_fpath = self.m_filePicker_model_data.GetPath()
+            tf_fpath = self.m_filePicker_model_data.GetPath()
 
-                if self.m_comboBox_analysis_type.GetValue() != 'Forward Dynamic':
-                    data = np.loadtxt(tf_fpath, dtype='float', delimiter=',', skiprows=1)
-                tf = float(self.m_textCtrl_end_time.GetValue())
+            if self.m_comboBox_analysis_type.GetValue() != 'Forward Dynamic':
+                data = np.loadtxt(tf_fpath, dtype='float', delimiter=',', skiprows=1)
+            tf = float(self.m_textCtrl_end_time.GetValue())
 
-                check_smaller_equal(self.m_textCtrl_init_time, self.m_textCtrl_end_time)
+            check_smaller_equal(self.m_textCtrl_init_time, self.m_textCtrl_end_time)
 
                 # four tabs here
-                try:
+                # try:
                     # Clear Messages Text Box
-                    self.m_textCtrl_Messages.Clear()
+            self.m_textCtrl_Messages.Clear()
 
-                    # Run analysis
-                    if self.m_comboBox_analysis_type.GetValue() == 'Kinematic':
-                        model_output_fpath = run_inverse_analysis(self.m_comboBox_analysis_type.GetValue(),
-                                                                  float(self.m_textCtrl_subject_bodymass.GetValue()),
-                                                                  self.m_filePicker_modeling_file.GetPath(),
-                                                                  self.m_filePicker_model_data.GetPath(),
-                                                                  self.m_filePicker_model_state_q.GetPath(),
-                                                                  self.m_filePicker_model_drivers_labels.GetPath(),
-                                                                  '',
-                                                                  '',
-                                                                  self.m_dirPicker_outputs_folder.GetPath(),
-                                                                  float(self.m_textCtrl_sampling_frequency.GetValue()),
-                                                                  float(self.m_textCtrl_init_time.GetValue()),
-                                                                  float(self.m_textCtrl_end_time.GetValue()),
-                                                                  'gui',
-                                                                  self.m_textCtrl_Messages
-                                                                  )
+            # Run analysis
+            if self.m_comboBox_analysis_type.GetValue() == 'Kinematic':
+                model_output_fpath = run_inverse_analysis(self.m_comboBox_analysis_type.GetValue(),
+                                                          float(self.m_textCtrl_subject_bodymass.GetValue()),
+                                                          self.m_filePicker_modeling_file.GetPath(),
+                                                          self.m_filePicker_model_data.GetPath(),
+                                                          self.m_filePicker_model_state_q.GetPath(),
+                                                          self.m_filePicker_model_drivers_labels.GetPath(),
+                                                          '',
+                                                          '',
+                                                          self.m_dirPicker_outputs_folder.GetPath(),
+                                                          float(self.m_textCtrl_sampling_frequency.GetValue()),
+                                                          float(self.m_textCtrl_init_time.GetValue()),
+                                                          float(self.m_textCtrl_end_time.GetValue()),
+                                                          'gui',
+                                                          self.m_textCtrl_Messages
+                                                          )
 
-                    elif self.m_comboBox_analysis_type.GetValue() == 'Forward Dynamic':
-                        model_output_fpath = run_forward_analysis(self.m_comboBox_analysis_type.GetValue(),
-                                                                  self.m_filePicker_modeling_file.GetPath(),
-                                                                  self.m_filePicker_model_state_q.GetPath(),
-                                                                  self.m_filePicker_model_state_qp.GetPath(),
-                                                                  self.m_dirPicker_force_files.GetPath(),
-                                                                  self.m_dirPicker_outputs_folder.GetPath(),
-                                                                  float(self.m_textCtrl_sampling_frequency.GetValue()),
-                                                                  float(self.m_textCtrl_init_time.GetValue()),
-                                                                  float(self.m_textCtrl_end_time.GetValue()),
-                                                                  'gui',
-                                                                  self.m_textCtrl_Messages)
+            elif self.m_comboBox_analysis_type.GetValue() == 'Forward Dynamic':
+                model_output_fpath = run_forward_analysis(self.m_comboBox_analysis_type.GetValue(),
+                                                          self.m_filePicker_modeling_file.GetPath(),
+                                                          self.m_filePicker_model_state_q.GetPath(),
+                                                          self.m_filePicker_model_state_qp.GetPath(),
+                                                          self.m_dirPicker_force_files.GetPath(),
+                                                          self.m_dirPicker_outputs_folder.GetPath(),
+                                                          float(self.m_textCtrl_sampling_frequency.GetValue()),
+                                                          float(self.m_textCtrl_init_time.GetValue()),
+                                                          float(self.m_textCtrl_end_time.GetValue()),
+                                                          'gui',
+                                                          self.m_textCtrl_Messages)
 
-                    elif self.m_comboBox_analysis_type.GetValue() == 'Inverse Dynamic':
-                        model_output_fpath = run_inverse_analysis(self.m_comboBox_analysis_type.GetValue(),
-                                                                  float(self.m_textCtrl_subject_bodymass.GetValue()),
-                                                                  self.m_filePicker_modeling_file.GetPath(),
-                                                                  self.m_filePicker_model_data.GetPath(),
-                                                                  self.m_filePicker_model_state_q.GetPath(),
-                                                                  self.m_filePicker_model_drivers_labels.GetPath(),
-                                                                  self.m_dirPicker_force_files.GetPath(),
-                                                                  '',
-                                                                  self.m_dirPicker_outputs_folder.GetPath(),
-                                                                  float(self.m_textCtrl_sampling_frequency.GetValue()),
-                                                                  float(self.m_textCtrl_init_time.GetValue()),
-                                                                  float(self.m_textCtrl_end_time.GetValue()),
-                                                                  'gui',
-                                                                  self.m_textCtrl_Messages
-                                                                  )
+            elif self.m_comboBox_analysis_type.GetValue() == 'Inverse Dynamic':
+                model_output_fpath = run_inverse_analysis(self.m_comboBox_analysis_type.GetValue(),
+                                                          float(self.m_textCtrl_subject_bodymass.GetValue()),
+                                                          self.m_filePicker_modeling_file.GetPath(),
+                                                          self.m_filePicker_model_data.GetPath(),
+                                                          self.m_filePicker_model_state_q.GetPath(),
+                                                          self.m_filePicker_model_drivers_labels.GetPath(),
+                                                          self.m_dirPicker_force_files.GetPath(),
+                                                          '',
+                                                          self.m_dirPicker_outputs_folder.GetPath(),
+                                                          float(self.m_textCtrl_sampling_frequency.GetValue()),
+                                                          float(self.m_textCtrl_init_time.GetValue()),
+                                                          float(self.m_textCtrl_end_time.GetValue()),
+                                                          'gui',
+                                                          self.m_textCtrl_Messages
+                                                          )
 
-                    elif self.m_comboBox_analysis_type.GetValue() == 'Musculoskeletal':
-                        model_output_fpath = run_inverse_analysis(self.m_comboBox_analysis_type.GetValue(),
-                                                                  float(self.m_textCtrl_subject_bodymass.GetValue()),
-                                                                  self.m_filePicker_modeling_file.GetPath(),
-                                                                  self.m_filePicker_model_data.GetPath(),
-                                                                  self.m_filePicker_model_state_q.GetPath(),
-                                                                  self.m_filePicker_model_drivers_labels.GetPath(),
-                                                                  self.m_dirPicker_force_files.GetPath(),
-                                                                  self.m_filePicker_msk_database.GetPath(),
-                                                                  self.m_dirPicker_outputs_folder.GetPath(),
-                                                                  float(self.m_textCtrl_sampling_frequency.GetValue()),
-                                                                  float(self.m_textCtrl_init_time.GetValue()),
-                                                                  float(self.m_textCtrl_end_time.GetValue()),
-                                                                  'gui',
-                                                                  self.m_textCtrl_Messages
-                                                                  )
+            elif self.m_comboBox_analysis_type.GetValue() == 'Musculoskeletal':
+                model_output_fpath = run_inverse_analysis(self.m_comboBox_analysis_type.GetValue(),
+                                                          float(self.m_textCtrl_subject_bodymass.GetValue()),
+                                                          self.m_filePicker_modeling_file.GetPath(),
+                                                          self.m_filePicker_model_data.GetPath(),
+                                                          self.m_filePicker_model_state_q.GetPath(),
+                                                          self.m_filePicker_model_drivers_labels.GetPath(),
+                                                          self.m_dirPicker_force_files.GetPath(),
+                                                          self.m_filePicker_msk_database.GetPath(),
+                                                          self.m_dirPicker_outputs_folder.GetPath(),
+                                                          float(self.m_textCtrl_sampling_frequency.GetValue()),
+                                                          float(self.m_textCtrl_init_time.GetValue()),
+                                                          float(self.m_textCtrl_end_time.GetValue()),
+                                                          'gui',
+                                                          self.m_textCtrl_Messages
+                                                          )
 
-                    self.m_button_analysis.Enable(True)
-
-                # four tabs here
-                except Exception as e:
-                    self.m_button_analysis.Enable(True)
-                    self.m_textCtrl_Messages.AppendText(str(e.__class__.__name__) + " : " + str(e) + '\n')
-                    pass
-
-            # three tabs here
-            except Exception as e:
-                self.m_button_analysis.Enable(True)
-                self.m_textCtrl_Messages.AppendText(str(e.__class__.__name__) + " : " + str(e) + '\n')
-                pass
-
-        # two tabs here
-        except Exception as e:
             self.m_button_analysis.Enable(True)
-            self.m_textCtrl_Messages.AppendText(str(e.__class__.__name__) + " : " + str(e) + '\n')
-            pass
+
+        #         # four tabs here
+        #         except Exception as e:
+        #             self.m_button_analysis.Enable(True)
+        #             self.m_textCtrl_Messages.AppendText(str(e.__class__.__name__) + " : " + str(e) + '\n')
+        #             pass
+        #
+        #     # three tabs here
+        #     except Exception as e:
+        #         self.m_button_analysis.Enable(True)
+        #         self.m_textCtrl_Messages.AppendText(str(e.__class__.__name__) + " : " + str(e) + '\n')
+        #         pass
+        #
+        # # two tabs here
+        # except Exception as e:
+        #     self.m_button_analysis.Enable(True)
+        #     self.m_textCtrl_Messages.AppendText(str(e.__class__.__name__) + " : " + str(e) + '\n')
+        #     pass
 
     def m_button_Messages_clearOnButtonClick(self, event):
         self.m_textCtrl_Messages.Clear()

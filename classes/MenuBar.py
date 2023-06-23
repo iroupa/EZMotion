@@ -37,6 +37,7 @@ class MyMenuBar(wx.MenuBar):
         self.Append(self.m_menu_file, u"File")
 
         self.m_menu_edit = wx.Menu()
+
         self.m_menu_model_plot_lims = wx.MenuItem(self.m_menu_edit, wx.ID_ANY, u"Model Axes Values",
                                                   wx.EmptyString, wx.ITEM_NORMAL)
         self.m_menu_edit.Append(self.m_menu_model_plot_lims)
@@ -48,6 +49,7 @@ class MyMenuBar(wx.MenuBar):
         self.Append(self.m_menu_edit, u"Edit")
 
         self.m_menu_view = wx.Menu()
+
         self.m_menu_CoM = wx.MenuItem(self.m_menu_view, wx.ID_ANY, u"Model CoM", wx.EmptyString, wx.ITEM_NORMAL)
         self.m_menu_view.Append(self.m_menu_CoM)
 
@@ -61,6 +63,9 @@ class MyMenuBar(wx.MenuBar):
 
         self.m_menu_grfs = wx.MenuItem(self.m_menu_view, wx.ID_ANY, u"GRFs", wx.EmptyString, wx.ITEM_NORMAL)
         self.m_menu_view.Append(self.m_menu_grfs)
+
+        self.m_menu_grid = wx.MenuItem(self.m_menu_view, wx.ID_ANY, u"Model Grid", wx.EmptyString, wx.ITEM_NORMAL)
+        self.m_menu_view.Append(self.m_menu_grid)
 
         self.Append(self.m_menu_view, u"View")
 
@@ -78,8 +83,8 @@ class MyMenuBar(wx.MenuBar):
         self.Bind(wx.EVT_MENU, self.m_menu_model_segments_axesOnMenuSelection, id=self.m_menu_model_segments_axes.GetId())
         self.Bind(wx.EVT_MENU, self.m_menu_model_markersOnMenuSelection, id=self.m_menu_model_markers.GetId())
         self.Bind(wx.EVT_MENU, self.m_menu_grfsOnMenuSelection, id=self.m_menu_grfs.GetId())
-
         self.Bind(wx.EVT_MENU, self.m_menu_infoOnMenuSelection, id=self.m_menu_info.GetId())
+        self.Bind(wx.EVT_MENU, self.m_menu_gridOnMenuSelection, id=self.m_menu_grid.GetId())
 
     def __del__(self):
         pass
@@ -88,19 +93,31 @@ class MyMenuBar(wx.MenuBar):
     def m_menu_exitOnMenuSelection(self, event):
         self.Parent.Close()
 
+    def m_menu_gridOnMenuSelection(self, event):
+        try:
+            if self.Parent.m_panel_visualization.m_plot_panel.show_grid:
+                self.Parent.m_panel_visualization.m_plot_panel.show_grid = False
+            elif not self.Parent.m_panel_visualization.m_plot_panel.show_grid:
+                self.Parent.m_panel_visualization.m_plot_panel.show_grid = True
+        except Exception as e:
+            dlg = wx.MessageDialog(None, str(e.__class__.__name__) + " : " + str(e), '', wx.OK | wx.ICON_INFORMATION)
+            dlg.ShowModal()
+            dlg.Destroy()
+            pass
+
     def m_menu_model_plot_limsOnMenuSelection(self, event):
         try:
             dlg = MyDialog(None, 'Model')
             result = dlg.ShowModal()
             if result:
-                y_lims = [dlg.y_axis_min, dlg.y_axis_max]
-                x_lims = [dlg.x_axis_min, dlg.x_axis_max]
+                y_lims = [dlg.plot_y_axis_min, dlg.plot_y_axis_max]
+                x_lims = [dlg.plot_x_axis_min, dlg.plot_x_axis_max]
                 dlg.Destroy()
-                self.Parent.m_panel_visualization.m_plot_panel.ax1.set_ylim(y_lims)
-                self.Parent.m_panel_visualization.m_plot_panel.ax1.set_xlim(x_lims)
+                self.Parent.m_panel_visualization.m_plot_panel.model_plot_ax.set_ylim(y_lims)
+                self.Parent.m_panel_visualization.m_plot_panel.model_plot_ax.set_xlim(x_lims)
                 self.Parent.m_panel_visualization.m_plot_panel.figure.canvas.draw()
         except Exception as e:
-            dlg = wx.MessageDialog(None, str(e.__class__.__name__) + " : " + str(e), msg, wx.OK | wx.ICON_INFORMATION)
+            dlg = wx.MessageDialog(None, str(e.__class__.__name__) + " : " + str(e), '', wx.OK | wx.ICON_INFORMATION)
             dlg.ShowModal()
             dlg.Destroy()
             pass
@@ -110,14 +127,14 @@ class MyMenuBar(wx.MenuBar):
             dlg = MyDialog(None, 'Variable')
             result = dlg.ShowModal()
             if result:
-                y_lims = [dlg.y_axis_min, dlg.y_axis_max]
-                x_lims = [dlg.x_axis_min, dlg.x_axis_max]
+                y_lims = [dlg.plot_y_axis_min, dlg.plot_y_axis_max]
+                x_lims = [dlg.plot_x_axis_min, dlg.plot_x_axis_max]
                 dlg.Destroy()
-                self.Parent.m_panel_visualization.m_plot_panel.ax2.set_ylim(y_lims)
-                self.Parent.m_panel_visualization.m_plot_panel.ax2.set_xlim(x_lims)
+                self.Parent.m_panel_visualization.m_plot_panel.variable_plot_ax.set_ylim(y_lims)
+                self.Parent.m_panel_visualization.m_plot_panel.variable_plot_ax.set_xlim(x_lims)
                 self.Parent.m_panel_visualization.m_plot_panel.figure.canvas.draw()
         except Exception as e:
-            dlg = wx.MessageDialog(None, str(e.__class__.__name__) + " : " + str(e), msg, wx.OK | wx.ICON_INFORMATION)
+            dlg = wx.MessageDialog(None, str(e.__class__.__name__) + " : " + str(e), '', wx.OK | wx.ICON_INFORMATION)
             dlg.ShowModal()
             dlg.Destroy()
             pass
@@ -129,7 +146,7 @@ class MyMenuBar(wx.MenuBar):
             elif not self.Parent.m_panel_visualization.m_plot_panel.show_model_CoM:
                 self.Parent.m_panel_visualization.m_plot_panel.show_model_CoM = True
         except Exception as e:
-            dlg = wx.MessageDialog(None, str(e.__class__.__name__) + " : " + str(e), msg, wx.OK | wx.ICON_INFORMATION)
+            dlg = wx.MessageDialog(None, str(e.__class__.__name__) + " : " + str(e), '', wx.OK | wx.ICON_INFORMATION)
             dlg.ShowModal()
             dlg.Destroy()
             pass
@@ -141,7 +158,7 @@ class MyMenuBar(wx.MenuBar):
             elif not self.Parent.m_panel_visualization.m_plot_panel.show_model_refs:
                 self.Parent.m_panel_visualization.m_plot_panel.show_model_refs = True
         except Exception as e:
-            dlg = wx.MessageDialog(None, str(e.__class__.__name__) + " : " + str(e), msg, wx.OK | wx.ICON_INFORMATION)
+            dlg = wx.MessageDialog(None, str(e.__class__.__name__) + " : " + str(e), '', wx.OK | wx.ICON_INFORMATION)
             dlg.ShowModal()
             dlg.Destroy()
             pass
@@ -153,7 +170,7 @@ class MyMenuBar(wx.MenuBar):
             elif not self.Parent.m_panel_visualization.m_plot_panel.show_model_markers:
                 self.Parent.m_panel_visualization.m_plot_panel.show_model_markers = True
         except Exception as e:
-            dlg = wx.MessageDialog(None, str(e.__class__.__name__) + " : " + str(e), msg, wx.OK | wx.ICON_INFORMATION)
+            dlg = wx.MessageDialog(None, str(e.__class__.__name__) + " : " + str(e), '', wx.OK | wx.ICON_INFORMATION)
             dlg.ShowModal()
             dlg.Destroy()
             pass
@@ -165,7 +182,7 @@ class MyMenuBar(wx.MenuBar):
             elif not self.Parent.m_panel_visualization.m_plot_panel.show_grfs:
                 self.Parent.m_panel_visualization.m_plot_panel.show_grfs = True
         except Exception as e:
-            dlg = wx.MessageDialog(None, str(e.__class__.__name__) + " : " + str(e), msg, wx.OK | wx.ICON_INFORMATION)
+            dlg = wx.MessageDialog(None, str(e.__class__.__name__) + " : " + str(e), '', wx.OK | wx.ICON_INFORMATION)
             dlg.ShowModal()
             dlg.Destroy()
             pass

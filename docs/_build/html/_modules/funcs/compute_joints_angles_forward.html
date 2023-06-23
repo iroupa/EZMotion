@@ -131,16 +131,16 @@
 
     <span class="c1"># Iterate through the rows of dataConst</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dataConst</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-        <span class="c1"># Check for revolute joints constraint (idx == 9)</span>
-        <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">dataConst</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
-            <span class="c1"># Store information about the joint in joints_info dictionary</span>
-            <span class="n">joints_info</span><span class="p">[</span><span class="n">joint_counter</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;body_1&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">dataConst</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;body_2&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">dataConst</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="mi">2</span><span class="p">])}</span>
-            <span class="n">joint_counter</span> <span class="o">+=</span> <span class="mi">1</span>
-
         <span class="c1"># Check for ground joint constraint (idx = 8)</span>
         <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">dataConst</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
             <span class="c1"># Store information about the joint with ground in joints_info dictionary</span>
             <span class="n">joints_info</span><span class="p">[</span><span class="n">joint_counter</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;body_1&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">dataConst</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;body_2&#39;</span><span class="p">:</span> <span class="s1">&#39;ground&#39;</span><span class="p">}</span>
+            <span class="n">joint_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1"># Check for revolute joints constraint (idx == 9)</span>
+        <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">dataConst</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+            <span class="c1"># Store information about the joint in joints_info dictionary</span>
+            <span class="n">joints_info</span><span class="p">[</span><span class="n">joint_counter</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;body_1&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">dataConst</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;body_2&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">dataConst</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="mi">2</span><span class="p">])}</span>
             <span class="n">joint_counter</span> <span class="o">+=</span> <span class="mi">1</span>
 
     <span class="c1"># Iterate through the joints in joints_info</span>

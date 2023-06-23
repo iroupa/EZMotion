@@ -97,7 +97,6 @@ def solve_equations_of_motion(y0, t, nRigidBodies, massMatrix, nCoordinates, nCo
     # print('gVector', gVector)
     # Check if external forces exist:
     if len(forceSplineFuncs.items()) > 0:
-        # print('IFR')
         # Compute splined forces acting on the system
         gVector = compute_splined_forces_coords(t, q, forceSplineFuncs, gVector)
         # print('gVector', gVector)

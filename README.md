@@ -1,6 +1,8 @@
 # EZMotion
 
-EZMotion provides an easy and intuitive way to model and perform kinematic and dynamic analyses of planar multibody systems without requiring coding skills. Moreover, it also allows to visualize and export the outputs of the analysis. The current implementation has been developed in Python 3, and the outputs of the examples provided been validated against those available in the IFToMM library of computational benchmark problems [1].
+EZMotion provides an easy and intuitive way to model and perform kinematic and dynamic analyses of planar multibody systems without requiring coding skills. Moreover, it also allows to visualize and export the outputs of the analysis. 
+
+The current implementation has been developed in Python 3, and the outputs of the examples provided been validated against those available in the IFToMM library of computational benchmark problems [1].
 <br>
 <br>
 

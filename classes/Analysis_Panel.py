@@ -326,7 +326,7 @@ class Analysis_Panel(wx.Panel):
 
         bSizer1_8_1_4.Add(self.m_static_subject_bodymass, 0, wx.LEFT | wx.BOTTOM | wx.TOP | wx.ALIGN_CENTER_VERTICAL, 10)
 
-        self.m_textCtrl_subject_bodymass = wx.TextCtrl(sbSizer1_8_1.GetStaticBox(), wx.ID_ANY, u"50",
+        self.m_textCtrl_subject_bodymass = wx.TextCtrl(sbSizer1_8_1.GetStaticBox(), wx.ID_ANY, u"1",
                                                        wx.DefaultPosition, wx.DefaultSize, 0,
                                                        validator=TextObjectValidator('no-alpha'))
 

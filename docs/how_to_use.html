@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="english" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to use &mdash; EZMotion 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Input Files" href="input_files.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EZMotion
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#run-analysis">Run Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-select-the-type-of-analysis-to-perform"><strong>1. Step: Select the type of analysis to perform.</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-select-the-folder-containing-the-input-files-for-the-analysis-defined-in-step-1-optional"><strong>2. Step: Select the folder containing the input files for the analysis defined in step #1. (optional)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-choose-the-input-files-for-the-type-of-analysis-in-step-defined-1"><strong>3. Step: Choose the input files for the type of analysis in step defined #1.</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-set-the-initial-and-final-time-sampling-frequency-and-subject-bodymass-for-the-analysis-defined-in-step-1"><strong>4. Step: Set the initial and final time, sampling frequency and subject bodymass for the analysis defined in step #1.</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-select-the-path-of-the-folder-to-which-the-outputs-file-out-of-the-analysis-defined-in-step-1-will-be-exported"><strong>5. Step: Select the path of the folder to which the outputs file</strong> <code class="docutils literal notranslate"><span class="pre">(.out)</span></code> <strong>of the analysis defined in step #1 will be exported.</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-run-analysis"><strong>6. Step: Run Analysis</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-view-analysis-feedback"><strong>7. Step: View analysis feedback</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#visualize-outputs">Visualize Outputs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-select-the-folder-containing-the-input-files-for-the-animation-optional"><strong>1. Step: Select the folder containing the input files for the animation. (optional)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-select-the-input-files-for-the-analysis-defined-in-step-1-mandatory"><strong>2. Step: Select the input files for the analysis defined in step #1. (mandatory)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-select-the-variable-to-plot-mandatory"><strong>3. Step: Select the variable to plot. mandatory)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-export-plotted-variable-optional"><strong>4. Step: Export plotted variable. (optional)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-view-feedback-optional"><strong>5. Step: View feedback (optional)</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="input_files.html">Input Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeling.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EZMotion</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">How to use</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/how_to_use.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="how-to-use">
+<h1>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">EZMotion</span></code> has a graphical user interface with two panels, <code class="docutils literal notranslate"><span class="pre">Analysis</span></code> (see Figure 1) and <code class="docutils literal notranslate"><span class="pre">Visualization</span></code> (see Figure 9), which  allow performing kinematic or dynamic analyses and visualizing and exporting the analysis outputs, respectively. A description on how to use both panels is presented below.</p>
+<section id="run-analysis">
+<h2>Run Analysis<a class="headerlink" href="#run-analysis" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Analysis</span></code> panel (see Figure 1) is composed of several sections with distinct functions (see Table 1)</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Analysis_Panel.png"><img alt="EZMotion: Analysis Panel" src="_images/EZ_Motion_Analysis_Panel.png" style="width: 401.25px; height: 777.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 1. EZMotion: Analysis Panel.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Table 1. Analysis Panel Sections</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Analysis Type</p></td>
+<td><p>Select type of analysis (kinematic, forward dynamic, inverse dynamic or musculoskeletal)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Input Files Folder</p></td>
+<td><p>Select the input files required to perform the selected anaysis .</p></td>
+</tr>
+<tr class="row-even"><td><p>Analysis Parameters</p></td>
+<td><p>Set the initial and final time for the selected analysis, as well as its sampling frequency and the subjet bodymass.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Export Files</p></td>
+<td><p>Select the path of the folder to which the outputs file will be exported.</p></td>
+</tr>
+<tr class="row-even"><td><p>Run Analysis</p></td>
+<td><p>Start the selected analysis.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Messages</p></td>
+<td><p>Provide feedback about the analysis.</p></td>
+</tr>
+</tbody>
+</table>
+<p>To run an analysis, the user needs to follow the following steps:</p>
+<section id="step-select-the-type-of-analysis-to-perform">
+<h3><strong>1. Step: Select the type of analysis to perform.</strong><a class="headerlink" href="#step-select-the-type-of-analysis-to-perform" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Analysis</span> <span class="pre">Type</span> <span class="pre">&gt;</span> <span class="pre">Analysis</span></code> option allows to select one of the following type of analysis: <code class="docutils literal notranslate"><span class="pre">Kinematic</span></code>, <code class="docutils literal notranslate"><span class="pre">Inverse</span> <span class="pre">Dynamic</span></code>, <code class="docutils literal notranslate"><span class="pre">Forward</span> <span class="pre">Dynamic</span></code> or <code class="docutils literal notranslate"><span class="pre">Musculoskeletal</span></code>. According to the selection the number of fields in the <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span></code> section will be updated.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Analysis_Panel_Analysis_Type.png"><img alt="EZMotion: Analysis Panel - Analysis Type Section" src="_images/EZ_Motion_Analysis_Panel_Analysis_Type.png" style="width: 346.5px; height: 74.25px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 2. EZMotion: Analysis Panel - Analysis Type Section.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-select-the-folder-containing-the-input-files-for-the-analysis-defined-in-step-1-optional">
+<h3><strong>2. Step: Select the folder containing the input files for the analysis defined in step #1. (optional)</strong><a class="headerlink" href="#step-select-the-folder-containing-the-input-files-for-the-analysis-defined-in-step-1-optional" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span> <span class="pre">Folder</span> <span class="pre">&gt;</span> <span class="pre">Input</span> <span class="pre">Files</span> <span class="pre">Folder</span></code> option allows to select the folder in which the <code class="docutils literal notranslate"><span class="pre">input</span> <span class="pre">files</span></code> for the selected analysis are located. The list of input files required for each type of analysis and their detailed description is provided in <a class="reference internal" href="input_files.html"><span class="doc">Input Files</span></a> and <a class="reference internal" href="modeling.html"><span class="doc">Modeling</span></a> sections, respectively. By selecting a specific folder, the input fields in the <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span></code> section will be automatically updated. However, it is also possible to manually select such input files.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Analysis_Panel_Input_Files_Folder.png"><img alt="EZMotion: Analysis Panel - Input Files Folder Section" src="_images/EZ_Motion_Analysis_Panel_Input_Files_Folder.png" style="width: 401.25px; height: 69.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 3. EZMotion: Analysis Panel - Input Files Folder Section.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-choose-the-input-files-for-the-type-of-analysis-in-step-defined-1">
+<h3><strong>3. Step: Choose the input files for the type of analysis in step defined #1.</strong><a class="headerlink" href="#step-choose-the-input-files-for-the-type-of-analysis-in-step-defined-1" title="Permalink to this heading"></a></h3>
+<p>This step is performed automatically during step #2. However, the user can select each file manually, by using the selection tool available on the right side of the section.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Analysis_Panel_Input_Files.png"><img alt="EZMotion: Analysis Panel - Input Files Section" src="_images/EZ_Motion_Analysis_Panel_Input_Files.png" style="width: 401.25px; height: 164.25px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 4. EZMotion: Analysis Panel - Input Files Section.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-set-the-initial-and-final-time-sampling-frequency-and-subject-bodymass-for-the-analysis-defined-in-step-1">
+<h3><strong>4. Step: Set the initial and final time, sampling frequency and subject bodymass for the analysis defined in step #1.</strong><a class="headerlink" href="#step-set-the-initial-and-final-time-sampling-frequency-and-subject-bodymass-for-the-analysis-defined-in-step-1" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Analysis</span> <span class="pre">Parameters</span></code> section allows to select the initial (<code class="docutils literal notranslate"><span class="pre">Analysis</span> <span class="pre">Parameters</span> <span class="pre">&gt;</span> <span class="pre">Initial</span> <span class="pre">Time</span> <span class="pre">(s)</span></code>) and final time (<code class="docutils literal notranslate"><span class="pre">Analysis</span> <span class="pre">Parameters</span> <span class="pre">&gt;</span> <span class="pre">Final</span> <span class="pre">Time</span> <span class="pre">(s)</span></code>) of the analysis as well as its sampling frequency (<code class="docutils literal notranslate"><span class="pre">Analysis</span> <span class="pre">Parameters</span> <span class="pre">&gt;</span> <span class="pre">Sampling</span> <span class="pre">Frequency</span> <span class="pre">(Hz)</span></code>). The subject bodymass (<code class="docutils literal notranslate"><span class="pre">Analysis</span> <span class="pre">Parameters</span> <span class="pre">&gt;</span> <span class="pre">Subject</span> <span class="pre">Bodymass</span> <span class="pre">(kg)</span></code>) will be used to normalize the dynamic outputs of the analysis, such as the <code class="docutils literal notranslate"><span class="pre">joint</span> <span class="pre">moments</span></code> or <code class="docutils literal notranslate"><span class="pre">joint</span> <span class="pre">power</span></code> of the model. By default, this value is set to 1 kg.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Analysis_Panel_Analysis_Parameters.png"><img alt="EZMotion: Analysis Panel - Analysis Parameters Section" src="_images/EZ_Motion_Analysis_Panel_Analysis_Parameters.png" style="width: 401.25px; height: 175.5px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 5. EZMotion: Analysis Panel - Analysis Parameters Section.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-select-the-path-of-the-folder-to-which-the-outputs-file-out-of-the-analysis-defined-in-step-1-will-be-exported">
+<h3><strong>5. Step: Select the path of the folder to which the outputs file</strong> <code class="docutils literal notranslate"><span class="pre">(.out)</span></code> <strong>of the analysis defined in step #1 will be exported.</strong><a class="headerlink" href="#step-select-the-path-of-the-folder-to-which-the-outputs-file-out-of-the-analysis-defined-in-step-1-will-be-exported" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Export</span> <span class="pre">Files</span> <span class="pre">&gt;</span> <span class="pre">Outputs</span> <span class="pre">Folder</span></code> option is automatically updated when the input files folder is selected. However, it can be manually defined by the user.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Analysis_Panel_Export_Files.png"><img alt="EZMotion: Analysis Panel - Export Files Section" src="_images/EZ_Motion_Analysis_Panel_Export_Files.png" style="width: 401.25px; height: 79.5px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 6. EZMotion: Analysis Panel - Export Files Section.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-run-analysis">
+<h3><strong>6. Step: Run Analysis</strong><a class="headerlink" href="#step-run-analysis" title="Permalink to this heading"></a></h3>
+<p>To start the analysis the user must press the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Analysis</span></code> button.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Analysis_Panel_Run_Analysis_Button.png"><img alt="EZMotion: Analysis Panel - Run Analysis Section" src="_images/EZ_Motion_Analysis_Panel_Run_Analysis_Button.png" style="width: 401.25px; height: 46.5px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 7. EZMotion: Analysis Panel - Run Analysis Section.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-view-analysis-feedback">
+<h3><strong>7. Step: View analysis feedback</strong><a class="headerlink" href="#step-view-analysis-feedback" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Messages</span></code> section provides a feedback about the evolution of the analysis.</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="images/EZ_Motion_Analysis_Panel_Messages.png"><img alt="EZMotion: Analysis Panel - Messages Section" src="images/EZ_Motion_Analysis_Panel_Messages.png" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 8. EZMotion: Analysis Panel - Messages Section.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="visualize-outputs">
+<h2>Visualize Outputs<a class="headerlink" href="#visualize-outputs" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Visualization</span> <span class="pre">Panel</span></code>     comprises two resizable panels (see Figure 9). In the left panel, composed of several sections (see Table 2) with distinct functions  the input files and the variable to plot are selected, while in the right panel the model and the selected variable are plotted.</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Viz_Panel.png"><img alt="EZMotion: Visualization Panel" src="_images/EZ_Motion_Viz_Panel.png" style="width: 936.75px; height: 631.5px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 9. EZMotion: Visualization Panel. <code class="docutils literal notranslate"><span class="pre">[Insert</span> <span class="pre">model</span> <span class="pre">and</span> <span class="pre">plot</span> <span class="pre">on</span> <span class="pre">right</span> <span class="pre">panel]</span></code></span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<table class="docutils align-default" id="id11">
+<caption><span class="caption-text">Table 2. Visualize Panel Sections</span><a class="headerlink" href="#id11" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Input Files Folder</p></td>
+<td><p>Select the input files folder.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Input Files</p></td>
+<td><p>Select the input files required to visualize the analysis outputs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Plot Data</p></td>
+<td><p>Select the variable to plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Show Model</p></td>
+<td><p>Start the animation.</p></td>
+</tr>
+<tr class="row-even"><td><p>Outputs</p></td>
+<td><p>Export the selected variable (raw or normalized) into a new file <code class="docutils literal notranslate"><span class="pre">(.csv)</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Messages</p></td>
+<td><p>Provide feedback about the analysis.</p></td>
+</tr>
+</tbody>
+</table>
+<p>To visualize the analysis, the user needs to follow the following steps:</p>
+<p>To start the animation, it is necessary to press the <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Model</span></code> button.</p>
+<section id="step-select-the-folder-containing-the-input-files-for-the-animation-optional">
+<h3><strong>1. Step: Select the folder containing the input files for the animation. (optional)</strong><a class="headerlink" href="#step-select-the-folder-containing-the-input-files-for-the-animation-optional" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span> <span class="pre">Folder</span> <span class="pre">&gt;</span> <span class="pre">Input</span> <span class="pre">Files</span> <span class="pre">Folder</span></code> option allows to select the folder in which the input files for the animation are located. By selecting a specific folder, the input fields in the <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span></code> section (see Figure 4) will be automatically updated. However, it is also possible to manually select such input files.</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Viz_Panel_Input_Files_Folder.png"><img alt="EZMotion: Visualization Panel - Input Files Folder." src="_images/EZ_Motion_Viz_Panel_Input_Files_Folder.png" style="width: 401.25px; height: 69.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 10. EZMotion: Visualization Panel - Input Files Folder.</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-select-the-input-files-for-the-analysis-defined-in-step-1-mandatory">
+<h3><strong>2. Step: Select the input files for the analysis defined in step #1. (mandatory)</strong><a class="headerlink" href="#step-select-the-input-files-for-the-analysis-defined-in-step-1-mandatory" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span> <span class="pre">Folder</span> <span class="pre">&gt;</span> <span class="pre">Input</span> <span class="pre">Files</span> <span class="pre">Folder</span></code> option allows to select the folder in which the <code class="docutils literal notranslate"><span class="pre">input</span> <span class="pre">files</span></code> for the selected analysis are located. The list of input files required for each type of analysis and their detailed description is provided in <a class="reference internal" href="input_files.html"><span class="doc">Input Files</span></a> and <a class="reference internal" href="modeling.html"><span class="doc">Modeling</span></a> sections, respectively. By selecting a specific folder, the input fields in the <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Files</span></code> section will be automatically updated. However, it is also possible to manually select such input files.</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Viz_Panel.png"><img alt="EZMotion: Analysis Panel - Input Files Section" src="_images/EZ_Motion_Viz_Panel.png" style="width: 936.75px; height: 631.5px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 11. EZMotion: Visualizatiom Panel - Input Files Section.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-select-the-variable-to-plot-mandatory">
+<h3><strong>3. Step: Select the variable to plot. mandatory)</strong><a class="headerlink" href="#step-select-the-variable-to-plot-mandatory" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Plot</span> <span class="pre">Data</span> <span class="pre">&gt;</span> <span class="pre">Variable</span></code> option allows to select the variable of the model, available in the outputs file (<code class="docutils literal notranslate"><span class="pre">.out</span></code>), that will be presented in the lower right plot.
+By selecting the <code class="docutils literal notranslate"><span class="pre">Plot</span> <span class="pre">Data</span> <span class="pre">&gt;</span> <span class="pre">Filter</span> <span class="pre">Data</span> <span class="pre">&gt;</span> <span class="pre">Yes</span></code> option it is possible to plot the filtered data of the variable (see Figure 3). For that purpose, it is necessary to set the  cuttoff frequency in Hz in the <code class="docutils literal notranslate"><span class="pre">Plot</span> <span class="pre">Data</span> <span class="pre">&gt;</span> <span class="pre">Filter</span> <span class="pre">Frequency</span> <span class="pre">(Hz)</span></code> option and press the <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Model</span></code> button.</p>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Viz_Panel_Plot_Data.png"><img alt="EZMotion: Visualization Panel - Plot data" src="_images/EZ_Motion_Viz_Panel_Plot_Data.png" style="width: 380.25px; height: 127.5px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 12. EZMotion: Visualization Panel - Plot data</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-export-plotted-variable-optional">
+<h3><strong>4. Step: Export plotted variable. (optional)</strong><a class="headerlink" href="#step-export-plotted-variable-optional" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Outputs</span></code> section allows to select the folder to which the variable presented on the lower right plot will be exported. For that purpose it is necessary to select the <code class="docutils literal notranslate"><span class="pre">Outputs</span> <span class="pre">&gt;</span> <span class="pre">Export</span> <span class="pre">Outputs</span> <span class="pre">&gt;</span> <span class="pre">Yes</span></code> option (see Figure 13). Next, the user must define the initial <code class="docutils literal notranslate"><span class="pre">Outputs</span> <span class="pre">&gt;</span> <span class="pre">Initial</span> <span class="pre">Frame</span></code> and final frame <code class="docutils literal notranslate"><span class="pre">Outputs</span> <span class="pre">&gt;</span> <span class="pre">End</span> <span class="pre">Frame</span></code> of the analysis. If requested, the time variable may be normalized between 0 and 100 % <code class="docutils literal notranslate"><span class="pre">Outputs</span> <span class="pre">&gt;</span> <span class="pre">Normalized</span></code>.</p>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Viz_Panel_Export_Outputs.png"><img alt="EZMotion: Visualization Panel - Export Outputs Section" src="_images/EZ_Motion_Viz_Panel_Export_Outputs.png" style="width: 423.75px; height: 255.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 13. EZMotion: Visualization Panel - Export Outputs Section.</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-view-feedback-optional">
+<h3><strong>5. Step: View feedback (optional)</strong><a class="headerlink" href="#step-view-feedback-optional" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Messages</span></code> section alerts the user in case an error occurs during the visualization of the outputs.</p>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="_images/EZ_Motion_Viz_Panel_Messages.png"><img alt="EZMotion: Visualization Panel - Messages Section" src="_images/EZ_Motion_Viz_Panel_Messages.png" style="width: 348.0px; height: 205.5px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fig 14. EZMotion: Visualization Panel - Messages Section.</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="input_files.html" class="btn btn-neutral float-right" title="Input Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ivo Roupa.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

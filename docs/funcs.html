@@ -1,0 +1,2319 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="english" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>funcs package &mdash; EZMotion 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EZMotion
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_use.html">How to use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_files.html">Input Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeling.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EZMotion</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">funcs package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/funcs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="funcs-package">
+<h1>funcs package<a class="headerlink" href="#funcs-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-animate-plot-module">
+<h2>funcs.animate_plot module<a class="headerlink" href="#funcs-animate-plot-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-apply-force-module">
+<h2>funcs.apply_force module<a class="headerlink" href="#funcs-apply-force-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.assemble_C_matrix">
+<span id="funcs-assemble-c-matrix-module"></span><h2>funcs.assemble_C_matrix module<a class="headerlink" href="#module-funcs.assemble_C_matrix" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.assemble_C_matrix.assemble_C_matrix">
+<span class="sig-prename descclassname"><span class="pre">funcs.assemble_C_matrix.</span></span><span class="sig-name descname"><span class="pre">assemble_C_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">localCoordinates</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/assemble_C_matrix.html#assemble_C_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.assemble_C_matrix.assemble_C_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Function creates change of basis matrix for an arbitrary point 'P' belonging to an arbitrary
+rigid body 'i'</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>localCoordinates</strong> -- list of floats
+local coordinates of arbitrary point 'P'</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p>Numpy array with change of basis 'C' matrix for point 'P' based on local
+coordinates reference frame w.r.t rigid Body 'i'</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.assemble_W_matrix">
+<span id="funcs-assemble-w-matrix-module"></span><h2>funcs.assemble_W_matrix module<a class="headerlink" href="#module-funcs.assemble_W_matrix" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.assemble_W_matrix.assemble_W_matrix">
+<span class="sig-prename descclassname"><span class="pre">funcs.assemble_W_matrix.</span></span><span class="sig-name descname"><span class="pre">assemble_W_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataConst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dPhidq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trajectory_drivers_weight</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/assemble_W_matrix.html#assemble_W_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.assemble_W_matrix.assemble_W_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Function creates weight matrix W to perform weighted least square kinematic analysis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataConst</strong> -- list of floats
+local coordinates of arbitrary point 'P'</p></li>
+<li><p><strong>dPhidq</strong> -- numpy.array
+jacobian matrix  of the system</p></li>
+<li><p><strong>trajectory_drivers_weight</strong> -- float
+:   weight of each trajectory driver of the model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy.array</dt><dd><p>matrix of weights to use in the weighted least square approach
+during the kinematic analysis</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.assemble_g_M">
+<span id="funcs-assemble-g-m-module"></span><h2>funcs.assemble_g_M module<a class="headerlink" href="#module-funcs.assemble_g_M" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.assemble_g_M.assemble_g_M">
+<span class="sig-prename descclassname"><span class="pre">funcs.assemble_g_M.</span></span><span class="sig-name descname"><span class="pre">assemble_g_M</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nCoordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ge_bodies</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/assemble_g_M.html#assemble_g_M"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.assemble_g_M.assemble_g_M" title="Permalink to this definition"></a></dt>
+<dd><p>Function assembles the vector of generalized coordinates of the whole system for every muscle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nCoordinates</strong> -- int
+number of coordinates of the system</p></li>
+<li><p><strong>ge_bodies</strong> -- dictionary
+ge_fm force vector for every body of every muscle muscle</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>np.array</dt><dd><p>vector of the generalised coordinates of the whole
+system for every muscle (each line is a different muscle)</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>g_M</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.assemble_gravitational_forces">
+<span id="funcs-assemble-gravitational-forces-module"></span><h2>funcs.assemble_gravitational_forces module<a class="headerlink" href="#module-funcs.assemble_gravitational_forces" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.assemble_gravitational_forces.assemble_gravitational_forces">
+<span class="sig-prename descclassname"><span class="pre">funcs.assemble_gravitational_forces.</span></span><span class="sig-name descname"><span class="pre">assemble_gravitational_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataConst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inertial_parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/assemble_gravitational_forces.html#assemble_gravitational_forces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.assemble_gravitational_forces.assemble_gravitational_forces" title="Permalink to this definition"></a></dt>
+<dd><p>Function assembles the vector of gravitational forces of the multibody system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataConst</strong> -- numpy.ndarray
+Constants matrix</p></li>
+<li><p><strong>inertial_parameters</strong> -- dictionary
+Model segments inertial parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>dict</dt><dd><p>Dictionary containing all inertial forces for each body of multibody system</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gravitational_forces</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.assemble_mass_matrix">
+<span id="funcs-assemble-mass-matrix-module"></span><h2>funcs.assemble_mass_matrix module<a class="headerlink" href="#module-funcs.assemble_mass_matrix" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.assemble_mass_matrix.assemble_mass_matrix">
+<span class="sig-prename descclassname"><span class="pre">funcs.assemble_mass_matrix.</span></span><span class="sig-name descname"><span class="pre">assemble_mass_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nBodies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataConst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inertial_parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/assemble_mass_matrix.html#assemble_mass_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.assemble_mass_matrix.assemble_mass_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Create mass matrix for multibody system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nBodies</strong> -- int
+multibody system total number of bodies</p></li>
+<li><p><strong>dataConst</strong> -- numpy.ndarray
+Constants matrix</p></li>
+<li><p><strong>inertial_parameters</strong> -- dictionary
+inertial parameters of each segment of the multibody model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p>multibody system mass matrix</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>mass_matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.change_of_basis">
+<span id="funcs-change-of-basis-module"></span><h2>funcs.change_of_basis module<a class="headerlink" href="#module-funcs.change_of_basis" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.change_of_basis.glob_2_loc">
+<span class="sig-prename descclassname"><span class="pre">funcs.change_of_basis.</span></span><span class="sig-name descname"><span class="pre">glob_2_loc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pointP</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/change_of_basis.html#glob_2_loc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.change_of_basis.glob_2_loc" title="Permalink to this definition"></a></dt>
+<dd><p>Function converts the global coordinates of point 'P' to local coordinates with respect to the
+local reference frame of a specific segment of the multibody system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pointP</strong> -- numpy.array
+global coordinates of point 'P'</p></li>
+<li><p><strong>origin</strong> -- numpy.array
+global coordinates of the origin of the local reference frame of body 'i'</p></li>
+<li><p><strong>vector</strong> -- numpy.ndarray
+body 'i' orientation unitary vector</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy.array</dt><dd><p>local coordinates of point 'P' with respect to the local reference frame of
+body 'i'</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>local_coordinates</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.check_muscle_wrapping">
+<span id="funcs-check-muscle-wrapping-module"></span><h2>funcs.check_muscle_wrapping module<a class="headerlink" href="#module-funcs.check_muscle_wrapping" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.check_muscle_wrapping.check_muscle_wrapping">
+<span class="sig-prename descclassname"><span class="pre">funcs.check_muscle_wrapping.</span></span><span class="sig-name descname"><span class="pre">check_muscle_wrapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/check_muscle_wrapping.html#check_muscle_wrapping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.check_muscle_wrapping.check_muscle_wrapping" title="Permalink to this definition"></a></dt>
+<dd><p>Function checks if muscle wrapping between two points occurs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>P</strong> -- list
+cartesian coordinates of the last muscle point before the obstacle</p></li>
+<li><p><strong>S</strong> -- list
+cartesian coordinates of the first muscle point after the obstacle</p></li>
+<li><p><strong>r</strong> -- float
+obstacle radius</p></li>
+<li><p><strong>direction</strong> -- string
+obstacle radius</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>list</dt><dd><p>cartesian coordinates of the proximal contact point of the muscle before the obstacle</p>
+</dd>
+<dt>T:          list</dt><dd><p>cartesian coordinates of the distal contact point of the muscle before the obstacle</p>
+</dd>
+<dt>wrapping:   boolean</dt><dd><p>True if wrapping occurs or False if wrapping does not occur</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Q</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.check_non_negative">
+<span id="funcs-check-non-negative-module"></span><h2>funcs.check_non_negative module<a class="headerlink" href="#module-funcs.check_non_negative" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.check_non_negative.check_non_negative">
+<span class="sig-prename descclassname"><span class="pre">funcs.check_non_negative.</span></span><span class="sig-name descname"><span class="pre">check_non_negative</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/check_non_negative.html#check_non_negative"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.check_non_negative.check_non_negative" title="Permalink to this definition"></a></dt>
+<dd><p>Function checks if widget input is negative.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>widget_input</strong> -- float
+widget input</p></li>
+<li><p><strong>msg</strong> -- str
+message to return</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>boolean</dt><dd><p>True if widget_input is empty or False is widget_input is not empty</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.check_smaller_equal">
+<span id="funcs-check-smaller-equal-module"></span><h2>funcs.check_smaller_equal module<a class="headerlink" href="#module-funcs.check_smaller_equal" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.check_smaller_equal.check_smaller_equal">
+<span class="sig-prename descclassname"><span class="pre">funcs.check_smaller_equal.</span></span><span class="sig-name descname"><span class="pre">check_smaller_equal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widget_2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/check_smaller_equal.html#check_smaller_equal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.check_smaller_equal.check_smaller_equal" title="Permalink to this definition"></a></dt>
+<dd><p>Function checks if the value of widget 1 is smaller or equal than the value of widget 2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>widget_1</strong> -- self.m_textCtrl
+analysis initial time</p></li>
+<li><p><strong>widget_2</strong> -- self.m_textCtrl
+analysis final time</p></li>
+<li><p><strong>msg</strong> -- str
+message to return in case the value of widget 1 is smaler than the value of widget 2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Boolean</dt><dd><p>True if widget_input_1 is smaller that widget_input_2</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.compute_axis_limits">
+<span id="funcs-compute-axis-limits-module"></span><h2>funcs.compute_axis_limits module<a class="headerlink" href="#module-funcs.compute_axis_limits" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.compute_axis_limits.compute_axis_limits">
+<span class="sig-prename descclassname"><span class="pre">funcs.compute_axis_limits.</span></span><span class="sig-name descname"><span class="pre">compute_axis_limits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nRigidBodies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/compute_axis_limits.html#compute_axis_limits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.compute_axis_limits.compute_axis_limits" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes the 'x' and 'y' limits of the plot of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy_data</strong> -- numpy.array
+global cartesian coordinates of the extremities of the segments of the model</p></li>
+<li><p><strong>nRigidBodies</strong> -- int
+number of rigid bodies of the model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>list</dt><dd><p>'x' and 'y' limits of the plot</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ax_xy_lims</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.compute_eom_constraints">
+<span id="funcs-compute-eom-constraints-module"></span><h2>funcs.compute_eom_constraints module<a class="headerlink" href="#module-funcs.compute_eom_constraints" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.compute_eom_constraints.compute_eom_constraints">
+<span class="sig-prename descclassname"><span class="pre">funcs.compute_eom_constraints.</span></span><span class="sig-name descname"><span class="pre">compute_eom_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generalized_forces_vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dPhidq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">massMatrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qpp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nCoordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g_M_pe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g_M_ce</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/compute_eom_constraints.html#compute_eom_constraints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.compute_eom_constraints.compute_eom_constraints" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes the equation of motion in the homogeneous form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> -- numpy.array
+solution of the static optimization problem</p></li>
+<li><p><strong>generalized_forces_vector</strong> -- numpy.array
+vector of generalized external forces of the multibody system</p></li>
+<li><p><strong>dPhidq</strong> -- numpy.array
+jacobian matrix of the multibody system</p></li>
+<li><p><strong>massMatrix</strong> -- numpy.array
+mass matrix of the multibody system</p></li>
+<li><p><strong>qpp</strong> -- numpy.array
+vector of generalized accelerations of the multibody system</p></li>
+<li><p><strong>nCoordinates</strong> -- int
+number of generalized coordinates of the multibody system</p></li>
+<li><p><strong>g_M_pe</strong> -- numpy.array
+vector of generalized coordinates of the passive force of whole system
+for every muscle</p></li>
+<li><p><strong>g_M_ce</strong> -- numpy.array
+vector of generalized coordinates of the contractile force of every muscle
+of the multibody system</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy.array</dt><dd><p>equation of motion in the homogeneous form.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>f_eq</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="funcs-compute-export-model-loc-coords-module">
+<h2>funcs.compute_export_model_loc_coords module<a class="headerlink" href="#funcs-compute-export-model-loc-coords-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.compute_fmP">
+<span id="funcs-compute-fmp-module"></span><h2>funcs.compute_fmP module<a class="headerlink" href="#module-funcs.compute_fmP" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.compute_fmP.compute_fmP">
+<span class="sig-prename descclassname"><span class="pre">funcs.compute_fmP.</span></span><span class="sig-name descname"><span class="pre">compute_fmP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">muscle_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/compute_fmP.html#compute_fmP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.compute_fmP.compute_fmP" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes the muscle force components (CE or PE) for all the
+force application points of the muscles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>muscle_info</strong> -- dictionary
+information about every muscle of the model</p></li>
+<li><p><strong>force</strong> -- list
+contractile (CE) or passive (PE) force values for all
+the muscles</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>dictionary</dt><dd><p>Vectorial (CE or PE) muscle force component for all the
+force application points of the muscles</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>fmP</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.compute_ge_bodies">
+<span id="funcs-compute-ge-bodies-module"></span><h2>funcs.compute_ge_bodies module<a class="headerlink" href="#module-funcs.compute_ge_bodies" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.compute_ge_bodies.compute_ge_bodies">
+<span class="sig-prename descclassname"><span class="pre">funcs.compute_ge_bodies.</span></span><span class="sig-name descname"><span class="pre">compute_ge_bodies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ge_fm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/compute_ge_bodies.html#compute_ge_bodies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.compute_ge_bodies.compute_ge_bodies" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes the vector of forces for every body of every muscle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ge_fm</strong> -- dictionary
+ge_fm force vector for every force applied in every point
+of every muscle</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>dictionary</dt><dd><p>ge_fm force vector for every body of every muscle</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ge_bodies</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="funcs-compute-ge-fm-module">
+<h2>funcs.compute_ge_fm module<a class="headerlink" href="#funcs-compute-ge-fm-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.compute_joint_angles_derivative">
+<span id="funcs-compute-joint-angles-derivative-module"></span><h2>funcs.compute_joint_angles_derivative module<a class="headerlink" href="#module-funcs.compute_joint_angles_derivative" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.compute_joint_angles_derivative.compute_joint_angles_derivative">
+<span class="sig-prename descclassname"><span class="pre">funcs.compute_joint_angles_derivative.</span></span><span class="sig-name descname"><span class="pre">compute_joint_angles_derivative</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joint_angles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">der</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/compute_joint_angles_derivative.html#compute_joint_angles_derivative"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.compute_joint_angles_derivative.compute_joint_angles_derivative" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes the 'n' derivative of each angle of each revolute
+joint of the multibody system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>joint_angles</strong> -- numpy array
+angle of each revolute joint of the multibody system</p></li>
+<li><p><strong>der</strong> -- int
+degree of the derivative</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy array</dt><dd><p>'n' derivative of each angle of each revolute joint of the multibody system</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>joint_angles_der_rep</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.compute_joints_angles_forward">
+<span id="funcs-compute-joints-angles-forward-module"></span><h2>funcs.compute_joints_angles_forward module<a class="headerlink" href="#module-funcs.compute_joints_angles_forward" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.compute_joints_angles_forward.compute_joints_angles_fd">
+<span class="sig-prename descclassname"><span class="pre">funcs.compute_joints_angles_forward.</span></span><span class="sig-name descname"><span class="pre">compute_joints_angles_fd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataConst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/compute_joints_angles_forward.html#compute_joints_angles_fd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.compute_joints_angles_forward.compute_joints_angles_fd" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes the angle for each revolute joint of the multibody system during the forward analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataConst</strong> -- numpy.array
+information about the modeling of the multibody system</p></li>
+<li><p><strong>q</strong> -- numpy.array
+vector of generalized coordinates of the multibody system</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy.array</dt><dd><p>joint angles of the revolute joints of the multibody system</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>joint_angles</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="funcs-compute-joints-angles-inverse-module">
+<h2>funcs.compute_joints_angles_inverse module<a class="headerlink" href="#funcs-compute-joints-angles-inverse-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-compute-lines-info-module">
+<h2>funcs.compute_lines_info module<a class="headerlink" href="#funcs-compute-lines-info-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.compute_lm">
+<span id="funcs-compute-lm-module"></span><h2>funcs.compute_lm module<a class="headerlink" href="#module-funcs.compute_lm" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.compute_lm.compute_lm">
+<span class="sig-prename descclassname"><span class="pre">funcs.compute_lm.</span></span><span class="sig-name descname"><span class="pre">compute_lm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">muscle_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pennation_angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l_mt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/compute_lm.html#compute_lm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.compute_lm.compute_lm" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes the length of each muscle fiber used in the biomechanical model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>muscle_info</strong> -- dictionary
+information about every muscle of the model</p></li>
+<li><p><strong>pennation_angle</strong> -- list
+pennation angle for every muscle, for a given musculotendon length</p></li>
+<li><p><strong>l_mt</strong> -- list
+musculotendon length of every muscle of the model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>list</dt><dd><p>muscle fibers length of every muscle of the model</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>l_m</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="funcs-compute-lmt-and-vm-module">
+<h2>funcs.compute_lmt_and_vm module<a class="headerlink" href="#funcs-compute-lmt-and-vm-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-compute-moments-of-force-module">
+<h2>funcs.compute_moments_of_force module<a class="headerlink" href="#funcs-compute-moments-of-force-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-compute-normalized-muscle-length-module">
+<h2>funcs.compute_normalized_muscle_length module<a class="headerlink" href="#funcs-compute-normalized-muscle-length-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.compute_pennation_angle">
+<span id="funcs-compute-pennation-angle-module"></span><h2>funcs.compute_pennation_angle module<a class="headerlink" href="#module-funcs.compute_pennation_angle" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.compute_pennation_angle.compute_pennation_angle">
+<span class="sig-prename descclassname"><span class="pre">funcs.compute_pennation_angle.</span></span><span class="sig-name descname"><span class="pre">compute_pennation_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">muscle_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l_mt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/compute_pennation_angle.html#compute_pennation_angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.compute_pennation_angle.compute_pennation_angle" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes the pennation angle for each muscle of the biomechanical model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>muscle_info</strong> -- dictionary
+information about every muscle of the model</p></li>
+<li><p><strong>l_mt</strong> -- list
+musculotendon length of every muscle of the model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>list</dt><dd><p>pennation angle for every muscle, for a given musculotendon length</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pennation_angle</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="funcs-compute-points-length-and-vel-module">
+<h2>funcs.compute_points_length_and_vel module<a class="headerlink" href="#funcs-compute-points-length-and-vel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.compute_q_coords_labels">
+<span id="funcs-compute-q-coords-labels-module"></span><h2>funcs.compute_q_coords_labels module<a class="headerlink" href="#module-funcs.compute_q_coords_labels" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.compute_q_coords_labels.compute_q_coords_labels">
+<span class="sig-prename descclassname"><span class="pre">funcs.compute_q_coords_labels.</span></span><span class="sig-name descname"><span class="pre">compute_q_coords_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nRigidBodies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_mixed_angular_drivers</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/compute_q_coords_labels.html#compute_q_coords_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.compute_q_coords_labels.compute_q_coords_labels" title="Permalink to this definition"></a></dt>
+<dd><p>Function creates a list with the label of each generalized coordinate, including
+mixed coordinates if they exist of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nRigidBodies</strong> -- int
+number of rigid bodies of the multibody system</p></li>
+<li><p><strong>model_mixed_angular_drivers</strong> -- numpy.array
+number of mixed angular drivers of the multibody system</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>list</dt><dd><p>labels of all generalized coordinates of the multibody system</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model_q_coordinates_labels</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="funcs-compute-spline-coords-module">
+<h2>funcs.compute_spline_coords module<a class="headerlink" href="#funcs-compute-spline-coords-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.compute_spline_der">
+<span id="funcs-compute-spline-der-module"></span><h2>funcs.compute_spline_der module<a class="headerlink" href="#module-funcs.compute_spline_der" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.compute_spline_der.compute_cubic_spline_derivative">
+<span class="sig-prename descclassname"><span class="pre">funcs.compute_spline_der.</span></span><span class="sig-name descname"><span class="pre">compute_cubic_spline_derivative</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derOrder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/compute_spline_der.html#compute_cubic_spline_derivative"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.compute_spline_der.compute_cubic_spline_derivative" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes the derivative of the input spline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> -- tuple
+spline function to derive</p></li>
+<li><p><strong>derOrder</strong> -- tuple
+function derivative order</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>tuple</dt><dd><p>Spline of order k2=k-n representing the derivative of the input spline.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.compute_spline_knots_coeffs">
+<span id="funcs-compute-spline-knots-coeffs-module"></span><h2>funcs.compute_spline_knots_coeffs module<a class="headerlink" href="#module-funcs.compute_spline_knots_coeffs" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.compute_spline_knots_coeffs.compute_spline_knots_coeffs_degree">
+<span class="sig-prename descclassname"><span class="pre">funcs.compute_spline_knots_coeffs.</span></span><span class="sig-name descname"><span class="pre">compute_spline_knots_coeffs_degree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splineDegree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/compute_spline_knots_coeffs.html#compute_spline_knots_coeffs_degree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.compute_spline_knots_coeffs.compute_spline_knots_coeffs_degree" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes the vector of knots, the B-spline coefficients, and the degree of a spline.</p>
+<p>Parameters:
+time            :   Pandas.Series</p>
+<blockquote>
+<div><p>original data time vector</p>
+</div></blockquote>
+<dl class="simple">
+<dt>y<span class="classifier">numpy.ndarray</span></dt><dd><p>data array to spline</p>
+</dd>
+<dt>splineDegree<span class="classifier">int</span></dt><dd><p>spline degree</p>
+</dd>
+</dl>
+<p>Returns:
+(t,c,k)          :  tuple</p>
+<blockquote>
+<div><p>contains the vector of knots, the B-spline coefficients, and the degree of the spline.</p>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="funcs-compute-splined-forces-module">
+<h2>funcs.compute_splined_forces module<a class="headerlink" href="#funcs-compute-splined-forces-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-compute-splined-forces-coords-module">
+<h2>funcs.compute_splined_forces_coords module<a class="headerlink" href="#funcs-compute-splined-forces-coords-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-compute-spring-damper-actuator-force-module">
+<h2>funcs.compute_spring_damper_actuator_force module<a class="headerlink" href="#funcs-compute-spring-damper-actuator-force-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.compute_wrapping_points">
+<span id="funcs-compute-wrapping-points-module"></span><h2>funcs.compute_wrapping_points module<a class="headerlink" href="#module-funcs.compute_wrapping_points" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.compute_wrapping_points.compute_wrapping_points">
+<span class="sig-prename descclassname"><span class="pre">funcs.compute_wrapping_points.</span></span><span class="sig-name descname"><span class="pre">compute_wrapping_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Q_angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrapping_direction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nPoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/compute_wrapping_points.html#compute_wrapping_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.compute_wrapping_points.compute_wrapping_points" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes the local coordinates of point 'Q' and 'T'</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Q_angle</strong> -- float
+angle between point 'Q' and global reference frame</p></li>
+<li><p><strong>T_angle</strong> -- float
+angle between point 'T' and global reference frame</p></li>
+<li><p><strong>wrapping_direction</strong> -- str
+wrapping direction (cw - anterior / ccw - posterior)</p></li>
+<li><p><strong>nPoints</strong> -- int
+number of points used to discretize the wrapping muscle path
+between point 'Q' and point 'T'</p></li>
+<li><p><strong>radius</strong> -- float
+radius of the obstacle</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Returns</dt><dd><dl class="simple">
+<dt>:   list of lists</dt><dd><p>local coordinates of the wrapping points between point 'Q' and point 'T'</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.contractile_force">
+<span id="funcs-contractile-force-module"></span><h2>funcs.contractile_force module<a class="headerlink" href="#module-funcs.contractile_force" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.contractile_force.compute_contractile_element">
+<span class="sig-prename descclassname"><span class="pre">funcs.contractile_force.</span></span><span class="sig-name descname"><span class="pre">compute_contractile_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">muscle_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fl_component</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fv_component</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_ce_muscle_mode</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/contractile_force.html#compute_contractile_element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.contractile_force.compute_contractile_element" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes the contractile force for every muscle, for a certain time instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>muscle_info</strong> -- dictionary
+muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model</p></li>
+<li><p><strong>fl_component</strong> -- list
+force-length component for every muscle, for a certain time instance</p></li>
+<li><p><strong>fv_component</strong> -- list
+force-velocity component for every muscle, for a certain time instance</p></li>
+<li><p><strong>f_ce_muscle_mode</strong> -- str (on / off)
+option to apply or not the muscle contractile component in the multibody system</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>list</dt><dd><p>contractile force element for every muscle</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>f_ce</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.count_model_DoF">
+<span id="funcs-count-model-dof-module"></span><h2>funcs.count_model_DoF module<a class="headerlink" href="#module-funcs.count_model_DoF" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.count_model_DoF.count_model_DoF">
+<span class="sig-prename descclassname"><span class="pre">funcs.count_model_DoF.</span></span><span class="sig-name descname"><span class="pre">count_model_DoF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/count_model_DoF.html#count_model_DoF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.count_model_DoF.count_model_DoF" title="Permalink to this definition"></a></dt>
+<dd><p>Function returns the number of grounded, angular, trajectory, mixed
+and the total number of degrees of freedom of the multibody system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> -- numpy array
+column of modeling file containing the type of each</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>dictionary</dt><dd><p>number of grounded, angular, trajectory, mixed and the total
+number of degrees of freedom of the multibody system</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.det_crossed_joints">
+<span id="funcs-det-crossed-joints-module"></span><h2>funcs.det_crossed_joints module<a class="headerlink" href="#module-funcs.det_crossed_joints" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.det_crossed_joints.det_crossed_joints">
+<span class="sig-prename descclassname"><span class="pre">funcs.det_crossed_joints.</span></span><span class="sig-name descname"><span class="pre">det_crossed_joints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">muscle_info</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/det_crossed_joints.html#det_crossed_joints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.det_crossed_joints.det_crossed_joints" title="Permalink to this definition"></a></dt>
+<dd><p>Function identifies the joints of the biomechanical model crossed by muscles.</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>muscle_info<span class="classifier">dictionary</span></dt><dd><p>muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model</p>
+</dd>
+</dl>
+</dd>
+<dt>Return</dt><dd><dl class="simple">
+<dt>:   list os lists</dt><dd><p>number of the bodies that define the joints crossed by muscles</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.eval_cross_product_angular_driver">
+<span id="funcs-eval-cross-product-angular-driver-module"></span><h2>funcs.eval_cross_product_angular_driver module<a class="headerlink" href="#module-funcs.eval_cross_product_angular_driver" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.eval_cross_product_angular_driver.evaluate_cross_product_angular_driver">
+<span class="sig-prename descclassname"><span class="pre">funcs.eval_cross_product_angular_driver.</span></span><span class="sig-name descname"><span class="pre">evaluate_cross_product_angular_driver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nCoordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraintByType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataConst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qpto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dPhidq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowIn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/eval_cross_product_angular_driver.html#evaluate_cross_product_angular_driver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.eval_cross_product_angular_driver.evaluate_cross_product_angular_driver" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes and assign the contributions of the dot product angular constraint between two vectors
+(support and moving) to Phi vector, dPhidq (Jacobian matrix), niu vector and gamma vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nCoordinates</strong> -- int
+total number of generalized coordinates of the multibody system</p></li>
+<li><p><strong>constraintByType</strong> -- int
+Number of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dataConst</strong> -- numpy.ndarray
+information describing the topology of the multibody system</p></li>
+<li><p><strong>q</strong> -- numpy.ndarray
+vector of generalized coordinates of the multibody system</p></li>
+<li><p><strong>qpto</strong> -- numpy.ndarray
+vector of generalized velocities of the multibody system</p></li>
+<li><p><strong>phi</strong> -- numpy.ndarray
+vector of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dPhidq</strong> -- numpy.ndarray
+jacobian matrix of the multibody system</p></li>
+<li><p><strong>niu</strong> -- numpy.ndarray
+right hand side of the velocity vector of kinematic constraint equations</p></li>
+<li><p><strong>gamma</strong> -- numpy.ndarray
+right hand side of the acceleration vector of kinematic constraint equations</p></li>
+<li><p><strong>rowIn</strong> -- int
+number of line to insert kinematic constraint equation contribution in phi,
+dPhidq, niu and gamma</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>phi, 'dPhidq': dPhidq, 'niu': niu, 'gamma': gamma, 'rowOut': rowIn + 1}:   dictionary</dt><dd><p>Contributions of Cross
+Product Angular Driver
+Constraint to phi, dPhidq,
+niu and gamma vectors and
+the ending index of such
+contributions</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>{'Phi'</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.eval_cross_product_angular_driver_grounded">
+<span id="funcs-eval-cross-product-angular-driver-grounded-module"></span><h2>funcs.eval_cross_product_angular_driver_grounded module<a class="headerlink" href="#module-funcs.eval_cross_product_angular_driver_grounded" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.eval_cross_product_angular_driver_grounded.evaluate_cross_product_angular_driver_grounded">
+<span class="sig-prename descclassname"><span class="pre">funcs.eval_cross_product_angular_driver_grounded.</span></span><span class="sig-name descname"><span class="pre">evaluate_cross_product_angular_driver_grounded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nCoordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraintByType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataConst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qpto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dPhidq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowIn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/eval_cross_product_angular_driver_grounded.html#evaluate_cross_product_angular_driver_grounded"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.eval_cross_product_angular_driver_grounded.evaluate_cross_product_angular_driver_grounded" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes and assign contributions of cross product angular grounded constraint between two vectors
+(support and moving) to Phi vector, dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic
+and dynamic analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nCoordinates</strong> -- int
+total number of generalized coordinates of the multibody system</p></li>
+<li><p><strong>constraintByType</strong> -- int
+Number of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dataConst</strong> -- numpy.ndarray
+information describing the topology of the multibody system</p></li>
+<li><p><strong>q</strong> -- numpy.ndarray
+vector of generalized coordinates of the multibody system</p></li>
+<li><p><strong>qpto</strong> -- numpy.ndarray
+vector of generalized velocities of the multibody system</p></li>
+<li><p><strong>phi</strong> -- numpy.ndarray
+vector of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dPhidq</strong> -- numpy.ndarray
+jacobian matrix of the multibody system</p></li>
+<li><p><strong>niu</strong> -- numpy.ndarray
+right hand side of the velocity vector of kinematic constraint equations</p></li>
+<li><p><strong>gamma</strong> -- numpy.ndarray
+right hand side of the acceleration vector of kinematic constraint equations</p></li>
+<li><p><strong>rowIn</strong> -- int
+number of line to insert kinematic constraint equation contribution in phi,
+dPhidq, niu and gamma</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>phi, 'dPhidq': dPhidq, 'niu': niu, 'gamma': gamma, 'rowOut': rowIn + 1}:   dictionary</dt><dd><p>Contributions of Cross
+Product Angular Driver
+Grounded Constraint to phi,
+dPhidq, niu and gamma
+vectors and the ending index
+of such contributions</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>{'Phi'</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.eval_cross_product_angular_driver_grounded_mixed">
+<span id="funcs-eval-cross-product-angular-driver-grounded-mixed-module"></span><h2>funcs.eval_cross_product_angular_driver_grounded_mixed module<a class="headerlink" href="#module-funcs.eval_cross_product_angular_driver_grounded_mixed" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.eval_cross_product_angular_driver_grounded_mixed.evaluate_cross_product_angular_driver_grounded_mixed">
+<span class="sig-prename descclassname"><span class="pre">funcs.eval_cross_product_angular_driver_grounded_mixed.</span></span><span class="sig-name descname"><span class="pre">evaluate_cross_product_angular_driver_grounded_mixed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nRigidBodies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nCoordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraintByType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataConst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qpto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dPhidq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowIn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/eval_cross_product_angular_driver_grounded_mixed.html#evaluate_cross_product_angular_driver_grounded_mixed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.eval_cross_product_angular_driver_grounded_mixed.evaluate_cross_product_angular_driver_grounded_mixed" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes and assigns contributions of cross product mixed angular grounded constraint between two
+vectors (support and moving) to Phi vector, dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic
+and dynamic analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nRigidBodies</strong> -- int
+model number of rigid bodies</p></li>
+<li><p><strong>nCoordinates</strong> -- int
+total number of generalized coordinates of the multibody system</p></li>
+<li><p><strong>constraintByType</strong> -- int
+Number of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dataConst</strong> -- numpy.ndarray
+information describing the topology of the multibody system</p></li>
+<li><p><strong>q</strong> -- numpy.ndarray
+vector of generalized coordinates of the multibody system</p></li>
+<li><p><strong>qpto</strong> -- numpy.ndarray
+vector of generalized velocities of the multibody system</p></li>
+<li><p><strong>phi</strong> -- numpy.ndarray
+vector of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dPhidq</strong> -- numpy.ndarray
+jacobian matrix of the multibody system</p></li>
+<li><p><strong>niu</strong> -- numpy.ndarray
+right hand side of the velocity vector of kinematic constraint equations</p></li>
+<li><p><strong>gamma</strong> -- numpy.ndarray
+right hand side of the acceleration vector of kinematic constraint equations</p></li>
+<li><p><strong>rowIn</strong> -- int
+number of line to insert kinematic constraint equation contribution in phi,
+dPhidq, niu and gamma</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>phi, 'dPhidq': dPhidq, 'niu': niu, 'gamma': gamma, 'rowOut': rowIn + 1}:  dictionary</dt><dd><p>Contributions of Cross
+Product Angular Driver
+Grounded Mixed Constraint to
+phi, dPhidq, niu and gamma
+vectors and the ending index
+of such contributions</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>{'Phi'</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.eval_cross_product_angular_driver_mixed">
+<span id="funcs-eval-cross-product-angular-driver-mixed-module"></span><h2>funcs.eval_cross_product_angular_driver_mixed module<a class="headerlink" href="#module-funcs.eval_cross_product_angular_driver_mixed" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.eval_cross_product_angular_driver_mixed.evaluate_cross_product_angular_driver_mixed">
+<span class="sig-prename descclassname"><span class="pre">funcs.eval_cross_product_angular_driver_mixed.</span></span><span class="sig-name descname"><span class="pre">evaluate_cross_product_angular_driver_mixed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nRigidBodies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nCoordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraintByType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataConst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qpto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dPhidq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowIn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/eval_cross_product_angular_driver_mixed.html#evaluate_cross_product_angular_driver_mixed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.eval_cross_product_angular_driver_mixed.evaluate_cross_product_angular_driver_mixed" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes and assign contributions of dot product angular  constraint between two vectors
+(support and moving) to Phi vector, dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic
+and dynamic analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nRigidBodies</strong> -- int
+model number of rigid bodies</p></li>
+<li><p><strong>nCoordinates</strong> -- int
+total number of generalized coordinates of the multibody system</p></li>
+<li><p><strong>constraintByType</strong> -- int
+Number of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dataConst</strong> -- numpy.ndarray
+information describing the topology of the multibody system</p></li>
+<li><p><strong>q</strong> -- numpy.ndarray
+vector of generalized coordinates of the multibody system</p></li>
+<li><p><strong>qpto</strong> -- numpy.ndarray
+vector of generalized velocities of the multibody system</p></li>
+<li><p><strong>phi</strong> -- numpy.ndarray
+vector of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dPhidq</strong> -- numpy.ndarray
+jacobian matrix of the multibody system</p></li>
+<li><p><strong>niu</strong> -- numpy.ndarray
+right hand side of the velocity vector of kinematic constraint equations</p></li>
+<li><p><strong>gamma</strong> -- numpy.ndarray
+right hand side of the acceleration vector of kinematic constraint equations</p></li>
+<li><p><strong>rowIn</strong> -- int
+number of line to insert kinematic constraint equation contribution in phi,
+dPhidq, niu and gamma</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>phi, 'dPhidq': dPhidq, 'niu': niu, 'gamma': gamma, 'rowOut': rowIn + 1}:  dictionary</dt><dd><p>Contributions of Cross
+Product Angular Mixed
+Constraint to phi, dPhidq,
+niu and gamma vectors and
+the ending index of such
+contributions</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>{'Phi'</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.eval_dot_product_angular_driver">
+<span id="funcs-eval-dot-product-angular-driver-module"></span><h2>funcs.eval_dot_product_angular_driver module<a class="headerlink" href="#module-funcs.eval_dot_product_angular_driver" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.eval_dot_product_angular_driver.evaluate_dot_product_angular_driver">
+<span class="sig-prename descclassname"><span class="pre">funcs.eval_dot_product_angular_driver.</span></span><span class="sig-name descname"><span class="pre">evaluate_dot_product_angular_driver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nCoordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraintByType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataConst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qpto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dPhidq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowIn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/eval_dot_product_angular_driver.html#evaluate_dot_product_angular_driver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.eval_dot_product_angular_driver.evaluate_dot_product_angular_driver" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes and assigns contributions of dot product angular  constraint between two vectors
+(support and moving) to Phi vector, dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic and
+dynamic analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nCoordinates</strong> -- int
+total number of generalized coordinates of the multibody system</p></li>
+<li><p><strong>constraintByType</strong> -- int
+Number of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dataConst</strong> -- numpy.ndarray
+information describing the topology of the multibody system</p></li>
+<li><p><strong>q</strong> -- numpy.ndarray
+vector of generalized coordinates of the multibody system</p></li>
+<li><p><strong>qpto</strong> -- numpy.ndarray
+vector of generalized velocities of the multibody system</p></li>
+<li><p><strong>phi</strong> -- numpy.ndarray
+vector of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dPhidq</strong> -- numpy.ndarray
+jacobian matrix of the multibody system</p></li>
+<li><p><strong>niu</strong> -- numpy.ndarray
+right hand side of the velocity vector of kinematic constraint equations</p></li>
+<li><p><strong>gamma</strong> -- numpy.ndarray
+right hand side of the acceleration vector of kinematic constraint equations</p></li>
+<li><p><strong>rowIn</strong> -- int
+number of line to insert kinematic constraint equation contribution in phi,
+dPhidq, niu and gamma</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>phi, 'dPhidq': dPhidq, 'niu': niu, 'gamma': gamma, 'rowOut': rowIn + 1}:   dictionary</dt><dd><p>Contributions of Dot
+Product Angular Driver
+Constraint to phi, dPhidq,
+niu and gamma vectors and
+the ending index of such
+contributions</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>{'Phi'</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.eval_dot_product_angular_driver_grounded">
+<span id="funcs-eval-dot-product-angular-driver-grounded-module"></span><h2>funcs.eval_dot_product_angular_driver_grounded module<a class="headerlink" href="#module-funcs.eval_dot_product_angular_driver_grounded" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.eval_dot_product_angular_driver_grounded.evaluate_dot_product_angular_driver_grounded">
+<span class="sig-prename descclassname"><span class="pre">funcs.eval_dot_product_angular_driver_grounded.</span></span><span class="sig-name descname"><span class="pre">evaluate_dot_product_angular_driver_grounded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nCoordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraintByType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataConst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qpto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dPhidq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowIn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/eval_dot_product_angular_driver_grounded.html#evaluate_dot_product_angular_driver_grounded"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.eval_dot_product_angular_driver_grounded.evaluate_dot_product_angular_driver_grounded" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes and assigns the contributions of dot product angular grounded constraint between two vectors
+(support and moving) to Phi vector, dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic and
+dynamic analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nCoordinates</strong> -- int
+total number of generalized coordinates of the multibody system</p></li>
+<li><p><strong>constraintByType</strong> -- int
+Number of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dataConst</strong> -- numpy.ndarray
+information describing the topology of the multibody system</p></li>
+<li><p><strong>q</strong> -- numpy.ndarray
+vector of generalized coordinates of the multibody system</p></li>
+<li><p><strong>qpto</strong> -- numpy.ndarray
+vector of generalized velocities of the multibody system</p></li>
+<li><p><strong>phi</strong> -- numpy.ndarray
+vector of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dPhidq</strong> -- numpy.ndarray
+jacobian matrix of the multibody system</p></li>
+<li><p><strong>niu</strong> -- numpy.ndarray
+right hand side of the velocity vector of kinematic constraint equations</p></li>
+<li><p><strong>gamma</strong> -- numpy.ndarray
+right hand side of the acceleration vector of kinematic constraint equations</p></li>
+<li><p><strong>rowIn</strong> -- int
+number of line to insert kinematic constraint equation contribution in phi,
+dPhidq, niu and gamma</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>phi, 'dPhidq': dPhidq, 'niu': niu, 'gamma': gamma, 'rowOut': rowIn + 1}:   dictionary</dt><dd><p>Contributions of Dot
+Product Angular Driver
+Grounded Constraint to phi,
+dPhidq, niu and gamma
+vectors and the ending index
+of such contributions</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>{'Phi'</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.eval_dot_product_angular_driver_grounded_mixed">
+<span id="funcs-eval-dot-product-angular-driver-grounded-mixed-module"></span><h2>funcs.eval_dot_product_angular_driver_grounded_mixed module<a class="headerlink" href="#module-funcs.eval_dot_product_angular_driver_grounded_mixed" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.eval_dot_product_angular_driver_grounded_mixed.evaluate_dot_product_angular_driver_grounded_mixed">
+<span class="sig-prename descclassname"><span class="pre">funcs.eval_dot_product_angular_driver_grounded_mixed.</span></span><span class="sig-name descname"><span class="pre">evaluate_dot_product_angular_driver_grounded_mixed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nRigidBodies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nCoordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraintByType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataConst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qpto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dPhidq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowIn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/eval_dot_product_angular_driver_grounded_mixed.html#evaluate_dot_product_angular_driver_grounded_mixed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.eval_dot_product_angular_driver_grounded_mixed.evaluate_dot_product_angular_driver_grounded_mixed" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes and assigns contributions of dot product mixed angular grounded constraint between two vectors
+(support and moving) to Phi vector, dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic and
+dynamic analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nRigidBodies</strong> -- int
+model number of rigid bodies</p></li>
+<li><p><strong>nCoordinates</strong> -- int
+total number of generalized coordinates of the multibody system</p></li>
+<li><p><strong>constraintByType</strong> -- int
+Number of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dataConst</strong> -- numpy.ndarray
+information describing the topology of the multibody system</p></li>
+<li><p><strong>q</strong> -- numpy.ndarray
+vector of generalized coordinates of the multibody system</p></li>
+<li><p><strong>qpto</strong> -- numpy.ndarray
+vector of generalized velocities of the multibody system</p></li>
+<li><p><strong>phi</strong> -- numpy.ndarray
+vector of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dPhidq</strong> -- numpy.ndarray
+jacobian matrix of the multibody system</p></li>
+<li><p><strong>niu</strong> -- numpy.ndarray
+right hand side of the velocity vector of kinematic constraint equations</p></li>
+<li><p><strong>gamma</strong> -- numpy.ndarray
+right hand side of the acceleration vector of kinematic constraint equations</p></li>
+<li><p><strong>rowIn</strong> -- int
+number of line to insert kinematic constraint equation contribution in phi,
+dPhidq, niu and gamma</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>phi, 'dPhidq': dPhidq, 'niu': niu, 'gamma': gamma, 'rowOut': rowIn + 1}:  dictionary</dt><dd><p>Contributions of Dot
+Product Angular Driver
+Grounded Mixed Constraint to
+phi, dPhidq, niu and gamma
+vectors and the ending index
+of such contributions</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>{'Phi'</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.eval_dot_product_angular_driver_mixed">
+<span id="funcs-eval-dot-product-angular-driver-mixed-module"></span><h2>funcs.eval_dot_product_angular_driver_mixed module<a class="headerlink" href="#module-funcs.eval_dot_product_angular_driver_mixed" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.eval_dot_product_angular_driver_mixed.evaluate_dot_product_angular_driver_mixed">
+<span class="sig-prename descclassname"><span class="pre">funcs.eval_dot_product_angular_driver_mixed.</span></span><span class="sig-name descname"><span class="pre">evaluate_dot_product_angular_driver_mixed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nRigidBodies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nCoordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraintByType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataConst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qpto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dPhidq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowIn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/eval_dot_product_angular_driver_mixed.html#evaluate_dot_product_angular_driver_mixed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.eval_dot_product_angular_driver_mixed.evaluate_dot_product_angular_driver_mixed" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes and assigns the contributions of the dot product angular constraint between two vectors
+(support and moving) to Phi vector, dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic and
+dynamic analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nRigidBodies</strong> -- int
+model number of rigid bodies</p></li>
+<li><p><strong>nCoordinates</strong> -- int
+total number of generalized coordinates of the multibody system</p></li>
+<li><p><strong>constraintByType</strong> -- int
+Number of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dataConst</strong> -- numpy.ndarray
+information describing the topology of the multibody system</p></li>
+<li><p><strong>q</strong> -- numpy.ndarray
+vector of generalized coordinates of the multibody system</p></li>
+<li><p><strong>qpto</strong> -- numpy.ndarray
+vector of generalized velocities of the multibody system</p></li>
+<li><p><strong>phi</strong> -- numpy.ndarray
+vector of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dPhidq</strong> -- numpy.ndarray
+jacobian matrix of the multibody system</p></li>
+<li><p><strong>niu</strong> -- numpy.ndarray
+right hand side of the velocity vector of kinematic constraint equations</p></li>
+<li><p><strong>gamma</strong> -- numpy.ndarray
+right hand side of the acceleration vector of kinematic constraint equations</p></li>
+<li><p><strong>rowIn</strong> -- int
+number of line to insert kinematic constraint equation contribution in phi,
+dPhidq, niu and gamma</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>phi, 'dPhidq': dPhidq, 'niu': niu, 'gamma': gamma, 'rowOut': rowIn + 1}:  dictionary</dt><dd><p>Contributions of Cross
+Product Angular Mixed
+Constraint to phi, dPhidq,
+niu and gamma vectors and
+the ending index of such
+contributions</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>{'Phi'</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="funcs-eval-double-support-joint-module">
+<h2>funcs.eval_double_support_joint module<a class="headerlink" href="#funcs-eval-double-support-joint-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-eval-kinematic-constraints-module">
+<h2>funcs.eval_kinematic_constraints module<a class="headerlink" href="#funcs-eval-kinematic-constraints-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-eval-kinematic-constraints-fd-module">
+<h2>funcs.eval_kinematic_constraints_FD module<a class="headerlink" href="#funcs-eval-kinematic-constraints-fd-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-eval-revolute-joint-module">
+<h2>funcs.eval_revolute_joint module<a class="headerlink" href="#funcs-eval-revolute-joint-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-eval-single-support-joint-module">
+<h2>funcs.eval_single_support_joint module<a class="headerlink" href="#funcs-eval-single-support-joint-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-eval-trajectory-driver-module">
+<h2>funcs.eval_trajectory_driver module<a class="headerlink" href="#funcs-eval-trajectory-driver-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-eval-translation-revolution-joint-module">
+<h2>funcs.eval_translation_revolution_joint module<a class="headerlink" href="#funcs-eval-translation-revolution-joint-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.eval_unit_vector">
+<span id="funcs-eval-unit-vector-module"></span><h2>funcs.eval_unit_vector module<a class="headerlink" href="#module-funcs.eval_unit_vector" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.eval_unit_vector.evaluate_unit_vector">
+<span class="sig-prename descclassname"><span class="pre">funcs.eval_unit_vector.</span></span><span class="sig-name descname"><span class="pre">evaluate_unit_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nCoordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nConstraintByType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataConst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qpto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dPhidq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowIn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/eval_unit_vector.html#evaluate_unit_vector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.eval_unit_vector.evaluate_unit_vector" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes and assigns the contributions of the unit vector constraint equation to Phi vector,
+dPhidq (Jacobian matrix), niu vector and gamma vector for kinematic and dynamic analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nCoordinates</strong> -- int
+total number of generalized coordinates of the multibody system</p></li>
+<li><p><strong>constraintByType</strong> -- int
+Number of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dataConst</strong> -- numpy.ndarray
+information describing the topology of the multibody system</p></li>
+<li><p><strong>q</strong> -- numpy.ndarray
+vector of generalized coordinates of the multibody system</p></li>
+<li><p><strong>qpto</strong> -- numpy.ndarray
+vector of generalized velocities of the multibody system</p></li>
+<li><p><strong>phi</strong> -- numpy.ndarray
+vector of kinematic constraints of the multibody system</p></li>
+<li><p><strong>dPhidq</strong> -- numpy.ndarray
+jacobian matrix of the multibody system</p></li>
+<li><p><strong>niu</strong> -- numpy.ndarray
+right hand side of the velocity vector of kinematic constraint equations</p></li>
+<li><p><strong>gamma</strong> -- numpy.ndarray
+right hand side of the acceleration vector of kinematic constraint equations</p></li>
+<li><p><strong>rowIn</strong> -- int
+number of line to insert kinematic constraint equation contribution in phi,
+dPhidq, niu and gamma</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>phi, 'dPhidq': dPhidq, 'niu': niu, 'gamma': gamma, 'rowOut': rowIn + 1}:  dictionary</dt><dd><p>Contributions of Unit
+Vector Constraint to phi,
+dPhidq, niu and gamma
+vectors and the ending index
+of such contributions</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>{'Phi'</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.export_analysis_outputs">
+<span id="funcs-export-analysis-outputs-module"></span><h2>funcs.export_analysis_outputs module<a class="headerlink" href="#module-funcs.export_analysis_outputs" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.export_analysis_outputs.export_analysis_outputs">
+<span class="sig-prename descclassname"><span class="pre">funcs.export_analysis_outputs.</span></span><span class="sig-name descname"><span class="pre">export_analysis_outputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_outputs_fpath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nRigidBodies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_q_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_rep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qp_rep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qpp_rep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_joints_angles_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_joints_angles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_joints_ang_vel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_joints_ang_acc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_joints_moments_of_force_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_joints_moments_of_force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_joints_powers_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_joints_powers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_muscles_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_muscles_normalized_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_muscle_activations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/export_analysis_outputs.html#export_analysis_outputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.export_analysis_outputs.export_analysis_outputs" title="Permalink to this definition"></a></dt>
+<dd><p>Function exports kinematic, dynamic and musculoskeletal analysis outputs to .out file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_label</strong> -- string
+model label</p></li>
+<li><p><strong>model_outputs_fpath</strong> -- string             :   string
+absolute path of the model outputs file</p></li>
+<li><p><strong>nRigidBodies</strong> -- int
+number of rigid bodies of the multibody system</p></li>
+<li><p><strong>fs</strong> -- float
+sampling frequency</p></li>
+<li><p><strong>model_q_header</strong> -- list
+label of each generalized coordinate of the model,
+including mixed coordinates</p></li>
+<li><p><strong>q_rep</strong> -- numpy.ndarray
+generalized coordinates of the multibody system</p></li>
+<li><p><strong>qp_rep</strong> -- numpy.ndarray
+generalized velocities of the multibody system</p></li>
+<li><p><strong>qpp_rep</strong> -- numpy.ndarray
+generalized accelerations of the multibody system</p></li>
+<li><p><strong>model_joints_angles_header</strong> -- list
+label of each joint angle of the multibody system</p></li>
+<li><p><strong>model_joints_angles</strong> -- numpy.ndarray
+joint angles of each revolute joint of the multibody system</p></li>
+<li><p><strong>model_joints_ang_vel</strong> -- numpy.ndarray
+joint angular velocities of each revolute joint of the
+multibody system</p></li>
+<li><p><strong>model_joints_ang_acc</strong> -- numpy.ndarray
+joint angular accelerations of each revolute joint of the
+multibody system</p></li>
+<li><p><strong>model_joints_moments_of_force_header</strong> -- list
+label of each joint moment of the multibody system</p></li>
+<li><p><strong>model_joints_moments_of_force</strong> -- numpy.ndarray
+net moments of force of each revolute joint of the multibody system</p></li>
+<li><p><strong>model_joints_powers_header</strong> -- list
+label of each joint power of the multibody system</p></li>
+<li><p><strong>model_joints_powers</strong> -- numpy.ndarray
+power of each joint of the multibody system</p></li>
+<li><p><strong>model_muscles_header</strong> -- list
+label of each muscle of the multibody system</p></li>
+<li><p><strong>model_muscles_normalized_length</strong> -- numpy.ndarray
+normalized length of each muscle of the multibody system</p></li>
+<li><p><strong>model_muscle_activations</strong> -- numpy.ndarray
+muscle activations of each muscle of the multibody system</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+</section>
+<section id="module-funcs.export_analysis_outputs_fd_">
+<span id="funcs-export-analysis-outputs-fd-module"></span><h2>funcs.export_analysis_outputs_fd_ module<a class="headerlink" href="#module-funcs.export_analysis_outputs_fd_" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.export_analysis_outputs_fd_.export_analysis_outputs_fd">
+<span class="sig-prename descclassname"><span class="pre">funcs.export_analysis_outputs_fd_.</span></span><span class="sig-name descname"><span class="pre">export_analysis_outputs_fd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_outputs_fpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nRigidBodies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_angular_drivers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_mixed_angular_drivers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_rep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qp_rep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_joint_angles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_joint_ang_vel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_joint_ang_acc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/export_analysis_outputs_fd_.html#export_analysis_outputs_fd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.export_analysis_outputs_fd_.export_analysis_outputs_fd" title="Permalink to this definition"></a></dt>
+<dd><p>Function exports kinematic, dynamic and musculoskeletal analysis outputs to csv file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_outputs_fpath</strong> -- string :   string
+absolute path of the model outputs file</p></li>
+<li><p><strong>model</strong> -- string
+model label</p></li>
+<li><p><strong>nRigidBodies</strong> -- int
+number of rigid bodies of the multibody system</p></li>
+<li><p><strong>fs</strong> -- float
+sampling frequency</p></li>
+<li><p><strong>model_angular_drivers</strong> -- int
+number of angular drivers of the multibody system</p></li>
+<li><p><strong>model_mixed_angular_drivers</strong> -- int
+number of mixed angular drivers of the multibody system</p></li>
+<li><p><strong>q_rep</strong> -- numpy.ndarray
+generalized coordinates of the multibody system</p></li>
+<li><p><strong>qp_rep</strong> -- numpy.ndarray
+generalized velocities of the multibody system</p></li>
+<li><p><strong>qpp_rep</strong> -- numpy.ndarray
+generalized accelerations of the multibody system</p></li>
+<li><p><strong>model_joint_angles</strong> -- numpy.ndarray
+joint angles of each revolute joint of the multibody system</p></li>
+<li><p><strong>model_joint_ang_vel</strong> -- numpy.ndarray
+joint angular velocities of each revolute joint of the multibody system</p></li>
+<li><p><strong>model_joint_ang_acc</strong> -- numpy.ndarray
+joint angular accelerations of each revolute joint of the multibody system</p></li>
+<li><p><strong>moments_of_force</strong> -- numpy.ndarray
+net moments of force of each revolute joint of the multibody system</p></li>
+<li><p><strong>muscle_activations</strong> -- numpy.ndarray
+muscle activations of each muscle of the multibody system</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+</section>
+<section id="funcs-file2dataconst-module">
+<h2>funcs.file2dataConst module<a class="headerlink" href="#funcs-file2dataconst-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.filter_signal">
+<span id="funcs-filter-signal-module"></span><h2>funcs.filter_signal module<a class="headerlink" href="#module-funcs.filter_signal" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.filter_signal.butter_filter">
+<span class="sig-prename descclassname"><span class="pre">funcs.filter_signal.</span></span><span class="sig-name descname"><span class="pre">butter_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/filter_signal.html#butter_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.filter_signal.butter_filter" title="Permalink to this definition"></a></dt>
+<dd><p>Function filters a time seris sing the butteworth filter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> -- numpy.array
+input signal</p></li>
+<li><p><strong>fs</strong> -- int
+signal sampling frequency</p></li>
+<li><p><strong>fc</strong> -- float
+cuttof frequency in Hertz</p></li>
+<li><p><strong>filter_order</strong> -- int
+order of the filter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy.array</dt><dd><p>input signal filtered</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.force_length">
+<span id="funcs-force-length-module"></span><h2>funcs.force_length module<a class="headerlink" href="#module-funcs.force_length" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.force_length.compute_force_length_component">
+<span class="sig-prename descclassname"><span class="pre">funcs.force_length.</span></span><span class="sig-name descname"><span class="pre">compute_force_length_component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">muscle_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">muscle_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/force_length.html#compute_force_length_component"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.force_length.compute_force_length_component" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes the force-length component of each muscle of the biomechanical model,
+for a given time instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>muscle_info</strong> -- dictionary
+muscle parameters database (fo, alfa, lo, lt, points) of the biomechanical model</p></li>
+<li><p><strong>l_m</strong> -- list
+muscle fibers length of every muscle of the model</p></li>
+<li><p><strong>muscle_type</strong> -- str (Hill / '')
+type of muscle model to compute the force length component</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>list</dt><dd><p>force-length component of each muscle of the biomechanical model,
+for a certain time instance</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>fl_component</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.force_velocity">
+<span id="funcs-force-velocity-module"></span><h2>funcs.force_velocity module<a class="headerlink" href="#module-funcs.force_velocity" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.force_velocity.compute_force_velocity_component">
+<span class="sig-prename descclassname"><span class="pre">funcs.force_velocity.</span></span><span class="sig-name descname"><span class="pre">compute_force_velocity_component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">muscle_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">muscle_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/force_velocity.html#compute_force_velocity_component"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.force_velocity.compute_force_velocity_component" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes the force-length component of each muscle of the biomechanical model,
+for a given time instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>muscle_info</strong> -- dictionary
+information about every muscle of the model</p></li>
+<li><p><strong>v_m</strong> -- list
+velocity of every muscle, for a certain time instance</p></li>
+<li><p><strong>muscle_type</strong> -- str (Hill / '')
+type of muscle model to compute the force velocity component</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>list</dt><dd><p>force-velocity component of each muscle of the biomechanical model,
+for a certain time instance</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>fv_component</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.get_trajectory_drivers_info">
+<span id="funcs-get-trajectory-drivers-info-module"></span><h2>funcs.get_trajectory_drivers_info module<a class="headerlink" href="#module-funcs.get_trajectory_drivers_info" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.get_trajectory_drivers_info.get_trajectory_drivers_info">
+<span class="sig-prename descclassname"><span class="pre">funcs.get_trajectory_drivers_info.</span></span><span class="sig-name descname"><span class="pre">get_trajectory_drivers_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/get_trajectory_drivers_info.html#get_trajectory_drivers_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.get_trajectory_drivers_info.get_trajectory_drivers_info" title="Permalink to this definition"></a></dt>
+<dd><p>Function reads the modeling file and returns the idx of the trajectory drivers of the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fpath</strong> -- string
+absolute path of the modeling file</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Returns     :</dt><dd><dl class="simple">
+<dt>trajectory_drivers_idxs_info:   list</dt><dd><p>indexes of trajectory drivers in jacobian matrix</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.initializeDataConst">
+<span id="funcs-initializedataconst-module"></span><h2>funcs.initializeDataConst module<a class="headerlink" href="#module-funcs.initializeDataConst" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.initializeDataConst.initializeDataConst">
+<span class="sig-prename descclassname"><span class="pre">funcs.initializeDataConst.</span></span><span class="sig-name descname"><span class="pre">initializeDataConst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nConstraintsByType</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/initializeDataConst.html#initializeDataConst"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.initializeDataConst.initializeDataConst" title="Permalink to this definition"></a></dt>
+<dd><p>Function ....</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>nConstraintsByType</strong> -- int
+number of constraints of the multibody system</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.initialize_analysis_variables">
+<span id="funcs-initialize-analysis-variables-module"></span><h2>funcs.initialize_analysis_variables module<a class="headerlink" href="#module-funcs.initialize_analysis_variables" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.initialize_analysis_variables.initialize_analysis_variables">
+<span class="sig-prename descclassname"><span class="pre">funcs.initialize_analysis_variables.</span></span><span class="sig-name descname"><span class="pre">initialize_analysis_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nCoordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">totalNumberConstraints</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/initialize_analysis_variables.html#initialize_analysis_variables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.initialize_analysis_variables.initialize_analysis_variables" title="Permalink to this definition"></a></dt>
+<dd><p>Function initializes the vectors and matrices used during the kinematic analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nCoordinates</strong> -- int
+system total number of coordinates</p></li>
+<li><p><strong>totalNumberConstraints</strong> -- int
+system total number of constraints</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p>vector of generalized coordinates of the multibody system</p>
+</dd>
+<dt>qp<span class="classifier">numpy.ndarray</span></dt><dd><p>vector of generalized velocities of the multibody system</p>
+</dd>
+<dt>qpp<span class="classifier">numpy.ndarray</span></dt><dd><p>vector of generalized acceleration of the multibody system</p>
+</dd>
+<dt>phi<span class="classifier">numpy.ndarray</span></dt><dd><p>vector of kinematic constraint equations of the multibody system</p>
+</dd>
+<dt>niu<span class="classifier">numpy.ndarray</span></dt><dd><p>vector of right hand side of velocity constraint equations of the multibody system</p>
+</dd>
+<dt>gamma<span class="classifier">numpy.ndarray</span></dt><dd><p>vector of right hand side of acceleration constraint equations of the multibody system</p>
+</dd>
+<dt>dPhidq<span class="classifier">numpy.ndarray</span></dt><dd><p>jacobian matrix of the multibody system</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>q</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.initialize_report_variables">
+<span id="funcs-initialize-report-variables-module"></span><h2>funcs.initialize_report_variables module<a class="headerlink" href="#module-funcs.initialize_report_variables" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.initialize_report_variables.initialize_report_variables">
+<span class="sig-prename descclassname"><span class="pre">funcs.initialize_report_variables.</span></span><span class="sig-name descname"><span class="pre">initialize_report_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nFrames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nCoordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angDriversConstraints</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/initialize_report_variables.html#initialize_report_variables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.initialize_report_variables.initialize_report_variables" title="Permalink to this definition"></a></dt>
+<dd><p>Function initializes the vectors and matrices used to report the outputs of the kinematic analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nFrames</strong> -- int
+total number of acquisition frames</p></li>
+<li><p><strong>nCoordinates</strong> -- int
+total number of coordinates</p></li>
+<li><p><strong>angDriversConstraints</strong> -- int
+total number of angular drivers constraints</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p>vector of generalized coordinates of the multibody system</p>
+</dd>
+<dt>qp_rep<span class="classifier">numpy.ndarray</span></dt><dd><p>vector of generalized velocities of the multibody system</p>
+</dd>
+<dt>qpp_rep<span class="classifier">numpy.ndarray</span></dt><dd><p>vector of generalized accelerations of the multibody system</p>
+</dd>
+<dt>Phi_rep<span class="classifier">numpy.ndarray</span></dt><dd><p>vector of constraint equations of the multibody system</p>
+</dd>
+<dt>erro_rep<span class="classifier">numpy.ndarray</span></dt><dd><p>vector of Newton Raphson iteration error matrix during kinematic analysis</p>
+</dd>
+<dt>theta_rep<span class="classifier">numpy.ndarray</span></dt><dd><p>angle of each revolute joint of the the multibody system</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>t_rep</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.interpolate_signal">
+<span id="funcs-interpolate-signal-module"></span><h2>funcs.interpolate_signal module<a class="headerlink" href="#module-funcs.interpolate_signal" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.interpolate_signal.interpolate_1D_data">
+<span class="sig-prename descclassname"><span class="pre">funcs.interpolate_signal.</span></span><span class="sig-name descname"><span class="pre">interpolate_1D_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nPoints</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/interpolate_signal.html#interpolate_1D_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.interpolate_signal.interpolate_1D_data" title="Permalink to this definition"></a></dt>
+<dd><p>Function interpolates a time series to a specific number of points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> -- numpy.array
+time series to interpolate</p></li>
+<li><p><strong>nPoints</strong> -- int
+number of points</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy.array</dt><dd><p>time series interpolated</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ynew</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="funcs-inverse-dynamic-analysis-module">
+<h2>funcs.inverse_dynamic_analysis module<a class="headerlink" href="#funcs-inverse-dynamic-analysis-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-inverse-kinematic-analysis-module">
+<h2>funcs.inverse_kinematic_analysis module<a class="headerlink" href="#funcs-inverse-kinematic-analysis-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-moment2forcecouple-module">
+<h2>funcs.moment2forceCouple module<a class="headerlink" href="#funcs-moment2forcecouple-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-msk-analysis-script-module">
+<h2>funcs.msk_analysis_script module<a class="headerlink" href="#funcs-msk-analysis-script-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-muscle-analysis-module">
+<h2>funcs.muscle_analysis module<a class="headerlink" href="#funcs-muscle-analysis-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.passive_force">
+<span id="funcs-passive-force-module"></span><h2>funcs.passive_force module<a class="headerlink" href="#module-funcs.passive_force" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.passive_force.compute_passive_element">
+<span class="sig-prename descclassname"><span class="pre">funcs.passive_force.</span></span><span class="sig-name descname"><span class="pre">compute_passive_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">muscle_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_pe_muscle_mode</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/passive_force.html#compute_passive_element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.passive_force.compute_passive_element" title="Permalink to this definition"></a></dt>
+<dd><p>Function computes the passive element force for a certain time instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>muscle_info</strong> -- dictionary
+information about every muscle of the model</p></li>
+<li><p><strong>l_m</strong> -- list
+muscle fibers length of every muscle of the model</p></li>
+<li><p><strong>f_pe_muscle_mode</strong> -- str (on / off)
+option to apply or not the muscle passive component in the multibody system</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>list</dt><dd><p>passive force element for every muscle</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>f_pe</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="funcs-raw2selecteddata-module">
+<h2>funcs.raw2selectedData module<a class="headerlink" href="#funcs-raw2selecteddata-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.read_DoF_labels">
+<span id="funcs-read-dof-labels-module"></span><h2>funcs.read_DoF_labels module<a class="headerlink" href="#module-funcs.read_DoF_labels" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.read_DoF_labels.read_DoF_labels">
+<span class="sig-prename descclassname"><span class="pre">funcs.read_DoF_labels.</span></span><span class="sig-name descname"><span class="pre">read_DoF_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/read_DoF_labels.html#read_DoF_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.read_DoF_labels.read_DoF_labels" title="Permalink to this definition"></a></dt>
+<dd><p>Function reads the file containing the number and label of each degree of freedom (DoF) of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fpath</strong> -- string
+absolute path of the file containing the number and label of each Dof of the multibody system</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>dictionary</dt><dd><p>number and label of each Dof of the multibody system</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dofs_labels</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.read_angular_driver_info">
+<span id="funcs-read-angular-driver-info-module"></span><h2>funcs.read_angular_driver_info module<a class="headerlink" href="#module-funcs.read_angular_driver_info" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.read_angular_driver_info.read_angular_driver_info">
+<span class="sig-prename descclassname"><span class="pre">funcs.read_angular_driver_info.</span></span><span class="sig-name descname"><span class="pre">read_angular_driver_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeling_file_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/read_angular_driver_info.html#read_angular_driver_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.read_angular_driver_info.read_angular_driver_info" title="Permalink to this definition"></a></dt>
+<dd><p>Function compiles the information about the angular driving constraint equations of
+the multibody system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>modeling_file_data</strong> -- numpy array
+all information regarding the modeling of each component of the multibody system</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>dictionary</dt><dd><p>info (n_bodies, bodies and type of constraint) of each
+driver of the multibody system.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ang_drivers_info</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.read_external_forces">
+<span id="funcs-read-external-forces-module"></span><h2>funcs.read_external_forces module<a class="headerlink" href="#module-funcs.read_external_forces" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.read_external_forces.read_external_forces_files">
+<span class="sig-prename descclassname"><span class="pre">funcs.read_external_forces.</span></span><span class="sig-name descname"><span class="pre">read_external_forces_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/read_external_forces.html#read_external_forces_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.read_external_forces.read_external_forces_files" title="Permalink to this definition"></a></dt>
+<dd><p>Function loads the time, force, coords, on_off and coords_type of each
+force to be applied in the multibody system during the analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fpath</strong> -- string
+file containing the forces to be applied in the model during the analysis</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>dictionary</dt><dd><p>time, force, coords, on_off and coords_type of the forces to be applied
+in the multibody system during the analysis.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>force_dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.read_force_file_info">
+<span id="funcs-read-force-file-info-module"></span><h2>funcs.read_force_file_info module<a class="headerlink" href="#module-funcs.read_force_file_info" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.read_force_file_info.read_force_file_info">
+<span class="sig-prename descclassname"><span class="pre">funcs.read_force_file_info.</span></span><span class="sig-name descname"><span class="pre">read_force_file_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/read_force_file_info.html#read_force_file_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.read_force_file_info.read_force_file_info" title="Permalink to this definition"></a></dt>
+<dd><p>Function loads the time, force, coords, on_off and coords_type of each
+force to be applied in the multibody system during the analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fpath</strong> -- string
+file containing the forces to be applied in the model during the analysis</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>dictionary</dt><dd><p>time, force, coords, on_off and coords_type of the forces to be applied
+in the multibody system during the analysis.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>force_dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.read_gui_settings">
+<span id="funcs-read-gui-settings-module"></span><h2>funcs.read_gui_settings module<a class="headerlink" href="#module-funcs.read_gui_settings" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.read_gui_settings.read_gui_settings">
+<span class="sig-prename descclassname"><span class="pre">funcs.read_gui_settings.</span></span><span class="sig-name descname"><span class="pre">read_gui_settings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/read_gui_settings.html#read_gui_settings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.read_gui_settings.read_gui_settings" title="Permalink to this definition"></a></dt>
+<dd><p>Function reads the EZ_Motion settings file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fpath</strong> -- str
+absolute path to EZ_Motion settings file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>dict</dt><dd><dl class="simple">
+<dt>font_family, font_style, font_type and color of the gui panesl,</dt><dd><p>sbSizers and static text widgets.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gui_setting_parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.read_inertial_parameters">
+<span id="funcs-read-inertial-parameters-module"></span><h2>funcs.read_inertial_parameters module<a class="headerlink" href="#module-funcs.read_inertial_parameters" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.read_inertial_parameters.read_inertial_parameters">
+<span class="sig-prename descclassname"><span class="pre">funcs.read_inertial_parameters.</span></span><span class="sig-name descname"><span class="pre">read_inertial_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/read_inertial_parameters.html#read_inertial_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.read_inertial_parameters.read_inertial_parameters" title="Permalink to this definition"></a></dt>
+<dd><p>Function reads the inertial parameters of each segment of the model from the input file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fpath</strong> -- str
+absolute path to inertial parameters file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>dict</dt><dd><p>inertial parameters (mass, moment of inertia, and local coordinates of
+the origin of the local reference frame) of each segment of the multibody system.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>inertial_parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="funcs-read-model-input-data-module">
+<h2>funcs.read_model_input_data module<a class="headerlink" href="#funcs-read-model-input-data-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.read_model_loc_coords">
+<span id="funcs-read-model-loc-coords-module"></span><h2>funcs.read_model_loc_coords module<a class="headerlink" href="#module-funcs.read_model_loc_coords" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.read_model_loc_coords.read_model_loc_coords">
+<span class="sig-prename descclassname"><span class="pre">funcs.read_model_loc_coords.</span></span><span class="sig-name descname"><span class="pre">read_model_loc_coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/read_model_loc_coords.html#read_model_loc_coords"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.read_model_loc_coords.read_model_loc_coords" title="Permalink to this definition"></a></dt>
+<dd><p>Function reads the local coordinates of the points of interest
+of each segment of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fpath</strong> -- string
+absolute path of the input file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>dictionary</dt><dd><p>local coordinates of the points of interest
+of each segments of the model.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model_segments_coords</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.read_model_outputs">
+<span id="funcs-read-model-outputs-module"></span><h2>funcs.read_model_outputs module<a class="headerlink" href="#module-funcs.read_model_outputs" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.read_model_outputs.read_model_outputs">
+<span class="sig-prename descclassname"><span class="pre">funcs.read_model_outputs.</span></span><span class="sig-name descname"><span class="pre">read_model_outputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/read_model_outputs.html#read_model_outputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.read_model_outputs.read_model_outputs" title="Permalink to this definition"></a></dt>
+<dd><p>Function reads and filter the model outputs data from file using
+the residual analysis method proposed by Winter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fpath</strong> -- (str)
+Absolute path of the model outputs file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>int</dt><dd><p>number of rigid bodies od the multibody system</p>
+</dd>
+<dt>nFrames<span class="classifier">int</span></dt><dd><p>number of frames of the analysis</p>
+</dd>
+<dt>sampling_frequency<span class="classifier">float</span></dt><dd><p>sampling frequency of the analysis</p>
+</dd>
+<dt>model_coordinates_data<span class="classifier">numpy.ndarray</span></dt><dd><p>generalized coordinates of the multibody system during all analysis</p>
+</dd>
+<dt>model_plot_variables<span class="classifier">dictionary</span></dt><dd><p>output data of analysis (coordinates, velocities, accelerations, angles, ...)</p>
+</dd>
+<dt>model_plot_variables_label<span class="classifier">list</span></dt><dd><p>labels of analysis variables</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nRigidBodies</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.read_model_q">
+<span id="funcs-read-model-q-module"></span><h2>funcs.read_model_q module<a class="headerlink" href="#module-funcs.read_model_q" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.read_model_q.read_model_q">
+<span class="sig-prename descclassname"><span class="pre">funcs.read_model_q.</span></span><span class="sig-name descname"><span class="pre">read_model_q</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/read_model_q.html#read_model_q"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.read_model_q.read_model_q" title="Permalink to this definition"></a></dt>
+<dd><p>Function reads the generalized coordinates vector (q) of the multibody system from the input file.</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>fpath<span class="classifier">str</span></dt><dd><p>absolute path of the file containing the generalized
+coordinates of the the multibody system</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>numpy.array</dt><dd><p>generalized coordinates of the multibody system</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>q</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.read_model_rb_info">
+<span id="funcs-read-model-rb-info-module"></span><h2>funcs.read_model_rb_info module<a class="headerlink" href="#module-funcs.read_model_rb_info" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.read_model_rb_info.read_model_rb_info">
+<span class="sig-prename descclassname"><span class="pre">funcs.read_model_rb_info.</span></span><span class="sig-name descname"><span class="pre">read_model_rb_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/read_model_rb_info.html#read_model_rb_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.read_model_rb_info.read_model_rb_info" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Function reads the file containing the label of each segment of theHorsman muscle dataset and the number</dt><dd><p>of that segment in the current model.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fpath</strong> -- string
+absolute path of the file containing the number and label of each Dof of the multibody system</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>dictionary</dt><dd><p>number and label of each Dof of the multibody system</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rb_info</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.read_muscle_db">
+<span id="funcs-read-muscle-db-module"></span><h2>funcs.read_muscle_db module<a class="headerlink" href="#module-funcs.read_muscle_db" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.read_muscle_db.read_muscle_db">
+<span class="sig-prename descclassname"><span class="pre">funcs.read_muscle_db.</span></span><span class="sig-name descname"><span class="pre">read_muscle_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">muscle_db_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaling_factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rb_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">muscle_specific_tension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/read_muscle_db.html#read_muscle_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.read_muscle_db.read_muscle_db" title="Permalink to this definition"></a></dt>
+<dd><p>Function reads and scales the local coordinates of the via points of each muscle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>muscle_db_path</strong> -- str
+absolute path of the muscle database input file</p></li>
+<li><p><strong>scaling_factor</strong> -- float
+scaling factor to scale the local coordinates of each muscle</p></li>
+<li><p><strong>rb_info</strong> -- dictionary</p></li>
+<li><p><strong>muscle_specific_tension</strong> -- float
+muscle specific tension</p></li>
+<li><p><strong>verbose</strong> -- boolean
+True to print the parameters of each muscle of the
+biomechanical model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>dictionary</dt><dd><p>contains all the muscle parameters</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>muscle_info</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.residual_analysis">
+<span id="funcs-residual-analysis-module"></span><h2>funcs.residual_analysis module<a class="headerlink" href="#module-funcs.residual_analysis" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.residual_analysis.residual_analysis">
+<span class="sig-prename descclassname"><span class="pre">funcs.residual_analysis.</span></span><span class="sig-name descname"><span class="pre">residual_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/residual_analysis.html#residual_analysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.residual_analysis.residual_analysis" title="Permalink to this definition"></a></dt>
+<dd><p>Function filters the data using the cut off frequency
+defined by a regression analysis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> -- float
+data to be filtered</p></li>
+<li><p><strong>fs</strong> -- int
+sampling frequency</p></li>
+<li><p><strong>R2</strong> -- float
+correlation coeficcient used during the linear regression
+step of the residual analysis</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>float</dt><dd><p>data filtered</p>
+</dd>
+<dt>fcutoff<span class="classifier">float</span></dt><dd><p>cutoff frequency</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>output</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="funcs-run-forward-analysis-module">
+<h2>funcs.run_forward_analysis module<a class="headerlink" href="#funcs-run-forward-analysis-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="funcs-run-inverse-analysis-module">
+<h2>funcs.run_inverse_analysis module<a class="headerlink" href="#funcs-run-inverse-analysis-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.set_objective_function">
+<span id="funcs-set-objective-function-module"></span><h2>funcs.set_objective_function module<a class="headerlink" href="#module-funcs.set_objective_function" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.set_objective_function.objective_function">
+<span class="sig-prename descclassname"><span class="pre">funcs.set_objective_function.</span></span><span class="sig-name descname"><span class="pre">objective_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/set_objective_function.html#objective_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.set_objective_function.objective_function" title="Permalink to this definition"></a></dt>
+<dd><p>Function defines the cost function used in the static optimization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> -- numpy.array
+solution of the static optimization problem</p></li>
+<li><p><strong>nh</strong> -- int
+number of kinematic constraint equations</p></li>
+<li><p><strong>nm</strong> -- int
+number of muscles of the biomechanical model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>float</dt><dd><p>value of the objective function</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>f0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.set_objective_function.objective_function_der">
+<span class="sig-prename descclassname"><span class="pre">funcs.set_objective_function.</span></span><span class="sig-name descname"><span class="pre">objective_function_der</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/set_objective_function.html#objective_function_der"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.set_objective_function.objective_function_der" title="Permalink to this definition"></a></dt>
+<dd><p>Function defines the cost function used in the static optimization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> -- numpy.array
+solution of the static optimization problem</p></li>
+<li><p><strong>nh</strong> -- int
+number of kinematic constraint equations</p></li>
+<li><p><strong>nm</strong> -- int
+number of muscles of the biomechanical model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy.array</dt><dd><p>gradient of the objective function</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>f0</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="funcs-set-optimization-bounds-module">
+<h2>funcs.set_optimization_bounds module<a class="headerlink" href="#funcs-set-optimization-bounds-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.set_sbSizer_foreground_color">
+<span id="funcs-set-sbsizer-foreground-color-module"></span><h2>funcs.set_sbSizer_foreground_color module<a class="headerlink" href="#module-funcs.set_sbSizer_foreground_color" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.set_sbSizer_foreground_color.set_sbSizer_foregroundcolour">
+<span class="sig-prename descclassname"><span class="pre">funcs.set_sbSizer_foreground_color.</span></span><span class="sig-name descname"><span class="pre">set_sbSizer_foregroundcolour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_family</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_style</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/set_sbSizer_foreground_color.html#set_sbSizer_foregroundcolour"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.set_sbSizer_foreground_color.set_sbSizer_foregroundcolour" title="Permalink to this definition"></a></dt>
+<dd><p>Function sets the color, size, family, style and type of the
+foregroundcolour of the sbSizer widget.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>widget</strong> -- class
+widget to</p></li>
+<li><p><strong>color</strong> -- list
+color of the font of the label of the widget</p></li>
+<li><p><strong>font_size</strong> -- int
+color of the font of the label of the widget
+size of the font of the widget label</p></li>
+<li><p><strong>font_family</strong> -- string
+family font of the widget label</p></li>
+<li><p><strong>font_style</strong> -- string
+style of font of the widget label</p></li>
+<li><p><strong>font_type</strong> -- string
+type of font of the widget label</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+</section>
+<section id="module-funcs.set_staticText_foreground_color">
+<span id="funcs-set-statictext-foreground-color-module"></span><h2>funcs.set_staticText_foreground_color module<a class="headerlink" href="#module-funcs.set_staticText_foreground_color" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.set_staticText_foreground_color.set_staticText_foregroundcolour">
+<span class="sig-prename descclassname"><span class="pre">funcs.set_staticText_foreground_color.</span></span><span class="sig-name descname"><span class="pre">set_staticText_foregroundcolour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_family</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_style</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/set_staticText_foreground_color.html#set_staticText_foregroundcolour"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.set_staticText_foreground_color.set_staticText_foregroundcolour" title="Permalink to this definition"></a></dt>
+<dd><p>Function sets the color, size, family, style and type of the
+foregroundcolour of the static text widget.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>widget</strong> -- class
+widget to</p></li>
+<li><p><strong>color</strong> -- list
+color of the font of the label of the widget</p></li>
+<li><p><strong>font_size</strong> -- int
+color of the font of the label of the widget
+size of the font of the widget label</p></li>
+<li><p><strong>font_family</strong> -- string
+family font of the widget label</p></li>
+<li><p><strong>font_style</strong> -- string
+style of font of the widget label</p></li>
+<li><p><strong>font_type</strong> -- string
+type of font of the widget label</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+</section>
+<section id="funcs-solve-equations-of-motion-module">
+<h2>funcs.solve_equations_of_motion module<a class="headerlink" href="#funcs-solve-equations-of-motion-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-funcs.updateDataConst">
+<span id="funcs-updatedataconst-module"></span><h2>funcs.updateDataConst module<a class="headerlink" href="#module-funcs.updateDataConst" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.updateDataConst.updateDataConst">
+<span class="sig-prename descclassname"><span class="pre">funcs.updateDataConst.</span></span><span class="sig-name descname"><span class="pre">updateDataConst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataConst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nConstrainByType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dofType</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/updateDataConst.html#updateDataConst"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.updateDataConst.updateDataConst" title="Permalink to this definition"></a></dt>
+<dd><p>Update dataConst every iteration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> -- float64
+Time instant at which each driver and respective derivatives will be evaluated</p></li>
+<li><p><strong>dataConst</strong> -- numpy.ndarray
+Numpy array to be updated</p></li>
+<li><p><strong>func</strong> -- dictionary
+Dictionary with each driver name and respective knots, coefficients and spline order
+for spline data and first and second spline derivatives</p></li>
+<li><p><strong>nConstrainByType</strong> -- int
+number of constraint by type</p></li>
+<li><p><strong>dofType</strong> -- int
+type of degree of freedom (0 - angular | 1 - trajectory)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p>Updated dataConst after each iteration</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataConst</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs.update_G_vector">
+<span id="funcs-update-g-vector-module"></span><h2>funcs.update_G_vector module<a class="headerlink" href="#module-funcs.update_G_vector" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="funcs.update_G_vector.update_G_vector">
+<span class="sig-prename descclassname"><span class="pre">funcs.update_G_vector.</span></span><span class="sig-name descname"><span class="pre">update_G_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gVector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forceVector</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcs/update_G_vector.html#update_G_vector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcs.update_G_vector.update_G_vector" title="Permalink to this definition"></a></dt>
+<dd><p>Function updates the vector of generalized external forces of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gVector</strong> -- numpy.array
+vector of generalized forces of the multibody system</p></li>
+<li><p><strong>forceVector</strong> -- dictionary
+body number and respective force</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p>updated vector of generalized forces of the multibody system</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gVector</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-funcs">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-funcs" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ivo Roupa.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

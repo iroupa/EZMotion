@@ -5,10 +5,10 @@ Fazer ficheiros lower_body
 Fazer ficheiros double_four_bar
 
 Codigo
-1: check if forces on forward dynamics are working properly
+4: check CoM value limits
 2: insert check for force files in input_files_panel line 1288
 3: Colocar scaling factor das force plates fora do codigo Input Files Panel line 1414
-4: check CoM value limits
+1: check if forces on forward dynamics are working properly
 5: Update index of each field in each kinematic constraint equation : translation revolute missing
 
 To correct

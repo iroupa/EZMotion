@@ -15,8 +15,7 @@ pandas (https://pandas.pydata.org/)
 <br>
 ## How to use
 
-EZMotion has a graphical user interface with two panels, ***Analysis*** and ***Visualization*** that allows to run or visualize the outputs of a kinematic or dynamic analysis. A detailed description of how to use EZ_Motion, the files required for each type of analysis, and how to implement customized models is available in [this text](../../text.md).
-
+EZMotion has a graphical user interface with two panels, ***Analysis*** and ***Visualization*** that allows to run or visualize the outputs of a kinematic or dynamic analysis. A detailed description of how to use EZ_Motion, the files required for each type of analysis, and how to implement customized models is available in [docs](../../text.md) folder.
 
 docs] docs/_build/html/EZ_Motion.html) folder.
 

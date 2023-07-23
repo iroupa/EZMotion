@@ -20,30 +20,6 @@ __copyright__ = "Copyright (C) 2023 Ivo Roupa"
 __email__ = "iroupa@gmail.com"
 __license__ = "Apache 2.0"
 
-
-# import wx
-# import wx.xrc
-# import csv
-# import os
-# from scipy import signal
-# import numpy as np
-# from collections import Counter
-# import os
-# from matplotlib.backends.backend_wxagg import FigureCanvasWxAgg as FigureCanvas
-# from matplotlib.backends.backend_wxagg import NavigationToolbar2WxAgg as NavigationToolbar
-# import time
-# import matplotlib as mpl
-# import pathlib
-# from matplotlib.animation import FuncAnimation
-# import mpl_toolkits.axes_grid1
-# import matplotlib.pyplot as plt
-# from matplotlib.animation import FuncAnimation
-# import mpl_toolkits.axes_grid1
-# import matplotlib.widgets
-# import os
-# from classes.Player import Player
-# matplotlib.use('TkAgg')
-
 import wx
 import csv
 import numpy as np
